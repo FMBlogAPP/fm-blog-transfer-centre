@@ -28,7 +28,9 @@ jobs:
       - name: Fetch latest transfers
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: python scripts/update_transfers.py
+        run: |
+          sed -i 's/rows = api("leagues", country=country, search=query)/rows = api("leagues", search=query)/' scripts/update_transfers.py
+          python scripts/update_transfers.py
 
       - name: Commit changed data
         run: |
