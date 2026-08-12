@@ -1,79 +1,55 @@
 # FM Blog Transfer Centre - €0 automatic version
 
-This project uses API-Football's free API allowance, GitHub Actions for scheduled updates, a public JSON data file in GitHub, and Blogger for the actual interface.
+This repository contains the working FM Blog Transfer Centre.
 
 ## What is automatic
 
-After the one-time setup, GitHub Actions:
+GitHub Actions runs four times per day and:
 1. discovers clubs in the configured leagues;
-2. rotates through clubs so the free API allowance is not exhausted;
-3. requests transfer data;
-4. filters transfers to the configured transfer window;
-5. de-duplicates deals;
-6. stores the growing transfer database in `data/transfers.json`;
-7. commits fresh data back to the repository.
+2. rotates through clubs to preserve the free API allowance;
+3. requests transfer data from API-Football;
+4. keeps only transfers inside the configured transfer window;
+5. removes duplicates;
+6. stores the growing database in `data/transfers.json`;
+7. commits fresh data back to this repository.
 
-The default workflow runs four times per day.
+## One remaining setup step
 
-## One-time setup
+Create a free API-Football/API-Sports account and copy your API key.
 
-### 1. Create a PUBLIC GitHub repository
-
-Create a repository such as:
-
-`fm-blog-transfer-centre`
-
-Upload all files from this package.
-
-Public is required for the simplest €0 setup and for Blogger to read the JSON without authentication.
-
-### 2. Get a free API-Football key
-
-Create a free API-Football/API-Sports account and copy the API key.
-
-Do NOT paste the key into HTML or `config.json`.
-
-### 3. Add the key to GitHub
-
-Repository:
+In this repository go to:
 
 Settings -> Secrets and variables -> Actions -> New repository secret
 
-Name:
+Name the secret exactly:
 
 `API_FOOTBALL_KEY`
 
-Value:
+Paste the API key as its value.
 
-your API key
+Do not paste the API key into HTML, JavaScript or `config.json`.
 
-### 4. Run it once
+## First run
 
-GitHub -> Actions -> Update transfers -> Run workflow
+Go to:
 
-After it completes, check:
+Actions -> Update transfers -> Run workflow
 
-`data/transfers.json`
+After the run finishes, open `data/transfers.json`. The `meta.live` value should be `true` and the updater will begin filling the transfer database.
 
-The `meta.live` value should be `true`.
+After that, the scheduled Action runs automatically at 00:17, 06:17, 12:17 and 18:17 UTC each day.
 
-### 5. Point Blogger at the JSON
+## Blogger
 
-Open `blogger-embed-template.html`.
+`blogger-embed.html` is already configured for this repository. Paste its contents into a Blogger Page in HTML view once the first successful update has run.
 
-Replace:
+It reads transfer data directly from:
 
-`__RAW_DATA_URL__`
+`https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/data/transfers.json`
 
-with the raw GitHub URL for `data/transfers.json`, for example:
+## Current coverage
 
-`https://raw.githubusercontent.com/YOUR_USERNAME/fm-blog-transfer-centre/main/data/transfers.json`
-
-Then paste the result into a Blogger Page in HTML view.
-
-## Coverage and free-tier strategy
-
-The transfer endpoint is polled per club. The default config rotates through:
+The free version rotates through:
 - Premier League
 - La Liga
 - Serie A
@@ -82,41 +58,18 @@ The transfer endpoint is polled per club. The default config rotates through:
 - Primeira Liga
 - HNL
 
-`teams_per_run` is set to 22 and the Action runs four times per day. That leaves some headroom under a 100-call/day free allowance while league discovery is happening.
+The selection is controlled by `config.json`.
 
-More leagues = slower refresh per club.
-Fewer leagues = fresher data.
+## Transfer window
 
-For FM Blog I recommend keeping the big five leagues + Portugal + HNL as the free version.
+The current configuration tracks transfers from 1 June 2026 through 15 September 2026.
 
-## Change the transfer window
+To change the window later, edit `window_start` and `window_end` in `config.json`.
 
-Edit `config.json`:
+## Limitations
 
-```json
-"window_start": "2026-06-01",
-"window_end": "2026-09-15"
-```
-
-For January, change those dates to the January window you want to track.
-
-## Important limitations
-
-- €0 cannot provide an Opta/Transfermarkt-style global feed in real time.
-- API-Football's transfer endpoint is queried by club/player, so this project rotates through clubs.
-- Fee/type depends on what the upstream API supplies.
-- The FM relevance score is rule-based and is not official Football Manager data.
-- Player age/position enrichment is deliberately omitted in V1 to preserve API calls.
-- Scheduled GitHub Actions in a public repo can be disabled after long repository inactivity. During an active transfer window, the updater's own data commits create repository activity.
-
-## Local preview
-
-From the project folder:
-
-`python -m http.server 8000`
-
-then open:
-
-`http://localhost:8000`
-
-The sample file is intentionally not live until the API updater runs.
+- A €0 setup cannot provide a true real-time worldwide Opta/Transfermarkt-style feed.
+- API-Football transfer checks are club/player based, so the free version rotates through configured clubs.
+- Transfer fee/type is shown according to the upstream API data.
+- FM relevance is an FM Blog rule-based score, not official Football Manager data.
+- Player age and position enrichment is intentionally omitted in V1 to conserve API calls.
