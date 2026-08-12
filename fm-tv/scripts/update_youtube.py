@@ -69,7 +69,7 @@ def choose_thumbnail(thumbnails, fallback_id):
 
 
 def categorise(title, description, categories):
-    haystack = f" {title} {description} ".lower()
+    haystack = f" {title} ".lower()
     for category in categories:
         for keyword in category.get("keywords", []):
             if keyword.lower() in haystack:
