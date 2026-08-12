@@ -1,0 +1,50 @@
+name: Run FM TV V6.3 Filters
+
+on:
+  push:
+    paths:
+      - ".github/workflows/run-fm-tv-v6-3.yml"
+      - "fm-tv/scripts/build_v6_3_filters.py"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build V6.3
+        run: python fm-tv/scripts/build_v6_3_filters.py
+
+      - name: Validate V6.3
+        run: |
+          grep -q 'FM TV BUILD V6.3 FILTERS' fm-tv/blogger-embed-v6-3.html
+          grep -q 'fmtv-filter-modal' fm-tv/blogger-embed-v6-3.html
+          grep -q 'fmTvWatchedVideosV1' fm-tv/blogger-embed-v6-3.html
+          grep -q 'relevanceScore' fm-tv/blogger-embed-v6-3.html
+          grep -q 'yt-watched-badge' fm-tv/blogger-embed-v6-3.html
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path('fm-tv/blogger-embed-v6-3.html').read_text(encoding='utf-8')
+          m=re.search(r'<script>(.*?)</script>',s,re.S)
+          if not m:
+              raise SystemExit('script tag missing')
+          Path('/tmp/fmtv-v6-3.js').write_text(m.group(1),encoding='utf-8')
+          PY
+          node --check /tmp/fmtv-v6-3.js
+
+      - name: Commit V6.3
+        run: |
+          git config user.name "fm-blog-fm-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add fm-tv/blogger-embed-v6-3.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "feat: add YouTube-style FM TV filters"
+            git pull --rebase origin main
+            git push
+          fi
