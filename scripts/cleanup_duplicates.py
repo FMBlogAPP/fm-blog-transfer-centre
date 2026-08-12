@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data" / "transfers.json"
+CONFIG_FILE = ROOT / "config.json"
 
 
 def load(path):
@@ -31,13 +32,30 @@ def movement_class(type_text):
     return "permanent"
 
 
-def canonical_key(item):
-    return "|".join([
+def route_key(item):
+    return (
         str(item.get("player_id") or ""),
         str(item.get("from_id") or ""),
         str(item.get("to_id") or ""),
         movement_class(item.get("type")),
+    )
+
+
+def event_id(item):
+    return "|".join([
+        str(item.get("player_id") or ""),
+        str(item.get("date") or ""),
+        str(item.get("from_id") or ""),
+        str(item.get("to_id") or ""),
+        movement_class(item.get("type")),
     ])
+
+
+def parse_date(value):
+    try:
+        return datetime.strptime(value, "%Y-%m-%d").date()
+    except (TypeError, ValueError):
+        return None
 
 
 def type_quality(value):
@@ -61,27 +79,50 @@ def merge(a, b):
     out["date"] = max(a.get("date") or "", b.get("date") or "") or None
     out["type"] = b.get("type") if type_quality(b.get("type")) > type_quality(a.get("type")) else a.get("type")
     out["type"] = out.get("type") or "Undisclosed"
-    out["id"] = canonical_key(out)
+    out["id"] = event_id(out)
     return out
 
 
+config = load(CONFIG_FILE)
+tolerance = int(config.get("dedupe_day_tolerance", 3))
 data = load(DATA_FILE)
 rows = [x for x in data.get("transfers", []) if not x.get("demo") and x.get("player_id")]
 before = len(rows)
-clean = {}
+groups = {}
 
 for item in rows:
-    item = dict(item)
-    key = canonical_key(item)
-    item["id"] = key
-    clean[key] = merge(clean[key], item) if key in clean else item
+    groups.setdefault(route_key(item), []).append(dict(item))
 
-result = list(clean.values())
+result = []
+removed = 0
+for group in groups.values():
+    group.sort(key=lambda x: x.get("date") or "", reverse=True)
+    kept = []
+    for item in group:
+        current_date = parse_date(item.get("date"))
+        duplicate_at = None
+        for idx, existing in enumerate(kept):
+            existing_date = parse_date(existing.get("date"))
+            if current_date and existing_date and abs((existing_date - current_date).days) <= tolerance:
+                duplicate_at = idx
+                break
+            if not current_date and not existing_date:
+                duplicate_at = idx
+                break
+        if duplicate_at is None:
+            item["id"] = event_id(item)
+            kept.append(item)
+        else:
+            kept[duplicate_at] = merge(kept[duplicate_at], item)
+            removed += 1
+    result.extend(kept)
+
 result.sort(key=lambda x: (x.get("date") or "", x.get("id") or ""), reverse=True)
 data["transfers"] = result
 meta = data.setdefault("meta", {})
-meta["duplicates_removed_last_cleanup"] = before - len(result)
+meta["duplicates_removed_last_cleanup"] = removed
 meta["dedupe_cleaned_at"] = datetime.now(timezone.utc).isoformat()
+meta["dedupe_day_tolerance"] = tolerance
 save(DATA_FILE, data)
 
-print(f"Duplicate cleanup complete. Before: {before}; after: {len(result)}; removed: {before - len(result)}")
+print(f"Duplicate cleanup complete. Before: {before}; after: {len(result)}; removed: {removed}; tolerance: {tolerance} days")
