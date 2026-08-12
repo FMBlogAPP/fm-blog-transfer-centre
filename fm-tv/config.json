@@ -1,7 +1,10 @@
 {
-  "maxVideosPerChannel": 6,
-  "maxFeedVideos": 400,
-  "maxAgeDays": 45,
+  "recentMaxVideosPerChannel": 8,
+  "recentAgeDays": 45,
+  "maxFeedVideos": 500,
+  "archiveMaxVideosPerChannel": 100,
+  "archiveAgeDays": 365,
+  "maxArchiveVideos": 5000,
   "minDurationSeconds": 150,
   "channels": [
     {"name":"FM Blog","handle":"fmbIog","featured":true},
