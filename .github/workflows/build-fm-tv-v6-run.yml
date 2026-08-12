@@ -1,0 +1,55 @@
+name: Build FM TV V6 Fixed
+
+on:
+  push:
+    paths:
+      - "fm-tv/scripts/build_v6.py"
+      - ".github/workflows/build-fm-tv-v6-run.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build V6
+        run: python fm-tv/scripts/build_v6.py
+
+      - name: Validate markers
+        run: |
+          grep -q 'FM TV BUILD V6' fm-tv/blogger-embed-v6.html
+          grep -q 'id="fmtv-grid-a"' fm-tv/blogger-embed-v6.html
+          grep -q 'id="fmtv-grid-b"' fm-tv/blogger-embed-v6.html
+          grep -q 'yt-view-page-head trending' fm-tv/blogger-embed-v6.html
+          grep -q 'background:#ff0033!important' fm-tv/blogger-embed-v6.html
+          grep -q 'scrollIntoView' fm-tv/blogger-embed-v6.html
+
+      - name: Validate JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          text = Path('fm-tv/blogger-embed-v6.html').read_text(encoding='utf-8')
+          match = re.search(r'<script>(.*?)</script>', text, re.S)
+          if not match:
+              raise SystemExit('script not found')
+          Path('/tmp/fmtv-v6.js').write_text(match.group(1), encoding='utf-8')
+          PY
+          node --check /tmp/fmtv-v6.js
+
+      - name: Commit V6
+        run: |
+          git config user.name "fm-blog-fm-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add fm-tv/blogger-embed-v6.html
+          if git diff --cached --quiet; then
+            echo "No V6 changes."
+          else
+            git commit -m "feat: add FM TV V6 navigation and monetisation polish"
+            git pull --rebase origin main
+            git push
+          fi
