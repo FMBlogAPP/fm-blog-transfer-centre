@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# FM Blog Transfer Centre V2 feed builder
 import json
 import re
 from datetime import datetime, timedelta, timezone
@@ -10,6 +9,7 @@ DATA = ROOT / "data"
 TRANSFER_FILE = DATA / "transfers.json"
 FIRST_SEEN_FILE = DATA / "first_seen.json"
 FEED_FILE = DATA / "feed.json"
+TEAMS_FILE = DATA / "teams.json"
 CONFIG_FILE = ROOT / "config.json"
 
 
@@ -76,8 +76,31 @@ def unique_rows(rows):
     return out
 
 
+def build_team_index(teams_db):
+    result = {}
+    for clubs in (teams_db.get("leagues") or {}).values():
+        for club in clubs or []:
+            if club.get("id"):
+                result[str(club["id"])] = club
+    return result
+
+
+def add_endpoint_meta(item, team_index):
+    for side in ("from", "to"):
+        team_id = item.get(f"{side}_id")
+        meta = team_index.get(str(team_id)) if team_id else None
+        if not meta:
+            continue
+        item[f"{side}_country"] = meta.get("country") or ""
+        item[f"{side}_league"] = meta.get("league") or ""
+        item[f"{side}_league_id"] = meta.get("league_id")
+        item[f"{side}_region"] = meta.get("region") or ""
+
+
 data = load(TRANSFER_FILE, {"meta": {}, "transfers": []})
 config = load(CONFIG_FILE, {})
+teams_db = load(TEAMS_FILE, {"leagues": {}})
+team_index = build_team_index(teams_db)
 seen_db = load(FIRST_SEEN_FILE, {"version": 1, "initialised_at": None, "items": {}})
 seen_items = seen_db.setdefault("items", {})
 rows = [dict(x) for x in data.get("transfers", []) if not x.get("demo")]
@@ -85,6 +108,7 @@ now = datetime.now(timezone.utc)
 is_initial_seed = not seen_db.get("initialised_at")
 
 for item in rows:
+    add_endpoint_meta(item, team_index)
     key = route_key(item)
     seen_at = seen_items.get(key)
     if not seen_at:
@@ -95,6 +119,7 @@ for item in rows:
 data["transfers"] = rows
 meta = data.setdefault("meta", {})
 meta["first_seen_tracking"] = True
+meta["endpoint_metadata"] = True
 meta["feed_updated_at"] = now.isoformat()
 
 if is_initial_seed:
@@ -150,6 +175,7 @@ save(FIRST_SEEN_FILE, seen_db)
 save(FEED_FILE, feed)
 
 print(
-    f"V2 feed built. Full database: {len(rows)}; fast feed: {len(feed_rows)}; "
-    f"new in last 24h: {len(last24)}; initial seed: {is_initial_seed}"
+    f"V2.1 feed built. Full database: {len(rows)}; fast feed: {len(feed_rows)}; "
+    f"new in last 24h: {len(last24)}; team metadata: {len(team_index)} clubs; "
+    f"initial seed: {is_initial_seed}"
 )
