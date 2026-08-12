@@ -2,11 +2,6 @@ name: Update transfers
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config.json"
-      - "scripts/**"
-      - ".github/workflows/update-transfers.yml"
   schedule:
     - cron: "17 0,6,12,18 * * *"
 
@@ -20,7 +15,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
