@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# FM Blog Transfer Centre V2 feed builder
 import json
 import re
 from datetime import datetime, timedelta, timezone
@@ -103,9 +104,11 @@ seen_db["updated_at"] = now.isoformat()
 cutoff_24h = now - timedelta(hours=24)
 cutoff_7d = now - timedelta(days=7)
 
+
 def seen_after(item, cutoff):
     stamp = parse_iso(item.get("first_seen_at"))
     return bool(stamp and stamp >= cutoff)
+
 
 latest_by_date = sorted(
     rows,
