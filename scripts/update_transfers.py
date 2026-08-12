@@ -30,24 +30,34 @@ if not KEY:
 
 config = load(ROOT / "config.json", {})
 discovery_season = int(config.get("team_discovery_season", 2024))
+call_gap = float(config.get("seconds_between_calls", 7.0))
 teams_db = load(DATA / "teams.json", {"season": discovery_season, "leagues": {}})
 players_db = load(DATA / "players.json", {})
 state = load(DATA / "state.json", {"team_cursor":0, "league_cursor":0, "last_run":None, "calls_last_run":0})
 transfer_db = load(DATA / "transfers.json", {"meta":{}, "transfers":[]})
 calls = 0
+last_call_at = 0.0
 
 def api(path, **params):
-    global calls
+    global calls, last_call_at
+    if last_call_at:
+        wait = call_gap - (time.monotonic() - last_call_at)
+        if wait > 0:
+            time.sleep(wait)
     qs = urlencode({k:v for k,v in params.items() if v is not None})
     req = Request(f"{BASE}/{path}?{qs}", headers={"x-apisports-key": KEY, "User-Agent":"FM-Blog-Transfer-Centre/1.0"})
     calls += 1
     try:
         with urlopen(req, timeout=25) as r:
             payload = json.loads(r.read().decode("utf-8"))
+            last_call_at = time.monotonic()
     except HTTPError as e:
-        print(f"HTTP {e.code} for {path}: {e.read().decode('utf-8', 'ignore')[:500]}", file=sys.stderr)
+        last_call_at = time.monotonic()
+        body = e.read().decode("utf-8", "ignore")[:500]
+        print(f"HTTP {e.code} for {path}: {body}", file=sys.stderr)
         return []
     except (URLError, TimeoutError) as e:
+        last_call_at = time.monotonic()
         print(f"Request failed for {path}: {e}", file=sys.stderr)
         return []
     errors = payload.get("errors")
@@ -124,7 +134,8 @@ def fetch_transfers_for_team(team):
     for item in rows:
         player = item.get("player") or {}
         pid = player.get("id")
-        if not pid: continue
+        if not pid:
+            continue
         profile = players_db.get(str(pid), {})
         for tr in item.get("transfers") or []:
             if not within_window(tr.get("date")):
@@ -149,13 +160,12 @@ def merge_records(new):
 discover_leagues()
 teams = all_teams(); new = []
 if teams:
-    n = min(int(config.get("teams_per_run", 22)), len(teams))
+    n = min(int(config.get("teams_per_run", 20)), len(teams))
     cursor = int(state.get("team_cursor",0))
     selected = [teams[(cursor+i) % len(teams)] for i in range(n)]
     for idx, team in enumerate(selected, 1):
         print(f"[{idx}/{n}] {team['league']} - {team['name']}")
         new.extend(fetch_transfers_for_team(team))
-        time.sleep(0.12)
     state["team_cursor"] = (cursor+n) % len(teams)
 else:
     print("No club list yet. This run only performed league discovery.")
