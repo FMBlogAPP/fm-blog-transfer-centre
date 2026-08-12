@@ -1,345 +1,62 @@
 <div id="fmtv-app">
 <style>
-.post-feature-image-wrapper,.post-feature-image{display:none!important}
-#fmtv-app{--bg:#080a0f;--panel:#10131a;--panel2:#151923;--line:#242a36;--line2:#323a4a;--text:#f5f7fb;--muted:#929cad;--purple:#a886ff;--cyan:#67e8ff;--green:#75f39b;--red:#ff4f68;--gold:#ffd166;--radius:18px;color:var(--text);font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 12% 0%,rgba(168,134,255,.14),transparent 32%),radial-gradient(circle at 88% 5%,rgba(103,232,255,.09),transparent 28%),var(--bg);border:1px solid #171b24;border-radius:22px;overflow:hidden}
-#fmtv-app *{box-sizing:border-box}
-#fmtv-app button,#fmtv-app input,#fmtv-app select{font:inherit}
-#fmtv-app button{color:inherit}
-#fmtv-app .fmtv-shell{padding:22px}
-#fmtv-app .fmtv-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:12px 2px 20px}
-#fmtv-app .fmtv-kicker{display:flex;align-items:center;gap:8px;color:#a9b2c1;font-size:11px;font-weight:900;letter-spacing:1.35px;text-transform:uppercase;margin-bottom:11px}
-#fmtv-app .fmtv-live-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(255,79,104,.12)}
-#fmtv-app h2{margin:0;font-size:clamp(42px,7vw,76px);line-height:.88;letter-spacing:-3.2px;font-weight:950}
-#fmtv-app h2 span{background:linear-gradient(92deg,#fff 0%,#c4b4ff 45%,#66e8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-#fmtv-app .fmtv-lead{max-width:760px;color:#adb6c5;font-size:15px;line-height:1.55;margin:14px 0 0}
-#fmtv-app .fmtv-refresh{white-space:nowrap;border:1px solid #2a3140;background:#11151d;border-radius:999px;padding:10px 13px;color:#b8c1cf;font-size:11px;font-weight:800}
-#fmtv-app .fmtv-refresh b{color:var(--green)}
-#fmtv-app .fmtv-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:12px}
-#fmtv-app .fmtv-stat{background:rgba(16,19,26,.86);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
-#fmtv-app .fmtv-stat strong{display:block;font-size:21px;letter-spacing:-.7px}
-#fmtv-app .fmtv-stat span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:800;margin-top:4px}
-#fmtv-app .fmtv-tools{display:grid;grid-template-columns:minmax(220px,1.6fr) auto auto;gap:8px;padding:10px;background:rgba(16,19,26,.92);border:1px solid var(--line);border-radius:15px}
-#fmtv-app .fmtv-search-wrap{position:relative}
-#fmtv-app .fmtv-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#778295;pointer-events:none}
-#fmtv-app input,#fmtv-app select{width:100%;border:1px solid #303746;background:#0c0f15;color:#f3f6fb;border-radius:10px;padding:11px 12px;font-size:13px;outline:none}
-#fmtv-app .fmtv-search-wrap input{padding-left:35px}
-#fmtv-app input:focus,#fmtv-app select:focus{border-color:#765fc8;box-shadow:0 0 0 3px rgba(168,134,255,.08)}
-#fmtv-app .fmtv-scope{min-width:145px}
-#fmtv-app .fmtv-clear{width:auto;border:1px solid #303746;background:#0c0f15;border-radius:10px;padding:0 14px;font-weight:850;cursor:pointer}
-#fmtv-app .fmtv-clear:hover{background:#171b24}
-#fmtv-app .fmtv-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 0 11px}
-#fmtv-app .fmtv-tabs,#fmtv-app .fmtv-categories{display:flex;gap:7px;flex-wrap:wrap}
-#fmtv-app .fmtv-tab,#fmtv-app .fmtv-chip{width:auto;border:1px solid #29303d;background:#0d1016;color:#aab4c3;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:850;cursor:pointer;transition:.15s ease}
-#fmtv-app .fmtv-tab:hover,#fmtv-app .fmtv-chip:hover{border-color:#3c4557;color:#e4e8ef}
-#fmtv-app .fmtv-tab.is-active{background:#f7f8fb;color:#0b0d12;border-color:#f7f8fb}
-#fmtv-app .fmtv-tab[data-mode="favourites"].is-active{background:var(--gold);border-color:var(--gold);color:#17120a}
-#fmtv-app .fmtv-chip.is-active{color:#0b0d12;background:linear-gradient(90deg,#c5b4ff,#72e9ff);border-color:transparent}
-#fmtv-app .fmtv-categories{margin-bottom:15px}
-#fmtv-app .fmtv-feature{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.82fr);min-height:340px;border:1px solid var(--line);background:#0d1016;border-radius:var(--radius);overflow:hidden;margin-bottom:18px}
-#fmtv-app .fmtv-feature-media{position:relative;min-height:340px;background:#111722;overflow:hidden;cursor:pointer}
-#fmtv-app .fmtv-feature-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,15,.04),rgba(8,10,15,.01) 55%,rgba(8,10,15,.72)),linear-gradient(0deg,rgba(8,10,15,.42),transparent 50%)}
-#fmtv-app .fmtv-feature-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-#fmtv-app .fmtv-feature-media:hover img{transform:scale(1.018)}
-#fmtv-app .fmtv-feature-copy{display:flex;flex-direction:column;justify-content:center;padding:26px}
-#fmtv-app .fmtv-badge{display:inline-flex;align-items:center;align-self:flex-start;gap:6px;background:rgba(255,79,104,.13);border:1px solid rgba(255,79,104,.35);color:#ff8798;border-radius:999px;padding:7px 9px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px}
-#fmtv-app .fmtv-feature-title{font-size:clamp(23px,3vw,36px);line-height:1.08;letter-spacing:-1.1px;margin:14px 0 12px;font-weight:900}
-#fmtv-app .fmtv-creator-inline{display:flex;align-items:center;gap:9px;min-width:0}
-#fmtv-app .fmtv-creator-inline img{width:31px;height:31px;border-radius:50%;object-fit:cover;background:#1c2230;flex:0 0 auto}
-#fmtv-app .fmtv-creator-inline button{border:0;background:none;padding:0;color:#e7ebf1;font-size:12px;font-weight:850;cursor:pointer;text-align:left}
-#fmtv-app .fmtv-meta{color:#8792a4;font-size:11px;margin-top:9px}
-#fmtv-app .fmtv-feature-actions{display:flex;align-items:center;gap:8px;margin-top:18px;flex-wrap:wrap}
-#fmtv-app .fmtv-watch{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:11px;background:#fff;color:#0c0e13;padding:11px 14px;font-size:12px;font-weight:900;cursor:pointer}
-#fmtv-app .fmtv-star-feature{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #343c4b;border-radius:11px;background:#12161e;color:#cbd3df;padding:10px 12px;font-size:12px;font-weight:850;cursor:pointer}
-#fmtv-app .fmtv-star-feature.is-starred{color:#17120a;background:var(--gold);border-color:var(--gold)}
-#fmtv-app .fmtv-play{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(7,9,13,.78);backdrop-filter:blur(9px);border:1px solid rgba(255,255,255,.25);box-shadow:0 10px 40px rgba(0,0,0,.35)}
-#fmtv-app .fmtv-play:before{content:"";display:block;margin-left:4px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #fff}
-#fmtv-app .fmtv-duration{position:absolute;z-index:3;right:9px;bottom:9px;background:rgba(5,7,10,.86);border:1px solid rgba(255,255,255,.12);padding:4px 6px;border-radius:6px;font-size:10px;font-weight:900}
-#fmtv-app .fmtv-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:14px;align-items:start}
-#fmtv-app .fmtv-sidebar{position:sticky;top:14px;background:#0d1016;border:1px solid var(--line);border-radius:15px;padding:11px;max-height:calc(100vh - 28px);overflow:hidden}
-#fmtv-app .fmtv-sidebar-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 2px 10px}
-#fmtv-app .fmtv-sidebar-head strong{font-size:13px}
-#fmtv-app .fmtv-sidebar-head span{color:#778295;font-size:10px}
-#fmtv-app .fmtv-creator-search{margin-bottom:9px;padding:9px 10px!important;font-size:11px!important}
-#fmtv-app .fmtv-creator-list{display:flex;flex-direction:column;gap:4px;overflow-y:auto;max-height:calc(100vh - 155px);padding-right:2px;scrollbar-width:thin;scrollbar-color:#31394a transparent}
-#fmtv-app .fmtv-creator-item{display:grid;grid-template-columns:30px minmax(0,1fr) 30px;align-items:center;gap:8px;width:100%;padding:6px;border:1px solid transparent;border-radius:10px;background:transparent;cursor:pointer;text-align:left;transition:.15s ease}
-#fmtv-app .fmtv-creator-item:hover{background:#151a23;border-color:#252c39}
-#fmtv-app .fmtv-creator-item.is-active{background:#181d27;border-color:#3a4354}
-#fmtv-app .fmtv-creator-item.is-starred{order:-1}
-#fmtv-app .fmtv-creator-item img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:#1a202b}
-#fmtv-app .fmtv-creator-name{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#dce2eb;font-size:11px;font-weight:800}
-#fmtv-app .fmtv-star{width:28px;height:28px;border:0;border-radius:8px;background:transparent;color:#687386;font-size:17px;cursor:pointer;padding:0;display:grid;place-items:center}
-#fmtv-app .fmtv-star:hover{background:#202633;color:#d4d9e1}
-#fmtv-app .fmtv-star.is-starred{color:var(--gold)}
-#fmtv-app .fmtv-all-creators{margin-bottom:5px}
-#fmtv-app .fmtv-sidebar-note{border-top:1px solid var(--line);margin-top:8px;padding:9px 3px 1px;color:#687386;font-size:9px;line-height:1.45}
-#fmtv-app .fmtv-content{min-width:0}
-#fmtv-app .fmtv-section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:2px 1px 11px}
-#fmtv-app .fmtv-section-head h3{margin:0;font-size:19px;letter-spacing:-.4px}
-#fmtv-app .fmtv-count{color:#7f8a9d;font-size:11px}
-#fmtv-app .fmtv-archive-loading{display:none;align-items:center;gap:7px;color:#b9c3d2;font-size:10px;margin-bottom:9px}
-#fmtv-app .fmtv-archive-loading.is-visible{display:flex}
-#fmtv-app .fmtv-spinner{width:12px;height:12px;border:2px solid #343c4b;border-top-color:var(--cyan);border-radius:50%;animation:fmtv-spin .7s linear infinite}
-@keyframes fmtv-spin{to{transform:rotate(360deg)}}
-#fmtv-app .fmtv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-#fmtv-app .fmtv-card{min-width:0;background:#0f1219;border:1px solid var(--line);border-radius:15px;overflow:hidden;transition:transform .18s ease,border-color .18s ease,background .18s ease}
-#fmtv-app .fmtv-card:hover{transform:translateY(-2px);border-color:#394255;background:#12161f}
-#fmtv-app .fmtv-thumb{position:relative;aspect-ratio:16/9;background:#151a24;overflow:hidden;cursor:pointer}
-#fmtv-app .fmtv-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
-#fmtv-app .fmtv-card:hover .fmtv-thumb img{transform:scale(1.02)}
-#fmtv-app .fmtv-new{position:absolute;z-index:3;left:8px;top:8px;border-radius:7px;background:#ff4963;color:#fff;padding:5px 6px;font-size:9px;line-height:1;font-weight:950;text-transform:uppercase;letter-spacing:.7px}
-#fmtv-app .fmtv-fav-mark{position:absolute;z-index:3;left:8px;bottom:8px;border-radius:7px;background:rgba(8,10,15,.84);border:1px solid rgba(255,209,102,.32);color:var(--gold);padding:5px 6px;font-size:9px;line-height:1;font-weight:950}
-#fmtv-app .fmtv-card-body{padding:12px}
-#fmtv-app .fmtv-card-title{border:0;background:none;padding:0;margin:0 0 11px;color:#f4f6fa;text-align:left;font-size:14px;line-height:1.35;font-weight:850;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:38px}
-#fmtv-app .fmtv-card .fmtv-creator-inline img{width:27px;height:27px}
-#fmtv-app .fmtv-card .fmtv-meta{margin-left:36px;margin-top:-3px}
-#fmtv-app .fmtv-category{display:inline-block;margin-top:10px;color:#b9a9ff;font-size:10px;font-weight:850}
-#fmtv-app .fmtv-load-wrap{text-align:center;padding:22px 0 5px}
-#fmtv-app .fmtv-load{width:auto;border:1px solid #343c4b;background:#12161e;border-radius:11px;padding:11px 18px;font-size:12px;font-weight:900;cursor:pointer}
-#fmtv-app .fmtv-load:hover{background:#181d27}
-#fmtv-app .fmtv-empty{grid-column:1/-1;border:1px dashed #303745;border-radius:14px;padding:32px;text-align:center;color:#8e99aa;background:#0e1117}
-#fmtv-app .fmtv-skeleton{position:relative;overflow:hidden;background:#151a23}
-#fmtv-app .fmtv-skeleton:after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);animation:fmtv-shimmer 1.25s infinite}
-@keyframes fmtv-shimmer{100%{transform:translateX(100%)}}
-#fmtv-app .fmtv-modal{position:fixed;z-index:999999;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,4,7,.9);backdrop-filter:blur(10px)}
-#fmtv-app .fmtv-modal.is-open{display:flex}
-#fmtv-app .fmtv-modal-box{width:min(1120px,96vw);background:#080b10;border:1px solid #303746;border-radius:17px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.55)}
-#fmtv-app .fmtv-modal-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border-bottom:1px solid #242b37}
-#fmtv-app .fmtv-modal-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;font-weight:850;color:#dce1e9}
-#fmtv-app .fmtv-close{width:34px;height:34px;border:1px solid #303746;background:#11151c;border-radius:9px;cursor:pointer;font-size:20px;line-height:1}
-#fmtv-app .fmtv-player{aspect-ratio:16/9;background:#000}
-#fmtv-app .fmtv-player iframe{display:block;width:100%;height:100%;border:0}
-#fmtv-app .fmtv-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#6f7a8c;font-size:10px;padding:18px 2px 2px}
-#fmtv-app .fmtv-foot a{color:#9fa9b8;text-decoration:none}
-@media(max-width:1180px){#fmtv-app .fmtv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:900px){#fmtv-app .fmtv-feature{grid-template-columns:1fr}#fmtv-app .fmtv-feature-media{min-height:auto;aspect-ratio:16/9}#fmtv-app .fmtv-top{align-items:flex-start;flex-direction:column}#fmtv-app .fmtv-refresh{white-space:normal}#fmtv-app .fmtv-layout{grid-template-columns:1fr}#fmtv-app .fmtv-sidebar{position:relative;top:auto;max-height:none;padding:10px}#fmtv-app .fmtv-creator-search,#fmtv-app .fmtv-sidebar-note{display:none}#fmtv-app .fmtv-creator-list{flex-direction:row;overflow-x:auto;overflow-y:hidden;max-height:none;padding-bottom:3px}#fmtv-app .fmtv-creator-item{flex:0 0 auto;width:180px}#fmtv-app .fmtv-all-creators{width:160px}}
-@media(max-width:620px){#fmtv-app .fmtv-shell{padding:14px}#fmtv-app h2{letter-spacing:-2px}#fmtv-app .fmtv-stats{grid-template-columns:repeat(3,1fr)}#fmtv-app .fmtv-stat{padding:11px}#fmtv-app .fmtv-stat strong{font-size:18px}#fmtv-app .fmtv-tools{grid-template-columns:1fr}#fmtv-app .fmtv-clear{padding:11px 14px}#fmtv-app .fmtv-nav{align-items:flex-start;flex-direction:column}#fmtv-app .fmtv-feature-copy{padding:18px}#fmtv-app .fmtv-grid{grid-template-columns:1fr}#fmtv-app .fmtv-feature-title{font-size:24px}#fmtv-app .fmtv-play{width:52px;height:52px}#fmtv-app .fmtv-foot{align-items:flex-start;flex-direction:column}}
+.post-feature-image-wrapper,.post-feature-image,.static_page .post-feature-image-wrapper{display:none!important}
+#fmtv-app{--bg:#080a0f;--panel:#10141d;--panel2:#141a25;--line:#242c3a;--text:#f5f7fb;--muted:#929caf;--purple:#a886ff;--cyan:#67e8ff;--green:#75f39b;--red:#ff405d;color:var(--text);font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 8% 0,rgba(168,134,255,.12),transparent 30%),radial-gradient(circle at 92% 5%,rgba(103,232,255,.08),transparent 28%),var(--bg);border:1px solid #171d28;border-radius:22px;overflow:hidden}
+#fmtv-app *{box-sizing:border-box}#fmtv-app button,#fmtv-app input{font:inherit}#fmtv-app button{color:inherit}
+#fmtv-app .shell{padding:22px}#fmtv-app .top{display:flex;justify-content:space-between;gap:20px;padding:8px 2px 20px}#fmtv-app .kicker{font-size:11px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#aab5c6;margin-bottom:9px}#fmtv-app .kicker:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:8px;box-shadow:0 0 0 4px rgba(255,64,93,.12)}#fmtv-app h2{margin:0;font-size:clamp(40px,6vw,72px);line-height:.9;letter-spacing:-3px;font-weight:950}#fmtv-app h2 span{background:linear-gradient(92deg,#fff,#c4b4ff 48%,#67e8ff);-webkit-background-clip:text;background-clip:text;color:transparent}#fmtv-app .lead{max-width:760px;margin:13px 0 0;color:#abb5c5;font-size:14px;line-height:1.6}#fmtv-app .updated{height:max-content;border:1px solid var(--line);border-radius:999px;padding:9px 12px;background:#111722;color:#aeb8c8;font-size:11px;font-weight:800;white-space:nowrap}
+#fmtv-app .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}#fmtv-app .stat{background:rgba(16,20,29,.9);border:1px solid var(--line);border-radius:14px;padding:13px 15px}#fmtv-app .stat strong{display:block;font-size:22px}#fmtv-app .stat span{display:block;margin-top:4px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:800}
+#fmtv-app .tools{display:grid;grid-template-columns:1fr auto;gap:8px;padding:9px;background:#0d1118;border:1px solid var(--line);border-radius:14px;margin-bottom:12px}#fmtv-app input{width:100%;border:1px solid #30394a;background:#111722;color:#fff;border-radius:10px;padding:11px 12px;outline:none}#fmtv-app input:focus{border-color:#765fc8;box-shadow:0 0 0 3px rgba(168,134,255,.08)}#fmtv-app .reset{border:1px solid #30394a;background:#111722;border-radius:10px;padding:0 14px;font-weight:850;cursor:pointer}
+#fmtv-app .nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0}#fmtv-app .tabs,#fmtv-app .cats{display:flex;gap:7px;flex-wrap:wrap}#fmtv-app .tab,#fmtv-app .chip{border:1px solid #293242;background:#0d1118;color:#aeb7c6;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:850;cursor:pointer}#fmtv-app .tab.active{background:#f6f8fb;color:#0b0d12;border-color:#fff}#fmtv-app .chip.active{background:linear-gradient(90deg,#c4b3ff,#72e8ff);color:#0b0d12;border-color:transparent}#fmtv-app .cats{margin-bottom:15px}#fmtv-app .count{font-size:11px;color:#7f8a9c}
+#fmtv-app .feature,#fmtv-app .channel-head{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,.8fr);border:1px solid var(--line);background:#0e131b;border-radius:18px;overflow:hidden;margin-bottom:18px;min-height:330px}#fmtv-app .feature-media{position:relative;min-height:330px;cursor:pointer;overflow:hidden;background:#151c27}#fmtv-app .feature-media img{width:100%;height:100%;object-fit:cover;display:block}#fmtv-app .feature-copy{display:flex;flex-direction:column;justify-content:center;padding:25px}#fmtv-app .badge{display:inline-flex;align-self:flex-start;border-radius:999px;padding:7px 9px;background:rgba(255,64,93,.13);border:1px solid rgba(255,64,93,.35);color:#ff8a9b;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.6px}#fmtv-app .feature-title{font-size:clamp(24px,3vw,35px);font-weight:900;line-height:1.08;letter-spacing:-1px;margin:14px 0 10px}#fmtv-app .feature-metric{margin-top:10px;color:#75f39b;font-size:12px;font-weight:900}#fmtv-app .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(5,8,13,.78);border:1px solid rgba(255,255,255,.24);display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.4)}#fmtv-app .play:after{content:"";margin-left:4px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #fff}#fmtv-app .duration{position:absolute;right:9px;bottom:9px;padding:4px 6px;border-radius:6px;background:rgba(5,7,10,.88);font-size:10px;font-weight:900}
+#fmtv-app .channel-head{display:block;min-height:0;padding:22px;background:linear-gradient(135deg,rgba(168,134,255,.12),rgba(103,232,255,.06)),#0e131b}#fmtv-app .channel-top{display:flex;align-items:center;gap:15px}#fmtv-app .channel-avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.18)}#fmtv-app .channel-title{font-size:25px;font-weight:950;letter-spacing:-.5px}#fmtv-app .channel-subs{margin-top:5px;color:#b9c3d1;font-size:13px}#fmtv-app .subscribe{margin-left:auto;text-decoration:none;background:#ff1536;color:#fff!important;padding:12px 18px;border-radius:999px;font-weight:900;box-shadow:0 8px 24px rgba(255,21,54,.22)}#fmtv-app .channel-desc{margin:18px 0 0;color:#c3ccda;font-size:13px;line-height:1.65;white-space:pre-line;max-width:950px}
+#fmtv-app .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;align-items:start}#fmtv-app .sidebar{position:sticky;top:12px;background:#0d1118;border:1px solid var(--line);border-radius:16px;padding:10px;max-height:78vh;overflow:hidden;display:flex;flex-direction:column}#fmtv-app .sidehead{display:flex;justify-content:space-between;align-items:center;padding:5px 5px 9px}#fmtv-app .sidehead strong{font-size:13px}#fmtv-app .creator-search{margin-bottom:8px;padding:9px 10px!important;font-size:12px}#fmtv-app .creator-list{overflow:auto;padding-right:2px}#fmtv-app .creator-row{display:grid;grid-template-columns:34px minmax(0,1fr) 28px;align-items:center;gap:8px;padding:8px;border-radius:11px;border:1px solid transparent;cursor:pointer;margin-bottom:3px}#fmtv-app .creator-row:hover,#fmtv-app .creator-row.active{background:#151c27;border-color:#344052}#fmtv-app .creator-row.active{box-shadow:inset 3px 0 0 var(--cyan)}#fmtv-app .creator-row img{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#1b2330}#fmtv-app .creator-name{font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#fmtv-app .creator-subs{font-size:10px;color:#91a0b4;margin-top:2px}#fmtv-app .star{border:0;background:none;font-size:20px;line-height:1;cursor:pointer;color:#657184;padding:2px}#fmtv-app .star.on{color:#ffd84a}#fmtv-app .all-icon{display:grid!important;place-items:center;background:linear-gradient(135deg,#6ae6ff,#a36dff);color:#fff;font-weight:950;font-size:17px}
+#fmtv-app .section-head{display:flex;justify-content:space-between;align-items:end;margin:1px 1px 10px}#fmtv-app .section-head h3{margin:0;font-size:19px}#fmtv-app .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}#fmtv-app .card{background:#0f141c;border:1px solid var(--line);border-radius:15px;overflow:hidden;transition:.18s}#fmtv-app .card:hover{transform:translateY(-2px);border-color:#3a465a;background:#121923}#fmtv-app .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#151c27;cursor:pointer}#fmtv-app .thumb img{width:100%;height:100%;object-fit:cover;display:block}#fmtv-app .new{position:absolute;left:8px;top:8px;background:#ff4963;color:#fff;border-radius:7px;padding:5px 6px;font-size:9px;font-weight:950;text-transform:uppercase}#fmtv-app .body{padding:12px}#fmtv-app .title{border:0;background:none;padding:0;margin:0 0 9px;color:#f4f6fa;text-align:left;font-size:14px;line-height:1.35;font-weight:850;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:38px}#fmtv-app .meta{font-size:10.5px;color:#8793a5}#fmtv-app .daily{color:#75f39b;font-weight:850}#fmtv-app .cat{display:inline-block;margin-top:9px;color:#bbaaff;font-size:10px;font-weight:850}#fmtv-app .load-wrap{text-align:center;padding:20px 0 4px}#fmtv-app .load{border:1px solid #354054;background:#141b26;border-radius:11px;padding:11px 18px;font-size:12px;font-weight:900;cursor:pointer}#fmtv-app .empty{grid-column:1/-1;border:1px dashed #30394a;border-radius:14px;padding:30px;text-align:center;color:#8e99aa}
+#fmtv-app .modal{position:fixed;z-index:999999;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,4,7,.9);backdrop-filter:blur(10px)}#fmtv-app .modal.open{display:flex}#fmtv-app .modal-box{width:min(1120px,96vw);background:#080b10;border:1px solid #303746;border-radius:17px;overflow:hidden}#fmtv-app .modal-top{display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-bottom:1px solid #242b37}#fmtv-app .modal-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;font-weight:850}#fmtv-app .close{width:34px;height:34px;border:1px solid #303746;background:#11151c;border-radius:9px;cursor:pointer;font-size:20px}#fmtv-app .player{aspect-ratio:16/9;background:#000}#fmtv-app .player iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:1050px){#fmtv-app .layout{grid-template-columns:220px minmax(0,1fr)}#fmtv-app .grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){#fmtv-app .layout{display:block}#fmtv-app .sidebar{position:relative;top:auto;max-height:none;margin-bottom:14px}#fmtv-app .creator-list{display:flex;overflow:auto;gap:6px}#fmtv-app .creator-row{min-width:170px;margin:0}#fmtv-app .feature{grid-template-columns:1fr}#fmtv-app .feature-media{min-height:auto;aspect-ratio:16/9}}
+@media(max-width:620px){#fmtv-app .shell{padding:14px}#fmtv-app .top{flex-direction:column}#fmtv-app .stats{grid-template-columns:repeat(3,1fr)}#fmtv-app .stat{padding:10px}#fmtv-app .stat strong{font-size:18px}#fmtv-app .grid{grid-template-columns:1fr}#fmtv-app .nav{align-items:flex-start;flex-direction:column}#fmtv-app .channel-top{align-items:flex-start;flex-wrap:wrap}#fmtv-app .subscribe{margin-left:0}.updated{white-space:normal!important}}
 </style>
-
-<div class="fmtv-shell">
-  <header class="fmtv-top">
-    <div>
-      <div class="fmtv-kicker"><span class="fmtv-live-dot"></span> Football Manager community video feed</div>
-      <h2><span>FM TV</span></h2>
-      <p class="fmtv-lead">The latest Football Manager videos from the community, built for browsing rather than waiting for dozens of YouTube embeds to load.</p>
-    </div>
-    <div class="fmtv-refresh">Auto-updated by FM Blog <b>●</b> <span id="fmtv-updated">loading...</span></div>
-  </header>
-
-  <div class="fmtv-stats">
-    <div class="fmtv-stat"><strong id="fmtv-stat-creators">-</strong><span>Creators</span></div>
-    <div class="fmtv-stat"><strong id="fmtv-stat-videos">-</strong><span>Videos in view</span></div>
-    <div class="fmtv-stat"><strong id="fmtv-stat-window">45d</strong><span>Current range</span></div>
-  </div>
-
-  <div class="fmtv-tools">
-    <div class="fmtv-search-wrap"><span class="fmtv-search-icon">⌕</span><input id="fmtv-search" type="search" placeholder="Search videos, creators or topics..." autocomplete="off" /></div>
-    <select id="fmtv-scope" class="fmtv-scope" aria-label="Choose time range"><option value="recent">Recent feed</option><option value="year">Past year</option></select>
-    <button class="fmtv-clear" id="fmtv-clear" type="button">Reset</button>
-  </div>
-
-  <div class="fmtv-nav">
-    <div class="fmtv-tabs">
-      <button type="button" class="fmtv-tab is-active" data-mode="latest">Latest</button>
-      <button type="button" class="fmtv-tab" data-mode="trending">Trending</button>
-      <button type="button" class="fmtv-tab" data-mode="favourites">★ My Channels <span id="fmtv-fav-count">0</span></button>
-    </div>
-    <div class="fmtv-count" id="fmtv-count">Loading feed...</div>
-  </div>
-
-  <div class="fmtv-categories" id="fmtv-categories"></div>
-
-  <section class="fmtv-feature" id="fmtv-feature" aria-label="Featured Football Manager video">
-    <div class="fmtv-feature-media fmtv-skeleton"></div>
-    <div class="fmtv-feature-copy">
-      <span class="fmtv-badge">🔥 Most watched today</span>
-      <div class="fmtv-feature-title">Loading today's standout FM video...</div>
-    </div>
-  </section>
-
-  <div class="fmtv-layout">
-    <aside class="fmtv-sidebar">
-      <div class="fmtv-sidebar-head"><strong>Creators</strong><span id="fmtv-sidebar-count">-</span></div>
-      <input id="fmtv-creator-search" class="fmtv-creator-search" type="search" placeholder="Find creator..." autocomplete="off" />
-      <div class="fmtv-creator-list" id="fmtv-creator-list"></div>
-      <div class="fmtv-sidebar-note">Star a creator to pin them to the top. Your stars are saved on this device.</div>
-    </aside>
-
-    <main class="fmtv-content">
-      <div class="fmtv-section-head"><h3 id="fmtv-grid-title">Latest from the FM community</h3><div class="fmtv-count" id="fmtv-filter-note"></div></div>
-      <div class="fmtv-archive-loading" id="fmtv-archive-loading"><span class="fmtv-spinner"></span> Loading the one-year FM TV archive...</div>
-      <div class="fmtv-grid" id="fmtv-grid">
-        <div class="fmtv-card"><div class="fmtv-thumb fmtv-skeleton"></div><div class="fmtv-card-body"><div style="height:42px" class="fmtv-skeleton"></div></div></div>
-        <div class="fmtv-card"><div class="fmtv-thumb fmtv-skeleton"></div><div class="fmtv-card-body"><div style="height:42px" class="fmtv-skeleton"></div></div></div>
-        <div class="fmtv-card"><div class="fmtv-thumb fmtv-skeleton"></div><div class="fmtv-card-body"><div style="height:42px" class="fmtv-skeleton"></div></div></div>
-      </div>
-      <div class="fmtv-load-wrap"><button type="button" class="fmtv-load" id="fmtv-load" hidden>Load more videos</button></div>
-    </main>
-  </div>
-
-  <div class="fmtv-foot"><span>FM TV by FM Blog. YouTube playback loads only after you press play.</span><a href="https://www.youtube.com/" target="_blank" rel="noopener">Watch on YouTube ↗</a></div>
+<div class="shell">
+<header class="top"><div><div class="kicker">Football Manager community video feed</div><h2><span>FM TV</span></h2><p class="lead">The latest Football Manager videos from the creators worth watching - with a real daily trending chart based on views gained, not lifetime views.</p></div><div class="updated">Auto-updated · <span id="fmtv-updated">loading...</span></div></header>
+<div class="stats"><div class="stat"><strong id="fmtv-stat-creators">-</strong><span>Creators</span></div><div class="stat"><strong id="fmtv-stat-videos">-</strong><span>Videos</span></div><div class="stat"><strong id="fmtv-stat-trending">-</strong><span>24h chart</span></div></div>
+<div class="tools"><input id="fmtv-search" type="search" placeholder="Search videos, creators or topics..." autocomplete="off"><button class="reset" id="fmtv-reset" type="button">Reset</button></div>
+<div class="nav"><div class="tabs"><button class="tab active" data-mode="latest">Latest</button><button class="tab" data-mode="trending">Trending 24h</button><button class="tab" data-mode="favourites">★ My Channels <span id="fmtv-fav-count">0</span></button></div><div class="count" id="fmtv-count">Loading...</div></div>
+<div class="cats" id="fmtv-cats"></div>
+<div id="fmtv-hero"></div>
+<div class="layout"><aside class="sidebar"><div class="sidehead"><strong>Creators</strong><span class="count" id="fmtv-side-count">-</span></div><input class="creator-search" id="fmtv-creator-search" type="search" placeholder="Find creator..."><div class="creator-list" id="fmtv-creator-list"></div></aside><main><div class="section-head"><h3 id="fmtv-grid-title">Latest from the FM community</h3><div class="count" id="fmtv-note"></div></div><div class="grid" id="fmtv-grid"></div><div class="load-wrap"><button class="load" id="fmtv-load" type="button" hidden>Load more</button></div></main></div>
 </div>
-
-<div class="fmtv-modal" id="fmtv-modal" role="dialog" aria-modal="true" aria-label="YouTube video player">
-  <div class="fmtv-modal-box">
-    <div class="fmtv-modal-top"><div class="fmtv-modal-title" id="fmtv-modal-title">FM TV</div><button type="button" class="fmtv-close" id="fmtv-close" aria-label="Close video">×</button></div>
-    <div class="fmtv-player" id="fmtv-player"></div>
-  </div>
-</div>
-
+<div class="modal" id="fmtv-modal"><div class="modal-box"><div class="modal-top"><div class="modal-title" id="fmtv-modal-title">FM TV</div><button class="close" id="fmtv-close" type="button">×</button></div><div class="player" id="fmtv-player"></div></div></div>
 <script>
-(function(){
-  'use strict';
-  const RECENT_URL='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/fm-tv/data/videos.json';
-  const ARCHIVE_URL='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/fm-tv/data/archive.json';
-  const FAV_KEY='fmTvFavouriteCreatorsV1';
-  const root=document.getElementById('fmtv-app');
-  if(!root) return;
-
-  const $=s=>root.querySelector(s);
-  const $$=s=>Array.from(root.querySelectorAll(s));
-  const state={recent:null,archive:null,scope:'recent',mode:'latest',category:'',creator:'',query:'',creatorQuery:'',shown:12,favs:new Set()};
-
-  try{state.favs=new Set(JSON.parse(localStorage.getItem(FAV_KEY)||'[]'))}catch(e){state.favs=new Set()}
-
-  const els={
-    updated:$('#fmtv-updated'), creators:$('#fmtv-stat-creators'), videos:$('#fmtv-stat-videos'), window:$('#fmtv-stat-window'), search:$('#fmtv-search'),
-    scope:$('#fmtv-scope'), clear:$('#fmtv-clear'), categories:$('#fmtv-categories'), feature:$('#fmtv-feature'), grid:$('#fmtv-grid'), count:$('#fmtv-count'),
-    note:$('#fmtv-filter-note'), load:$('#fmtv-load'), gridTitle:$('#fmtv-grid-title'), modal:$('#fmtv-modal'), modalTitle:$('#fmtv-modal-title'), player:$('#fmtv-player'),
-    close:$('#fmtv-close'), creatorSearch:$('#fmtv-creator-search'), creatorList:$('#fmtv-creator-list'), sidebarCount:$('#fmtv-sidebar-count'), favCount:$('#fmtv-fav-count'),
-    archiveLoading:$('#fmtv-archive-loading')
-  };
-
-  const escapeHtml=value=>String(value??'').replace(/[&<>'\"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[ch]));
-  const fmtViews=n=>{n=Number(n)||0;if(n>=1000000)return (n/1000000).toFixed(n>=10000000?0:1).replace('.0','')+'M';if(n>=1000)return (n/1000).toFixed(n>=100000?0:1).replace('.0','')+'K';return String(n)};
-  const relTime=value=>{const d=new Date(value),seconds=Math.max(1,Math.floor((Date.now()-d.getTime())/1000));if(seconds<3600)return Math.max(1,Math.floor(seconds/60))+'m ago';if(seconds<86400)return Math.floor(seconds/3600)+'h ago';const days=Math.floor(seconds/86400);if(days<30)return days+'d ago';if(days<365)return Math.floor(days/30)+'mo ago';return Math.floor(days/365)+'y ago'};
-  const fresh=value=>(Date.now()-new Date(value).getTime())<86400000;
-  const activeData=()=>state.scope==='year'&&state.archive?state.archive:state.recent;
-  const findVideo=id=>{const pools=[state.recent,state.archive].filter(Boolean);for(const pool of pools){const found=pool.videos.find(v=>v.id===id);if(found)return found}return null};
-
-  function saveFavs(){try{localStorage.setItem(FAV_KEY,JSON.stringify(Array.from(state.favs)))}catch(e){}}
-  function isFav(channelId){return state.favs.has(channelId)}
-  function toggleFav(channelId){if(!channelId)return;if(isFav(channelId))state.favs.delete(channelId);else state.favs.add(channelId);saveFavs();if(state.mode==='favourites'&&!state.favs.size)state.mode='latest';renderAll()}
-
-  function openVideo(video){
-    els.modalTitle.textContent=video.title;
-    els.player.innerHTML='<iframe src="'+escapeHtml(video.embedUrl)+'" title="'+escapeHtml(video.title)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
-    els.modal.classList.add('is-open');
-    document.documentElement.style.overflow='hidden';
-  }
-  function closeVideo(){els.modal.classList.remove('is-open');els.player.innerHTML='';document.documentElement.style.overflow=''}
-
-  function creatorInline(video){return '<div class="fmtv-creator-inline"><img src="'+escapeHtml(video.channelAvatar)+'" alt="" loading="lazy" decoding="async"><button type="button" data-creator-filter="'+escapeHtml(video.channelId)+'">'+escapeHtml(video.channelName)+'</button></div>'}
-  function videoMeta(video){return fmtViews(video.views)+' views · '+relTime(video.publishedAt)}
-
-  function renderFeature(){
-    const data=state.recent;
-    if(!data||!data.videos.length){els.feature.innerHTML='<div class="fmtv-feature-media"></div><div class="fmtv-feature-copy"><div class="fmtv-feature-title">No featured video available.</div></div>';return}
-    const video=findVideo(data.featuredVideoId)||data.videos.slice().sort((a,b)=>Number(b.trendingScore||0)-Number(a.trendingScore||0))[0];
-    if(!video)return;
-    const label=data.featuredLabel||'Trending now';
-    els.feature.innerHTML='<div class="fmtv-feature-media" data-play="'+escapeHtml(video.id)+'"><img src="'+escapeHtml(video.thumbnail)+'" alt="'+escapeHtml(video.title)+'" fetchpriority="high"><span class="fmtv-play"></span><span class="fmtv-duration">'+escapeHtml(video.duration)+'</span></div>'+
-      '<div class="fmtv-feature-copy"><span class="fmtv-badge">🔥 '+escapeHtml(label)+'</span><div class="fmtv-feature-title">'+escapeHtml(video.title)+'</div>'+creatorInline(video)+'<div class="fmtv-meta">'+videoMeta(video)+' · '+escapeHtml(video.category)+'</div><div class="fmtv-feature-actions"><button class="fmtv-watch" type="button" data-play="'+escapeHtml(video.id)+'">▶ Watch video</button><button class="fmtv-star-feature '+(isFav(video.channelId)?'is-starred':'')+'" type="button" data-star="'+escapeHtml(video.channelId)+'">★ '+(isFav(video.channelId)?'Starred':'Star creator')+'</button></div></div>';
-  }
-
-  function cardHtml(video){
-    return '<article class="fmtv-card"><div class="fmtv-thumb" data-play="'+escapeHtml(video.id)+'"><img src="'+escapeHtml(video.thumbnail)+'" alt="'+escapeHtml(video.title)+'" loading="lazy" decoding="async">'+(fresh(video.publishedAt)?'<span class="fmtv-new">New</span>':'')+(isFav(video.channelId)?'<span class="fmtv-fav-mark">★ Starred</span>':'')+'<span class="fmtv-duration">'+escapeHtml(video.duration)+'</span></div><div class="fmtv-card-body"><button type="button" class="fmtv-card-title" data-play="'+escapeHtml(video.id)+'">'+escapeHtml(video.title)+'</button>'+creatorInline(video)+'<div class="fmtv-meta">'+videoMeta(video)+'</div><span class="fmtv-category">'+escapeHtml(video.category)+'</span></div></article>';
-  }
-
-  function filteredVideos(){
-    const data=activeData();
-    if(!data)return [];
-    let videos=data.videos.slice();
-    const q=state.query.trim().toLowerCase();
-    if(state.category)videos=videos.filter(v=>v.category===state.category);
-    if(state.creator)videos=videos.filter(v=>v.channelId===state.creator);
-    if(q)videos=videos.filter(v=>(v.title+' '+v.channelName+' '+v.category+' '+(v.description||'')).toLowerCase().includes(q));
-    if(state.mode==='favourites')videos=videos.filter(v=>isFav(v.channelId));
-    videos.sort(state.mode==='trending'?(a,b)=>Number(b.trendingScore||0)-Number(a.trendingScore||0):(a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt));
-    if(state.scope==='recent'&&state.mode==='latest'&&!state.category&&!state.creator&&!q&&state.recent&&state.recent.featuredVideoId){videos=videos.filter(v=>v.id!==state.recent.featuredVideoId)}
-    return videos;
-  }
-
-  function renderCategories(){
-    const data=activeData();
-    if(!data)return;
-    const cats=(data.categories||[]).filter(Boolean);
-    els.categories.innerHTML='<button type="button" class="fmtv-chip '+(!state.category?'is-active':'')+'" data-category="">All</button>'+cats.map(c=>'<button type="button" class="fmtv-chip '+(state.category===c?'is-active':'')+'" data-category="'+escapeHtml(c)+'">'+escapeHtml(c)+'</button>').join('');
-  }
-
-  function renderCreators(){
-    const data=activeData();
-    if(!data)return;
-    const q=state.creatorQuery.trim().toLowerCase();
-    let channels=data.channels.slice().filter(c=>!q||c.name.toLowerCase().includes(q));
-    channels.sort((a,b)=>{const af=isFav(a.id)?1:0,bf=isFav(b.id)?1:0;if(af!==bf)return bf-af;return a.name.localeCompare(b.name)});
-    const allItem='<button type="button" class="fmtv-creator-item fmtv-all-creators '+(!state.creator?'is-active':'')+'" data-creator-filter=""><span style="width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#1a202b;font-size:14px">◎</span><span class="fmtv-creator-name">All creators</span><span></span></button>';
-    els.creatorList.innerHTML=allItem+channels.map(c=>'<div class="fmtv-creator-item '+(state.creator===c.id?'is-active ':'')+(isFav(c.id)?'is-starred':'')+'" data-creator-filter="'+escapeHtml(c.id)+'"><img src="'+escapeHtml(c.avatar)+'" alt="" loading="lazy" decoding="async"><span class="fmtv-creator-name">'+escapeHtml(c.name)+'</span><button type="button" class="fmtv-star '+(isFav(c.id)?'is-starred':'')+'" data-star="'+escapeHtml(c.id)+'" aria-label="'+(isFav(c.id)?'Unstar ':'Star ')+escapeHtml(c.name)+'">★</button></div>').join('');
-    els.sidebarCount.textContent=channels.length+' shown';
-    els.favCount.textContent=state.favs.size;
-  }
-
-  function renderFeed(){
-    const data=activeData();
-    if(!data)return;
-    const videos=filteredVideos();
-    els.grid.innerHTML=videos.length?videos.slice(0,state.shown).map(cardHtml).join(''):'<div class="fmtv-empty">No videos match those filters.'+(state.mode==='favourites'&&!state.favs.size?' Star a few creators first.':'')+'</div>';
-    els.count.textContent=videos.length+' video'+(videos.length===1?'':'s');
-    els.note.textContent=state.creator?'Creator filtered':state.mode==='favourites'?'Your starred creators':state.scope==='year'?'One-year archive':'';
-    els.gridTitle.textContent=state.mode==='trending'?'Trending in the FM community':state.mode==='favourites'?'Latest from My Channels':'Latest from the FM community';
-    els.load.hidden=videos.length<=state.shown;
-    els.creators.textContent=data.channelCount||data.channels.length||0;
-    els.videos.textContent=data.videoCount||data.videos.length||0;
-    els.window.textContent=(data.windowDays||45)+'d';
-    $$('.fmtv-tab').forEach(btn=>btn.classList.toggle('is-active',btn.dataset.mode===state.mode));
-  }
-
-  function renderAll(){renderFeature();renderCategories();renderCreators();renderFeed()}
-
-  async function loadArchive(){
-    if(state.archive)return state.archive;
-    els.archiveLoading.classList.add('is-visible');
-    try{
-      const response=await fetch(ARCHIVE_URL+'?v='+Math.floor(Date.now()/3600000),{cache:'no-store'});
-      if(!response.ok)throw new Error('HTTP '+response.status);
-      const data=await response.json();
-      if(!Array.isArray(data.videos))throw new Error('Invalid archive');
-      state.archive=data;
-      return data;
-    }finally{els.archiveLoading.classList.remove('is-visible')}
-  }
-
-  root.addEventListener('click',async function(event){
-    const star=event.target.closest('[data-star]');
-    if(star){event.preventDefault();event.stopPropagation();toggleFav(star.dataset.star);return}
-    const play=event.target.closest('[data-play]');
-    if(play){const video=findVideo(play.dataset.play);if(video){openVideo(video);return}}
-    const creator=event.target.closest('[data-creator-filter]');
-    if(creator){state.creator=creator.dataset.creatorFilter||'';state.shown=12;renderCreators();renderFeed();return}
-    const category=event.target.closest('[data-category]');
-    if(category){state.category=category.dataset.category||'';state.shown=12;renderCategories();renderFeed();return}
-    const tab=event.target.closest('[data-mode]');
-    if(tab){const requested=tab.dataset.mode;if(requested==='favourites'&&!state.favs.size){state.mode='favourites';renderFeed();return}state.mode=requested;state.shown=12;renderFeed()}
-  });
-
-  els.search.addEventListener('input',()=>{state.query=els.search.value;state.shown=12;renderFeed()});
-  els.creatorSearch.addEventListener('input',()=>{state.creatorQuery=els.creatorSearch.value;renderCreators()});
-  els.scope.addEventListener('change',async()=>{
-    const next=els.scope.value;
-    if(next==='year'){
-      try{await loadArchive();state.scope='year'}catch(error){console.error('FM TV archive:',error);els.scope.value='recent';state.scope='recent';alert('The one-year archive is temporarily unavailable. The recent feed is still working.')}
-    }else state.scope='recent';
-    state.creator='';state.category='';state.shown=12;renderAll();
-  });
-  els.clear.addEventListener('click',()=>{state.scope='recent';state.mode='latest';state.category='';state.creator='';state.query='';state.creatorQuery='';state.shown=12;els.search.value='';els.creatorSearch.value='';els.scope.value='recent';renderAll()});
-  els.load.addEventListener('click',()=>{state.shown+=12;renderFeed()});
-  els.close.addEventListener('click',closeVideo);
-  els.modal.addEventListener('click',event=>{if(event.target===els.modal)closeVideo()});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&els.modal.classList.contains('is-open'))closeVideo()});
-
-  fetch(RECENT_URL+'?v='+Math.floor(Date.now()/300000),{cache:'no-store'})
-    .then(response=>{if(!response.ok)throw new Error('HTTP '+response.status);return response.json()})
-    .then(data=>{if(!Array.isArray(data.videos))throw new Error('Invalid feed');state.recent=data;els.updated.textContent=data.generatedAt?'updated '+relTime(data.generatedAt):'waiting for sync';renderAll()})
-    .catch(error=>{console.error('FM TV:',error);els.grid.innerHTML='<div class="fmtv-empty">FM TV could not load the video feed. Please try again shortly.</div>';els.feature.innerHTML='<div class="fmtv-feature-media"></div><div class="fmtv-feature-copy"><div class="fmtv-feature-title">Feed temporarily unavailable.</div></div>';els.count.textContent='Feed unavailable'});
+(function(){'use strict';
+const RECENT='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/fm-tv/data/videos.json';
+const ARCHIVE='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/fm-tv/data/archive.json';
+const FKEY='fmTvFavouriteCreatorsV1',root=document.getElementById('fmtv-app');if(!root)return;
+const $=s=>root.querySelector(s),$$=s=>Array.from(root.querySelectorAll(s));
+const state={data:null,archive:null,archiveLoading:false,mode:'latest',category:'',creator:'',query:'',creatorQuery:'',shown:12,favs:new Set()};try{state.favs=new Set(JSON.parse(localStorage.getItem(FKEY)||'[]'))}catch(e){}
+const e={updated:$('#fmtv-updated'),statC:$('#fmtv-stat-creators'),statV:$('#fmtv-stat-videos'),statT:$('#fmtv-stat-trending'),search:$('#fmtv-search'),reset:$('#fmtv-reset'),cats:$('#fmtv-cats'),hero:$('#fmtv-hero'),grid:$('#fmtv-grid'),count:$('#fmtv-count'),title:$('#fmtv-grid-title'),note:$('#fmtv-note'),load:$('#fmtv-load'),creatorSearch:$('#fmtv-creator-search'),creatorList:$('#fmtv-creator-list'),sideCount:$('#fmtv-side-count'),favCount:$('#fmtv-fav-count'),modal:$('#fmtv-modal'),modalTitle:$('#fmtv-modal-title'),player:$('#fmtv-player'),close:$('#fmtv-close')};
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>{n=Number(n)||0;if(n>=1e6)return(n/1e6).toFixed(n>=1e7?0:1).replace('.0','')+'M';if(n>=1e3)return(n/1e3).toFixed(n>=1e5?0:1).replace('.0','')+'K';return String(n)};
+const rel=v=>{const s=Math.max(1,(Date.now()-new Date(v))/1000);if(s<3600)return Math.max(1,Math.floor(s/60))+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';const d=Math.floor(s/86400);if(d<30)return d+'d ago';if(d<365)return Math.floor(d/30)+'mo ago';return Math.floor(d/365)+'y ago'};
+const fresh=v=>Date.now()-new Date(v)<86400000;
+function saveFavs(){try{localStorage.setItem(FKEY,JSON.stringify([...state.favs]))}catch(x){}}
+function channelById(id){return (state.data?.channels||[]).find(c=>c.id===id)||(state.archive?.channels||[]).find(c=>c.id===id)}
+function subText(c){return c.subscriberCountHidden?'Subscribers hidden':fmt(c.subscriberCount||0)+' subscribers'}
+function orderedChannels(){let a=[...(state.data?.channels||[])];const q=state.creatorQuery.toLowerCase().trim();if(q)a=a.filter(c=>c.name.toLowerCase().includes(q));return a.sort((x,y)=>{const xf=state.favs.has(x.id)?1:0,yf=state.favs.has(y.id)?1:0;if(xf!==yf)return yf-xf;return (y.subscriberCount||-1)-(x.subscriberCount||-1)||x.name.localeCompare(y.name)})}
+function renderSidebar(){const a=orderedChannels();e.sideCount.textContent=a.length;e.favCount.textContent=state.favs.size;e.creatorList.innerHTML='<div class="creator-row '+(!state.creator?'active':'')+'" data-creator=""><span class="all-icon" style="width:34px;height:34px;border-radius:50%">▦</span><div><div class="creator-name">All Channels</div><div class="creator-subs">Community feed</div></div><span></span></div>'+a.map(c=>'<div class="creator-row '+(state.creator===c.id?'active':'')+'" data-creator="'+esc(c.id)+'"><img src="'+esc(c.avatar)+'" alt="" loading="lazy"><div><div class="creator-name">'+esc(c.name)+'</div><div class="creator-subs">'+esc(c.subscriberCountHidden?'subs hidden':fmt(c.subscriberCount||0)+' subs')+'</div></div><button class="star '+(state.favs.has(c.id)?'on':'')+'" type="button" data-star="'+esc(c.id)+'" aria-label="Star '+esc(c.name)+'">☆</button></div>').join('')}
+function renderCats(){const cats=[''].concat(state.data?.categories||[]);e.cats.innerHTML=cats.map(c=>'<button class="chip '+(state.category===c?'active':'')+'" data-cat="'+esc(c)+'">'+(c||'All')+'</button>').join('')}
+function openVideo(v){e.modalTitle.textContent=v.title;e.player.innerHTML='<iframe src="'+esc(v.embedUrl)+'" title="'+esc(v.title)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';e.modal.classList.add('open')}
+function closeVideo(){e.modal.classList.remove('open');e.player.innerHTML=''}
+function renderHero(){if(state.creator){const c=channelById(state.creator);if(!c){e.hero.innerHTML='';return}e.hero.innerHTML='<section class="channel-head"><div class="channel-top"><img class="channel-avatar" src="'+esc(c.avatar)+'" alt="'+esc(c.name)+'"><div><div class="channel-title">'+esc(c.name)+'</div><div class="channel-subs">'+esc(subText(c))+'</div></div><a class="subscribe" href="'+esc(c.channelUrl)+'?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a></div><p class="channel-desc">'+esc(c.description||'No channel description available.')+'</p></section>';return}
+const v=(state.data?.videos||[]).find(x=>x.id===state.data?.featuredVideoId)||state.data?.videos?.[0];if(!v){e.hero.innerHTML='';return}const gain=v.views24h==null?'24h tracking is warming up': '+'+fmt(v.views24h)+' views in 24h';e.hero.innerHTML='<section class="feature"><div class="feature-media" data-play="'+esc(v.id)+'"><img src="'+esc(v.thumbnail)+'" alt="'+esc(v.title)+'"><span class="play"></span><span class="duration">'+esc(v.duration)+'</span></div><div class="feature-copy"><span class="badge">🔥 '+esc(state.data.featuredLabel||'Trending now')+'</span><div class="feature-title">'+esc(v.title)+'</div><div style="font-size:12px;font-weight:850">'+esc(v.channelName)+'</div><div class="meta" style="margin-top:6px">'+fmt(v.views)+' views · '+rel(v.publishedAt)+'</div><div class="feature-metric">'+gain+'</div></div></section>'}
+function pool(){return state.creator&&state.archive?state.archive.videos:(state.data?.videos||[])}
+function filtered(){let a=[...pool()];if(state.creator)a=a.filter(v=>v.channelId===state.creator);if(state.category)a=a.filter(v=>v.category===state.category);const q=state.query.toLowerCase().trim();if(q)a=a.filter(v=>(v.title+' '+v.channelName+' '+v.category).toLowerCase().includes(q));if(state.mode==='favourites')a=a.filter(v=>state.favs.has(v.channelId));if(state.mode==='trending')a.sort((x,y)=>{const xd=x.views24h??-1,yd=y.views24h??-1;return yd-xd||y.trendingScore-x.trendingScore});else a.sort((x,y)=>new Date(y.publishedAt)-new Date(x.publishedAt));return a}
+function card(v){return '<article class="card"><div class="thumb" data-play="'+esc(v.id)+'"><img src="'+esc(v.thumbnail)+'" alt="'+esc(v.title)+'" loading="lazy">'+(fresh(v.publishedAt)?'<span class="new">New</span>':'')+'<span class="duration">'+esc(v.duration)+'</span></div><div class="body"><button class="title" data-play="'+esc(v.id)+'">'+esc(v.title)+'</button><div class="meta">'+esc(v.channelName)+' · '+rel(v.publishedAt)+' · '+fmt(v.views)+' views</div>'+(v.views24h!=null?'<div class="meta daily">+'+fmt(v.views24h)+' views / 24h</div>':'')+'<span class="cat">'+esc(v.category)+'</span></div></article>'}
+async function ensureArchive(){if(state.archive||state.archiveLoading)return;state.archiveLoading=true;e.note.textContent='Loading more channel videos…';try{const r=await fetch(ARCHIVE+'?v='+Math.floor(Date.now()/3600000));state.archive=await r.json()}catch(x){console.error(x)}state.archiveLoading=false;renderGrid()}
+function renderGrid(){const a=filtered();const visible=a.slice(0,state.shown);e.grid.innerHTML=visible.length?visible.map(card).join(''):'<div class="empty">No videos match these filters.</div>';e.count.textContent=a.length+' video'+(a.length===1?'':'s');e.title.textContent=state.creator?(channelById(state.creator)?.name||'Creator')+' videos':state.mode==='trending'?'FM TV Daily Trending':state.mode==='favourites'?'My Channels':'Latest from the FM community';e.note.textContent=state.creator?(state.archive?'Up to one year of uploads':'12 latest uploads'):(state.mode==='trending'?(state.data?.views24hReady?'Real views gained in the last 24h':'24h tracking is warming up'):'');const more=a.length>state.shown|| (state.creator&&!state.archive);e.load.hidden=!more;$$('.tab').forEach(b=>b.classList.toggle('active',b.dataset.mode===state.mode))}
+function render(){renderSidebar();renderCats();renderHero();renderGrid();e.statC.textContent=state.data.channelCount;e.statV.textContent=state.data.videoCount;e.statT.textContent=state.data.views24hReady?'LIVE':'WARMING';e.updated.textContent='updated '+rel(state.data.generatedAt)}
+root.addEventListener('click',ev=>{const star=ev.target.closest('[data-star]');if(star){ev.stopPropagation();const id=star.dataset.star;state.favs.has(id)?state.favs.delete(id):state.favs.add(id);saveFavs();renderSidebar();if(state.mode==='favourites')renderGrid();return}const cr=ev.target.closest('[data-creator]');if(cr){state.creator=cr.dataset.creator||'';state.shown=12;state.category='';render();if(state.creator&&!state.archive)ensureArchive();return}const cat=ev.target.closest('[data-cat]');if(cat){state.category=cat.dataset.cat||'';state.shown=12;renderCats();renderGrid();return}const mode=ev.target.closest('[data-mode]');if(mode){state.mode=mode.dataset.mode;state.shown=12;renderGrid();return}const p=ev.target.closest('[data-play]');if(p){const id=p.dataset.play;const v=(state.archive?.videos||[]).find(x=>x.id===id)||(state.data?.videos||[]).find(x=>x.id===id);if(v)openVideo(v)}});
+e.search.addEventListener('input',()=>{state.query=e.search.value;state.shown=12;renderGrid()});e.creatorSearch.addEventListener('input',()=>{state.creatorQuery=e.creatorSearch.value;renderSidebar()});e.reset.addEventListener('click',()=>{state.mode='latest';state.category='';state.creator='';state.query='';state.shown=12;e.search.value='';render()});e.load.addEventListener('click',async()=>{if(state.creator&&!state.archive){await ensureArchive();state.shown=24}else state.shown+=12;renderGrid()});e.close.addEventListener('click',closeVideo);e.modal.addEventListener('click',ev=>{if(ev.target===e.modal)closeVideo()});document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeVideo()});
+fetch(RECENT+'?v='+Math.floor(Date.now()/300000),{cache:'no-store'}).then(r=>r.json()).then(d=>{state.data=d;render()}).catch(x=>{console.error(x);e.grid.innerHTML='<div class="empty">FM TV feed is temporarily unavailable.</div>'});
 })();
 </script>
 </div>
