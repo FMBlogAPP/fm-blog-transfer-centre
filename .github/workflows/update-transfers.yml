@@ -2,8 +2,11 @@ name: Update transfers
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "PRO_BOOTSTRAP"
   schedule:
-    - cron: "17 0,6,12,18 * * *"
+    - cron: "17 */4 * * *"
 
 permissions:
   contents: write
@@ -15,7 +18,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -28,10 +31,7 @@ jobs:
       - name: Fetch latest transfers
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: |
-          sed -i 's/rows = api("leagues", country=country, search=query)/rows = api("leagues", search=query)/' scripts/update_transfers.py
-          python scripts/update_transfers.py
-          git restore scripts/update_transfers.py
+        run: python scripts/update_transfers.py
 
       - name: Remove duplicate transfer records
         run: python scripts/cleanup_duplicates.py
@@ -45,6 +45,7 @@ jobs:
             echo "No data changes."
           else
             git commit -m "chore: refresh transfer data"
-            git pull --rebase origin main
+            git fetch origin main
+            git rebase origin/main
             git push
           fi
