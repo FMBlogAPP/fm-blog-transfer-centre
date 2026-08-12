@@ -29,7 +29,8 @@ if not KEY:
     sys.exit(2)
 
 config = load(ROOT / "config.json", {})
-teams_db = load(DATA / "teams.json", {"season": config.get("season"), "leagues": {}})
+discovery_season = int(config.get("team_discovery_season", 2024))
+teams_db = load(DATA / "teams.json", {"season": discovery_season, "leagues": {}})
 players_db = load(DATA / "players.json", {})
 state = load(DATA / "state.json", {"team_cursor":0, "league_cursor":0, "last_run":None, "calls_last_run":0})
 transfer_db = load(DATA / "transfers.json", {"meta":{}, "transfers":[]})
@@ -64,8 +65,8 @@ def discover_leagues():
         league = leagues[cursor % len(leagues)]
         key = str(league["id"])
         current = teams_db.get("leagues", {}).get(key)
-        if not current or teams_db.get("season") != config.get("season"):
-            rows = api("teams", league=league["id"], season=config["season"])
+        if not current or teams_db.get("season") != discovery_season:
+            rows = api("teams", league=league["id"], season=discovery_season)
             club_rows = []
             for row in rows:
                 t = row.get("team") or {}
@@ -73,8 +74,8 @@ def discover_leagues():
                     club_rows.append({"id": t["id"], "name": t.get("name", ""), "logo": t.get("logo", ""), "league_id": league["id"], "league": league["name"], "country": league.get("country", ""), "priority": league.get("priority", 2)})
             if club_rows:
                 teams_db.setdefault("leagues", {})[key] = club_rows
-                teams_db["season"] = config["season"]
-                print(f"Discovered {len(club_rows)} clubs in {league['name']}.")
+                teams_db["season"] = discovery_season
+                print(f"Discovered {len(club_rows)} clubs in {league['name']} using season {discovery_season} IDs.")
         cursor += 1
     state["league_cursor"] = cursor % len(leagues)
 
@@ -143,7 +144,7 @@ def merge_records(new):
     rows = list(current.values())
     rows.sort(key=lambda x: (x.get("date") or "", x.get("id") or ""), reverse=True)
     transfer_db["transfers"] = rows[:int(config.get("max_records", 4000))]
-    transfer_db["meta"] = {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "API-Football", "live": True, "clubs_known": len(all_teams()), "calls_last_run": calls}
+    transfer_db["meta"] = {"updated_at": datetime.now(timezone.utc).isoformat(), "source": "API-Football", "live": True, "clubs_known": len(all_teams()), "calls_last_run": calls, "team_discovery_season": discovery_season}
 
 discover_leagues()
 teams = all_teams(); new = []
