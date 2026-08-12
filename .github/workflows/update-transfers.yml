@@ -2,6 +2,9 @@ name: Update transfers
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "scripts/cleanup_duplicates.py"
   schedule:
     - cron: "17 0,6,12,18 * * *"
 
@@ -26,11 +29,15 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch latest transfers
+        if: github.event_name != 'push'
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
           sed -i 's/rows = api("leagues", country=country, search=query)/rows = api("leagues", search=query)/' scripts/update_transfers.py
           python scripts/update_transfers.py
+
+      - name: Remove duplicate transfer records
+        run: python scripts/cleanup_duplicates.py
 
       - name: Commit changed data
         run: |
