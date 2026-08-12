@@ -77,6 +77,15 @@ def categorise(title, description, categories):
     return "FM Videos"
 
 
+def channel_label(config_channel):
+    return (
+        config_channel.get("name")
+        or config_channel.get("handle")
+        or config_channel.get("channelId")
+        or "unknown"
+    )
+
+
 def resolve_channel(config_channel, api_key):
     params = {"part": "snippet,contentDetails", "maxResults": 1}
     if config_channel.get("channelId"):
@@ -89,7 +98,7 @@ def resolve_channel(config_channel, api_key):
     data = api_get("channels", api_key, **params)
     items = data.get("items", [])
     if not items:
-        raise RuntimeError(f"Channel not found: {config_channel.get('name') or config_channel.get('handle')}")
+        raise RuntimeError(f"Channel not found: {channel_label(config_channel)}")
 
     item = items[0]
     snippet = item.get("snippet", {})
@@ -144,12 +153,18 @@ def main():
     min_duration = int(config.get("minDurationSeconds", 150))
 
     channels = []
+    resolved_channel_ids = set()
     video_to_channel = {}
     all_video_ids = []
 
     for channel_config in config.get("channels", []):
         try:
             channel = resolve_channel(channel_config, api_key)
+            if channel["id"] in resolved_channel_ids:
+                print(f"SKIP duplicate channel: {channel['name']} ({channel['id']})")
+                continue
+            resolved_channel_ids.add(channel["id"])
+
             ids = fetch_upload_ids(channel, api_key, per_channel)
             channels.append(channel)
             for video_id in ids:
@@ -157,7 +172,7 @@ def main():
                 all_video_ids.append(video_id)
             print(f"OK {channel['name']}: {len(ids)} uploads")
         except Exception as exc:
-            print(f"WARN {channel_config.get('name', channel_config.get('handle', 'unknown'))}: {exc}", file=sys.stderr)
+            print(f"WARN {channel_label(channel_config)}: {exc}", file=sys.stderr)
         time.sleep(0.05)
 
     videos = []
