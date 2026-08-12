@@ -1,0 +1,63 @@
+name: Fix FM TV YouTube UI
+
+on:
+  push:
+    paths:
+      - ".github/workflows/fix-fm-tv-youtube-ui.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch FM TV embed
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('fm-tv/blogger-embed.html')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = [
+              ('el.trendingRow.innerHTML=', 'el.trendRow.innerHTML='),
+              ('bindInteractive(el.trendingRow)', 'bindInteractive(el.trendRow)'),
+              ('grid-template-columns:230px minmax(260px,680px) 1fr;align-items:center;gap:18px;', 'grid-template-columns:180px minmax(260px,1fr) auto;align-items:center;gap:12px;'),
+              ('#fmtv-app .yt-search-btn{width:54px;', '#fmtv-app .yt-search-btn{position:relative;width:54px;'),
+              ('#fmtv-app .yt-top-actions{display:flex;justify-content:flex-end;gap:8px;min-width:0}', '#fmtv-app .yt-top-actions{display:flex;justify-content:flex-end;gap:7px;min-width:0;flex-wrap:nowrap}'),
+              ('height:36px;padding:0 13px;', 'height:36px;padding:0 11px;'),
+              ('#fmtv-app .yt-chipbar{position:sticky;top:67px;z-index:30;', '#fmtv-app .yt-chipbar{position:relative;z-index:20;'),
+              ('@media(max-width:1320px){#fmtv-app .yt-grid{', '@media(max-width:1320px){#fmtv-app .yt-topbar{grid-template-columns:165px minmax(220px,1fr) auto;gap:10px;padding-left:14px;padding-right:14px}#fmtv-app .yt-brand-name{font-size:20px}#fmtv-app .yt-pill{padding:0 9px;font-size:10px}#fmtv-app .yt-grid{'),
+              ('@media(max-width:1050px){#fmtv-app .yt-topbar{grid-template-columns:190px minmax(220px,1fr) auto}', '@media(max-width:1050px){#fmtv-app .yt-topbar{grid-template-columns:150px minmax(180px,1fr) auto}#fmtv-app .yt-top-actions .yt-pill:first-child{display:none}'),
+              ('#fmtv-app .yt-chipbar{top:104px;padding-bottom:11px}', '#fmtv-app .yt-chipbar{padding-bottom:11px}'),
+          ]
+
+          for old, new in replacements:
+              s = s.replace(old, new)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Validate JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s = Path('fm-tv/blogger-embed.html').read_text(encoding='utf-8')
+          m = re.search(r'<script>(.*?)</script>', s, re.S)
+          Path('/tmp/fmtv.js').write_text(m.group(1), encoding='utf-8')
+          PY
+          node --check /tmp/fmtv.js
+
+      - name: Commit fix
+        run: |
+          git config user.name "fm-blog-fm-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add fm-tv/blogger-embed.html
+          if git diff --cached --quiet; then
+            echo "No changes required."
+          else
+            git commit -m "fix: repair FM TV rendering and header"
+            git push
+          fi
