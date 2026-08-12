@@ -2,6 +2,11 @@ name: Update transfers
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "config.json"
+      - "scripts/**"
+      - ".github/workflows/update-transfers.yml"
   schedule:
     - cron: "17 0,6,12,18 * * *"
 
