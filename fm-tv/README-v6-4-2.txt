@@ -1,0 +1,1 @@
+FM TV V6.4.2 overscans video thumbnails slightly to crop source-edge artefacts.
