@@ -13,8 +13,11 @@ from urllib.error import HTTPError, URLError
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config.json"
-OUTPUT_PATH = ROOT / "data" / "videos.json"
 API_BASE = "https://www.googleapis.com/youtube/v3"
+MODE = os.environ.get("FM_TV_MODE", "recent").strip().lower()
+if MODE not in {"recent", "archive"}:
+    MODE = "recent"
+OUTPUT_PATH = ROOT / "data" / ("archive.json" if MODE == "archive" else "videos.json")
 
 
 def load_json(path):
@@ -25,7 +28,7 @@ def load_json(path):
 def api_get(endpoint, key, **params):
     params["key"] = key
     url = f"{API_BASE}/{endpoint}?{urlencode(params)}"
-    req = Request(url, headers={"User-Agent": "FM-Blog-FM-TV/1.0"})
+    req = Request(url, headers={"User-Agent": "FM-Blog-FM-TV/2.0"})
     try:
         with urlopen(req, timeout=30) as response:
             return json.loads(response.read().decode("utf-8"))
@@ -68,7 +71,7 @@ def choose_thumbnail(thumbnails, fallback_id):
     return f"https://i.ytimg.com/vi/{fallback_id}/hqdefault.jpg"
 
 
-def categorise(title, description, categories):
+def categorise(title, categories):
     haystack = f" {title} ".lower()
     for category in categories:
         for keyword in category.get("keywords", []):
@@ -118,25 +121,77 @@ def resolve_channel(config_channel, api_key):
     }
 
 
-def fetch_upload_ids(channel, api_key, limit):
-    data = api_get(
-        "playlistItems",
-        api_key,
-        part="contentDetails,snippet",
-        playlistId=channel["uploadsPlaylist"],
-        maxResults=min(max(limit, 1), 50),
-    )
+def fetch_upload_ids(channel, api_key, limit, cutoff):
     ids = []
-    for item in data.get("items", []):
-        video_id = item.get("contentDetails", {}).get("videoId") or item.get("snippet", {}).get("resourceId", {}).get("videoId")
-        if video_id:
-            ids.append(video_id)
+    page_token = None
+
+    while len(ids) < limit:
+        params = {
+            "part": "contentDetails,snippet",
+            "playlistId": channel["uploadsPlaylist"],
+            "maxResults": min(50, limit - len(ids)),
+        }
+        if page_token:
+            params["pageToken"] = page_token
+
+        data = api_get("playlistItems", api_key, **params)
+        reached_cutoff = False
+
+        for item in data.get("items", []):
+            published_raw = (
+                item.get("contentDetails", {}).get("videoPublishedAt")
+                or item.get("snippet", {}).get("publishedAt")
+            )
+            if published_raw:
+                try:
+                    if parse_datetime(published_raw) < cutoff:
+                        reached_cutoff = True
+                        break
+                except ValueError:
+                    pass
+
+            video_id = (
+                item.get("contentDetails", {}).get("videoId")
+                or item.get("snippet", {}).get("resourceId", {}).get("videoId")
+            )
+            if video_id:
+                ids.append(video_id)
+            if len(ids) >= limit:
+                break
+
+        if reached_cutoff or len(ids) >= limit:
+            break
+        page_token = data.get("nextPageToken")
+        if not page_token:
+            break
+
     return ids
 
 
 def chunks(items, size):
     for i in range(0, len(items), size):
         yield items[i:i + size]
+
+
+def select_featured(videos, now):
+    if not videos:
+        return None, "Featured"
+
+    last_24h = []
+    for video in videos:
+        try:
+            age = now - parse_datetime(video["publishedAt"])
+        except (KeyError, ValueError):
+            continue
+        if timedelta(0) <= age <= timedelta(hours=24):
+            last_24h.append(video)
+
+    if last_24h:
+        winner = max(last_24h, key=lambda video: int(video.get("views", 0)))
+        return winner.get("id"), "Most watched today"
+
+    winner = max(videos, key=lambda video: float(video.get("trendingScore", 0)))
+    return winner.get("id"), "Trending now"
 
 
 def main():
@@ -147,9 +202,17 @@ def main():
 
     config = load_json(CONFIG_PATH)
     now = datetime.now(timezone.utc)
-    cutoff = now - timedelta(days=int(config.get("maxAgeDays", 45)))
-    per_channel = int(config.get("maxVideosPerChannel", 10))
-    max_feed = int(config.get("maxFeedVideos", 120))
+
+    if MODE == "archive":
+        age_days = int(config.get("archiveAgeDays", 365))
+        per_channel = int(config.get("archiveMaxVideosPerChannel", 100))
+        max_feed = int(config.get("maxArchiveVideos", 5000))
+    else:
+        age_days = int(config.get("recentAgeDays", 45))
+        per_channel = int(config.get("recentMaxVideosPerChannel", 8))
+        max_feed = int(config.get("maxFeedVideos", 500))
+
+    cutoff = now - timedelta(days=age_days)
     min_duration = int(config.get("minDurationSeconds", 150))
 
     channels = []
@@ -165,15 +228,15 @@ def main():
                 continue
             resolved_channel_ids.add(channel["id"])
 
-            ids = fetch_upload_ids(channel, api_key, per_channel)
+            ids = fetch_upload_ids(channel, api_key, per_channel, cutoff)
             channels.append(channel)
             for video_id in ids:
                 video_to_channel[video_id] = channel
                 all_video_ids.append(video_id)
-            print(f"OK {channel['name']}: {len(ids)} uploads")
+            print(f"OK {channel['name']}: {len(ids)} uploads ({MODE})")
         except Exception as exc:
             print(f"WARN {channel_label(channel_config)}: {exc}", file=sys.stderr)
-        time.sleep(0.05)
+        time.sleep(0.03)
 
     videos = []
     seen = set()
@@ -195,7 +258,10 @@ def main():
             published_raw = snippet.get("publishedAt")
             if not published_raw:
                 continue
-            published = parse_datetime(published_raw)
+            try:
+                published = parse_datetime(published_raw)
+            except ValueError:
+                continue
             if published < cutoff:
                 continue
 
@@ -217,7 +283,7 @@ def main():
 
             title = snippet.get("title", "Untitled video")
             description = snippet.get("description", "")
-            category = categorise(title, description, config.get("categories", []))
+            category = categorise(title, config.get("categories", []))
 
             videos.append({
                 "id": video_id,
@@ -250,13 +316,18 @@ def main():
             category_names.append(video["category"])
 
     public_channels = [{k: v for k, v in channel.items() if k != "uploadsPlaylist"} for channel in channels]
+    featured_id, featured_label = select_featured(videos, now)
 
     payload = {
         "generatedAt": now.isoformat().replace("+00:00", "Z"),
+        "mode": MODE,
+        "windowDays": age_days,
         "channelCount": len(public_channels),
         "videoCount": len(videos),
         "categories": category_names,
         "channels": public_channels,
+        "featuredVideoId": featured_id,
+        "featuredLabel": featured_label,
         "videos": videos,
     }
 
@@ -267,7 +338,7 @@ def main():
         fh.write("\n")
     temp_path.replace(OUTPUT_PATH)
 
-    print(f"Wrote {len(videos)} videos from {len(public_channels)} channels to {OUTPUT_PATH}")
+    print(f"Wrote {len(videos)} videos from {len(public_channels)} channels to {OUTPUT_PATH} ({MODE}, {age_days} days)")
     return 0
 
 
