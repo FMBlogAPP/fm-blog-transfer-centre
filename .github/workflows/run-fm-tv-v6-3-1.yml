@@ -1,0 +1,45 @@
+name: Run FM TV V6.3.1 Filter Fix
+
+on:
+  push:
+    paths:
+      - "fm-tv/scripts/build_v6_3_1.py"
+      - ".github/workflows/run-fm-tv-v6-3-1.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build V6.3.1
+        run: python fm-tv/scripts/build_v6_3_1.py
+
+      - name: Validate V6.3.1
+        run: |
+          grep -q "FM TV BUILD V6.3.1 FILTER CHECK FIX" fm-tv/blogger-embed-v6-3-1.html
+          ! grep -q "content:'✓'" fm-tv/blogger-embed-v6-3-1.html
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          s=Path('fm-tv/blogger-embed-v6-3-1.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script>(.*?)</script>',s,re.S)
+          Path('/tmp/fmtv.js').write_text(scripts[-1],encoding='utf-8')
+          PY
+          node --check /tmp/fmtv.js
+
+      - name: Commit V6.3.1
+        run: |
+          git config user.name "fm-blog-fm-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add fm-tv/blogger-embed-v6-3-1.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "fix: repair FM TV filter checkmark in Blogger"
+            git pull --rebase origin main
+            git push
+          fi
