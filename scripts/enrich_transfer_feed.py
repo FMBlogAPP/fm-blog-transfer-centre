@@ -103,12 +103,12 @@ def add_player_meta(item, players_db):
     if not profile:
         return False
 
-    profile_name = str(profile.get("name") or "").strip()
+    profile_name = str(profile.get("full_name") or profile.get("name") or "").strip()
     transfer_name = str(item.get("player") or "").strip()
     if profile_name:
         # Keep the raw transfer-endpoint label in `player`, but expose the
-        # squad-profile name separately. The frontend can prefer this richer
-        # value without breaking route IDs or old records.
+        # richer profile name separately. The frontend can prefer this value
+        # without breaking stable player IDs or old transfer routes.
         item["player_full_name"] = profile_name
     elif transfer_name:
         item["player_full_name"] = transfer_name
