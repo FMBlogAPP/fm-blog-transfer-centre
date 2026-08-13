@@ -10,6 +10,7 @@ TRANSFER_FILE = DATA / "transfers.json"
 FIRST_SEEN_FILE = DATA / "first_seen.json"
 FEED_FILE = DATA / "feed.json"
 TEAMS_FILE = DATA / "teams.json"
+PLAYERS_FILE = DATA / "players.json"
 CONFIG_FILE = ROOT / "config.json"
 
 
@@ -97,18 +98,42 @@ def add_endpoint_meta(item, team_index):
         item[f"{side}_region"] = meta.get("region") or ""
 
 
+def add_player_meta(item, players_db):
+    profile = players_db.get(str(item.get("player_id") or "")) or {}
+    if not profile:
+        return False
+    if profile.get("age") is not None:
+        item["age"] = profile.get("age")
+    if profile.get("position"):
+        item["position"] = profile.get("position")
+    if profile.get("photo"):
+        item["player_photo"] = profile.get("photo")
+    return bool(item.get("age") is not None or item.get("position"))
+
+
+def age_at_most(item, limit):
+    try:
+        return int(item.get("age")) <= limit
+    except (TypeError, ValueError):
+        return False
+
+
 data = load(TRANSFER_FILE, {"meta": {}, "transfers": []})
 config = load(CONFIG_FILE, {})
 teams_db = load(TEAMS_FILE, {"leagues": {}})
+players_db = load(PLAYERS_FILE, {})
 team_index = build_team_index(teams_db)
 seen_db = load(FIRST_SEEN_FILE, {"version": 1, "initialised_at": None, "items": {}})
 seen_items = seen_db.setdefault("items", {})
 rows = [dict(x) for x in data.get("transfers", []) if not x.get("demo")]
 now = datetime.now(timezone.utc)
 is_initial_seed = not seen_db.get("initialised_at")
+profiled_rows = 0
 
 for item in rows:
     add_endpoint_meta(item, team_index)
+    if add_player_meta(item, players_db):
+        profiled_rows += 1
     key = route_key(item)
     seen_at = seen_items.get(key)
     if not seen_at:
@@ -120,6 +145,8 @@ data["transfers"] = rows
 meta = data.setdefault("meta", {})
 meta["first_seen_tracking"] = True
 meta["endpoint_metadata"] = True
+meta["player_profiles"] = len(players_db)
+meta["profiled_transfer_rows"] = profiled_rows
 meta["feed_updated_at"] = now.isoformat()
 
 if is_initial_seed:
@@ -145,7 +172,12 @@ recent_seen = sorted(
     key=lambda x: x.get("first_seen_at") or "",
     reverse=True,
 )[:700]
-feed_rows = unique_rows(latest_by_date + recent_seen)
+young_recent = sorted(
+    [x for x in rows if age_at_most(x, 23)],
+    key=lambda x: (x.get("date") or "", -(int(x.get("age") or 99))),
+    reverse=True,
+)[:250]
+feed_rows = unique_rows(latest_by_date + recent_seen + young_recent)
 feed_rows.sort(key=lambda x: (x.get("date") or "", x.get("id") or ""), reverse=True)
 
 last24 = [x for x in rows if seen_after(x, cutoff_24h)]
@@ -155,6 +187,9 @@ clubs = {
     for club_id in (item.get("from_id"), item.get("to_id"))
     if club_id
 }
+u21 = [x for x in rows if age_at_most(x, 21)]
+u23 = [x for x in rows if age_at_most(x, 23)]
+free_u23 = [x for x in u23 if movement_class(x.get("type")) == "free"]
 
 feed = {
     "meta": dict(meta),
@@ -165,6 +200,11 @@ feed = {
         "loans24": sum(1 for x in last24 if movement_class(x.get("type")) == "loan"),
         "clubs_involved": len(clubs),
         "tracked_leagues": len(config.get("leagues", [])),
+        "player_profiles": len(players_db),
+        "profiled_rows": profiled_rows,
+        "u21": len(u21),
+        "u23": len(u23),
+        "free_u23": len(free_u23),
         "feed_records": len(feed_rows),
     },
     "transfers": feed_rows,
@@ -175,7 +215,7 @@ save(FIRST_SEEN_FILE, seen_db)
 save(FEED_FILE, feed)
 
 print(
-    f"V2.1 feed built. Full database: {len(rows)}; fast feed: {len(feed_rows)}; "
-    f"new in last 24h: {len(last24)}; team metadata: {len(team_index)} clubs; "
-    f"initial seed: {is_initial_seed}"
+    f"Product feed built. Full database: {len(rows)}; fast feed: {len(feed_rows)}; "
+    f"new in last 24h: {len(last24)}; player profiles: {len(players_db)}; "
+    f"profiled rows: {profiled_rows}; U21 moves: {len(u21)}; initial seed: {is_initial_seed}"
 )
