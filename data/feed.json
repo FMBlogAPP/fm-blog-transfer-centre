@@ -16,14 +16,17 @@
     "teams_checked_last_run": 540,
     "duplicates_removed_last_update": 6165,
     "duplicates_removed_last_cleanup": 0,
-    "dedupe_cleaned_at": "2026-08-13T09:50:14.756256+00:00",
+    "dedupe_cleaned_at": "2026-08-13T10:05:58.655157+00:00",
     "dedupe_day_tolerance": 3,
     "first_seen_tracking": true,
     "endpoint_metadata": true,
     "player_profiles": 16881,
     "profiled_transfer_rows": 4766,
-    "feed_updated_at": "2026-08-13T10:01:38.188994+00:00",
-    "player_display_names": true
+    "feed_updated_at": "2026-08-13T10:05:59.051745+00:00",
+    "player_display_names": true,
+    "free_agent_normalisation": true,
+    "free_agent_endpoints_fixed_last_build": 970,
+    "hub_profiles": true
   },
   "stats": {
     "total": 8245,
@@ -2187,7 +2190,7 @@
       "from": "Estac Troyes",
       "from_logo": "https://media.api-sports.io/football/teams/110.png",
       "to_id": null,
-      "to": "Balde Thierno",
+      "to": "Free agent",
       "to_logo": "",
       "league": "Ligue 1",
       "country": "France",
@@ -2201,7 +2204,12 @@
       "from_league_id": 61,
       "from_region": "Europe",
       "first_seen_at": "2026-08-01T12:00:00+00:00",
-      "player_full_name": "Thierno Baldé"
+      "player_full_name": "Thierno Baldé",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 1582,
@@ -3104,7 +3112,7 @@
       "from": "Sydney",
       "from_logo": "https://media.api-sports.io/football/teams/943.png",
       "to_id": null,
-      "to": "Liberty",
+      "to": "Free agent",
       "to_logo": "",
       "league": "A-League",
       "country": "Australia",
@@ -3117,7 +3125,12 @@
       "from_league": "A-League",
       "from_league_id": 188,
       "from_region": "Asia",
-      "first_seen_at": "2026-07-31T12:00:00+00:00"
+      "first_seen_at": "2026-07-31T12:00:00+00:00",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 414422,
@@ -6474,7 +6487,7 @@
       "from": "San Lorenzo",
       "from_logo": "https://media.api-sports.io/football/teams/460.png",
       "to_id": null,
-      "to": "Zelaya Maximiliano Agustin",
+      "to": "Free agent",
       "to_logo": "",
       "league": "Liga Profesional",
       "country": "Argentina",
@@ -6488,7 +6501,12 @@
       "from_league_id": 128,
       "from_region": "South America",
       "first_seen_at": "2026-07-30T12:00:00+00:00",
-      "player_full_name": "Maximiliano Agustín Zelaya"
+      "player_full_name": "Maximiliano Agustín Zelaya",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 275268,
@@ -6930,7 +6948,7 @@
       "from": "Deportivo La Coruna",
       "from_logo": "https://media.api-sports.io/football/teams/544.png",
       "to_id": null,
-      "to": "Bouldini Mohamed",
+      "to": "Free agent",
       "to_logo": "",
       "league": "La Liga",
       "country": "Spain",
@@ -6944,7 +6962,12 @@
       "from_league_id": 140,
       "from_region": "Europe",
       "first_seen_at": "2026-07-29T12:00:00+00:00",
-      "player_full_name": "Mohamed Bouldini"
+      "player_full_name": "Mohamed Bouldini",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 8858,
@@ -6956,7 +6979,7 @@
       "from": "Charleroi",
       "from_logo": "https://media.api-sports.io/football/teams/736.png",
       "to_id": null,
-      "to": "Defourny Theo",
+      "to": "Free agent",
       "to_logo": "",
       "league": "Pro League",
       "country": "Belgium",
@@ -6970,7 +6993,12 @@
       "from_league_id": 144,
       "from_region": "Europe",
       "first_seen_at": "2026-07-29T12:00:00+00:00",
-      "player_full_name": "Théo Pierre Defourny"
+      "player_full_name": "Théo Pierre Defourny",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 85397,
@@ -7484,7 +7512,7 @@
       "from": "Železničar Pančevo",
       "from_logo": "https://media.api-sports.io/football/teams/12360.png",
       "to_id": null,
-      "to": "Joseph Timileyin",
+      "to": "Free agent",
       "to_logo": "",
       "league": "Super Liga",
       "country": "Serbia",
@@ -7498,7 +7526,12 @@
       "from_league_id": 286,
       "from_region": "Europe",
       "first_seen_at": "2026-07-29T12:00:00+00:00",
-      "player_full_name": "T. Joseph"
+      "player_full_name": "T. Joseph",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 531409,
@@ -8254,7 +8287,7 @@
       "from": "SCR Altach",
       "from_logo": "https://media.api-sports.io/football/teams/618.png",
       "to_id": null,
-      "to": "Madritsch Diego",
+      "to": "Free agent",
       "to_logo": "",
       "league": "Bundesliga",
       "country": "Austria",
@@ -8268,7 +8301,12 @@
       "from_league_id": 218,
       "from_region": "Europe",
       "first_seen_at": "2026-07-29T12:00:00+00:00",
-      "player_full_name": "Diego Madritsch"
+      "player_full_name": "Diego Madritsch",
+      "to_free_agent": true,
+      "to_country": "",
+      "to_league": "",
+      "to_league_id": null,
+      "to_region": ""
     },
     {
       "player_id": 363226,
