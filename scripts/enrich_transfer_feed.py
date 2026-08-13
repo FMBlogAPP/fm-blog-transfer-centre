@@ -102,13 +102,28 @@ def add_player_meta(item, players_db):
     profile = players_db.get(str(item.get("player_id") or "")) or {}
     if not profile:
         return False
+
+    profile_name = str(profile.get("name") or "").strip()
+    transfer_name = str(item.get("player") or "").strip()
+    if profile_name:
+        # Keep the raw transfer-endpoint label in `player`, but expose the
+        # squad-profile name separately. The frontend can prefer this richer
+        # value without breaking route IDs or old records.
+        item["player_full_name"] = profile_name
+    elif transfer_name:
+        item["player_full_name"] = transfer_name
+
     if profile.get("age") is not None:
         item["age"] = profile.get("age")
     if profile.get("position"):
         item["position"] = profile.get("position")
     if profile.get("photo"):
         item["player_photo"] = profile.get("photo")
-    return bool(item.get("age") is not None or item.get("position"))
+    return bool(
+        item.get("age") is not None
+        or item.get("position")
+        or item.get("player_full_name")
+    )
 
 
 def age_at_most(item, limit):
@@ -129,11 +144,16 @@ rows = [dict(x) for x in data.get("transfers", []) if not x.get("demo")]
 now = datetime.now(timezone.utc)
 is_initial_seed = not seen_db.get("initialised_at")
 profiled_rows = 0
+name_upgrades = []
 
 for item in rows:
     add_endpoint_meta(item, team_index)
+    old_name = str(item.get("player") or "").strip()
     if add_player_meta(item, players_db):
         profiled_rows += 1
+    full_name = str(item.get("player_full_name") or "").strip()
+    if full_name and old_name and full_name != old_name and len(name_upgrades) < 12:
+        name_upgrades.append((old_name, full_name))
     key = route_key(item)
     seen_at = seen_items.get(key)
     if not seen_at:
@@ -147,6 +167,7 @@ meta["first_seen_tracking"] = True
 meta["endpoint_metadata"] = True
 meta["player_profiles"] = len(players_db)
 meta["profiled_transfer_rows"] = profiled_rows
+meta["player_display_names"] = True
 meta["feed_updated_at"] = now.isoformat()
 
 if is_initial_seed:
@@ -219,3 +240,9 @@ print(
     f"new in last 24h: {len(last24)}; player profiles: {len(players_db)}; "
     f"profiled rows: {profiled_rows}; U21 moves: {len(u21)}; initial seed: {is_initial_seed}"
 )
+if name_upgrades:
+    print("Player display-name upgrades (sample):")
+    for short_name, full_name in name_upgrades:
+        print(f"  {short_name} -> {full_name}")
+else:
+    print("No differing player display names found in the current profile cache.")
