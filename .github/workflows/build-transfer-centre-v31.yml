@@ -1,0 +1,43 @@
+name: Build Transfer Centre V3.1
+
+on:
+  push:
+    paths:
+      - "scripts/build_v31_runtime.py"
+      - ".github/workflows/build-transfer-centre-v31.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: transfer-centre-frontend
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build V3.1 runtime
+        run: python scripts/build_v31_runtime.py
+
+      - name: Commit frontend build
+        run: |
+          git config user.name "fm-blog-transfer-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/transfer-centre-v31.js blogger-embed.html
+          if git diff --cached --quiet; then
+            echo "No frontend changes."
+          else
+            git commit -m "fix: make entity navigation progressive"
+            git pull --rebase origin main
+            git push
+          fi
