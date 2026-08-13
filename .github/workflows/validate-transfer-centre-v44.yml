@@ -1,0 +1,22 @@
+name: Validate Transfer Centre V4.4
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/validate-transfer-centre-v44.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate V4.4 JavaScript syntax
+        run: node --check assets/transfer-centre-v44.js
+      - name: Confirm app loads V4.4
+        run: grep -q "assets/transfer-centre-v44.js" transfer-centre-app-v4.html
+      - name: Confirm hub cache exists
+        run: test -s data/hub_profiles.json
