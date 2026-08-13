@@ -8,6 +8,7 @@ on:
       - "scripts/enrich_players.py"
       - "scripts/enrich_player_names.py"
       - "scripts/enrich_hub_details.py"
+      - "scripts/merge_player_detail_profiles.py"
       - "scripts/merge_current_squads.py"
       - ".github/workflows/update-transfers.yml"
   schedule:
@@ -71,6 +72,9 @@ jobs:
 
       - name: Build product feed and hub cache
         run: python scripts/enrich_transfer_feed.py
+
+      - name: Merge rich player bios
+        run: python scripts/merge_player_detail_profiles.py
 
       - name: Merge authoritative current squads
         run: python scripts/merge_current_squads.py
