@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# V4 frame-aware runtime builder
 src_path = Path('assets/transfer-centre-v31.js')
 out_path = Path('assets/transfer-centre-v4.js')
 app_path = Path('transfer-centre-app-v4.html')
