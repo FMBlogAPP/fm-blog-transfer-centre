@@ -14,6 +14,7 @@ DATA = ROOT / "data"
 BASE = "https://v3.football.api-sports.io"
 TEAMS_FILE = DATA / "teams.json"
 PLAYERS_FILE = DATA / "players.json"
+SQUADS_FILE = DATA / "squads.json"
 STATE_FILE = DATA / "state.json"
 
 
@@ -44,14 +45,15 @@ if not KEY:
 
 teams_db = load(TEAMS_FILE, {"leagues": {}})
 players_db = load(PLAYERS_FILE, {})
+squads_db = load(SQUADS_FILE, {"updated_at": None, "teams": {}})
 state = load(STATE_FILE, {})
 now = datetime.now(timezone.utc)
 refresh_hours = 168  # API-Football recommends about one squads call per team per week.
 last_refresh = parse_iso(state.get("player_profiles_refreshed_at"))
 
-if players_db and last_refresh and (now - last_refresh).total_seconds() < refresh_hours * 3600:
+if players_db and squads_db.get("teams") and last_refresh and (now - last_refresh).total_seconds() < refresh_hours * 3600:
     age_hours = (now - last_refresh).total_seconds() / 3600
-    print(f"Player profiles are fresh ({age_hours:.1f}h old); skipping squad refresh.")
+    print(f"Player profiles and squad snapshots are fresh ({age_hours:.1f}h old); skipping squad refresh.")
     sys.exit(0)
 
 team_ids = []
@@ -73,6 +75,7 @@ last_call_at = 0.0
 call_gap = 0.4
 max_calls = 650
 updated_players = 0
+updated_squads = 0
 
 
 def api(path, **params):
@@ -86,7 +89,7 @@ def api(path, **params):
     qs = urlencode({k: v for k, v in params.items() if v is not None})
     req = Request(
         f"{BASE}/{path}?{qs}",
-        headers={"x-apisports-key": KEY, "User-Agent": "FM-Blog-Transfer-Centre/3.0"},
+        headers={"x-apisports-key": KEY, "User-Agent": "FM-Blog-Transfer-Centre/4.4"},
     )
     calls += 1
     try:
@@ -116,11 +119,18 @@ for index, team_id in enumerate(team_ids, 1):
         break
     print(f"[{index}/{len(team_ids)}] Refresh squad: team {team_id}")
     rows = api("players/squads", team=team_id)
+    if not rows:
+        # Preserve the last good snapshot rather than replacing it after an API error.
+        continue
+
+    snapshot = []
+    seen_players = set()
     for row in rows:
         for player in (row.get("players") or []):
             player_id = player.get("id")
-            if not player_id:
+            if not player_id or player_id in seen_players:
                 continue
+            seen_players.add(player_id)
             current = dict(players_db.get(str(player_id), {}))
             current.update({
                 "id": player_id,
@@ -135,15 +145,36 @@ for index, team_id in enumerate(team_ids, 1):
             players_db[str(player_id)] = current
             updated_players += 1
 
+            snapshot.append({
+                "id": player_id,
+                "name": current.get("full_name") or current.get("name") or "",
+                "age": current.get("age"),
+                "number": current.get("number"),
+                "position": current.get("position") or "",
+                "photo": current.get("photo") or "",
+                "nationality": current.get("nationality") or "",
+            })
+
+    squads_db.setdefault("teams", {})[str(team_id)] = {
+        "team_id": team_id,
+        "updated_at": now.isoformat(),
+        "players": snapshot,
+    }
+    updated_squads += 1
+
+squads_db["updated_at"] = now.isoformat()
 state["player_profiles_refreshed_at"] = now.isoformat()
 state["player_profile_calls_last_run"] = calls
 state["player_profile_errors_last_run"] = errors
 state["player_profiles_known"] = len(players_db)
+state["squad_snapshots_known"] = len(squads_db.get("teams") or {})
 
 save(PLAYERS_FILE, players_db)
+save(SQUADS_FILE, squads_db)
 save(STATE_FILE, state)
 print(
     f"Player enrichment complete. Teams checked: {min(len(team_ids), calls)}; "
     f"API calls: {calls}; squad rows stored/updated: {updated_players}; "
+    f"authoritative squad snapshots updated: {updated_squads}; "
     f"unique player profiles: {len(players_db)}; errors: {errors}."
 )
