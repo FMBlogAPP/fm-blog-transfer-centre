@@ -52,10 +52,21 @@
     }catch(e){}
   });
 
-  var appUrl='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/transfer-centre-app-v4.html?v=20260813-v4-2';
+  var appUrl='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/transfer-centre-app-v4.html?v=20260813-v4-3';
   fetch(appUrl,{cache:'no-store'})
     .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
     .then(function(html){
+      var bridge='';
+      bridge+='<scr'+'ipt>';
+      bridge+='(function(){';
+      bridge+='var ownScroll=window.scrollTo.bind(window);';
+      bridge+='window.scrollTo=function(a,b){try{';
+      bridge+='var f=parent.document.getElementById("fmbtc-frame");';
+      bridge+='if(f&&parent!==window){var top=(typeof a==="object"?Number(a.top||0):Number(b||0));var behavior=(typeof a==="object"&&a.behavior)?a.behavior:"smooth";var r=f.getBoundingClientRect();parent.window.scrollTo({top:Math.max(0,parent.window.scrollY+r.top+top),behavior:behavior});return;}';
+      bridge+='}catch(e){}return ownScroll(a,b);};';
+      bridge+='})();';
+      bridge+='</scr'+'ipt>';
+      html=html.replace('</head>',bridge+'</head>');
       frame.srcdoc=html;
     })
     .catch(function(err){
