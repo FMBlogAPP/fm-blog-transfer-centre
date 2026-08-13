@@ -1,0 +1,31 @@
+name: Build Transfer Centre V4.1
+
+on:
+  push:
+    paths:
+      - 'scripts/fix_transfer_centre_v41.py'
+      - '.github/workflows/build-transfer-centre-v41.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build V4.1
+        run: python scripts/fix_transfer_centre_v41.py
+      - name: Commit frontend build
+        run: |
+          git config user.name "FMBlogAPP"
+          git config user.email "admin@footballmanagerblog.org"
+          git add assets/transfer-centre-v41.js transfer-centre-app-v4.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Build Transfer Centre V4.1"
+          git pull --rebase origin main
+          git push
