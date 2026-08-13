@@ -1,0 +1,36 @@
+name: Build Transfer Centre V4.3.1
+
+on:
+  push:
+    paths:
+      - "scripts/build_v431.py"
+      - ".github/workflows/build-transfer-centre-v431.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build V4.3.1
+        run: python scripts/build_v431.py
+      - name: Commit frontend build
+        run: |
+          git config user.name "fm-blog-transfer-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/transfer-centre-v431.js transfer-centre-app-v4.html
+          if git diff --cached --quiet; then
+            echo "No frontend changes."
+          else
+            git commit -m "fix: sync profile and filter state"
+            git pull --rebase origin main
+            git push
+          fi
