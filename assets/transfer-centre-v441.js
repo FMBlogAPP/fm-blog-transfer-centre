@@ -1,0 +1,253 @@
+(function(){
+'use strict';
+const BASE='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/';
+const FEED=BASE+'data/feed.json', FULL=BASE+'data/transfers.json', CONFIG=BASE+'config.json', HUB=BASE+'data/hub_profiles.json';
+const ROOT='fmbtc', VISIT='fmbtc_last_visit_v3', WATCH='fmbtc_watchlist_v3';
+const FLAG={England:'gb-eng',Scotland:'gb-sct',Spain:'es',Italy:'it',Germany:'de',France:'fr',Portugal:'pt',Netherlands:'nl',Belgium:'be',Croatia:'hr',Serbia:'rs',Turkey:'tr',Austria:'at',Switzerland:'ch',Denmark:'dk',Sweden:'se',Norway:'no',Poland:'pl',Czechia:'cz',Greece:'gr',Argentina:'ar',Brazil:'br',Colombia:'co',Uruguay:'uy',Chile:'cl',Peru:'pe',USA:'us',Mexico:'mx',Canada:'ca',Japan:'jp','South Korea':'kr',Australia:'au'};
+const BALKAN=new Set(['Croatia','Serbia','Greece','Turkey']);
+const SAM=new Set(['Argentina','Brazil','Colombia','Uruguay','Chile','Peru']);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const nf=n=>Number(n||0).toLocaleString('en-GB');
+const kind=t=>/loan/i.test(t.type||'')?'loan':/free/i.test(t.type||'')?'free':'permanent';
+const parse=v=>{const n=Date.parse(v||'');return Number.isFinite(n)?n:0};
+const age=t=>{const n=Number(t.age);return Number.isFinite(n)&&n>0?n:null};
+const displayPlayer=t=>String(t?.player_full_name||t?.player||'Unknown player');
+const flagUrl=(c,size='24x18')=>FLAG[c]?`https://flagcdn.com/${size}/${FLAG[c]}.png`:'';
+const flagSvg=c=>FLAG[c]?`https://flagcdn.com/${FLAG[c]}.svg`:'';
+const flagImg=(c,cls='flag-img',large=false)=>{const u=large?flagSvg(c):flagUrl(c);return u?`<img class="${cls}" src="${u}" alt="${esc(c)} flag" loading="lazy">`:''};
+const leagueLogo=id=>id?`https://media.api-sports.io/football/leagues/${id}.png`:'';
+let cfg=null,feed=null,db=null,dbPromise=null,hubData=null,hubPromise=null,previousVisit=null,visitNow=new Date().toISOString(),currentEntity=null;
+let watch=loadWatch();
+let state={q:'',nation:'',league:'',type:'',mode:'latest',limit:50,entityTab:'all'};
+try{previousVisit=localStorage.getItem(VISIT)}catch(e){}
+function root(){return document.getElementById(ROOT)}
+function $(s,r){return (r||root())?.querySelector(s)||null}
+function $$(s,r){return [...((r||root())?.querySelectorAll(s)||[])]}
+function displayCountry(l){return l.display_country||l.country||''}
+function leagueObj(c,n){return (cfg?.leagues||[]).find(l=>displayCountry(l)===c&&l.name===n)||null}
+function rowCountry(t){return t.country||t.to_country||t.from_country||''}
+function rowLeague(t){return t.league||t.to_league||t.from_league||''}
+function rowLeagueId(t){return t.league_id||leagueObj(rowCountry(t),rowLeague(t))?.id||null}
+function isNew(t){return !!(previousVisit&&parse(t.first_seen_at)>parse(previousVisit))}
+function within24(t){return parse(t.first_seen_at)>=Date.now()-86400000}
+function loadWatch(){try{return JSON.parse(localStorage.getItem(WATCH)||'{}')}catch(e){return {}}}
+function saveWatch(){try{localStorage.setItem(WATCH,JSON.stringify(watch))}catch(e){} updateWatchCount()}
+function watchKey(type,id){return `${type}:${id}`}
+function watchItems(){return Object.values(watch||{})}
+function updateWatchCount(){const n=watchItems().length;const e=$('.watch-count');if(e)e.textContent=n;const b=$('.watch-btn');if(b)b.classList.toggle('has-items',n>0)}
+function watched(type,id){return !!watch[watchKey(type,id)]}
+function toggleWatch(item){const k=watchKey(item.type,item.id);if(watch[k])delete watch[k];else watch[k]=item;saveWatch();renderDetailActions();toast(watch[k]?'Added to Watchlist':'Removed from Watchlist');}
+function toast(text){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';root()?.appendChild(t)}t.textContent=text;t.classList.add('show');clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('show'),1800)}
+function copyText(text){if(navigator.clipboard?.writeText)return navigator.clipboard.writeText(text);const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();return Promise.resolve()}
+function pageUrl(){try{if(window.parent&&window.parent!==window&&window.parent.location)return new URL(window.parent.location.href)}catch(e){}return new URL(location.href)}
+function cleanUrl(){const u=pageUrl();['club','player','league','nation','hub','view'].forEach(k=>u.searchParams.delete(k));u.hash='';return u}
+function writeUrl(entity,mode,push=true){try{const u=cleanUrl();if(entity?.type==='club')u.searchParams.set('club',entity.id);if(entity?.type==='player')u.searchParams.set('player',entity.id);if(entity?.type==='league'){u.searchParams.set('league',entity.id);u.searchParams.set('nation',entity.country)}if(entity?.type==='nation')u.searchParams.set('nation',entity.id);if(entity?.type==='hub')u.searchParams.set('hub',entity.id);if(!entity&&mode&&mode!=='latest')u.searchParams.set('view',mode);(()=>{try{const h=(window.parent&&window.parent!==window)?window.parent.history:history;h[push?'pushState':'replaceState']({fmbtc:true},'',u)}catch(x){history[push?'pushState':'replaceState']({fmbtc:true},'',u)}})()}catch(e){}}
+function entityHref(type,id,country=''){
+  try{
+    const u=cleanUrl();
+    if(type==='club')u.searchParams.set('club',id);
+    if(type==='player')u.searchParams.set('player',id);
+    if(type==='league'){u.searchParams.set('league',id);u.searchParams.set('nation',country)}
+    if(type==='nation')u.searchParams.set('nation',id);
+    u.hash='fmbtc-detail';
+    return u.toString();
+  }catch(e){return '#fmbtc-detail'}
+}
+function scrollTo(el){if(!el)return;requestAnimationFrame(()=>{try{if(window.parent&&window.parent!==window&&window.frameElement){const fr=window.frameElement.getBoundingClientRect();const y=window.parent.scrollY+fr.top+el.getBoundingClientRect().top-78;window.parent.scrollTo({top:Math.max(0,y),behavior:'smooth'});return}}catch(e){}const y=window.scrollY+el.getBoundingClientRect().top-78;window.scrollTo({top:Math.max(0,y),behavior:'smooth'})})}
+function loadFull(){if(db)return Promise.resolve(db);if(dbPromise)return dbPromise;setDbState('Loading full database…');dbPromise=fetch(FULL+'?v='+(feed?.meta?.updated_at||Date.now())).then(r=>{if(!r.ok)throw new Error('database');return r.json()}).then(d=>{db=(d.transfers||[]).filter(x=>!x.demo);setDbState('Full database');updateReturnBanner();return db}).catch(e=>{dbPromise=null;setDbState('Fast feed');throw e});return dbPromise}
+function loadHub(){if(hubData)return Promise.resolve(hubData);if(hubPromise)return hubPromise;hubPromise=fetch(HUB+'?v='+(feed?.meta?.feed_updated_at||feed?.meta?.updated_at||Date.now())).then(r=>{if(!r.ok)throw new Error('hub database');return r.json()}).then(d=>{hubData=d;return d}).catch(e=>{hubPromise=null;throw e});return hubPromise}
+function rows(){return db||(feed?.transfers||[])}
+function setDbState(t){const e=$('.db-state');if(e)e.textContent=t}
+function requestFrameResize(){requestAnimationFrame(()=>{try{const app=root();if(!app)return;const h=Math.ceil(app.getBoundingClientRect().height)+4;if(window.frameElement&&window.parent!==window)window.frameElement.style.height=Math.max(700,h)+'px';window.parent?.postMessage?.({type:'fmbtc-height',height:h},'*')}catch(e){}})}
+function boot(){const r=root();if(!r||r.dataset.v3==='1')return;r.dataset.v3='1';bind();Promise.all([fetch(FEED+'?v='+Date.now()).then(x=>x.json()),fetch(CONFIG+'?v='+Date.now()).then(x=>x.json())]).then(([f,c])=>{feed=f;cfg=c;renderHeader();buildDropdowns();buildQuick();render();updateReturnBanner();updateWatchCount();openFromUrl();setTimeout(()=>{try{localStorage.setItem(VISIT,visitNow)}catch(e){}},1200)}).catch(e=>{console.error(e);$('.rows').innerHTML='<div class="empty"><b>Live data could not be loaded.</b>Please refresh the page.</div>'})}
+function watchBlogger(){let last=root();new MutationObserver(()=>{const n=root();if(n&&n!==last){last=n;setTimeout(boot,80)}}).observe(document.body,{childList:true,subtree:true})}
+function renderHeader(){const s=feed?.stats||{};$('.updated').textContent=feed?.meta?.updated_at?new Date(feed.meta.updated_at).toLocaleString('en-GB'):'Not updated yet';$('.total').textContent=nf(s.total);$('.last24stat').textContent=nf(s.last24);$('.clubs').textContent=nf(s.clubs_involved);$('.tracked').textContent=nf(s.tracked_leagues||cfg?.leagues?.length);$('.pulse-copy').textContent=`${nf(s.last24)} new · ${nf(s.free24)} free · ${nf(s.loans24)} loans in the last 24h`;const cov=$('.profile-coverage');if(cov){const p=s.profiled_rows||0,t=s.total||1;cov.textContent=p?`${Math.round(p/t*100)}% player profiles enriched`:'Player profiles loading' }}
+function updateReturnBanner(){const b=$('.return-banner');if(!b||!previousVisit)return b?.classList.remove('show');const a=Date.now()-parse(previousVisit);if(a<=0||a>7*86400000)return b.classList.remove('show');const rr=rows(),n=rr.filter(isNew).length,w=rr.filter(t=>isNew(t)&&matchesWatch(t)).length;if(!n)return b.classList.remove('show');$('.return-copy').textContent=w?`${nf(n)} new transfers since your last visit · ${nf(w)} match your Watchlist`:`${nf(n)} new transfers since your last visit`;b.classList.add('show');const dot=$('.new-count');if(dot){dot.textContent=nf(n);dot.hidden=false}}
+const QUICK=[['England','Premier League','Premier League'],['Spain','La Liga','La Liga'],['Italy','Serie A','Serie A'],['Germany','Bundesliga','Bundesliga'],['Croatia','HNL','HNL'],['Brazil','Serie A','Brazil'],['Argentina','Liga Profesional','Argentina']];
+function buildQuick(){const q=$('.quick-leagues');if(q)q.innerHTML=QUICK.map(([c,l,label])=>{const o=leagueObj(c,l),logo=leagueLogo(o?.id);return `<button class="quickbtn" data-country="${esc(c)}" data-league="${esc(l)}">${logo?`<img src="${logo}" alt="">`:''}${esc(label)}</button>`}).join('');syncActive()}
+function buildDropdowns(){const ns=[...new Set((cfg?.leagues||[]).map(displayCountry).filter(Boolean))].sort();const nm=$('.dd-nation .dd-menu');nm.innerHTML=`<button class="dd-item" data-value="">All nations</button>`+ns.map(c=>`<button class="dd-item" data-value="${esc(c)}">${flagImg(c,'dd-flag')}<span>${esc(c)}</span></button>`).join('');rebuildLeague();$('.dd-type .dd-menu').innerHTML=[['','All transfer types'],['permanent','Permanent'],['free','Free transfers'],['loan','Loans']].map(([v,l])=>`<button class="dd-item" data-value="${v}">${l}</button>`).join('');syncDropdowns()}
+function rebuildLeague(){const m=$('.dd-league .dd-menu');const ls=(cfg?.leagues||[]).filter(l=>!state.nation||displayCountry(l)===state.nation).sort((a,b)=>displayCountry(a).localeCompare(displayCountry(b))||a.name.localeCompare(b.name));m.innerHTML=`<button class="dd-item" data-value="">All leagues</button>`+ls.map(l=>{const c=displayCountry(l),logo=leagueLogo(l.id);return `<button class="dd-item" data-value="${esc(c+'|||'+l.name)}">${logo?`<img class="dd-logo" src="${logo}" alt="">`:''}<span><b>${esc(l.name)}</b>${state.nation?'':`<small>${flagImg(c,'dd-mini')} ${esc(c)}</small>`}</span></button>`}).join('')}
+function syncDropdowns(){const n=$('.dd-nation .dd-button');n.innerHTML=state.nation?`${flagImg(state.nation,'dd-flag')}<span>${esc(state.nation)}</span><i>⌄</i>`:'<span class="dd-symbol">◎</span><span>All nations</span><i>⌄</i>';const l=$('.dd-league .dd-button');if(state.league){const [c,name]=state.league.split('|||'),o=leagueObj(c,name),logo=leagueLogo(o?.id);l.innerHTML=`${logo?`<img src="${logo}" alt="">`:''}<span>${esc(name)}</span><i>⌄</i>`}else l.innerHTML='<span class="dd-symbol">◇</span><span>All leagues</span><i>⌄</i>';const labels={permanent:'Permanent',free:'Free transfers',loan:'Loans'};$('.dd-type .dd-button').innerHTML=`<span class="dd-symbol">↔</span><span>${labels[state.type]||'All transfer types'}</span><i>⌄</i>`;syncActive()}
+function syncActive(){$$('.quickbtn').forEach(b=>b.classList.toggle('on',state.league===`${b.dataset.country}|||${b.dataset.league}`));$$('[data-mode]').forEach(b=>b.classList.toggle('on',b.dataset.mode===state.mode));const c=(state.q?1:0)+(state.nation?1:0)+(state.league?1:0)+(state.type?1:0);const fc=$('.filter-count');if(fc)fc.textContent=c}
+function filterBase(list){let a=[...list],q=state.q.trim().toLowerCase();if(q)a=a.filter(t=>[displayPlayer(t),t.player,t.from,t.to,t.country,t.league,t.from_country,t.to_country,t.position].some(x=>(x||'').toLowerCase().includes(q)));if(state.nation)a=a.filter(t=>[t.country,t.from_country,t.to_country].includes(state.nation));if(state.league){const [c,l]=state.league.split('|||');a=a.filter(t=>(t.country===c&&t.league===l)||(t.from_country===c&&t.from_league===l)||(t.to_country===c&&t.to_league===l))}if(state.type)a=a.filter(t=>kind(t)===state.type);return a}
+function matchesWatch(t){for(const x of watchItems()){if(x.type==='club'&&(String(t.from_id)===String(x.id)||String(t.to_id)===String(x.id)))return true;if(x.type==='player'&&String(t.player_id)===String(x.id))return true;if(x.type==='nation'&&[t.country,t.from_country,t.to_country].includes(x.id))return true;if(x.type==='league'){const [c,l]=String(x.id).split('|||');if((t.country===c&&t.league===l)||(t.from_country===c&&t.from_league===l)||(t.to_country===c&&t.to_league===l))return true}}return false}
+function modeFilter(list){let a=filterBase(list);switch(state.mode){case'new':a=a.filter(isNew);break;case'last24':a=a.filter(within24);break;case'free':a=a.filter(t=>kind(t)==='free');break;case'loan':a=a.filter(t=>kind(t)==='loan');break;case'radar':a=a.filter(t=>age(t)!==null&&age(t)<=21).sort((x,y)=>(age(x)-age(y))||((y.date||'').localeCompare(x.date||'')));return a;case'u21':a=a.filter(t=>age(t)!==null&&age(t)<=21);break;case'u23':a=a.filter(t=>age(t)!==null&&age(t)<=23);break;case'freeu23':a=a.filter(t=>age(t)!==null&&age(t)<=23&&kind(t)==='free');break;case'balkan':a=a.filter(t=>[t.country,t.from_country,t.to_country].some(c=>BALKAN.has(c)));break;case'southamerica':a=a.filter(t=>[t.country,t.from_country,t.to_country].some(c=>SAM.has(c)));break;case'mls':a=a.filter(t=>t.league==='Major League Soccer'||t.from_league==='Major League Soccer'||t.to_league==='Major League Soccer');break;case'watchlist':a=a.filter(matchesWatch);break}a.sort((x,y)=>(y.date||'').localeCompare(x.date||'')||(y.first_seen_at||'').localeCompare(x.first_seen_at||''));return a}
+function newBadge(t){return isNew(t)?'<span class="newbadge">NEW</span>':''}
+function profileMeta(t){const parts=[];if(age(t)!==null)parts.push(`${age(t)} yrs`);if(t.position)parts.push(t.position);return parts.join(' · ')||'Player'}
+function clubSideHtml(t,side){
+  const id=t[side+'_id'],name=t[side]||'Unknown',logo=t[side+'_logo']||'';
+  const free=!!t[side+'_free_agent']||(!id&&kind(t)==='free'&&name==='Free agent');
+  if(free)return `<div class="club free-agent-side"><span class="free-agent-icon">FA</span><span>Free agent</span></div>`;
+  if(!id)return `<div class="club static-club"><span class="club-fallback">FC</span><span>${esc(name)}</span></div>`;
+  const href=entityHref('club',id);
+  return `<a class="club entity-link" href="${esc(href)}" data-entity="club" data-id="${esc(id)}" data-name="${esc(name)}">${logo?`<img src="${esc(logo)}" alt="" loading="lazy">`:'<span class="club-fallback">FC</span>'}<span>${esc(name)}</span></a>`
+}
+function moveHtml(t){return `<div class="move">${clubSideHtml(t,'from')}<span class="arrow">→</span>${clubSideHtml(t,'to')}</div>`}
+function compHtml(t){
+  const c=rowCountry(t),l=rowLeague(t),logo=leagueLogo(rowLeagueId(t));
+  const nationHref=entityHref('nation',c),leagueHref=entityHref('league',l,c);
+  return `<div class="competition"><a class="nation entity-link" href="${esc(nationHref)}" data-entity="nation" data-id="${esc(c)}">${flagImg(c)}<span>${esc(c||'-')}</span></a><a class="league entity-link" href="${esc(leagueHref)}" data-entity="league" data-country="${esc(c)}" data-id="${esc(l)}">${logo?`<img src="${logo}" alt="">`:''}<span>${esc(l||'-')}</span></a></div>`
+}
+function rowHtml(t){
+  const k=kind(t),bc=k==='loan'?'loan':k==='free'?'free':'';
+  const playerHref=entityHref('player',t.player_id);
+  const playerName=displayPlayer(t);
+  const player=`<a class="player entity-link" href="${esc(playerHref)}" data-entity="player" data-id="${esc(t.player_id)}" data-name="${esc(playerName)}"><img class="face" src="${esc(t.player_photo)}" alt="" loading="lazy"><span class="txt"><b>${esc(playerName)}${newBadge(t)}</b><small>${esc(profileMeta(t))}</small></span></a>`;
+  return `<div class="row ${isNew(t)?'is-new':''}">${player}${moveHtml(t)}${compHtml(t)}<div class="date">${esc(t.date)}</div><div><span class="badge ${bc}">${k==='loan'?'Loan':k==='free'?'Free':'Permanent'}</span></div></div><div class="mobile ${isNew(t)?'is-new':''}"><div class="mobile-top">${player}<span class="badge ${bc}">${k==='loan'?'Loan':k==='free'?'Free':'Permanent'}</span></div>${moveHtml(t)}<div class="mobile-bottom"><span>${esc(t.date)}</span>${compHtml(t)}</div></div>`
+}
+function render(list){if(currentEntity)return renderEntityRows();const a=modeFilter(list||rows());const shown=a.slice(0,state.limit);$('.count').textContent=nf(a.length);$('.rows').innerHTML=shown.length?shown.map(rowHtml).join(''):`<div class="empty"><b>No matching transfers.</b>${state.mode==='radar'||state.mode==='u21'||state.mode==='u23'||state.mode==='freeu23'?'Player age data may still be enriching — try again after the player-profile refresh.':'Try another filter.'}</div>`;$('.load').hidden=a.length<=state.limit&&!!db;$('.loadmore').textContent=!db?'Load 50 more transfers':a.length>state.limit?`Load ${Math.min(50,a.length-state.limit)} more transfers`:'All transfers loaded';syncActive();renderModeIntro(a);watchlistSummary();requestFrameResize()}
+function renderModeIntro(a){const box=$('.mode-intro');if(!box)return;const info={radar:['FM Radar','Young-player moves worth scouting in Football Manager.'],u21:['U21 Transfers','Every tracked move involving a player aged 21 or under.'],u23:['U23 Transfers','A broader young-player market view.'],freeu23:['Free U23','Young free-transfer opportunities.'],balkan:['Balkan Hub','Transfer activity touching Croatia, Serbia, Greece or Turkey.'],southamerica:['South America','Tracked transfer activity across our South American leagues.'],mls:['MLS Moves','Moves involving Major League Soccer.'],watchlist:['My Watchlist','Transfers connected to your saved clubs, players, leagues and nations.']};const d=info[state.mode];if(!d){box.classList.remove('show');return}box.innerHTML=`<div><span class="mode-kicker">EXPLORE</span><b>${d[0]}</b><small>${d[1]}</small></div><strong>${nf(a.length)}</strong>`;box.classList.add('show')}
+
+const HUBS={
+  radar:{title:'FM Radar',eyebrow:'FM Scouting Hub',icon:'✦',desc:'Young-player moves worth scouting in Football Manager.'},
+  u21:{title:'U21 Transfer Hub',eyebrow:'Young Player Hub',icon:'21',desc:'Every tracked move involving a player aged 21 or under.'},
+  u23:{title:'U23 Transfer Hub',eyebrow:'Young Player Hub',icon:'23',desc:'A broader view of the under-23 transfer market.'},
+  freeu23:{title:'Free U23 Hub',eyebrow:'Recruitment Hub',icon:'FA',desc:'Young players moving on free transfers.'},
+  balkan:{title:'Balkan Transfer Hub',eyebrow:'Regional Hub',icon:'B',desc:'Transfer activity touching Croatia, Serbia, Greece or Turkey.'},
+  southamerica:{title:'South America Hub',eyebrow:'Regional Hub',icon:'SA',desc:'Tracked transfer activity across our South American leagues.'},
+  mls:{title:'MLS Moves',eyebrow:'League Hub',icon:'MLS',desc:'Transfers involving Major League Soccer.'},
+  watchlist:{title:'My Watchlist',eyebrow:'Personal Transfer Hub',icon:'★',desc:'Your saved clubs, players, leagues and nations in one place.'}
+};
+function hubRows(mode,list){
+  let a=[...(list||[])];
+  if(mode==='radar'||mode==='u21')a=a.filter(t=>age(t)!==null&&age(t)<=21);
+  if(mode==='u23')a=a.filter(t=>age(t)!==null&&age(t)<=23);
+  if(mode==='freeu23')a=a.filter(t=>age(t)!==null&&age(t)<=23&&kind(t)==='free');
+  if(mode==='balkan')a=a.filter(t=>[t.country,t.from_country,t.to_country].some(c=>BALKAN.has(c)));
+  if(mode==='southamerica')a=a.filter(t=>[t.country,t.from_country,t.to_country].some(c=>SAM.has(c)));
+  if(mode==='mls')a=a.filter(t=>t.league==='Major League Soccer'||t.from_league==='Major League Soccer'||t.to_league==='Major League Soccer');
+  if(mode==='watchlist')a=a.filter(matchesWatch);
+  if(mode==='radar')a.sort((x,y)=>(age(x)-age(y))||((y.date||'').localeCompare(x.date||'')));
+  else a.sort((x,y)=>(y.date||'').localeCompare(x.date||'')||(y.first_seen_at||'').localeCompare(x.first_seen_at||''));
+  return a;
+}
+function hubHref(mode){try{const u=cleanUrl();u.searchParams.set('hub',mode);u.hash='fmbtc-detail';return u.toString()}catch(e){return'#fmbtc-detail'}}
+function hubHeader(mode,rr){
+  const d=HUBS[mode]||{title:'Explore',eyebrow:'Explore Hub',icon:'◎',desc:'Explore the transfer database.'};
+  const clubs=new Set(rr.flatMap(t=>[t.from_id,t.to_id]).filter(Boolean));
+  const nations=new Set(rr.flatMap(t=>[t.country,t.from_country,t.to_country]).filter(Boolean));
+  const free=rr.filter(t=>kind(t)==='free').length,loans=rr.filter(t=>kind(t)==='loan').length;
+  const saved=mode==='watchlist'?watchItems().length:null;
+  const stats=mode==='watchlist'?[[saved,'Saved items'],[rr.length,'Matching transfers'],[clubs.size,'Clubs involved'],[nations.size,'Nations'],[rr.filter(t=>age(t)!==null&&age(t)<=21).length,'U21']]:[[rr.length,'Transfers'],[clubs.size,'Clubs involved'],[nations.size,'Nations'],[free,'Free'],[loans,'Loans']];
+  return `<div class=\"detail-card hub-hero\"><div class=\"breadcrumb\"><button type=\"button\" class=\"detail-back\">Transfer Centre</button><span>/</span><span>Explore</span></div><div class=\"detail-main\"><div class=\"detail-ident\"><div class=\"detail-fallback hub-icon\">${esc(d.icon)}</div><div><span class=\"detail-eyebrow\">${esc(d.eyebrow)}</span><h3>${esc(d.title)}</h3><div class=\"detail-sub\"><span>${esc(d.desc)}</span></div></div></div><div class=\"detail-actions\"><button type=\"button\" class=\"detail-copy\">Copy link</button><button type=\"button\" class=\"detail-share\">Share</button></div></div><div class=\"detail-stats\">${stats.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div></div>`;
+}
+function infoCell(label,value){if(value===undefined||value===null||value==='')return'';return `<div class=\"hub-info-cell\"><span>${esc(label)}</span><b>${esc(value)}</b></div>`}
+function findHubPlayer(id){
+  const key=String(id||'');
+  const direct=hubData?.players?.[key];
+  if(direct)return direct;
+  for(const [teamId,squad] of Object.entries(hubData?.squads||{})){
+    const p=(squad||[]).find(x=>String(x.id)===key);
+    if(p)return {...p,team_id:Number(teamId)};
+  }
+  return null;
+}
+function playerStatsHtml(p){
+  const stats=p?.statistics||[];
+  if(!stats.length)return `<div class=\"hub-note\">Detailed current-season statistics are being enriched automatically.</div>`;
+  return `<div class=\"player-stat-seasons\">${stats.slice(0,6).map(s=>{const g=s.games||{},go=s.goals||{},pa=s.passes||{},ta=s.tackles||{},ca=s.cards||{},dr=s.dribbles||{},team=s.team||{},league=s.league||{};const rating=g.rating&&Number.isFinite(Number(g.rating))?Number(g.rating).toFixed(2):'—';return `<article class=\"player-stat-card\"><div class=\"player-stat-head\">${team.logo?`<img src=\"${esc(team.logo)}\" alt=\"\">`:''}<div><b>${esc(team.name||'Season statistics')}</b><span>${esc(league.name||'')}</span></div></div><div class=\"mini-stat-grid\">${infoCell('Apps',g.appearences??g.appearances??0)}${infoCell('Minutes',g.minutes??0)}${infoCell('Rating',rating)}${infoCell('Goals',go.total??0)}${infoCell('Assists',go.assists??0)}${infoCell('Key passes',pa.key??0)}${infoCell('Tackles',ta.total??0)}${infoCell('Dribbles',dr.success??0)}${infoCell('Yellow',ca.yellow??0)}${infoCell('Red',ca.red??0)}</div></article>`}).join('')}</div>`;
+}
+function playerHubHtml(id){
+  const p=findHubPlayer(id);
+  if(!p)return `<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>PLAYER DATA</span><h4>Player profile</h4></div></div><div class=\"hub-note\">This player profile is still being enriched.</div></section>`;
+  const latest=[...detailRows()].sort((a,b)=>(b.date||'').localeCompare(a.date||''))[0]||{};
+  const birth=p.birth||{},club=hubData?.clubs?.[String(p.team_id)]||{};
+  const currentClub=(kind(latest)==='free'&&latest.to_free_agent)?'Free agent':(club.name||club.team?.name||'');
+  const birthplace=[birth.place,birth.country].filter(Boolean).join(', ');
+  const bio=[infoCell('Full name',p.name),infoCell('Nationality',p.nationality),infoCell('Date of birth',birth.date),infoCell('Birthplace',birthplace),infoCell('Age',p.age),infoCell('Height',p.height),infoCell('Weight',p.weight),infoCell('Position',p.position),infoCell('Shirt number',p.number),infoCell('Current club',currentClub)].join('');
+  const career=p.career||[],trophies=p.trophies||[],sidelined=p.sidelined||[];
+  return `<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>PLAYER DATA</span><h4>Profile</h4></div></div><div class=\"hub-info-grid\">${bio}</div></section><section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>2026 SEASON</span><h4>Statistics</h4></div></div>${playerStatsHtml(p)}</section>${career.length?`<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>CAREER</span><h4>Clubs & seasons</h4></div></div><div class=\"career-list\">${career.slice(0,14).map(c=>{const t=c.team||{};const seasons=Array.isArray(c.seasons)?c.seasons.join(', '):c.seasons||'';return `<div class=\"career-row\">${t.logo?`<img src=\"${esc(t.logo)}\" alt=\"\">`:''}<b>${esc(t.name||'Club')}</b><span>${esc(seasons)}</span></div>`}).join('')}</div></section>`:''}${trophies.length?`<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>HONOURS</span><h4>Trophies</h4></div></div><div class=\"trophy-grid\">${trophies.slice(0,12).map(x=>`<div><b>${esc(x.league||'Competition')}</b><span>${esc(x.season||'')} · ${esc(x.place||'')}</span></div>`).join('')}</div></section>`:''}${sidelined.length?`<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>AVAILABILITY</span><h4>Sidelined history</h4></div></div><div class=\"career-list\">${sidelined.slice(0,8).map(x=>`<div class=\"career-row no-logo\"><b>${esc(x.type||'Unavailable')}</b><span>${esc(x.start||'')} → ${esc(x.end||'')}</span></div>`).join('')}</div></section>`:''}`;
+}
+function squadPlayerCard(p){
+  const href=entityHref('player',p.id);
+  return `<a class=\"squad-player entity-link\" href=\"${esc(href)}\" data-entity=\"player\" data-id=\"${esc(p.id)}\" data-name=\"${esc(p.name||'Player')}\">${p.photo?`<img src=\"${esc(p.photo)}\" alt=\"\" loading=\"lazy\">`:'<span class=\"squad-face\">P</span>'}<div><b>${esc(p.name||'Player')}</b><span>${p.number!=null?'#'+esc(p.number)+' · ':''}${esc(p.age?`${p.age} yrs`:'')}</span></div></a>`;
+}
+function clubHubHtml(id){
+  const club=hubData?.clubs?.[String(id)]||{},squad=hubData?.squads?.[String(id)]||[],team=club.team||{},venue=club.venue||{},coach=(club.coaches||[])[0]||{},stats=club.statistics||{};
+  const facts=[infoCell('Founded',team.founded),infoCell('Country',team.country||club.country),infoCell('Venue',venue.name),infoCell('City',venue.city),infoCell('Capacity',venue.capacity?nf(venue.capacity):''),infoCell('Surface',venue.surface),infoCell('Manager',coach.name),infoCell('Manager nationality',coach.nationality)].join('');
+  const fx=stats.fixtures||{},goals=stats.goals||{};
+  const statFacts=stats&&Object.keys(stats).length?[infoCell('Form',stats.form),infoCell('Played',fx.played?.total),infoCell('Wins',fx.wins?.total),infoCell('Draws',fx.draws?.total),infoCell('Losses',fx.loses?.total),infoCell('Goals for',goals.for?.total?.total),infoCell('Goals against',goals.against?.total?.total),infoCell('Clean sheets',stats.clean_sheet?.total)].join(''):'';
+  const groups=[['Goalkeeper','Goalkeepers'],['Defender','Defenders'],['Midfielder','Midfielders'],['Attacker','Attackers']];
+  const squadHtml=squad.length?groups.map(([pos,label])=>{const players=squad.filter(p=>p.position===pos);if(!players.length)return'';return `<div class=\"squad-group\"><div class=\"squad-group-title\"><b>${label}</b><span>${players.length}</span></div><div class=\"squad-grid\">${players.map(squadPlayerCard).join('')}</div></div>`}).join(''):`<div class=\"hub-note\">The current squad is still being refreshed from API-Football.</div>`;
+  return `${facts?`<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>CLUB DATA</span><h4>Club information</h4></div>${coach.photo?`<img class=\"coach-photo\" src=\"${esc(coach.photo)}\" alt=\"${esc(coach.name||'Manager')}\">`:''}</div><div class=\"hub-info-grid\">${facts}</div>${statFacts?`<div class=\"hub-subtitle\">Current season</div><div class=\"hub-info-grid\">${statFacts}</div>`:'<div class=\"hub-note\">Current-season club statistics are being enriched automatically.</div>'}</section>`:''}<section class=\"hub-section squad-section\"><div class=\"hub-section-head\"><div><span>CURRENT SQUAD</span><h4>First-team squad</h4></div><strong>${squad.length}</strong></div>${squadHtml}</section>`;
+}
+function watchlistManagerHtml(){
+  const items=watchItems();
+  if(!items.length)return `<section class=\"hub-section\"><div class=\"empty small\"><b>Your Watchlist is empty.</b>Open any club, player, league or nation and press Watch.</div></section>`;
+  return `<section class=\"hub-section\"><div class=\"hub-section-head\"><div><span>MANAGE WATCHLIST</span><h4>Saved items</h4></div><strong>${items.length}</strong></div><div class=\"watch-manage-grid\">${items.map(x=>`<div class=\"watch-manage-card\"><div class=\"watch-manage-ident\"><span>${x.type==='nation'?flagImg(x.id,'watch-flag'):x.logo?`<img src=\"${esc(x.logo)}\" alt=\"\">`:'★'}</span><div><b>${esc(x.label||x.id)}</b><small>${esc(x.type)}</small></div></div><button type=\"button\" class=\"watch-remove\" data-watch-key=\"${esc(watchKey(x.type,x.id))}\">Remove</button></div>`).join('')}</div></section>`;
+}
+function entityExtras(e){if(!e)return'';if(e.type==='club')return clubHubHtml(e.id);if(e.type==='player')return playerHubHtml(e.id);if(e.type==='hub'&&e.id==='watchlist')return watchlistManagerHtml();return''}
+
+function currentWatchId(){if(!currentEntity)return'';return currentEntity.type==='league'?`${currentEntity.country}|||${currentEntity.id}`:currentEntity.id}
+function renderDetailActions(){if(!currentEntity||currentEntity.type==='hub')return;const w=$('.detail-watch');if(w)w.textContent=watched(currentEntity.type,currentWatchId())?'★ Watching':'☆ Watch'}
+function detailRows(){if(!currentEntity||!db)return[];const e=currentEntity;if(e.type==='club')return db.filter(t=>String(t.from_id)===String(e.id)||String(t.to_id)===String(e.id));if(e.type==='player')return db.filter(t=>String(t.player_id)===String(e.id));if(e.type==='nation')return db.filter(t=>[t.country,t.from_country,t.to_country].includes(e.id));if(e.type==='league')return db.filter(t=>(t.country===e.country&&t.league===e.id)||(t.from_country===e.country&&t.from_league===e.id)||(t.to_country===e.country&&t.to_league===e.id));if(e.type==='hub')return hubRows(e.id,db);return[]}
+function clubMeta(id,rr){for(const t of rr){if(String(t.to_id)===String(id))return{id,name:t.to,logo:t.to_logo,country:t.to_country||t.country,league:t.to_league||t.league,league_id:t.to_league_id||leagueObj(t.to_country||t.country,t.to_league||t.league)?.id};if(String(t.from_id)===String(id))return{id,name:t.from,logo:t.from_logo,country:t.from_country||t.country,league:t.from_league||t.league,league_id:t.from_league_id||leagueObj(t.from_country||t.country,t.from_league||t.league)?.id}}return{id,name:currentEntity?.name||'Club'}}
+function topCounterparts(rr,id,direction){const counts={};for(const t of rr){let name='';if(direction==='in'&&String(t.to_id)===String(id))name=t.from;if(direction==='out'&&String(t.from_id)===String(id))name=t.to;if(name)counts[name]=(counts[name]||0)+1}return Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,3)}
+function entityHeader(rr){const e=currentEntity;let title='',eyebrow='',icon='',sub='',stats=[],insight='';if(e.type==='club'){const m=clubMeta(e.id,rr),inc=rr.filter(t=>String(t.to_id)===String(e.id)).length,out=rr.filter(t=>String(t.from_id)===String(e.id)).length,loans=rr.filter(t=>kind(t)==='loan').length,free=rr.filter(t=>kind(t)==='free').length;title=m.name;eyebrow='Club Hub';icon=m.logo?`<img class="detail-logo" src="${esc(m.logo)}" alt="${esc(title)} crest">`:'<div class="detail-fallback">FC</div>';sub=`${flagImg(m.country,'detail-mini-flag')}<span>${esc(m.country||'')}</span>${m.league?`<span class="dot">•</span>${leagueLogo(m.league_id)?`<img class="detail-mini-league" src="${leagueLogo(m.league_id)}" alt="">`:''}<span>${esc(m.league)}</span>`:''}`;stats=[[rr.length,'Transfers'],[inc,'Incoming'],[out,'Outgoing'],[loans,'Loans'],[free,'Free']];const ti=topCounterparts(rr,e.id,'in')[0],to=topCounterparts(rr,e.id,'out')[0];insight=[ti?`Most common source: ${ti[0]} (${ti[1]})`:'',to?`Top destination: ${to[0]} (${to[1]})`:''].filter(Boolean).join(' · ')}else if(e.type==='player'){
+const t=[...rr].sort((a,b)=>(b.date||'').localeCompare(a.date||''))[0]||{},hp=findHubPlayer(e.id)||{},pAge=age(t)??hp.age??null,pPos=t.position||hp.position||'',pPhoto=t.player_photo||hp.photo||'',club=hubData?.clubs?.[String(hp.team_id)]||{},currentClub=(kind(t)==='free'&&t.to_free_agent)?'Free agent':(club.name||club.team?.name||'');
+title=e.name||hp.name||(rr.length?displayPlayer(t):'Player');eyebrow='Player Hub';icon=pPhoto?`<img class="detail-logo player-photo" src="${esc(pPhoto)}" alt="${esc(title)}">`:'<div class="detail-fallback">P</div>';sub=`${pPos?`<span>${esc(pPos)}</span>`:''}${pAge!==null?`<span class="dot">•</span><span>${esc(pAge)} years old</span>`:''}`;stats=[[rr.length,'Transfer records'],[pAge??'—','Age'],[pPos||'—','Position'],[t.to||currentClub||'—','Current / latest club']];insight=t.date?`Latest tracked move: ${t.from} → ${t.to} on ${t.date}`:(currentClub?`Current squad: ${currentClub}`:'')
+}else if(e.type==='league'){const o=leagueObj(e.country,e.id),logo=leagueLogo(o?.id),clubs=new Set(rr.flatMap(t=>[t.from_id,t.to_id]).filter(Boolean));title=e.id;eyebrow='League Transfer Centre';icon=logo?`<img class="detail-logo" src="${logo}" alt="${esc(title)} logo">`:'<div class="detail-fallback">L</div>';sub=`${flagImg(e.country,'detail-mini-flag')}<span>${esc(e.country)}</span>`;stats=[[rr.length,'Transfers'],[clubs.size,'Clubs involved'],[rr.filter(t=>kind(t)==='loan').length,'Loans'],[rr.filter(t=>kind(t)==='free').length,'Free'],[rr.filter(t=>age(t)!==null&&age(t)<=21).length,'U21']]}else{const clubs=new Set(rr.flatMap(t=>[t.from_id,t.to_id]).filter(Boolean)),leagues=new Set(rr.flatMap(t=>[[t.country,t.league],[t.from_country,t.from_league],[t.to_country,t.to_league]]).filter(x=>x[0]===e.id&&x[1]).map(x=>x[1]));title=e.id;eyebrow='Nation Transfer Centre';icon=flagImg(e.id,'detail-flag',true);sub=`<span>${nf(leagues.size)} tracked league${leagues.size===1?'':'s'}</span>`;stats=[[rr.length,'Transfers'],[clubs.size,'Clubs involved'],[rr.filter(t=>kind(t)==='loan').length,'Loans'],[rr.filter(t=>kind(t)==='free').length,'Free'],[rr.filter(t=>age(t)!==null&&age(t)<=21).length,'U21']]}return `<div class="detail-card"><div class="breadcrumb"><button type="button" class="detail-back">Transfer Centre</button><span>/</span><span>${esc(eyebrow.replace(' Transfer Centre',''))}</span></div><div class="detail-main"><div class="detail-ident">${icon}<div><span class="detail-eyebrow">${esc(eyebrow)}</span><h3>${esc(title)}</h3><div class="detail-sub">${sub}</div></div></div><div class="detail-actions"><button type="button" class="detail-watch">☆ Watch</button><button type="button" class="detail-copy">Copy link</button><button type="button" class="detail-share">Share</button></div></div><div class="detail-stats">${stats.map(([v,l])=>`<div><b>${esc(v)}</b><span>${l}</span></div>`).join('')}</div>${insight?`<div class="detail-insight">${esc(insight)}</div>`:''}${entityTabs(e)}</div>`}
+function entityTabs(e){if(e.type==='club')return `<div class="entity-tabs">${[['all','All'],['incoming','Incoming'],['outgoing','Outgoing'],['loans','Loans'],['free','Free']].map(([v,l])=>`<button type="button" data-entity-tab="${v}" class="${state.entityTab===v?'on':''}">${l}</button>`).join('')}</div>`;return''}
+function entityFilteredRows(){let rr=detailRows();if(currentEntity?.type==='club'){if(state.entityTab==='incoming')rr=rr.filter(t=>String(t.to_id)===String(currentEntity.id));if(state.entityTab==='outgoing')rr=rr.filter(t=>String(t.from_id)===String(currentEntity.id));if(state.entityTab==='loans')rr=rr.filter(t=>kind(t)==='loan');if(state.entityTab==='free')rr=rr.filter(t=>kind(t)==='free')}rr.sort((a,b)=>(b.date||'').localeCompare(a.date||''));return rr}
+function renderEntityRows(){const rr=entityFilteredRows(),shown=rr.slice(0,state.limit),detail=$('.detail-view');if(detail){const header=currentEntity?.type==='hub'?hubHeader(currentEntity.id,detailRows()):entityHeader(detailRows());detail.innerHTML=header+entityExtras(currentEntity);detail.classList.add('show');detail.style.setProperty('display','block','important');detail.removeAttribute('hidden')}root()?.classList.add('entity-active');$('.count').textContent=nf(rr.length);$('.rows').innerHTML=shown.length?shown.map(rowHtml).join(''):'<div class="empty"><b>No transfers found.</b></div>';const load=$('.load'),btn=$('.loadmore');if(load)load.hidden=rr.length<=state.limit;if(btn)btn.textContent=rr.length>state.limit?`Load ${Math.min(50,rr.length-state.limit)} more transfers`:'All transfers loaded';renderDetailActions();requestFrameResize()}
+async function openEntity(e,push=true,fallbackHref=''){
+  currentEntity=e;state.entityTab='all';state.limit=50;root()?.classList.add('entity-active');
+  if(e.type==='nation'){state.nation=e.id;state.league='';rebuildLeague();syncDropdowns()}
+  if(e.type==='league'){state.nation=e.country||'';state.league=e.country?`${e.country}|||${e.id}`:'';rebuildLeague();syncDropdowns()}
+  const detail=$('.detail-view');
+  if(detail){
+    detail.id='fmbtc-detail';
+    detail.innerHTML=`<div class="detail-card detail-loading"><div class="breadcrumb"><span>Transfer Centre</span><span>/</span><span>Loading</span></div><div class="detail-main"><div class="detail-ident"><div class="detail-fallback">…</div><div><span class="detail-eyebrow">Loading full profile</span><h3>${esc(e.name||e.id||'Transfer profile')}</h3><div class="detail-sub"><span>Loading the full transfer database…</span></div></div></div></div></div>`;
+    detail.classList.add('show');
+    scrollTo(detail);
+  }
+  try{
+    await loadFull();
+    if(e.type==='club'||e.type==='player'){try{await loadHub()}catch(hubErr){console.warn('FM Blog hub data unavailable:',hubErr)}}
+    renderEntityRows();
+    if(push)writeUrl(e,null,true);
+    scrollTo($('.detail-view'));
+    return true;
+  }catch(err){
+    console.error('FM Blog entity navigation failed:',err);
+    if(fallbackHref && fallbackHref!==location.href){location.assign(fallbackHref);return false}
+    if(detail)detail.innerHTML='<div class="detail-card"><div class="empty"><b>Profile could not be loaded.</b>Please refresh the page and try again.</div></div>';
+    return false;
+  }
+}
+function leaveEntityView(){currentEntity=null;root()?.classList.remove('entity-active');const d=$('.detail-view');if(d){d.classList.remove('show');d.style.removeProperty('display');d.removeAttribute('hidden');d.innerHTML=''}state.entityTab='all';requestFrameResize()}
+function closeEntity(push=true){const wasHub=currentEntity?.type==='hub';leaveEntityView();if(wasHub){state.mode='latest';state.q='';state.nation='';state.league='';state.type='';$('.q').value='';rebuildLeague();syncDropdowns()}if(push)writeUrl(null,state.mode,true);render();scrollTo($('.workspace'))}
+function watchlistSummary(){const items=watchItems(),box=$('.watchlist-summary');if(!box)return;if(state.mode!=='watchlist'){box.classList.remove('show');return}box.innerHTML=items.length?`<div class="watchlist-head"><div><span class="mode-kicker">SAVED</span><b>My Watchlist</b><small>${items.length} saved item${items.length===1?'':'s'}</small></div></div><div class="watch-chips">${items.map(x=>`<button class="watch-chip" data-watch-key="${esc(watchKey(x.type,x.id))}"><span>${x.type==='nation'?flagImg(x.id,'watch-flag'):x.logo?`<img src="${esc(x.logo)}" alt="">`:'★'}</span>${esc(x.label)} <i>×</i></button>`).join('')}</div>`:`<div class="empty small"><b>Your Watchlist is empty.</b>Open a club, player, league or nation and press “Watch”.</div>`;box.classList.add('show')}
+async function openHub(mode,push=true){
+  if(!HUBS[mode])return setMode(mode,push);
+  leaveEntityView();
+  state.q='';state.nation='';state.league='';state.type='';state.mode=mode;state.limit=50;
+  $('.q').value='';rebuildLeague();syncDropdowns();
+  return openEntity({type:'hub',id:mode,name:HUBS[mode].title},push,hubHref(mode));
+}
+function setMode(mode,push=true){leaveEntityView();state.mode=mode;state.limit=50;if(['radar','u21','u23','freeu23','balkan','southamerica','mls','watchlist','new','last24','free','loan'].includes(mode))loadFull().then(()=>{render();watchlistSummary();scrollTo($('.workspace'))});else{render();watchlistSummary();scrollTo($('.workspace'))}if(push)writeUrl(null,mode,true)}
+function clearAll(){leaveEntityView();state={q:'',nation:'',league:'',type:'',mode:'latest',limit:50,entityTab:'all'};$('.q').value='';rebuildLeague();syncDropdowns();render();watchlistSummary();writeUrl(null,'latest',true);scrollTo($('.workspace'))}
+function bind(){root().addEventListener('click',async e=>{const dd=e.target.closest('.dd-button');if(dd){const box=dd.closest('.dd');$$('.dd.open').forEach(x=>{if(x!==box)x.classList.remove('open')});box.classList.toggle('open');return}const item=e.target.closest('.dd-item');if(item){
+  const box=item.closest('.dd'),v=item.dataset.value||'';
+  box.classList.remove('open');state.limit=50;
+  if(box.classList.contains('dd-type')){
+    leaveEntityView();state.type=v;syncDropdowns();writeUrl(null,state.mode,true);await loadFull();render();scrollTo($('.workspace'));return;
+  }
+  if(box.classList.contains('dd-nation')){
+    leaveEntityView();state.nation=v;state.league='';rebuildLeague();syncDropdowns();await loadFull();
+    if(v){await openEntity({type:'nation',id:v},true,entityHref('nation',v));}
+    else{writeUrl(null,state.mode,true);render();scrollTo($('.workspace'));}
+    return;
+  }
+  if(box.classList.contains('dd-league')){
+    leaveEntityView();state.league=v;
+    if(v){const parts=v.split('|||'),c=parts[0],l=parts.slice(1).join('|||');state.nation=c;rebuildLeague();syncDropdowns();await loadFull();await openEntity({type:'league',id:l,country:c},true,entityHref('league',l,c));}
+    else{syncDropdowns();await loadFull();if(state.nation){await openEntity({type:'nation',id:state.nation},true,entityHref('nation',state.nation));}else{writeUrl(null,state.mode,true);render();scrollTo($('.workspace'));}}
+    return;
+  }
+}const quick=e.target.closest('.quickbtn');if(quick){
+  leaveEntityView();const c=quick.dataset.country,l=quick.dataset.league;state.nation=c;state.league=`${c}|||${l}`;state.limit=50;rebuildLeague();syncDropdowns();await loadFull();await openEntity({type:'league',id:l,country:c},true,entityHref('league',l,c));return;
+}const explore=e.target.closest('.explorebtn');if(explore){await openHub(explore.dataset.mode,true);return}const mode=e.target.closest('[data-mode]');if(mode){setMode(mode.dataset.mode);return}const ent=e.target.closest('[data-entity]');if(ent){const type=ent.dataset.entity,id=ent.dataset.id;if(!id)return;const href=ent.getAttribute('href')||entityHref(type,id,ent.dataset.country||'');e.preventDefault();if(type==='club')await openEntity({type,id,name:ent.dataset.name||''},true,href);if(type==='player')await openEntity({type,id,name:ent.dataset.name||''},true,href);if(type==='nation')await openEntity({type,id},true,href);if(type==='league')await openEntity({type,id,country:ent.dataset.country},true,href);return}if(e.target.closest('.detail-back')){closeEntity();return}if(e.target.closest('.detail-watch')){if(currentEntity){let meta={type:currentEntity.type,id:currentEntity.id,label:currentEntity.name||currentEntity.id};const rr=detailRows();if(currentEntity.type==='club'){const m=clubMeta(currentEntity.id,rr);meta.label=m.name;meta.logo=m.logo}if(currentEntity.type==='player'){const t=rr[0]||{},hp=findHubPlayer(currentEntity.id)||{};meta.label=(rr.length?displayPlayer(t):'')||hp.name||meta.label;meta.logo=t.player_photo||hp.photo}if(currentEntity.type==='league'){meta.label=currentEntity.id;meta.logo=leagueLogo(leagueObj(currentEntity.country,currentEntity.id)?.id);meta.id=currentEntity.country+'|||'+currentEntity.id}toggleWatch(meta)}return}if(e.target.closest('.detail-copy')){copyText(pageUrl().toString()).then(()=>toast('Link copied'));return}if(e.target.closest('.detail-share')){if(navigator.share){navigator.share({title:document.title,url:pageUrl().toString()}).catch(()=>{})}else copyText(pageUrl().toString()).then(()=>toast('Link copied'));return}const et=e.target.closest('[data-entity-tab]');if(et){state.entityTab=et.dataset.entityTab;renderEntityRows();return}const wr=e.target.closest('.watch-remove');if(wr){delete watch[wr.dataset.watchKey];saveWatch();if(currentEntity?.type==='hub'&&currentEntity.id==='watchlist')renderEntityRows();else{watchlistSummary();render()}toast('Removed from Watchlist');return}const wc=e.target.closest('.watch-chip');if(wc){delete watch[wc.dataset.watchKey];saveWatch();watchlistSummary();render();toast('Removed from Watchlist');return}if(e.target.closest('.watch-btn')){await openHub('watchlist',true);return}if(e.target.closest('.show-new')){setMode('new');return}if(e.target.closest('.clear')){clearAll();return}if(e.target.closest('.filter-toggle')){root().classList.toggle('filters-open');return}const load=e.target.closest('.loadmore');if(load){load.disabled=true;load.textContent='Loading…';try{if(!db)await loadFull();state.limit+=50;render()}finally{load.disabled=false}return}if(!e.target.closest('.dd'))$$('.dd.open').forEach(x=>x.classList.remove('open'))});let st;$('.q').addEventListener('input',()=>{clearTimeout(st);if(currentEntity){const wasHub=currentEntity.type==='hub';leaveEntityView();if(wasHub)state.mode='latest';writeUrl(null,state.mode,false)}state.q=$('.q').value;state.limit=50;st=setTimeout(async()=>{if(state.q.trim())await loadFull();render()},180)});window.addEventListener('popstate',()=>openFromUrl(false));try{if(window.parent&&window.parent!==window)window.parent.addEventListener('popstate',()=>openFromUrl(false))}catch(e){}}
+function openFromUrl(push=false){let u;try{u=pageUrl()}catch(e){return}const club=u.searchParams.get('club'),player=u.searchParams.get('player'),league=u.searchParams.get('league'),nation=u.searchParams.get('nation'),hub=u.searchParams.get('hub'),view=u.searchParams.get('view');if(club)return openEntity({type:'club',id:club},push);if(player)return openEntity({type:'player',id:player},push);if(league&&nation)return openEntity({type:'league',id:league,country:nation},push);if(nation)return openEntity({type:'nation',id:nation},push);if(hub)return openHub(hub,push);setMode(view||'latest',false)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{boot();watchBlogger()},{once:true});else{boot();watchBlogger()}
+})();
