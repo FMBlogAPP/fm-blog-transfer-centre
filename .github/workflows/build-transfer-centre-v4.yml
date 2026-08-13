@@ -1,0 +1,34 @@
+name: Build Transfer Centre V4
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/build_iframe_v4.py"
+      - ".github/workflows/build-transfer-centre-v4.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build isolated app
+        run: python scripts/build_iframe_v4.py
+      - name: Commit app
+        run: |
+          git config user.name "fm-blog-transfer-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add transfer-centre-app-v4.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "build: isolated Transfer Centre V4 app"
+            git pull --rebase origin main
+            git push
+          fi
