@@ -7,6 +7,7 @@ on:
       - "scripts/enrich_transfer_feed.py"
       - "scripts/enrich_players.py"
       - "scripts/enrich_player_names.py"
+      - "scripts/enrich_hub_details.py"
       - ".github/workflows/update-transfers.yml"
   schedule:
     - cron: "17 */4 * * *"
@@ -55,10 +56,19 @@ jobs:
           PLAYER_NAME_MAX_CALLS: "250"
         run: python scripts/enrich_player_names.py
 
+      - name: Enrich player and club hubs
+        if: github.event_name != 'push'
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          HUB_MAX_CALLS: "240"
+          HUB_MAX_PLAYERS: "40"
+          HUB_MAX_CLUBS: "20"
+        run: python scripts/enrich_hub_details.py
+
       - name: Remove duplicate transfer records
         run: python scripts/cleanup_duplicates.py
 
-      - name: Build product feed
+      - name: Build product feed and hub cache
         run: python scripts/enrich_transfer_feed.py
 
       - name: Commit changed data
