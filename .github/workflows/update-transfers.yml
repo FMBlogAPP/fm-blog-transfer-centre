@@ -37,7 +37,6 @@ jobs:
         run: python scripts/update_transfers.py
 
       - name: Refresh player profiles
-        if: github.event_name != 'push'
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: python scripts/enrich_players.py
