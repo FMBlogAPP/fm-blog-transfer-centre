@@ -1,0 +1,68 @@
+<!-- FM BLOG TRANSFER CENTRE V4.4 - BLOGGER SAFE ISOLATED EMBED -->
+<!-- COPY THIS ENTIRE FILE INTO THE BLOGGER PAGE HTML. NO [full_width]. -->
+<div id="fmbtc-frame-wrap" style="display:block;width:100%;max-width:100%;margin:0;padding:0;overflow:visible;">
+  <iframe
+    id="fmbtc-frame"
+    title="FM Blog Transfer Centre"
+    loading="eager"
+    scrolling="no"
+    style="display:block;width:100%;height:900px;margin:0;padding:0;border:0;background:#080a0f;overflow:hidden;"
+  ></iframe>
+</div>
+<script>
+(function(){
+  var frame=document.getElementById('fmbtc-frame');
+  if(!frame)return;
+
+  frame.srcdoc='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;background:#080a0f;color:#9aa8be;font-family:Arial,sans-serif}div{padding:40px;text-align:center;font-weight:700}</style></head><body><div>Loading FM Blog Transfer Centre V4.4…</div></body></html>';
+
+  function resizeFrame(){
+    try{
+      var doc=frame.contentDocument;
+      if(!doc)return;
+      var body=doc.body;
+      var html=doc.documentElement;
+      var h=Math.max(
+        body?body.scrollHeight:0,
+        body?body.offsetHeight:0,
+        html?html.scrollHeight:0,
+        html?html.offsetHeight:0
+      );
+      if(h>0)frame.style.height=Math.max(700,Math.min(h+12,30000))+'px';
+    }catch(e){}
+  }
+
+  frame.addEventListener('load',function(){
+    resizeFrame();
+    try{
+      var doc=frame.contentDocument;
+      if(!doc)return;
+      if(window.ResizeObserver){
+        var ro=new ResizeObserver(resizeFrame);
+        if(doc.documentElement)ro.observe(doc.documentElement);
+        if(doc.body)ro.observe(doc.body);
+        frame._fmbtcResizeObserver=ro;
+      }
+      if(window.MutationObserver&&doc.body){
+        var mo=new MutationObserver(function(){setTimeout(resizeFrame,20)});
+        mo.observe(doc.body,{childList:true,subtree:true,attributes:true});
+        frame._fmbtcMutationObserver=mo;
+      }
+      setTimeout(resizeFrame,250);
+      setTimeout(resizeFrame,1000);
+      setTimeout(resizeFrame,3000);
+    }catch(e){}
+  });
+
+  var appUrl='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/transfer-centre-app-v4.html?v=20260813-v4-4';
+  fetch(appUrl,{cache:'no-store'})
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
+    .then(function(html){
+      frame.srcdoc=html;
+    })
+    .catch(function(err){
+      console.error('FM Blog Transfer Centre failed to load:',err);
+      frame.srcdoc='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;background:#080a0f;color:#fff;font-family:Arial,sans-serif}.x{padding:36px;text-align:center}.x b{display:block;margin-bottom:8px}.x span{color:#9aa8be}</style></head><body><div class="x"><b>Transfer Centre could not be loaded.</b><span>Please refresh the page.</span></div></body></html>';
+    });
+})();
+</script>
