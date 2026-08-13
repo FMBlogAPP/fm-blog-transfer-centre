@@ -1,0 +1,49 @@
+name: Bootstrap Current Squads
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/bootstrap-current-squads.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: transfer-updater
+  cancel-in-progress: false
+
+jobs:
+  squads:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Sync latest main
+        run: git pull --ff-only origin main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh current squads
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python scripts/enrich_players.py
+      - name: Rebuild hub cache
+        run: |
+          python scripts/enrich_transfer_feed.py
+          python scripts/merge_current_squads.py
+      - name: Commit current squad snapshots
+        run: |
+          git config user.name "fm-blog-transfer-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No squad data changes."
+          else
+            git commit -m "chore: bootstrap current squad snapshots"
+            git fetch origin main
+            git rebase origin/main
+            git push
+          fi
