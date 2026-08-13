@@ -8,6 +8,7 @@ on:
       - "scripts/enrich_players.py"
       - "scripts/enrich_player_names.py"
       - "scripts/enrich_hub_details.py"
+      - "scripts/merge_current_squads.py"
       - ".github/workflows/update-transfers.yml"
   schedule:
     - cron: "17 */4 * * *"
@@ -43,7 +44,7 @@ jobs:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: python scripts/update_transfers.py
 
-      - name: Refresh player profiles
+      - name: Refresh player profiles and squad snapshots
         if: github.event_name != 'push'
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
@@ -70,6 +71,9 @@ jobs:
 
       - name: Build product feed and hub cache
         run: python scripts/enrich_transfer_feed.py
+
+      - name: Merge authoritative current squads
+        run: python scripts/merge_current_squads.py
 
       - name: Commit changed data
         run: |
