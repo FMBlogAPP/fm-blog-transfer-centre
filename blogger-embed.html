@@ -1,3 +1,5 @@
+<!-- FM BLOG TRANSFER CENTRE V4.4 - BLOGGER SAFE ISOLATED EMBED -->
+<!-- COPY THIS ENTIRE FILE INTO THE BLOGGER PAGE HTML. NO [full_width]. -->
 <div id="fmbtc-frame-wrap" style="display:block;width:100%;max-width:100%;margin:0;padding:0;overflow:visible;">
   <iframe
     id="fmbtc-frame"
@@ -12,7 +14,7 @@
   var frame=document.getElementById('fmbtc-frame');
   if(!frame)return;
 
-  frame.srcdoc='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;background:#080a0f;color:#9aa8be;font-family:Arial,sans-serif}div{padding:40px;text-align:center;font-weight:700}</style></head><body><div>Loading FM Blog Transfer Centre…</div></body></html>';
+  frame.srcdoc='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;background:#080a0f;color:#9aa8be;font-family:Arial,sans-serif}div{padding:40px;text-align:center;font-weight:700}</style></head><body><div>Loading FM Blog Transfer Centre V4.4…</div></body></html>';
 
   function resizeFrame(){
     try{
@@ -52,21 +54,10 @@
     }catch(e){}
   });
 
-  var appUrl='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/transfer-centre-app-v4.html?v=20260813-v4-3';
+  var appUrl='https://raw.githubusercontent.com/FMBlogAPP/fm-blog-transfer-centre/main/transfer-centre-app-v4.html?v=20260813-v4-4';
   fetch(appUrl,{cache:'no-store'})
     .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
     .then(function(html){
-      var bridge='';
-      bridge+='<scr'+'ipt>';
-      bridge+='(function(){';
-      bridge+='var ownScroll=window.scrollTo.bind(window);';
-      bridge+='window.scrollTo=function(a,b){try{';
-      bridge+='var f=parent.document.getElementById("fmbtc-frame");';
-      bridge+='if(f&&parent!==window){var top=(typeof a==="object"?Number(a.top||0):Number(b||0));var behavior=(typeof a==="object"&&a.behavior)?a.behavior:"smooth";var r=f.getBoundingClientRect();parent.window.scrollTo({top:Math.max(0,parent.window.scrollY+r.top+top),behavior:behavior});return;}';
-      bridge+='}catch(e){}return ownScroll(a,b);};';
-      bridge+='})();';
-      bridge+='</scr'+'ipt>';
-      html=html.replace('</head>',bridge+'</head>');
       frame.srcdoc=html;
     })
     .catch(function(err){
