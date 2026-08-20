@@ -8497,10 +8497,20 @@
         "end": null
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "286075": {
     "career": [
+      {
+        "team": {
+          "id": 656,
+          "name": "Slovan Bratislava",
+          "logo": "https://media.api-sports.io/football/teams/656.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 1492,
@@ -8562,7 +8572,100 @@
         "end": "2023-03-06"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 286075,
+      "name": "Suleiman Camara",
+      "firstname": "Suleiman",
+      "lastname": "Camara Sanneh",
+      "age": 24,
+      "birth": {
+        "date": "2001-12-07",
+        "place": "Sant Celoni",
+        "country": "Spain"
+      },
+      "nationality": "Spain",
+      "height": "179",
+      "weight": "71",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/286075.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 656,
+          "name": "Slovan Bratislava",
+          "logo": "https://media.api-sports.io/football/teams/656.png"
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 3,
+          "lineups": 2,
+          "minutes": 70,
+          "number": 21,
+          "position": "Attacker",
+          "rating": "6.9",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 2,
+          "bench": 1
+        },
+        "shots": {
+          "total": 1,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 7,
+          "key": null,
+          "accuracy": 85
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 11,
+          "won": 7
+        },
+        "dribbles": {
+          "attempts": 5,
+          "success": 5,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": 1
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "269349": {
     "profile": {
@@ -8570,7 +8673,7 @@
       "name": "L. Horníček",
       "firstname": "Lukáš",
       "lastname": "Horníček",
-      "age": 23,
+      "age": 24,
       "birth": {
         "date": "2002-07-13",
         "place": "Vysoké Mýto",
@@ -8656,6 +8759,154 @@
           "missed": 0,
           "saved": null
         }
+      },
+      {
+        "team": {
+          "id": 217,
+          "name": "SC Braga",
+          "logo": "https://media.api-sports.io/football/teams/217.png"
+        },
+        "league": {
+          "id": 848,
+          "name": "UEFA Europa Conference League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/848.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": null,
+          "minutes": null,
+          "number": null,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": null,
+          "out": null,
+          "bench": null
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": null,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": null,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": null,
+          "missed": null,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 770,
+          "name": "Czechia",
+          "logo": "https://media.api-sports.io/football/teams/770.png"
+        },
+        "league": {
+          "id": 10,
+          "name": "Friendlies",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/10.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": null,
+          "minutes": null,
+          "number": null,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": null,
+          "out": null,
+          "bench": null
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": null,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": null,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": null,
+          "missed": null,
+          "saved": null
+        }
       }
     ],
     "career": [
@@ -8672,22 +8923,12 @@
       },
       {
         "team": {
-          "id": 8188,
-          "name": "Czechia U21",
-          "logo": "https://media.api-sports.io/football/teams/8188.png"
-        },
-        "seasons": [
-          2025,
-          2023
-        ]
-      },
-      {
-        "team": {
           "id": 217,
           "name": "SC Braga",
           "logo": "https://media.api-sports.io/football/teams/217.png"
         },
         "seasons": [
+          2026,
           2025,
           2024,
           2023,
@@ -8698,11 +8939,44 @@
       },
       {
         "team": {
+          "id": 8188,
+          "name": "Czechia U21",
+          "logo": "https://media.api-sports.io/football/teams/8188.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
           "id": 246,
           "name": "SC Braga B",
           "logo": "https://media.api-sports.io/football/teams/246.png"
         },
         "seasons": []
+      },
+      {
+        "team": {
+          "id": 18047,
+          "name": "Czechia U20",
+          "logo": "https://media.api-sports.io/football/teams/18047.png"
+        },
+        "seasons": [
+          2022,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 21465,
+          "name": "Czechia U18",
+          "logo": "https://media.api-sports.io/football/teams/21465.png"
+        },
+        "seasons": [
+          2019
+        ]
       },
       {
         "team": {
@@ -8766,7 +9040,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "237141": {
     "profile": {
@@ -8930,7 +9204,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "2364": {
     "career": [
@@ -9131,7 +9405,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "224658": {
     "profile": {
@@ -9269,7 +9543,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "213979": {
     "profile": {
@@ -9426,7 +9700,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "193617": {
     "career": [
@@ -9477,7 +9751,7 @@
         "end": "2024-09-13"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "1754": {
     "profile": {
@@ -9571,9 +9845,93 @@
           "missed": 0,
           "saved": null
         }
+      },
+      {
+        "team": {
+          "id": 72,
+          "name": "QPR",
+          "logo": "https://media.api-sports.io/football/teams/72.png"
+        },
+        "league": {
+          "id": 40,
+          "name": "Championship",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/40.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 32,
+          "number": 18,
+          "position": "Midfielder",
+          "rating": "7.3",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": 1,
+          "on": 1
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 26,
+          "key": null,
+          "accuracy": 88
+        },
+        "tackles": {
+          "total": 1,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 5,
+          "won": 4
+        },
+        "dribbles": {
+          "attempts": 1,
+          "success": 1,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
       }
     ],
     "career": [
+      {
+        "team": {
+          "id": 72,
+          "name": "QPR",
+          "logo": "https://media.api-sports.io/football/teams/72.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 1099,
@@ -9660,9 +10018,9 @@
       },
       {
         "team": {
-          "id": 1361,
-          "name": "Colchester",
-          "logo": "https://media.api-sports.io/football/teams/1361.png"
+          "id": 15631,
+          "name": "Arsenal U23",
+          "logo": "https://media.api-sports.io/football/teams/15631.png"
         },
         "seasons": [
           2016
@@ -9670,11 +10028,21 @@
       },
       {
         "team": {
-          "id": 15631,
-          "name": "Arsenal U23",
-          "logo": "https://media.api-sports.io/football/teams/15631.png"
+          "id": 1361,
+          "name": "Colchester",
+          "logo": "https://media.api-sports.io/football/teams/1361.png"
         },
         "seasons": []
+      },
+      {
+        "team": {
+          "id": 1341,
+          "name": "Southend",
+          "logo": "https://media.api-sports.io/football/teams/1341.png"
+        },
+        "seasons": [
+          2015
+        ]
       },
       {
         "team": {
@@ -9683,17 +10051,8 @@
           "logo": "https://media.api-sports.io/football/teams/22371.png"
         },
         "seasons": [
-          2015,
           2013
         ]
-      },
-      {
-        "team": {
-          "id": 1341,
-          "name": "Southend",
-          "logo": "https://media.api-sports.io/football/teams/1341.png"
-        },
-        "seasons": []
       },
       {
         "team": {
@@ -9916,10 +10275,20 @@
         "end": "2021-11-02"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "162594": {
     "career": [
+      {
+        "team": {
+          "id": 6343,
+          "name": "Çorum FK",
+          "logo": "https://media.api-sports.io/football/teams/6343.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 8216,
@@ -9964,12 +10333,32 @@
       },
       {
         "team": {
+          "id": 15464,
+          "name": "Famalicão U23",
+          "logo": "https://media.api-sports.io/football/teams/15464.png"
+        },
+        "seasons": [
+          2020
+        ]
+      },
+      {
+        "team": {
           "id": 7888,
           "name": "Benfica U19",
           "logo": "https://media.api-sports.io/football/teams/7888.png"
         },
         "seasons": [
           2019,
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 19073,
+          "name": "Portugal U18",
+          "logo": "https://media.api-sports.io/football/teams/19073.png"
+        },
+        "seasons": [
           2018
         ]
       }
@@ -10017,7 +10406,100 @@
         "end": "2021-10-01"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 162594,
+      "name": "Alexandre Penetra",
+      "firstname": "Alexandre Manuel",
+      "lastname": "Penetra Correia",
+      "age": 24,
+      "birth": {
+        "date": "2001-09-09",
+        "place": "Sátão",
+        "country": "Portugal"
+      },
+      "nationality": "Portugal",
+      "height": "186",
+      "weight": "73",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/162594.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 6343,
+          "name": "Çorum FK",
+          "logo": "https://media.api-sports.io/football/teams/6343.png"
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 1,
+          "minutes": 90,
+          "number": 5,
+          "position": "Defender",
+          "rating": "6.5",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 0
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 18,
+          "key": null,
+          "accuracy": 77
+        },
+        "tackles": {
+          "total": null,
+          "blocks": 2,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 5,
+          "won": 1
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": 1
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "129125": {
     "profile": {
@@ -10053,18 +10535,18 @@
           "season": 2026
         },
         "games": {
-          "appearences": 1,
+          "appearences": 2,
           "lineups": 0,
-          "minutes": 17,
+          "minutes": 62,
           "number": 4,
           "position": "Defender",
-          "rating": "7.3",
+          "rating": "6.95",
           "captain": false
         },
         "substitutes": {
-          "in": 1,
+          "in": 2,
           "out": 0,
-          "bench": 1
+          "bench": 2
         },
         "shots": {
           "total": null,
@@ -10077,18 +10559,18 @@
           "saves": null
         },
         "passes": {
-          "total": 6,
+          "total": 27,
           "key": null,
-          "accuracy": 100
+          "accuracy": 85
         },
         "tackles": {
           "total": null,
           "blocks": 2,
-          "interceptions": 1
+          "interceptions": 2
         },
         "duels": {
-          "total": 3,
-          "won": null
+          "total": 10,
+          "won": 4
         },
         "dribbles": {
           "attempts": 1,
@@ -10208,10 +10690,20 @@
         "end": "2024-04-06"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "1139": {
     "career": [
+      {
+        "team": {
+          "id": 533,
+          "name": "Villarreal",
+          "logo": "https://media.api-sports.io/football/teams/533.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 173,
@@ -10509,10 +11001,113 @@
         "end": "2019-12-06"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 1139,
+      "name": "P. Gulácsi",
+      "firstname": "Péter",
+      "lastname": "Gulácsi",
+      "age": 35,
+      "birth": {
+        "date": "1990-05-06",
+        "place": "Budapest",
+        "country": "Hungary"
+      },
+      "nationality": "Hungary",
+      "height": "191",
+      "weight": "86",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/1139.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 533,
+          "name": "Villarreal",
+          "logo": "https://media.api-sports.io/football/teams/533.png"
+        },
+        "league": {
+          "id": 140,
+          "name": "La Liga",
+          "country": "Spain",
+          "logo": "https://media.api-sports.io/football/leagues/140.png",
+          "flag": "https://media.api-sports.io/flags/es.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 25,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "7147": {
     "career": [
+      {
+        "team": {
+          "id": 80,
+          "name": "Lyon",
+          "logo": "https://media.api-sports.io/football/teams/80.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 230,
@@ -10557,6 +11152,17 @@
       },
       {
         "team": {
+          "id": 10326,
+          "name": "Austria U19",
+          "logo": "https://media.api-sports.io/football/teams/10326.png"
+        },
+        "seasons": [
+          2019,
+          2018
+        ]
+      },
+      {
+        "team": {
           "id": 1073,
           "name": "Wacker Innsbruck",
           "logo": "https://media.api-sports.io/football/teams/1073.png"
@@ -10565,19 +11171,19 @@
       },
       {
         "team": {
-          "id": 10326,
-          "name": "Austria U19",
-          "logo": "https://media.api-sports.io/football/teams/10326.png"
+          "id": 2861,
+          "name": "Wacker Innsbruck (Am)",
+          "logo": "https://media.api-sports.io/football/teams/2861.png"
         },
         "seasons": [
-          2019
+          2018
         ]
       },
       {
         "team": {
-          "id": 2861,
-          "name": "Wacker Innsbruck (Am)",
-          "logo": "https://media.api-sports.io/football/teams/2861.png"
+          "id": 21460,
+          "name": "Austria U18",
+          "logo": "https://media.api-sports.io/football/teams/21460.png"
         },
         "seasons": [
           2018
@@ -10625,19 +11231,112 @@
         "end": "2024-05-11"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 7147,
+      "name": "F. Bacher",
+      "firstname": "Felix",
+      "lastname": "Bacher",
+      "age": 25,
+      "birth": {
+        "date": "2000-10-25",
+        "place": "Lienz",
+        "country": "Austria"
+      },
+      "nationality": "Austria",
+      "height": "190",
+      "weight": "82",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/7147.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 80,
+          "name": "Lyon",
+          "logo": "https://media.api-sports.io/football/teams/80.png"
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 20,
+          "position": "Defender",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "621920": {
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "543957": {
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "482302": {
     "profile": {
@@ -10767,10 +11466,20 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "47418": {
     "career": [
+      {
+        "team": {
+          "id": 723,
+          "name": "Almeria",
+          "logo": "https://media.api-sports.io/football/teams/723.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 531,
@@ -10934,7 +11643,100 @@
         "end": "2016-12-07"
       }
     ],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 47418,
+      "name": "Mikel Vesga",
+      "firstname": "Mikel",
+      "lastname": "Vesga Arruti",
+      "age": 32,
+      "birth": {
+        "date": "1993-04-08",
+        "place": "Vitoria-Gasteiz",
+        "country": "Spain"
+      },
+      "nationality": "Spain",
+      "height": "191",
+      "weight": "83",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/47418.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 723,
+          "name": "Almeria",
+          "logo": "https://media.api-sports.io/football/teams/723.png"
+        },
+        "league": {
+          "id": 141,
+          "name": "Segunda División",
+          "country": "Spain",
+          "logo": "https://media.api-sports.io/football/leagues/141.png",
+          "flag": "https://media.api-sports.io/flags/es.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 9,
+          "number": 6,
+          "position": "Midfielder",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 2,
+          "key": null,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": 1,
+          "blocks": null,
+          "interceptions": 1
+        },
+        "duels": {
+          "total": 2,
+          "won": 1
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "451735": {
     "profile": {
@@ -10942,7 +11744,7 @@
       "name": "I. Ayuma",
       "firstname": "Israel Isaac",
       "lastname": "Ayuma",
-      "age": 20,
+      "age": 21,
       "birth": {
         "date": "2005-08-08",
         "place": null,
@@ -10970,18 +11772,18 @@
           "season": 2026
         },
         "games": {
-          "appearences": 0,
+          "appearences": 1,
           "lineups": 0,
-          "minutes": null,
+          "minutes": 9,
           "number": 66,
           "position": "Midfielder",
-          "rating": null,
+          "rating": "6.3",
           "captain": false
         },
         "substitutes": {
-          "in": 0,
+          "in": 1,
           "out": 0,
-          "bench": 1
+          "bench": 2
         },
         "shots": {
           "total": null,
@@ -11004,11 +11806,11 @@
           "interceptions": null
         },
         "duels": {
-          "total": null,
+          "total": 1,
           "won": null
         },
         "dribbles": {
-          "attempts": null,
+          "attempts": 1,
           "success": null,
           "past": null
         },
@@ -11043,16 +11845,6 @@
       },
       {
         "team": {
-          "id": 10295,
-          "name": "Nigeria U20",
-          "logo": "https://media.api-sports.io/football/teams/10295.png"
-        },
-        "seasons": [
-          2025
-        ]
-      },
-      {
-        "team": {
           "id": 1016,
           "name": "Istra 1961",
           "logo": "https://media.api-sports.io/football/teams/1016.png"
@@ -11061,6 +11853,16 @@
           2025,
           2024,
           2023
+        ]
+      },
+      {
+        "team": {
+          "id": 10295,
+          "name": "Nigeria U20",
+          "logo": "https://media.api-sports.io/football/teams/10295.png"
+        },
+        "seasons": [
+          2025
         ]
       }
     ],
@@ -11079,7 +11881,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "407994": {
     "career": [
@@ -11111,7 +11913,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "399890": {
     "profile": {
@@ -11147,22 +11949,22 @@
           "season": 2026
         },
         "games": {
-          "appearences": 1,
-          "lineups": 1,
-          "minutes": 64,
+          "appearences": 2,
+          "lineups": 2,
+          "minutes": 127,
           "number": 19,
           "position": "Attacker",
-          "rating": "6.9",
+          "rating": "6.6",
           "captain": false
         },
         "substitutes": {
           "in": 0,
-          "out": 1,
+          "out": 2,
           "bench": 0
         },
         "shots": {
-          "total": null,
-          "on": null
+          "total": 2,
+          "on": 1
         },
         "goals": {
           "total": 0,
@@ -11171,27 +11973,27 @@
           "saves": null
         },
         "passes": {
-          "total": 23,
-          "key": 3,
-          "accuracy": 86
+          "total": 43,
+          "key": 4,
+          "accuracy": 83
         },
         "tackles": {
-          "total": null,
-          "blocks": null,
-          "interceptions": null
+          "total": 1,
+          "blocks": 1,
+          "interceptions": 1
         },
         "duels": {
-          "total": 7,
-          "won": 3
+          "total": 19,
+          "won": 6
         },
         "dribbles": {
-          "attempts": 5,
+          "attempts": 7,
           "success": 3,
           "past": null
         },
         "fouls": {
-          "drawn": null,
-          "committed": 1
+          "drawn": 2,
+          "committed": 4
         },
         "cards": {
           "yellow": 1,
@@ -11243,10 +12045,20 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-13T10:13:08.556281+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "396475": {
     "career": [
+      {
+        "team": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media.api-sports.io/football/teams/536.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 541,
@@ -11449,7 +12261,100 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 396475,
+      "name": "Fran González",
+      "firstname": "Francisco Javier",
+      "lastname": "González Pérez",
+      "age": 20,
+      "birth": {
+        "date": "2005-06-24",
+        "place": "León",
+        "country": "Spain"
+      },
+      "nationality": "Spain",
+      "height": "199",
+      "weight": "72",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/396475.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media.api-sports.io/football/teams/536.png"
+        },
+        "league": {
+          "id": 140,
+          "name": "La Liga",
+          "country": "Spain",
+          "logo": "https://media.api-sports.io/football/leagues/140.png",
+          "flag": "https://media.api-sports.io/flags/es.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 13,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "395559": {
     "profile": {
@@ -11652,7 +12557,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "362564": {
     "profile": {
@@ -11846,15 +12751,15 @@
         "end": "2025-04-04"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "353771": {
     "career": [
       {
         "team": {
-          "id": 715,
-          "name": "Granada CF",
-          "logo": "https://media.api-sports.io/football/teams/715.png"
+          "id": 228,
+          "name": "Sporting CP",
+          "logo": "https://media.api-sports.io/football/teams/228.png"
         },
         "seasons": [
           2025
@@ -11862,9 +12767,9 @@
       },
       {
         "team": {
-          "id": 228,
-          "name": "Sporting CP",
-          "logo": "https://media.api-sports.io/football/teams/228.png"
+          "id": 715,
+          "name": "Granada CF",
+          "logo": "https://media.api-sports.io/football/teams/715.png"
         },
         "seasons": []
       },
@@ -11881,20 +12786,22 @@
       },
       {
         "team": {
-          "id": 10302,
-          "name": "Senegal U20",
-          "logo": "https://media.api-sports.io/football/teams/10302.png"
-        },
-        "seasons": []
-      },
-      {
-        "team": {
           "id": 13,
           "name": "Senegal",
           "logo": "https://media.api-sports.io/football/teams/13.png"
         },
         "seasons": [
           2023
+        ]
+      },
+      {
+        "team": {
+          "id": 10302,
+          "name": "Senegal U20",
+          "logo": "https://media.api-sports.io/football/teams/10302.png"
+        },
+        "seasons": [
+          2021
         ]
       },
       {
@@ -11913,9 +12820,7 @@
           "name": "Granada II",
           "logo": "https://media.api-sports.io/football/teams/9599.png"
         },
-        "seasons": [
-          2021
-        ]
+        "seasons": []
       },
       {
         "team": {
@@ -11937,7 +12842,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "34358": {
     "profile": {
@@ -12159,7 +13064,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "342311": {
     "career": [
@@ -12232,7 +13137,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "330456": {
     "career": [
@@ -12312,7 +13217,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "324731": {
     "career": [
@@ -12341,7 +13246,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "32137": {
     "profile": {
@@ -12585,7 +13490,7 @@
         "end": "2024-01-05"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "319572": {
     "profile": {
@@ -12989,7 +13894,7 @@
         "end": "2025-01-19"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "290700": {
     "career": [
@@ -13140,7 +14045,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "26733": {
     "career": [
@@ -13263,7 +14168,7 @@
         "end": "2025-03-09"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "21104": {
     "profile": {
@@ -13581,7 +14486,7 @@
         "end": "2021-08-25"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "19824": {
     "profile": {
@@ -13662,6 +14567,80 @@
         "fouls": {
           "drawn": null,
           "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 38,
+          "name": "Watford",
+          "logo": "https://media.api-sports.io/football/teams/38.png"
+        },
+        "league": {
+          "id": 40,
+          "name": "Championship",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/40.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 66,
+          "number": 33,
+          "position": "Defender",
+          "rating": "6.3",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 22,
+          "key": 3,
+          "accuracy": 72
+        },
+        "tackles": {
+          "total": 1,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 8,
+          "won": 4
+        },
+        "dribbles": {
+          "attempts": 1,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": 2
         },
         "cards": {
           "yellow": 0,
@@ -13795,7 +14774,7 @@
         "end": "2022-08-19"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "162219": {
     "profile": {
@@ -14087,10 +15066,20 @@
         "end": "2023-11-08"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "162023": {
     "career": [
+      {
+        "team": {
+          "id": 102,
+          "name": "Nancy",
+          "logo": "https://media.api-sports.io/football/teams/102.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 110,
@@ -14191,10 +15180,113 @@
         "end": "2022-12-15"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 162023,
+      "name": "T. Baldé",
+      "firstname": "Thierno",
+      "lastname": "Baldé",
+      "age": 23,
+      "birth": {
+        "date": "2002-06-10",
+        "place": "Villeneuve-Saint-Georges",
+        "country": "France"
+      },
+      "nationality": "France",
+      "height": "182",
+      "weight": "68",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/162023.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 102,
+          "name": "Nancy",
+          "logo": "https://media.api-sports.io/football/teams/102.png"
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 13,
+          "number": 19,
+          "position": "Defender",
+          "rating": "6.6",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 8,
+          "key": null,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 1,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "1582": {
     "career": [
+      {
+        "team": {
+          "id": 722,
+          "name": "Albacete",
+          "logo": "https://media.api-sports.io/football/teams/722.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 413,
@@ -14307,7 +15399,100 @@
         "end": "2021-09-09"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 1582,
+      "name": "Róber",
+      "firstname": "Roberto",
+      "lastname": "González Bayón",
+      "age": 24,
+      "birth": {
+        "date": "2001-01-08",
+        "place": "Mérida",
+        "country": "Spain"
+      },
+      "nationality": "Spain",
+      "height": "173",
+      "weight": "62",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/1582.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 722,
+          "name": "Albacete",
+          "logo": "https://media.api-sports.io/football/teams/722.png"
+        },
+        "league": {
+          "id": 141,
+          "name": "Segunda División",
+          "country": "Spain",
+          "logo": "https://media.api-sports.io/football/leagues/141.png",
+          "flag": "https://media.api-sports.io/flags/es.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 19,
+          "number": 10,
+          "position": "Attacker",
+          "rating": "6.2",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 5,
+          "key": null,
+          "accuracy": 40
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": 1
+        },
+        "duels": {
+          "total": 5,
+          "won": 1
+        },
+        "dribbles": {
+          "attempts": 2,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "145532": {
     "profile": {
@@ -14504,7 +15689,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "137131": {
     "profile": {
@@ -14921,10 +16106,20 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00"
   },
   "120": {
     "career": [
+      {
+        "team": {
+          "id": 867,
+          "name": "Lecce",
+          "logo": "https://media.api-sports.io/football/teams/867.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 114,
@@ -15127,7 +16322,100 @@
         "end": "2018-11-15"
       }
     ],
-    "updated_at": "2026-08-13T13:59:52.635057+00:00"
+    "updated_at": "2026-08-20T17:00:26.188462+00:00",
+    "profile": {
+      "id": 120,
+      "name": "W. Geubbels",
+      "firstname": "Willem Davnis Louis Didier",
+      "lastname": "Geubbels",
+      "age": 24,
+      "birth": {
+        "date": "2001-08-16",
+        "place": "Villeurbanne",
+        "country": "France"
+      },
+      "nationality": "France",
+      "height": "185",
+      "weight": "81",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/120.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 867,
+          "name": "Lecce",
+          "logo": "https://media.api-sports.io/football/teams/867.png"
+        },
+        "league": {
+          "id": 137,
+          "name": "Coppa Italia",
+          "country": "Italy",
+          "logo": "https://media.api-sports.io/football/leagues/137.png",
+          "flag": "https://media.api-sports.io/flags/it.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 1,
+          "minutes": 84,
+          "number": 69,
+          "position": "Attacker",
+          "rating": "5.9",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 1,
+          "bench": 0
+        },
+        "shots": {
+          "total": 6,
+          "on": 2
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 12,
+          "key": 3,
+          "accuracy": 83
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 4,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": 1,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "1014": {
     "career": [
