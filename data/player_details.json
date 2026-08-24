@@ -172235,9 +172235,9 @@
     "career": [
       {
         "team": {
-          "id": 10088,
-          "name": "Uthai Thani",
-          "logo": "https://media.api-sports.io/football/teams/10088.png"
+          "id": 2760,
+          "name": "Jeonnam Dragons",
+          "logo": "https://media.api-sports.io/football/teams/2760.png"
         },
         "seasons": [
           2025
@@ -172253,9 +172253,9 @@
       },
       {
         "team": {
-          "id": 2760,
-          "name": "Jeonnam Dragons",
-          "logo": "https://media.api-sports.io/football/teams/2760.png"
+          "id": 10088,
+          "name": "Uthai Thani",
+          "logo": "https://media.api-sports.io/football/teams/10088.png"
         },
         "seasons": []
       },
@@ -172383,10 +172383,20 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-17T05:07:59.278463+00:00"
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
   },
   "425207": {
     "career": [
+      {
+        "team": {
+          "id": 5902,
+          "name": "RAAL La Louvière",
+          "logo": "https://media.api-sports.io/football/teams/5902.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 77,
@@ -172443,7 +172453,100 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-08-17T05:07:59.278463+00:00"
+    "updated_at": "2026-08-24T09:12:34.636107+00:00",
+    "profile": {
+      "id": 425207,
+      "name": "M. Courcoul",
+      "firstname": "Marius",
+      "lastname": "Courcoul",
+      "age": 18,
+      "birth": {
+        "date": "2007-01-01",
+        "place": "Château-Gontie",
+        "country": "France"
+      },
+      "nationality": "France",
+      "height": "182",
+      "weight": "70",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/425207.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 5902,
+          "name": "RAAL La Louvière",
+          "logo": "https://media.api-sports.io/football/teams/5902.png"
+        },
+        "league": {
+          "id": 144,
+          "name": "Jupiler Pro League",
+          "country": "Belgium",
+          "logo": "https://media.api-sports.io/football/leagues/144.png",
+          "flag": "https://media.api-sports.io/flags/be.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 8,
+          "number": 29,
+          "position": "Midfielder",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 4,
+          "key": null,
+          "accuracy": 75
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ]
   },
   "394667": {
     "profile": {
@@ -172535,6 +172638,80 @@
           "commited": null,
           "scored": null,
           "missed": null,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 413,
+          "name": "NEC Nijmegen",
+          "logo": "https://media.api-sports.io/football/teams/413.png"
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 8,
+          "number": 66,
+          "position": "Defender",
+          "rating": "6.9",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 15,
+          "key": null,
+          "accuracy": 80
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 1,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": 1
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
           "saved": null
         }
       },
@@ -172726,7 +172903,7 @@
         "end": "2024-09-30"
       }
     ],
-    "updated_at": "2026-08-17T05:07:59.278463+00:00"
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
   },
   "349": {
     "profile": {
@@ -174964,6 +175141,80 @@
           "missed": 0,
           "saved": null
         }
+      },
+      {
+        "team": {
+          "id": 442,
+          "name": "Defensa Y Justicia",
+          "logo": "https://media.api-sports.io/football/teams/442.png"
+        },
+        "league": {
+          "id": 128,
+          "name": "Liga Profesional Argentina",
+          "country": "Argentina",
+          "logo": "https://media.api-sports.io/football/leagues/128.png",
+          "flag": "https://media.api-sports.io/flags/ar.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 1,
+          "minutes": 88,
+          "number": 11,
+          "position": "Midfielder",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 1,
+          "bench": 0
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 25,
+          "key": null,
+          "accuracy": 72
+        },
+        "tackles": {
+          "total": 3,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 16,
+          "won": 8
+        },
+        "dribbles": {
+          "attempts": 4,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": 1
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
       }
     ],
     "career": [
@@ -174977,11 +175228,19 @@
           2026,
           2025
         ]
+      },
+      {
+        "team": {
+          "id": 442,
+          "name": "Defensa Y Justicia",
+          "logo": "https://media.api-sports.io/football/teams/442.png"
+        },
+        "seasons": []
       }
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-08-17T05:07:59.278463+00:00"
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
   },
   "458543": {
     "career": [
@@ -340258,5 +340517,5340 @@
       }
     ],
     "updated_at": "2026-08-24T05:11:03.306023+00:00"
+  },
+  "343583": {
+    "profile": {
+      "id": 343583,
+      "name": "B. Wales",
+      "firstname": "Bobby",
+      "lastname": "Wales",
+      "age": 20,
+      "birth": {
+        "date": "2005-06-23",
+        "place": null,
+        "country": "Scotland"
+      },
+      "nationality": "Scotland",
+      "height": null,
+      "weight": null,
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/343583.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 253,
+          "name": "Dundee",
+          "logo": "https://media.api-sports.io/football/teams/253.png"
+        },
+        "league": {
+          "id": 179,
+          "name": "Premiership",
+          "country": "Scotland",
+          "logo": "https://media.api-sports.io/football/leagues/179.png",
+          "flag": "https://media.api-sports.io/flags/gb-sct.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 15,
+          "number": 9,
+          "position": "Attacker",
+          "rating": "6.6",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 3,
+          "key": null,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 1,
+          "won": 1
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 253,
+          "name": "Dundee",
+          "logo": "https://media.api-sports.io/football/teams/253.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 8221,
+          "name": "Scotland U21",
+          "logo": "https://media.api-sports.io/football/teams/8221.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 76,
+          "name": "Swansea",
+          "logo": "https://media.api-sports.io/football/teams/76.png"
+        },
+        "seasons": [
+          2025,
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 37,
+          "name": "Huddersfield",
+          "logo": "https://media.api-sports.io/football/teams/37.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 250,
+          "name": "Kilmarnock",
+          "logo": "https://media.api-sports.io/football/teams/250.png"
+        },
+        "seasons": [
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 10345,
+          "name": "Scotland U19",
+          "logo": "https://media.api-sports.io/football/teams/10345.png"
+        },
+        "seasons": [
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 1391,
+          "name": "Alloa Athletic",
+          "logo": "https://media.api-sports.io/football/teams/1391.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 19158,
+          "name": "Kilmarnock II",
+          "logo": "https://media.api-sports.io/football/teams/19158.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 17976,
+          "name": "Scotland U17",
+          "logo": "https://media.api-sports.io/football/teams/17976.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "278159": {
+    "career": [
+      {
+        "team": {
+          "id": 413,
+          "name": "NEC Nijmegen",
+          "logo": "https://media.api-sports.io/football/teams/413.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 194,
+          "name": "Ajax",
+          "logo": "https://media.api-sports.io/football/teams/194.png"
+        },
+        "seasons": [
+          2024,
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 425,
+          "name": "Jong Ajax",
+          "logo": "https://media.api-sports.io/football/teams/425.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 8227,
+          "name": "Turkey U21",
+          "logo": "https://media.api-sports.io/football/teams/8227.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 777,
+          "name": "Türkiye",
+          "logo": "https://media.api-sports.io/football/teams/777.png"
+        },
+        "seasons": [
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 10351,
+          "name": "Turkey U19",
+          "logo": "https://media.api-sports.io/football/teams/10351.png"
+        },
+        "seasons": [
+          2023,
+          2022,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 998,
+          "name": "Trabzonspor",
+          "logo": "https://media.api-sports.io/football/teams/998.png"
+        },
+        "seasons": [
+          2021,
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 17701,
+          "name": "Trabzonspor U19",
+          "logo": "https://media.api-sports.io/football/teams/17701.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 17982,
+          "name": "Turkey U17",
+          "logo": "https://media.api-sports.io/football/teams/17982.png"
+        },
+        "seasons": [
+          2020
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Eredivisie",
+        "country": "Netherlands",
+        "season": "2024/2025",
+        "place": "2nd Place"
+      },
+      {
+        "league": "KNVB Beker",
+        "country": "Netherlands",
+        "season": "2022/2023",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Türkiye",
+        "season": "2022",
+        "place": "Winner"
+      },
+      {
+        "league": "Süper Lig",
+        "country": "Türkiye",
+        "season": "2021/2022",
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Türkiye",
+        "season": "2021",
+        "place": "Winner"
+      },
+      {
+        "league": "U19 PAF Ligi Regular Season",
+        "country": "Türkiye",
+        "season": "2021",
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Türkiye",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "U19 PAF Ligi Regular Season",
+        "country": "Türkiye",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Süper Lig",
+        "country": "Türkiye",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "KNVB Beker",
+        "country": "Netherlands",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Eredivisie",
+        "country": "Netherlands",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Illness",
+        "start": "2025-02-16",
+        "end": "2025-02-19"
+      },
+      {
+        "type": "Muscle Injury",
+        "start": "2024-08-16",
+        "end": "2024-09-16"
+      },
+      {
+        "type": "Unknown",
+        "start": "2024-03-15",
+        "end": "2024-03-16"
+      },
+      {
+        "type": "Knee Injury",
+        "start": "2022-12-16",
+        "end": "2023-10-19"
+      },
+      {
+        "type": "Knee Injury",
+        "start": "2022-09-19",
+        "end": "2022-10-31"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "149551": {
+    "profile": {
+      "id": 149551,
+      "name": "T. Parrott",
+      "firstname": "Troy Daniel",
+      "lastname": "Parrott",
+      "age": 23,
+      "birth": {
+        "date": "2002-02-04",
+        "place": "Dublin",
+        "country": "Republic of Ireland"
+      },
+      "nationality": "Republic of Ireland",
+      "height": "185",
+      "weight": "78",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/149551.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 776,
+          "name": "Rep. Of Ireland",
+          "logo": "https://media.api-sports.io/football/teams/776.png"
+        },
+        "league": {
+          "id": 10,
+          "name": "Friendlies",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/10.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 3,
+          "lineups": 3,
+          "minutes": 173,
+          "number": 7,
+          "position": "Attacker",
+          "rating": "6.4",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 3,
+          "bench": 0
+        },
+        "shots": {
+          "total": 8,
+          "on": 2
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 36,
+          "key": 4,
+          "accuracy": 75
+        },
+        "tackles": {
+          "total": 2,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 18,
+          "won": 7
+        },
+        "dribbles": {
+          "attempts": 7,
+          "success": 3,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 201,
+          "name": "AZ Alkmaar",
+          "logo": "https://media.api-sports.io/football/teams/201.png"
+        },
+        "league": {
+          "id": 88,
+          "name": "Eredivisie",
+          "country": "Netherlands",
+          "logo": "https://media.api-sports.io/football/leagues/88.png",
+          "flag": "https://media.api-sports.io/flags/nl.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 33,
+          "number": 9,
+          "position": "Attacker",
+          "rating": "6.3",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": 1,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 6,
+          "key": null,
+          "accuracy": 66
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 9,
+          "won": 2
+        },
+        "dribbles": {
+          "attempts": 2,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 201,
+          "name": "AZ Alkmaar",
+          "logo": "https://media.api-sports.io/football/teams/201.png"
+        },
+        "seasons": [
+          2026,
+          2025,
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 776,
+          "name": "Rep. Of Ireland",
+          "logo": "https://media.api-sports.io/football/teams/776.png"
+        },
+        "seasons": [
+          2026,
+          2025,
+          2024,
+          2023,
+          2022,
+          2021,
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 196,
+          "name": "Excelsior",
+          "logo": "https://media.api-sports.io/football/teams/196.png"
+        },
+        "seasons": [
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 47,
+          "name": "Tottenham",
+          "logo": "https://media.api-sports.io/football/teams/47.png"
+        },
+        "seasons": [
+          2022,
+          2021,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 7202,
+          "name": "Tottenham Hotspur U21",
+          "logo": "https://media.api-sports.io/football/teams/7202.png"
+        },
+        "seasons": [
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 8217,
+          "name": "Republic of Ireland U21",
+          "logo": "https://media.api-sports.io/football/teams/8217.png"
+        },
+        "seasons": [
+          2023,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 59,
+          "name": "Preston",
+          "logo": "https://media.api-sports.io/football/teams/59.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 1348,
+          "name": "Milton Keynes Dons",
+          "logo": "https://media.api-sports.io/football/teams/1348.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 57,
+          "name": "Ipswich",
+          "logo": "https://media.api-sports.io/football/teams/57.png"
+        },
+        "seasons": [
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 58,
+          "name": "Millwall",
+          "logo": "https://media.api-sports.io/football/teams/58.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 7937,
+          "name": "Tottenham Hotspur U19",
+          "logo": "https://media.api-sports.io/football/teams/7937.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 10377,
+          "name": "Republic of Ireland U19",
+          "logo": "https://media.api-sports.io/football/teams/10377.png"
+        },
+        "seasons": [
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 15398,
+          "name": "Tottenham Hotspur U18",
+          "logo": "https://media.api-sports.io/football/teams/15398.png"
+        },
+        "seasons": [
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 15638,
+          "name": "Tottenham Hotspur U23",
+          "logo": "https://media.api-sports.io/football/teams/15638.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 17972,
+          "name": "Republic of Ireland U17",
+          "logo": "https://media.api-sports.io/football/teams/17972.png"
+        },
+        "seasons": [
+          2018
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "KNVB Beker",
+        "country": "Netherlands",
+        "season": "2024/2025",
+        "place": "2nd Place"
+      },
+      {
+        "league": "U18 Premier League Cup",
+        "country": "England",
+        "season": "2017/2018",
+        "place": "2nd Place"
+      },
+      {
+        "league": "U18 Premier League Cup",
+        "country": "England",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "KNVB Beker",
+        "country": "Netherlands",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Knee Injury",
+        "start": "2025-08-27",
+        "end": null
+      },
+      {
+        "type": "Groin Injury",
+        "start": "2025-04-22",
+        "end": "2025-05-21"
+      },
+      {
+        "type": "Groin Injury",
+        "start": "2025-04-11",
+        "end": "2025-04-20"
+      },
+      {
+        "type": "Leg Injury",
+        "start": "2024-03-04",
+        "end": "2024-04-08"
+      },
+      {
+        "type": "Unknown",
+        "start": "2024-02-29",
+        "end": "2024-03-02"
+      },
+      {
+        "type": "Appendicitis",
+        "start": "2020-05-28",
+        "end": "2020-07-11"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "409558": {
+    "profile": {
+      "id": 409558,
+      "name": "J. Kalulu",
+      "firstname": "Joseph",
+      "lastname": "Kalulu Kyatengwa",
+      "age": 21,
+      "birth": {
+        "date": "2004-11-29",
+        "place": "Lyon",
+        "country": "France"
+      },
+      "nationality": "France",
+      "height": "178",
+      "weight": "70",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/409558.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 1297,
+          "name": "PAU",
+          "logo": "https://media.api-sports.io/football/teams/1297.png"
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 2,
+          "lineups": 1,
+          "minutes": 133,
+          "number": 3,
+          "position": "Defender",
+          "rating": "6.9",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 1,
+          "bench": 1
+        },
+        "shots": {
+          "total": 3,
+          "on": 1
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 71,
+          "key": 1,
+          "accuracy": 81
+        },
+        "tackles": {
+          "total": 2,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 8,
+          "won": 4
+        },
+        "dribbles": {
+          "attempts": 1,
+          "success": 1,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": 2
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 77,
+          "name": "Angers",
+          "logo": "https://media.api-sports.io/football/teams/77.png"
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 17,
+          "position": "Defender",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 1297,
+          "name": "PAU",
+          "logo": "https://media.api-sports.io/football/teams/1297.png"
+        },
+        "seasons": [
+          2026,
+          2025,
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 77,
+          "name": "Angers",
+          "logo": "https://media.api-sports.io/football/teams/77.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 3296,
+          "name": "Saint-Priest",
+          "logo": "https://media.api-sports.io/football/teams/3296.png"
+        },
+        "seasons": [
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 9914,
+          "name": "Pau II",
+          "logo": "https://media.api-sports.io/football/teams/9914.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [],
+    "sidelined": [
+      {
+        "type": "Injury",
+        "start": "2024-12-01",
+        "end": "2024-12-11"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "401227": {
+    "career": [
+      {
+        "team": {
+          "id": 72,
+          "name": "QPR",
+          "logo": "https://media.api-sports.io/football/teams/72.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 20085,
+          "name": "Queens Park Rangers U21",
+          "logo": "https://media.api-sports.io/football/teams/20085.png"
+        },
+        "seasons": [
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 20785,
+          "name": "Kosovo U19",
+          "logo": "https://media.api-sports.io/football/teams/20785.png"
+        },
+        "seasons": [
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 23187,
+          "name": "Queens Park Rangers U18",
+          "logo": "https://media.api-sports.io/football/teams/23187.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Premier League Cup",
+        "country": "England",
+        "season": "2024/2025",
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League Cup",
+        "country": "England",
+        "season": null,
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "443734": {
+    "career": [
+      {
+        "team": {
+          "id": 551,
+          "name": "FC Basel 1893",
+          "logo": "https://media.api-sports.io/football/teams/551.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 7950,
+          "name": "Basel U19",
+          "logo": "https://media.api-sports.io/football/teams/7950.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "412227": {
+    "profile": {
+      "id": 412227,
+      "name": "Z. Gozo",
+      "firstname": "Zavier",
+      "lastname": "Gozo",
+      "age": 18,
+      "birth": {
+        "date": "2007-03-22",
+        "place": "West Valley City",
+        "country": "USA"
+      },
+      "nationality": "USA",
+      "height": "170",
+      "weight": "63",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/412227.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 1606,
+          "name": "Real Salt Lake",
+          "logo": "https://media.api-sports.io/football/teams/1606.png"
+        },
+        "league": {
+          "id": 253,
+          "name": "Major League Soccer",
+          "country": "USA",
+          "logo": "https://media.api-sports.io/football/leagues/253.png",
+          "flag": "https://media.api-sports.io/flags/us.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 16,
+          "lineups": 16,
+          "minutes": 1433,
+          "number": 72,
+          "position": "Midfielder",
+          "rating": "7.29",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 3,
+          "bench": 0
+        },
+        "shots": {
+          "total": 39,
+          "on": 20
+        },
+        "goals": {
+          "total": 6,
+          "conceded": 0,
+          "assists": 4,
+          "saves": null
+        },
+        "passes": {
+          "total": 405,
+          "key": 24,
+          "accuracy": 79
+        },
+        "tackles": {
+          "total": 42,
+          "blocks": null,
+          "interceptions": 9
+        },
+        "duels": {
+          "total": 215,
+          "won": 94
+        },
+        "dribbles": {
+          "attempts": 65,
+          "success": 29,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 14,
+          "committed": 21
+        },
+        "cards": {
+          "yellow": 4,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 1606,
+          "name": "Real Salt Lake",
+          "logo": "https://media.api-sports.io/football/teams/1606.png"
+        },
+        "seasons": [
+          2026,
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 4012,
+          "name": "Real Monarchs",
+          "logo": "https://media.api-sports.io/football/teams/4012.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 10306,
+          "name": "United States U20",
+          "logo": "https://media.api-sports.io/football/teams/10306.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [
+      {
+        "league": "The Atlantic Cup",
+        "country": "World",
+        "season": "2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Concacaf U20",
+        "country": "N/C America",
+        "season": "2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "The Atlantic Cup",
+        "country": "World",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Concacaf U20",
+        "country": "N/C America",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Concussion",
+        "start": "2024-05-10",
+        "end": "2024-06-01"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "291505": {
+    "career": [
+      {
+        "team": {
+          "id": 202,
+          "name": "Groningen",
+          "logo": "https://media.api-sports.io/football/teams/202.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 419,
+          "name": "Almere City FC",
+          "logo": "https://media.api-sports.io/football/teams/419.png"
+        },
+        "seasons": [
+          2023,
+          2021,
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 9130,
+          "name": "Almere City II",
+          "logo": "https://media.api-sports.io/football/teams/9130.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [],
+    "sidelined": [
+      {
+        "type": "Head Injury",
+        "start": "2025-04-23",
+        "end": "2025-05-02"
+      },
+      {
+        "type": "Gluteal Strain",
+        "start": "2025-02-06",
+        "end": "2025-02-07"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "280334": {
+    "profile": {
+      "id": 280334,
+      "name": "G. Vidović",
+      "firstname": "Gabriel",
+      "lastname": "Vidović",
+      "age": 22,
+      "birth": {
+        "date": "2003-12-01",
+        "place": "Augsburg",
+        "country": "Germany"
+      },
+      "nationality": "Croatia",
+      "height": "180",
+      "weight": "75",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/280334.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 620,
+          "name": "Dinamo Zagreb",
+          "logo": "https://media.api-sports.io/football/teams/620.png"
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 4,
+          "lineups": 2,
+          "minutes": 138,
+          "number": 10,
+          "position": "Midfielder",
+          "rating": "6.4",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 2,
+          "out": 2,
+          "bench": 2
+        },
+        "shots": {
+          "total": 1,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 44,
+          "key": 4,
+          "accuracy": 84
+        },
+        "tackles": {
+          "total": 6,
+          "blocks": null,
+          "interceptions": 2
+        },
+        "duels": {
+          "total": 24,
+          "won": 12
+        },
+        "dribbles": {
+          "attempts": 6,
+          "success": 3,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 3,
+          "committed": 2
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 620,
+          "name": "Dinamo Zagreb",
+          "logo": "https://media.api-sports.io/football/teams/620.png"
+        },
+        "league": {
+          "id": 210,
+          "name": "HNL",
+          "country": "Croatia",
+          "logo": "https://media.api-sports.io/football/leagues/210.png",
+          "flag": "https://media.api-sports.io/flags/hr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 15,
+          "number": 10,
+          "position": "Attacker",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 11,
+          "key": null,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 185,
+          "name": "SC Paderborn 07",
+          "logo": "https://media.api-sports.io/football/teams/185.png"
+        },
+        "league": {
+          "id": 81,
+          "name": "DFB Pokal",
+          "country": "Germany",
+          "logo": "https://media.api-sports.io/football/leagues/81.png",
+          "flag": "https://media.api-sports.io/flags/de.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 1,
+          "minutes": 73,
+          "number": 40,
+          "position": "Attacker",
+          "rating": "7.5",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 1,
+          "bench": 0
+        },
+        "shots": {
+          "total": 2,
+          "on": 1
+        },
+        "goals": {
+          "total": 1,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 32,
+          "key": 1,
+          "accuracy": 93
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 9,
+          "won": 5
+        },
+        "dribbles": {
+          "attempts": 3,
+          "success": 3,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": 2
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 185,
+          "name": "SC Paderborn 07",
+          "logo": "https://media.api-sports.io/football/teams/185.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 620,
+          "name": "Dinamo Zagreb",
+          "logo": "https://media.api-sports.io/football/teams/620.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 8186,
+          "name": "Croatia U21",
+          "logo": "https://media.api-sports.io/football/teams/8186.png"
+        },
+        "seasons": [
+          2025,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 164,
+          "name": "FSV Mainz 05",
+          "logo": "https://media.api-sports.io/football/teams/164.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 157,
+          "name": "Bayern München",
+          "logo": "https://media.api-sports.io/football/teams/157.png"
+        },
+        "seasons": [
+          2022,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 10329,
+          "name": "Croatia U19",
+          "logo": "https://media.api-sports.io/football/teams/10329.png"
+        },
+        "seasons": [
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 4674,
+          "name": "Bayern München II",
+          "logo": "https://media.api-sports.io/football/teams/4674.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 200,
+          "name": "Vitesse",
+          "logo": "https://media.api-sports.io/football/teams/200.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 7887,
+          "name": "Bayern München U19",
+          "logo": "https://media.api-sports.io/football/teams/7887.png"
+        },
+        "seasons": [
+          2020
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Bundesliga",
+        "country": "Germany",
+        "season": "2024/2025",
+        "place": "Winner"
+      },
+      {
+        "league": "HNL",
+        "country": "Croatia",
+        "season": "2023/2024",
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Croatia",
+        "season": "2023/2024",
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Germany",
+        "season": "2023",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Germany",
+        "season": "2022",
+        "place": "Winner"
+      },
+      {
+        "league": "Bundesliga",
+        "country": "Germany",
+        "season": "2021/2022",
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Germany",
+        "season": "2021",
+        "place": "Winner"
+      },
+      {
+        "league": "Bundesliga",
+        "country": "Germany",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Germany",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Germany",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "HNL",
+        "country": "Croatia",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Croatia",
+        "season": null,
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Ankle Injury",
+        "start": "2024-11-20",
+        "end": "2025-01-28"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "369503": {
+    "career": [
+      {
+        "team": {
+          "id": 198,
+          "name": "ADO Den Haag",
+          "logo": "https://media.api-sports.io/football/teams/198.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 230,
+          "name": "Estoril",
+          "logo": "https://media.api-sports.io/football/teams/230.png"
+        },
+        "seasons": [
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 9233,
+          "name": "Lens II",
+          "logo": "https://media.api-sports.io/football/teams/9233.png"
+        },
+        "seasons": [
+          2023,
+          2022,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 15463,
+          "name": "Estoril U23",
+          "logo": "https://media.api-sports.io/football/teams/15463.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 12507,
+          "name": "France U17",
+          "logo": "https://media.api-sports.io/football/teams/12507.png"
+        },
+        "seasons": [
+          2022
+        ]
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "22148": {
+    "profile": {
+      "id": 22148,
+      "name": "N. Ngoumou",
+      "firstname": "Nathan",
+      "lastname": "Ngoumou Minpole",
+      "age": 25,
+      "birth": {
+        "date": "2000-03-14",
+        "place": "Toulouse",
+        "country": "France"
+      },
+      "nationality": "France",
+      "height": "182",
+      "weight": "70",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/22148.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 84,
+          "name": "Nice",
+          "logo": "https://media.api-sports.io/football/teams/84.png"
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 9,
+          "number": 29,
+          "position": "Attacker",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 3,
+          "key": null,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 1,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 84,
+          "name": "Nice",
+          "logo": "https://media.api-sports.io/football/teams/84.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 163,
+          "name": "Borussia Mönchengladbach",
+          "logo": "https://media.api-sports.io/football/teams/163.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 1530,
+          "name": "Cameroon",
+          "logo": "https://media.api-sports.io/football/teams/1530.png"
+        },
+        "seasons": [
+          2025,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 8194,
+          "name": "France U21",
+          "logo": "https://media.api-sports.io/football/teams/8194.png"
+        },
+        "seasons": [
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 96,
+          "name": "Toulouse",
+          "logo": "https://media.api-sports.io/football/teams/96.png"
+        },
+        "seasons": [
+          2021,
+          2020,
+          2019,
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 9949,
+          "name": "Toulouse II",
+          "logo": "https://media.api-sports.io/football/teams/9949.png"
+        },
+        "seasons": [
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 10334,
+          "name": "France U19",
+          "logo": "https://media.api-sports.io/football/teams/10334.png"
+        },
+        "seasons": [
+          2019
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Ligue 2",
+        "country": "France",
+        "season": "2021/2022",
+        "place": "Winner"
+      },
+      {
+        "league": "Ligue 2",
+        "country": "France",
+        "season": null,
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Achilles Tendon Rupture",
+        "start": "2025-04-07",
+        "end": null
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2025-03-11",
+        "end": "2025-03-12"
+      },
+      {
+        "type": "Muscle Injury",
+        "start": "2024-12-12",
+        "end": "2025-01-17"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2024-09-29",
+        "end": "2024-10-29"
+      },
+      {
+        "type": "Ankle Injury",
+        "start": "2024-04-14",
+        "end": "2024-04-19"
+      },
+      {
+        "type": "Groin Injury",
+        "start": "2022-08-14",
+        "end": "2022-09-03"
+      },
+      {
+        "type": "Groin Injury",
+        "start": "2020-01-15",
+        "end": "2020-02-17"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "342268": {
+    "profile": {
+      "id": 342268,
+      "name": "L. Ulrich",
+      "firstname": "Laurin",
+      "lastname": "Ulrich",
+      "age": 20,
+      "birth": {
+        "date": "2005-01-31",
+        "place": "Heidenheim an der Brenz",
+        "country": "Germany"
+      },
+      "nationality": "Germany",
+      "height": "180",
+      "weight": "76",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/342268.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 185,
+          "name": "SC Paderborn 07",
+          "logo": "https://media.api-sports.io/football/teams/185.png"
+        },
+        "league": {
+          "id": 81,
+          "name": "DFB Pokal",
+          "country": "Germany",
+          "logo": "https://media.api-sports.io/football/leagues/81.png",
+          "flag": "https://media.api-sports.io/flags/de.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 1,
+          "minutes": 90,
+          "number": 28,
+          "position": "Midfielder",
+          "rating": "7.5",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 0
+        },
+        "shots": {
+          "total": 2,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 1,
+          "saves": null
+        },
+        "passes": {
+          "total": 56,
+          "key": 2,
+          "accuracy": 89
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 6,
+          "won": 3
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 3,
+          "committed": 1
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 185,
+          "name": "SC Paderborn 07",
+          "logo": "https://media.api-sports.io/football/teams/185.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 179,
+          "name": "1. FC Magdeburg",
+          "logo": "https://media.api-sports.io/football/teams/179.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 1652,
+          "name": "SSV Ulm 1846",
+          "logo": "https://media.api-sports.io/football/teams/1652.png"
+        },
+        "seasons": [
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 12867,
+          "name": "Stuttgart II",
+          "logo": "https://media.api-sports.io/football/teams/12867.png"
+        },
+        "seasons": [
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 172,
+          "name": "VfB Stuttgart",
+          "logo": "https://media.api-sports.io/football/teams/172.png"
+        },
+        "seasons": [
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 10336,
+          "name": "Germany U19",
+          "logo": "https://media.api-sports.io/football/teams/10336.png"
+        },
+        "seasons": [
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 17954,
+          "name": "Germany U17",
+          "logo": "https://media.api-sports.io/football/teams/17954.png"
+        },
+        "seasons": [
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 10273,
+          "name": "Stuttgart U19",
+          "logo": "https://media.api-sports.io/football/teams/10273.png"
+        },
+        "seasons": [
+          2021
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "DFB Pokal",
+        "country": "Germany",
+        "season": "2024/2025",
+        "place": "Winner"
+      },
+      {
+        "league": "Bundesliga",
+        "country": "Germany",
+        "season": "2023/2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "U17 Bundesliga",
+        "country": "Germany",
+        "season": "2021/2022",
+        "place": "2nd Place"
+      },
+      {
+        "league": "DFB Junioren Pokal",
+        "country": "Germany",
+        "season": "2021/2022",
+        "place": "Winner"
+      },
+      {
+        "league": "U17 Bundesliga",
+        "country": "Germany",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "DFB Junioren Pokal",
+        "country": "Germany",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Bundesliga",
+        "country": "Germany",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "DFB Pokal",
+        "country": "Germany",
+        "season": null,
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Tonsillitis",
+        "start": "2023-08-10",
+        "end": "2023-09-28"
+      },
+      {
+        "type": "Illness",
+        "start": "2023-01-11",
+        "end": "2023-02-03"
+      },
+      {
+        "type": "Hip/Thigh Injury",
+        "start": "2022-08-28",
+        "end": "2022-09-26"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "674638": {
+    "career": [],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "674637": {
+    "career": [],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "905": {
+    "profile": {
+      "id": 905,
+      "name": "Fred",
+      "firstname": "Frederico",
+      "lastname": "Rodrigues de Paula Santos",
+      "age": 32,
+      "birth": {
+        "date": "1993-03-05",
+        "place": "Belo Horizonte",
+        "country": "Brazil"
+      },
+      "nationality": "Brazil",
+      "height": "169",
+      "weight": "64",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/905.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 611,
+          "name": "Fenerbahçe",
+          "logo": "https://media.api-sports.io/football/teams/611.png"
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 4,
+          "lineups": 2,
+          "minutes": 231,
+          "number": 7,
+          "position": "Midfielder",
+          "rating": "6.83",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 2,
+          "out": 0,
+          "bench": 2
+        },
+        "shots": {
+          "total": 2,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 165,
+          "key": 5,
+          "accuracy": 87
+        },
+        "tackles": {
+          "total": 7,
+          "blocks": null,
+          "interceptions": 2
+        },
+        "duels": {
+          "total": 38,
+          "won": 19
+        },
+        "dribbles": {
+          "attempts": 7,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 5,
+          "committed": 4
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 1062,
+          "name": "Atletico-MG",
+          "logo": "https://media.api-sports.io/football/teams/1062.png"
+        },
+        "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 45,
+          "number": 7,
+          "position": "Midfielder",
+          "rating": "6.6",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 22,
+          "key": null,
+          "accuracy": 77
+        },
+        "tackles": {
+          "total": 1,
+          "blocks": 1,
+          "interceptions": 1
+        },
+        "duels": {
+          "total": 13,
+          "won": 7
+        },
+        "dribbles": {
+          "attempts": 3,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": 3
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 1062,
+          "name": "Atletico-MG",
+          "logo": "https://media.api-sports.io/football/teams/1062.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 611,
+          "name": "Fenerbahçe",
+          "logo": "https://media.api-sports.io/football/teams/611.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 33,
+          "name": "Manchester United",
+          "logo": "https://media.api-sports.io/football/teams/33.png"
+        },
+        "seasons": [
+          2022,
+          2021,
+          2020,
+          2019,
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 6,
+          "name": "Brazil",
+          "logo": "https://media.api-sports.io/football/teams/6.png"
+        },
+        "seasons": [
+          2023,
+          2022,
+          2021,
+          2018,
+          2017,
+          2015,
+          2014,
+          2013,
+          2011
+        ]
+      },
+      {
+        "team": {
+          "id": 550,
+          "name": "Shakhtar Donetsk",
+          "logo": "https://media.api-sports.io/football/teams/550.png"
+        },
+        "seasons": [
+          2017,
+          2016,
+          2015,
+          2014,
+          2013
+        ]
+      },
+      {
+        "team": {
+          "id": 119,
+          "name": "Internacional",
+          "logo": "https://media.api-sports.io/football/teams/119.png"
+        },
+        "seasons": [
+          2012,
+          2011
+        ]
+      },
+      {
+        "team": {
+          "id": 16200,
+          "name": "Brazil U20",
+          "logo": "https://media.api-sports.io/football/teams/16200.png"
+        },
+        "seasons": [
+          2013
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Süper Lig",
+        "country": "Türkiye",
+        "season": "2024/2025",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Türkiye",
+        "season": "2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Süper Lig",
+        "country": "Türkiye",
+        "season": "2023/2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "FA Cup",
+        "country": "England",
+        "season": "2022/2023",
+        "place": "2nd Place"
+      },
+      {
+        "league": "League Cup",
+        "country": "England",
+        "season": "2022/2023",
+        "place": "Winner"
+      },
+      {
+        "league": "CONMEBOL Copa America",
+        "country": "South America",
+        "season": "2021",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Premier League",
+        "country": "England",
+        "season": "2020/2021",
+        "place": "2nd Place"
+      },
+      {
+        "league": "UEFA Europa League",
+        "country": "Europe",
+        "season": "2020/2021",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": "2017/2018",
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": "2017/2018",
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": "2016/2017",
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": "2016/2017",
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": "2015/2016",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": "2015/2016",
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": "2014/2015",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": "2014/2015",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": "2013/2014",
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": "2013/2014",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Gaúcho 1",
+        "country": "Brazil",
+        "season": "2013",
+        "place": "Winner"
+      },
+      {
+        "league": "Gaúcho 1",
+        "country": "Brazil",
+        "season": "2012",
+        "place": "Winner"
+      },
+      {
+        "league": "CONMEBOL Recopa",
+        "country": "South America",
+        "season": "2011",
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League",
+        "country": "England",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "League Cup",
+        "country": "England",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "FA Cup",
+        "country": "England",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Cup",
+        "country": "Ukraine",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Süper Lig",
+        "country": "Türkiye",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Premier League",
+        "country": "Ukraine",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Türkiye",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "CONMEBOL Recopa",
+        "country": "South America",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Gaúcho 1",
+        "country": "Brazil",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "UEFA Europa League",
+        "country": "Europe",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "CONMEBOL Copa America",
+        "country": "South America",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Muscle Injury",
+        "start": "2025-03-18",
+        "end": "2025-04-01"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2024-07-31",
+        "end": "2024-08-16"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2024-04-01",
+        "end": "2024-04-10"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2024-01-22",
+        "end": "2024-02-21"
+      },
+      {
+        "type": "Groin Injury",
+        "start": "2023-10-30",
+        "end": "2023-11-10"
+      },
+      {
+        "type": "Groin Injury",
+        "start": "2022-04-10",
+        "end": "2022-05-01"
+      },
+      {
+        "type": "Virus",
+        "start": "2022-02-06",
+        "end": "2022-02-14"
+      },
+      {
+        "type": "Ankle/Foot Injury",
+        "start": "2021-11-24",
+        "end": "2021-11-27"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2021-10-22",
+        "end": "2021-10-23"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "70378": {
+    "career": [
+      {
+        "team": {
+          "id": 259,
+          "name": "Lommel United",
+          "logo": "https://media.api-sports.io/football/teams/259.png"
+        },
+        "seasons": [
+          2024,
+          2023,
+          2022,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 16203,
+          "name": "Peru U20",
+          "logo": "https://media.api-sports.io/football/teams/16203.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 2553,
+          "name": "Alianza Lima",
+          "logo": "https://media.api-sports.io/football/teams/2553.png"
+        },
+        "seasons": [
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 22926,
+          "name": "Peru U23",
+          "logo": "https://media.api-sports.io/football/teams/22926.png"
+        },
+        "seasons": [
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 21211,
+          "name": "Peru U17",
+          "logo": "https://media.api-sports.io/football/teams/21211.png"
+        },
+        "seasons": [
+          2019
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Liga 1",
+        "country": "Peru",
+        "season": "2019",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Liga 1",
+        "country": "Peru",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "665663": {
+    "career": [],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "66114": {
+    "career": [
+      {
+        "team": {
+          "id": 603,
+          "name": "Zlin",
+          "logo": "https://media.api-sports.io/football/teams/603.png"
+        },
+        "seasons": [
+          2024,
+          2023,
+          2022,
+          2021,
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 3717,
+          "name": "Opava",
+          "logo": "https://media.api-sports.io/football/teams/3717.png"
+        },
+        "seasons": [
+          2018,
+          2017,
+          2016,
+          2015
+        ]
+      },
+      {
+        "team": {
+          "id": 3730,
+          "name": "Vlašim",
+          "logo": "https://media.api-sports.io/football/teams/3730.png"
+        },
+        "seasons": [
+          2014,
+          2013
+        ]
+      },
+      {
+        "team": {
+          "id": 3734,
+          "name": "Znojmo",
+          "logo": "https://media.api-sports.io/football/teams/3734.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 1122,
+          "name": "FK Jablonec",
+          "logo": "https://media.api-sports.io/football/teams/1122.png"
+        },
+        "seasons": [
+          2012
+        ]
+      },
+      {
+        "team": {
+          "id": 3733,
+          "name": "Zbrojovka Brno",
+          "logo": "https://media.api-sports.io/football/teams/3733.png"
+        },
+        "seasons": [
+          2011,
+          2010
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "FNL",
+        "country": "Czechia",
+        "season": "2024/2025",
+        "place": "Winner"
+      },
+      {
+        "league": "FNL",
+        "country": "Czechia",
+        "season": "2017/2018",
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Czechia",
+        "season": "2016/2017",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Cup",
+        "country": "Czechia",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "FNL",
+        "country": "Czechia",
+        "season": null,
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "660396": {
+    "career": [],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "612": {
+    "profile": {
+      "id": 612,
+      "name": "E. Ponce",
+      "firstname": "Ezequiel",
+      "lastname": "Ponce Martínez",
+      "age": 28,
+      "birth": {
+        "date": "1997-03-29",
+        "place": "Rosario",
+        "country": "Argentina"
+      },
+      "nationality": "Argentina",
+      "height": "180",
+      "weight": "80",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/612.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 1600,
+          "name": "Houston Dynamo",
+          "logo": "https://media.api-sports.io/football/teams/1600.png"
+        },
+        "league": {
+          "id": 253,
+          "name": "Major League Soccer",
+          "country": "USA",
+          "logo": "https://media.api-sports.io/football/leagues/253.png",
+          "flag": "https://media.api-sports.io/flags/us.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 17,
+          "lineups": 13,
+          "minutes": 1126,
+          "number": 10,
+          "position": "Attacker",
+          "rating": "6.46",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 4,
+          "out": 8,
+          "bench": 4
+        },
+        "shots": {
+          "total": 15,
+          "on": 4
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 1,
+          "saves": null
+        },
+        "passes": {
+          "total": 240,
+          "key": 8,
+          "accuracy": 81
+        },
+        "tackles": {
+          "total": 4,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 106,
+          "won": 41
+        },
+        "dribbles": {
+          "attempts": 15,
+          "success": 8,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 13,
+          "committed": 21
+        },
+        "cards": {
+          "yellow": 2,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 797,
+          "name": "Elche",
+          "logo": "https://media.api-sports.io/football/teams/797.png"
+        },
+        "league": {
+          "id": 140,
+          "name": "La Liga",
+          "country": "Spain",
+          "logo": "https://media.api-sports.io/football/leagues/140.png",
+          "flag": "https://media.api-sports.io/flags/es.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 21,
+          "number": 9,
+          "position": "Attacker",
+          "rating": "6.9",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 2
+        },
+        "shots": {
+          "total": 1,
+          "on": 1
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 5,
+          "key": 1,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": 1,
+          "blocks": null,
+          "interceptions": 1
+        },
+        "duels": {
+          "total": 5,
+          "won": 4
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 797,
+          "name": "Elche",
+          "logo": "https://media.api-sports.io/football/teams/797.png"
+        },
+        "seasons": [
+          2026,
+          2023,
+          2022,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 1600,
+          "name": "Houston Dynamo",
+          "logo": "https://media.api-sports.io/football/teams/1600.png"
+        },
+        "seasons": [
+          2025,
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 575,
+          "name": "AEK Athens FC",
+          "logo": "https://media.api-sports.io/football/teams/575.png"
+        },
+        "seasons": [
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 558,
+          "name": "Spartak Moscow",
+          "logo": "https://media.api-sports.io/football/teams/558.png"
+        },
+        "seasons": [
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 10187,
+          "name": "Argentina U23",
+          "logo": "https://media.api-sports.io/football/teams/10187.png"
+        },
+        "seasons": [
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 9234,
+          "name": "Lille II",
+          "logo": "https://media.api-sports.io/football/teams/9234.png"
+        },
+        "seasons": [
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 79,
+          "name": "Lille",
+          "logo": "https://media.api-sports.io/football/teams/79.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 10284,
+          "name": "Argentina U20",
+          "logo": "https://media.api-sports.io/football/teams/10284.png"
+        },
+        "seasons": [
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 715,
+          "name": "Granada CF",
+          "logo": "https://media.api-sports.io/football/teams/715.png"
+        },
+        "seasons": [
+          2016
+        ]
+      },
+      {
+        "team": {
+          "id": 497,
+          "name": "AS Roma",
+          "logo": "https://media.api-sports.io/football/teams/497.png"
+        },
+        "seasons": [
+          2015
+        ]
+      },
+      {
+        "team": {
+          "id": 457,
+          "name": "Newells Old Boys",
+          "logo": "https://media.api-sports.io/football/teams/457.png"
+        },
+        "seasons": [
+          2014,
+          2013
+        ]
+      },
+      {
+        "team": {
+          "id": 7966,
+          "name": "Roma U19",
+          "logo": "https://media.api-sports.io/football/teams/7966.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Super League 1",
+        "country": "Greece",
+        "season": "2023/2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Premier League",
+        "country": "Russia",
+        "season": "2020/2021",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Cup",
+        "country": "Greece",
+        "season": "2018/2019",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Campionato Primavera 1",
+        "country": "Italy",
+        "season": "2015/2016",
+        "place": "Winner"
+      },
+      {
+        "league": "Campionato Primavera 1",
+        "country": "Italy",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Cup",
+        "country": "Greece",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Premier League",
+        "country": "Russia",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super League 1",
+        "country": "Greece",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Unknown",
+        "start": "2025-07-21",
+        "end": "2025-08-09"
+      },
+      {
+        "type": "Unknown",
+        "start": "2025-05-16",
+        "end": "2025-05-21"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2024-09-28",
+        "end": "2024-10-01"
+      },
+      {
+        "type": "Knee Injury",
+        "start": "2021-10-01",
+        "end": "2022-02-16"
+      },
+      {
+        "type": "Thigh Injury",
+        "start": "2018-03-26",
+        "end": "2018-04-10"
+      },
+      {
+        "type": "Hamstring",
+        "start": "2016-11-18",
+        "end": "2016-11-26"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "576771": {
+    "career": [],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "571697": {
+    "profile": {
+      "id": 571697,
+      "name": "S. Vindenes",
+      "firstname": null,
+      "lastname": null,
+      "age": 18,
+      "birth": {
+        "date": null,
+        "place": null,
+        "country": null
+      },
+      "nationality": null,
+      "height": null,
+      "weight": null,
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/571697.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 319,
+          "name": "Brann",
+          "logo": "https://media.api-sports.io/football/teams/319.png"
+        },
+        "league": {
+          "id": 103,
+          "name": "Eliteserien",
+          "country": "Norway",
+          "logo": "https://media.api-sports.io/football/leagues/103.png",
+          "flag": "https://media.api-sports.io/flags/no.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 37,
+          "position": "Midfielder",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 319,
+          "name": "Brann",
+          "logo": "https://media.api-sports.io/football/teams/319.png"
+        },
+        "league": {
+          "id": 848,
+          "name": "UEFA Europa Conference League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/848.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 37,
+          "position": "Midfielder",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 319,
+          "name": "Brann",
+          "logo": "https://media.api-sports.io/football/teams/319.png"
+        },
+        "seasons": [
+          2026
+        ]
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "568676": {
+    "career": [],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "56374": {
+    "profile": {
+      "id": 56374,
+      "name": "J. Pétris",
+      "firstname": "Jérémy",
+      "lastname": "Pétris",
+      "age": 27,
+      "birth": {
+        "date": "1998-01-28",
+        "place": "Bagnolet",
+        "country": "France"
+      },
+      "nationality": "France",
+      "height": "183",
+      "weight": "75",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/56374.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 1123,
+          "name": "Aris Thessalonikis",
+          "logo": "https://media.api-sports.io/football/teams/1123.png"
+        },
+        "league": {
+          "id": 197,
+          "name": "Super League 1",
+          "country": "Greece",
+          "logo": "https://media.api-sports.io/football/leagues/197.png",
+          "flag": "https://media.api-sports.io/flags/gr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 1,
+          "minutes": 90,
+          "number": 2,
+          "position": "Defender",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 0
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 39,
+          "key": 1,
+          "accuracy": 74
+        },
+        "tackles": {
+          "total": 2,
+          "blocks": null,
+          "interceptions": 2
+        },
+        "duels": {
+          "total": 16,
+          "won": 8
+        },
+        "dribbles": {
+          "attempts": 2,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": 4
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 1123,
+          "name": "Aris Thessalonikis",
+          "logo": "https://media.api-sports.io/football/teams/1123.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 38,
+          "name": "Watford",
+          "logo": "https://media.api-sports.io/football/teams/38.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 736,
+          "name": "Charleroi",
+          "logo": "https://media.api-sports.io/football/teams/736.png"
+        },
+        "seasons": [
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 646,
+          "name": "Levski Sofia",
+          "logo": "https://media.api-sports.io/football/teams/646.png"
+        },
+        "seasons": [
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 1413,
+          "name": "Tsarsko Selo",
+          "logo": "https://media.api-sports.io/football/teams/1413.png"
+        },
+        "seasons": [
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 526,
+          "name": "PRO Vercelli",
+          "logo": "https://media.api-sports.io/football/teams/526.png"
+        },
+        "seasons": [
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 1703,
+          "name": "Bisceglie",
+          "logo": "https://media.api-sports.io/football/teams/1703.png"
+        },
+        "seasons": [
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 1714,
+          "name": "Gozzano",
+          "logo": "https://media.api-sports.io/football/teams/1714.png"
+        },
+        "seasons": [
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 9965,
+          "name": "Paris II",
+          "logo": "https://media.api-sports.io/football/teams/9965.png"
+        },
+        "seasons": [
+          2016,
+          2015
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Super Cup",
+        "country": "Bulgaria",
+        "season": "2022",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super Cup",
+        "country": "Bulgaria",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Unknown",
+        "start": "2025-05-10",
+        "end": "2025-05-17"
+      },
+      {
+        "type": "Hip Injury",
+        "start": "2025-03-17",
+        "end": "2025-04-05"
+      },
+      {
+        "type": "Knock",
+        "start": "2025-01-23",
+        "end": "2025-01-31"
+      },
+      {
+        "type": "Unknown",
+        "start": "2024-05-10",
+        "end": "2024-06-30"
+      },
+      {
+        "type": "Concussion",
+        "start": "2024-04-15",
+        "end": "2024-04-20"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "535939": {
+    "profile": {
+      "id": 535939,
+      "name": "M. Jimenez",
+      "firstname": null,
+      "lastname": null,
+      "age": 18,
+      "birth": {
+        "date": null,
+        "place": null,
+        "country": null
+      },
+      "nationality": null,
+      "height": null,
+      "weight": null,
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/535939.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 1602,
+          "name": "New York Red Bulls",
+          "logo": "https://media.api-sports.io/football/teams/1602.png"
+        },
+        "league": {
+          "id": 253,
+          "name": "Major League Soccer",
+          "country": "USA",
+          "logo": "https://media.api-sports.io/football/leagues/253.png",
+          "flag": "https://media.api-sports.io/flags/us.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 5,
+          "lineups": 3,
+          "minutes": 235,
+          "number": 91,
+          "position": "Attacker",
+          "rating": "6.76",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 2,
+          "out": 3,
+          "bench": 3
+        },
+        "shots": {
+          "total": 7,
+          "on": 2
+        },
+        "goals": {
+          "total": 2,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 38,
+          "key": 4,
+          "accuracy": 73
+        },
+        "tackles": {
+          "total": null,
+          "blocks": 1,
+          "interceptions": 1
+        },
+        "duels": {
+          "total": 16,
+          "won": 2
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": 4
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 1602,
+          "name": "New York Red Bulls",
+          "logo": "https://media.api-sports.io/football/teams/1602.png"
+        },
+        "seasons": [
+          2026
+        ]
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "51473": {
+    "career": [
+      {
+        "team": {
+          "id": 2357,
+          "name": "Fenix",
+          "logo": "https://media.api-sports.io/football/teams/2357.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 2370,
+          "name": "Deportivo Maldonado",
+          "logo": "https://media.api-sports.io/football/teams/2370.png"
+        },
+        "seasons": [
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 2360,
+          "name": "Wanderers",
+          "logo": "https://media.api-sports.io/football/teams/2360.png"
+        },
+        "seasons": [
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 126,
+          "name": "Sao Paulo",
+          "logo": "https://media.api-sports.io/football/teams/126.png"
+        },
+        "seasons": [
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 2350,
+          "name": "Defensor Sporting",
+          "logo": "https://media.api-sports.io/football/teams/2350.png"
+        },
+        "seasons": [
+          2020,
+          2019,
+          2018,
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 21212,
+          "name": "Uruguay U17",
+          "logo": "https://media.api-sports.io/football/teams/21212.png"
+        },
+        "seasons": [
+          2017
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Liga AUF",
+        "country": "Uruguay",
+        "season": "2017",
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "506473": {
+    "career": [
+      {
+        "team": {
+          "id": 460,
+          "name": "San Lorenzo",
+          "logo": "https://media.api-sports.io/football/teams/460.png"
+        },
+        "seasons": [
+          2025
+        ]
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "49893": {
+    "profile": {
+      "id": 49893,
+      "name": "A. Damlu",
+      "firstname": "Abdulsamed",
+      "lastname": "Damlu",
+      "age": 26,
+      "birth": {
+        "date": "1999-07-25",
+        "place": "Bingöl",
+        "country": "Türkiye"
+      },
+      "nationality": "Türkiye",
+      "height": "191 cm",
+      "weight": "75 kg",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/49893.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 6342,
+          "name": "Vanspor FK",
+          "logo": "https://media.api-sports.io/football/teams/6342.png"
+        },
+        "league": {
+          "id": 204,
+          "name": "1. Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/204.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 22,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 6342,
+          "name": "Vanspor FK",
+          "logo": "https://media.api-sports.io/football/teams/6342.png"
+        },
+        "seasons": [
+          2026,
+          2025,
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 3579,
+          "name": "Amed",
+          "logo": "https://media.api-sports.io/football/teams/3579.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 3577,
+          "name": "Ümraniyespor",
+          "logo": "https://media.api-sports.io/football/teams/3577.png"
+        },
+        "seasons": [
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 999,
+          "name": "Yeni Malatyaspor",
+          "logo": "https://media.api-sports.io/football/teams/999.png"
+        },
+        "seasons": [
+          2022,
+          2021,
+          2020,
+          2019,
+          2018,
+          2016,
+          2014
+        ]
+      },
+      {
+        "team": {
+          "id": 13413,
+          "name": "Sandıklıspor",
+          "logo": "https://media.api-sports.io/football/teams/13413.png"
+        },
+        "seasons": [
+          2015
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "1. Lig",
+        "country": "Turkey",
+        "season": "2016/2017",
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Foot Injury",
+        "start": "2021-11-20",
+        "end": "2021-12-07"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "48391": {
+    "profile": {
+      "id": 48391,
+      "name": "J. von Moos",
+      "firstname": "Julian Tobias Emilio",
+      "lastname": "von Moos",
+      "age": 24,
+      "birth": {
+        "date": "2001-04-01",
+        "place": "Salmsach",
+        "country": "Switzerland"
+      },
+      "nationality": "Switzerland",
+      "height": "181",
+      "weight": "77",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/48391.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 2184,
+          "name": "Servette FC",
+          "logo": "https://media.api-sports.io/football/teams/2184.png"
+        },
+        "league": {
+          "id": 207,
+          "name": "Super League",
+          "country": "Switzerland",
+          "logo": "https://media.api-sports.io/football/leagues/207.png",
+          "flag": "https://media.api-sports.io/flags/ch.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 8,
+          "number": 81,
+          "position": "Attacker",
+          "rating": "6.5",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 1,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 2184,
+          "name": "Servette FC",
+          "logo": "https://media.api-sports.io/football/teams/2184.png"
+        },
+        "seasons": [
+          2026,
+          2025,
+          2024,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 644,
+          "name": "FC Luzern",
+          "logo": "https://media.api-sports.io/football/teams/644.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 8226,
+          "name": "Switzerland U21",
+          "logo": "https://media.api-sports.io/football/teams/8226.png"
+        },
+        "seasons": [
+          2025,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 1011,
+          "name": "FC ST. Gallen",
+          "logo": "https://media.api-sports.io/football/teams/1011.png"
+        },
+        "seasons": [
+          2023,
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 10350,
+          "name": "Switzerland U19",
+          "logo": "https://media.api-sports.io/football/teams/10350.png"
+        },
+        "seasons": [
+          2022,
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 200,
+          "name": "Vitesse",
+          "logo": "https://media.api-sports.io/football/teams/200.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 551,
+          "name": "FC Basel 1893",
+          "logo": "https://media.api-sports.io/football/teams/551.png"
+        },
+        "seasons": [
+          2020,
+          2019,
+          2018
+        ]
+      },
+      {
+        "team": {
+          "id": 2179,
+          "name": "FC WIL 1900",
+          "logo": "https://media.api-sports.io/football/teams/2179.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 7950,
+          "name": "Basel U19",
+          "logo": "https://media.api-sports.io/football/teams/7950.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 17981,
+          "name": "Switzerland U17",
+          "logo": "https://media.api-sports.io/football/teams/17981.png"
+        },
+        "seasons": [
+          2018
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Super League",
+        "country": "Switzerland",
+        "season": "2024/2025",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Schweizer Pokal",
+        "country": "Switzerland",
+        "season": "2021/2022",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super League",
+        "country": "Switzerland",
+        "season": "2020/2021",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Super League",
+        "country": "Switzerland",
+        "season": "2018/2019",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Schweizer Pokal",
+        "country": "Switzerland",
+        "season": "2018/2019",
+        "place": "Winner"
+      },
+      {
+        "league": "Super League",
+        "country": "Switzerland",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Schweizer Pokal",
+        "country": "Switzerland",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Schweizer Pokal",
+        "country": "Switzerland",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Groin Injury",
+        "start": "2025-07-27",
+        "end": "2025-08-23"
+      },
+      {
+        "type": "Broken Ankle",
+        "start": "2025-01-18",
+        "end": "2025-05-17"
+      },
+      {
+        "type": "Ankle Injury",
+        "start": "2024-12-09",
+        "end": "2025-01-09"
+      },
+      {
+        "type": "Leg Injury",
+        "start": "2024-10-20",
+        "end": "2024-10-30"
+      },
+      {
+        "type": "Unknown",
+        "start": "2024-05-15",
+        "end": "2024-05-19"
+      },
+      {
+        "type": "Muscle Injury",
+        "start": "2024-03-22",
+        "end": "2024-03-31"
+      },
+      {
+        "type": "Leg Injury",
+        "start": "2023-11-12",
+        "end": "2024-02-16"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "47710": {
+    "profile": {
+      "id": 47710,
+      "name": "C. Eriksson",
+      "firstname": "Carljohan Daniel Viktor",
+      "lastname": "Eriksson",
+      "age": 30,
+      "birth": {
+        "date": "1995-04-25",
+        "place": "Helsinki",
+        "country": "Finland"
+      },
+      "nationality": "Finland",
+      "height": "191",
+      "weight": "83",
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/47710.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 333,
+          "name": "Sarpsborg 08 FF",
+          "logo": "https://media.api-sports.io/football/teams/333.png"
+        },
+        "league": {
+          "id": 103,
+          "name": "Eliteserien",
+          "country": "Norway",
+          "logo": "https://media.api-sports.io/football/leagues/103.png",
+          "flag": "https://media.api-sports.io/flags/no.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 13,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 4
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 398,
+          "name": "FC Nordsjaelland",
+          "logo": "https://media.api-sports.io/football/teams/398.png"
+        },
+        "league": {
+          "id": 848,
+          "name": "UEFA Europa Conference League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/848.png",
+          "flag": null,
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 22,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 1
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 398,
+          "name": "FC Nordsjaelland",
+          "logo": "https://media.api-sports.io/football/teams/398.png"
+        },
+        "league": {
+          "id": 119,
+          "name": "Superliga",
+          "country": "Denmark",
+          "logo": "https://media.api-sports.io/football/leagues/119.png",
+          "flag": "https://media.api-sports.io/flags/dk.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": null,
+          "number": 22,
+          "position": "Goalkeeper",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 2
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 398,
+          "name": "FC Nordsjaelland",
+          "logo": "https://media.api-sports.io/football/teams/398.png"
+        },
+        "seasons": [
+          2026,
+          2024,
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 333,
+          "name": "Sarpsborg 08 FF",
+          "logo": "https://media.api-sports.io/football/teams/333.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 1099,
+          "name": "Finland",
+          "logo": "https://media.api-sports.io/football/teams/1099.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2022,
+          2021,
+          2020
+        ]
+      },
+      {
+        "team": {
+          "id": 332,
+          "name": "Sandefjord",
+          "logo": "https://media.api-sports.io/football/teams/332.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 1386,
+          "name": "Dundee Utd",
+          "logo": "https://media.api-sports.io/football/teams/1386.png"
+        },
+        "seasons": [
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 2240,
+          "name": "Mjallby AIF",
+          "logo": "https://media.api-sports.io/football/teams/2240.png"
+        },
+        "seasons": [
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 764,
+          "name": "Jonkopings Sodra",
+          "logo": "https://media.api-sports.io/football/teams/764.png"
+        },
+        "seasons": [
+          2018,
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 1172,
+          "name": "HIFK Helsinki",
+          "logo": "https://media.api-sports.io/football/teams/1172.png"
+        },
+        "seasons": [
+          2016,
+          2015
+        ]
+      },
+      {
+        "team": {
+          "id": 8193,
+          "name": "Finland U21",
+          "logo": "https://media.api-sports.io/football/teams/8193.png"
+        },
+        "seasons": [
+          2017
+        ]
+      },
+      {
+        "team": {
+          "id": 649,
+          "name": "HJK Helsinki",
+          "logo": "https://media.api-sports.io/football/teams/649.png"
+        },
+        "seasons": [
+          2014,
+          2013,
+          2012
+        ]
+      },
+      {
+        "team": {
+          "id": 10333,
+          "name": "Finland U19",
+          "logo": "https://media.api-sports.io/football/teams/10333.png"
+        },
+        "seasons": [
+          2014
+        ]
+      },
+      {
+        "team": {
+          "id": 2085,
+          "name": "Klubi-04",
+          "logo": "https://media.api-sports.io/football/teams/2085.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 1173,
+          "name": "PK-35 Vantaa",
+          "logo": "https://media.api-sports.io/football/teams/1173.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 17952,
+          "name": "Finland U17",
+          "logo": "https://media.api-sports.io/football/teams/17952.png"
+        },
+        "seasons": [
+          2012
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Superliga",
+        "country": "Denmark",
+        "season": "2022/2023",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Superettan",
+        "country": "Sweden",
+        "season": "2019",
+        "place": "Winner"
+      },
+      {
+        "league": "Veikkausliiga",
+        "country": "Finland",
+        "season": "2014",
+        "place": "Winner"
+      },
+      {
+        "league": "Suomen Cup",
+        "country": "Finland",
+        "season": "2014",
+        "place": "Winner"
+      },
+      {
+        "league": "Veikkausliiga",
+        "country": "Finland",
+        "season": "2013",
+        "place": "Winner"
+      },
+      {
+        "league": "League Cup",
+        "country": "Finland",
+        "season": "2012",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Veikkausliiga",
+        "country": "Finland",
+        "season": "2012",
+        "place": "Winner"
+      },
+      {
+        "league": "League Cup",
+        "country": "Finland",
+        "season": null,
+        "place": "2nd Place"
+      },
+      {
+        "league": "Veikkausliiga",
+        "country": "Finland",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Suomen Cup",
+        "country": "Finland",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Superettan",
+        "country": "Sweden",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Superliga",
+        "country": "Denmark",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [
+      {
+        "type": "Ankle Injury",
+        "start": "2023-11-30",
+        "end": "2023-12-12"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "463": {
+    "career": [
+      {
+        "team": {
+          "id": 3579,
+          "name": "Amed",
+          "logo": "https://media.api-sports.io/football/teams/3579.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 3574,
+          "name": "Giresunspor",
+          "logo": "https://media.api-sports.io/football/teams/3574.png"
+        },
+        "seasons": [
+          2021
+        ]
+      },
+      {
+        "team": {
+          "id": 3609,
+          "name": "Beykoz Anadolu",
+          "logo": "https://media.api-sports.io/football/teams/3609.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 995,
+          "name": "Akhisarspor",
+          "logo": "https://media.api-sports.io/football/teams/995.png"
+        },
+        "seasons": [
+          2020,
+          2019
+        ]
+      },
+      {
+        "team": {
+          "id": 10271,
+          "name": "RW Oberhausen U19",
+          "logo": "https://media.api-sports.io/football/teams/10271.png"
+        },
+        "seasons": [
+          2016
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "U21 Süper Lig",
+        "country": "Turkey",
+        "season": "2018/2019",
+        "place": "Winner"
+      },
+      {
+        "league": "U21 Super Cup",
+        "country": "Turkey",
+        "season": "2018/2019",
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "432485": {
+    "career": [
+      {
+        "team": {
+          "id": 600,
+          "name": "Zulte Waregem",
+          "logo": "https://media.api-sports.io/football/teams/600.png"
+        },
+        "seasons": [
+          2025,
+          2024
+        ]
+      },
+      {
+        "team": {
+          "id": 199,
+          "name": "De Graafschap",
+          "logo": "https://media.api-sports.io/football/teams/199.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 197,
+          "name": "PSV Eindhoven",
+          "logo": "https://media.api-sports.io/football/teams/197.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 411,
+          "name": "Jong PSV U21",
+          "logo": "https://media.api-sports.io/football/teams/411.png"
+        },
+        "seasons": [
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 22423,
+          "name": "PSV U21",
+          "logo": "https://media.api-sports.io/football/teams/22423.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 7965,
+          "name": "PSV U19",
+          "logo": "https://media.api-sports.io/football/teams/7965.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Challenger Pro League",
+        "country": "Belgium",
+        "season": "2024/2025",
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League International Cup",
+        "country": "Europe",
+        "season": "2023/2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "Challenger Pro League",
+        "country": "Belgium",
+        "season": null,
+        "place": "Winner"
+      },
+      {
+        "league": "Premier League International Cup",
+        "country": "Europe",
+        "season": null,
+        "place": "2nd Place"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "424369": {
+    "profile": {
+      "id": 424369,
+      "name": "Hong Jae-seok",
+      "firstname": "Jae-seok",
+      "lastname": "Hong",
+      "age": 22,
+      "birth": {
+        "date": "2003-07-03",
+        "place": null,
+        "country": "Korea Republic"
+      },
+      "nationality": "Korea Republic",
+      "height": "188 cm",
+      "weight": null,
+      "injured": false,
+      "photo": "https://media.api-sports.io/football/players/424369.png"
+    },
+    "statistics": [
+      {
+        "team": {
+          "id": 2748,
+          "name": "FC Anyang",
+          "logo": "https://media.api-sports.io/football/teams/2748.png"
+        },
+        "league": {
+          "id": 292,
+          "name": "K League 1",
+          "country": "South-Korea",
+          "logo": "https://media.api-sports.io/football/leagues/292.png",
+          "flag": "https://media.api-sports.io/flags/kr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 2,
+          "lineups": 0,
+          "minutes": 9,
+          "number": 20,
+          "position": "Defender",
+          "rating": "6.6",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 2,
+          "out": 0,
+          "bench": 5
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 1,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 3,
+          "won": 2
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 2748,
+          "name": "FC Anyang",
+          "logo": "https://media.api-sports.io/football/teams/2748.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 2767,
+          "name": "Ulsan Hyundai FC",
+          "logo": "https://media.api-sports.io/football/teams/2767.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 2752,
+          "name": "Busan I Park",
+          "logo": "https://media.api-sports.io/football/teams/2752.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 2761,
+          "name": "Jeju United FC",
+          "logo": "https://media.api-sports.io/football/teams/2761.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 7108,
+          "name": "Ulsan Citizen",
+          "logo": "https://media.api-sports.io/football/teams/7108.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "423865": {
+    "career": [
+      {
+        "team": {
+          "id": 446,
+          "name": "Lanus",
+          "logo": "https://media.api-sports.io/football/teams/446.png"
+        },
+        "seasons": [
+          2025,
+          2023
+        ]
+      }
+    ],
+    "trophies": [],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "406845": {
+    "career": [
+      {
+        "team": {
+          "id": 741,
+          "name": "Cercle Brugge",
+          "logo": "https://media.api-sports.io/football/teams/741.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023,
+          2022,
+          ""
+        ]
+      },
+      {
+        "team": {
+          "id": 14128,
+          "name": "Lokeren-Temse",
+          "logo": "https://media.api-sports.io/football/teams/14128.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 19897,
+          "name": "Cercle Brugge II",
+          "logo": "https://media.api-sports.io/football/teams/19897.png"
+        },
+        "seasons": []
+      }
+    ],
+    "trophies": [],
+    "sidelined": [
+      {
+        "type": "Knock",
+        "start": "2024-10-21",
+        "end": "2024-10-23"
+      },
+      {
+        "type": "Knock",
+        "start": "2024-09-11",
+        "end": "2024-10-19"
+      }
+    ],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
+  },
+  "394188": {
+    "career": [
+      {
+        "team": {
+          "id": 3605,
+          "name": "Sarıyer",
+          "logo": "https://media.api-sports.io/football/teams/3605.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 10351,
+          "name": "Turkey U19",
+          "logo": "https://media.api-sports.io/football/teams/10351.png"
+        },
+        "seasons": [
+          2025
+        ]
+      },
+      {
+        "team": {
+          "id": 998,
+          "name": "Trabzonspor",
+          "logo": "https://media.api-sports.io/football/teams/998.png"
+        },
+        "seasons": [
+          2024,
+          2023,
+          2022
+        ]
+      },
+      {
+        "team": {
+          "id": 17982,
+          "name": "Turkey U17",
+          "logo": "https://media.api-sports.io/football/teams/17982.png"
+        },
+        "seasons": [
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 17701,
+          "name": "Trabzonspor U19",
+          "logo": "https://media.api-sports.io/football/teams/17701.png"
+        },
+        "seasons": []
+      },
+      {
+        "team": {
+          "id": 19075,
+          "name": "Turkey U18",
+          "logo": "https://media.api-sports.io/football/teams/19075.png"
+        },
+        "seasons": [
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 22501,
+          "name": "Turkey U16",
+          "logo": "https://media.api-sports.io/football/teams/22501.png"
+        },
+        "seasons": [
+          2021
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "league": "Cup",
+        "country": "Turkey",
+        "season": "2023/2024",
+        "place": "2nd Place"
+      },
+      {
+        "league": "U19 Elit A Ligi",
+        "country": "Turkey",
+        "season": "2023/2024",
+        "place": "Winner"
+      }
+    ],
+    "sidelined": [],
+    "updated_at": "2026-08-24T09:12:34.636107+00:00"
   }
 }
