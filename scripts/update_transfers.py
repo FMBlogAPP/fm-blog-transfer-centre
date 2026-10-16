@@ -411,8 +411,10 @@ def merge_records(new_rows, selected_count, known_team_count):
     complete_full_sweep = (
         full_sweep
         and replace_on_full
+        and known_team_count > 0
         and selected_count == known_team_count
         and not quota_exhausted
+        and api_errors == 0
     )
 
     if complete_full_sweep:
@@ -445,20 +447,60 @@ def merge_records(new_rows, selected_count, known_team_count):
     }
 
 
+
+def validate_refresh(new_rows, checked_count, selected_count, known_count):
+    """Only publish a verified sweep; a failed request is not an empty result."""
+    reasons = []
+    if api_errors:
+        reasons.append(f"{api_errors} API error(s)")
+    if quota_exhausted:
+        reasons.append("API quota exhausted")
+    if checked_count != selected_count:
+        reasons.append(f"only {checked_count} of {selected_count} selected clubs checked")
+    if not known_count or not checked_count:
+        reasons.append("no clubs successfully checked")
+    if full_sweep:
+        if checked_count != known_count:
+            reasons.append(f"full sweep requires {known_count} clubs, checked {checked_count}")
+        for league in configured_leagues():
+            lid = league.get("resolved_id")
+            if not lid or not teams_db.get("leagues", {}).get(str(lid)):
+                reasons.append(f"club discovery incomplete for {league.get('name', 'a configured league')}")
+    previous_rows = [row for row in transfer_db.get("transfers", []) if not row.get("demo")]
+    if full_sweep and replace_on_full and previous_rows and not new_rows:
+        reasons.append("empty replacement refused for an existing transfer database")
+    if reasons:
+        raise RuntimeError("; ".join(reasons))
+
+
 discover_leagues()
 teams = all_teams()
 selected = select_teams(teams)
 meta_index = team_meta_index()
 new_records = []
+teams_checked = 0
+consecutive_errors = 0
 
 print(f"Starting transfer sweep: {len(selected)} of {len(teams)} known clubs across {len(config.get('leagues', []))} tracked leagues.")
 for index, team in enumerate(selected, 1):
     if quota_exhausted or calls >= max_calls:
         break
     print(f"[{index}/{len(selected)}] {team.get('country')} - {team.get('league')} - {team.get('name')}")
+    errors_before = api_errors
     new_records.extend(fetch_transfers_for_team(team, meta_index))
+    teams_checked += 1
+    consecutive_errors = consecutive_errors + 1 if api_errors > errors_before else 0
+    if consecutive_errors >= 3:
+        print("Three consecutive transfer requests failed; stopping to preserve the last good data.", file=sys.stderr)
+        break
 
-merge_records(new_records, len(selected), len(teams))
+try:
+    validate_refresh(new_records, teams_checked, len(selected), len(teams))
+except RuntimeError as exc:
+    print(f"Transfer refresh aborted: {exc}. Published data and timestamps are unchanged.", file=sys.stderr)
+    sys.exit(1)
+
+merge_records(new_records, teams_checked, len(teams))
 state["last_run"] = datetime.now(timezone.utc).isoformat()
 state["calls_last_run"] = calls
 state["quota_exhausted"] = quota_exhausted
@@ -470,7 +512,7 @@ save(DATA / "state.json", state)
 save(DATA / "league_ids.json", league_ids)
 
 print(
-    f"Done. API calls: {calls}; clubs known: {len(teams)}; clubs checked: {len(selected)}; "
+    f"Done. API calls: {calls}; clubs known: {len(teams)}; clubs checked: {teams_checked}; "
     f"stored transfers: {len(transfer_db.get('transfers', []))}; tracked leagues: {len(config.get('leagues', []))}; "
     f"quota exhausted: {quota_exhausted}"
 )

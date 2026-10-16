@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "scripts/update_transfers.py"
+      - "tests/test_update_transfers.py"
       - "scripts/enrich_transfer_feed.py"
       - "scripts/enrich_players.py"
       - "scripts/enrich_player_names.py"
@@ -38,6 +40,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Test transfer refresh safety
+        run: python -m unittest discover -s tests -p "test_update_transfers.py" -v
 
       - name: Fetch latest transfers
         if: github.event_name != 'push'

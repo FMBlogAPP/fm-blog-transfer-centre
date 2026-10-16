@@ -61,7 +61,22 @@ function setDbState(t){const e=$('.db-state');if(e)e.textContent=t}
 function requestFrameResize(){requestAnimationFrame(()=>{try{const app=root();if(!app)return;const h=Math.ceil(app.getBoundingClientRect().height)+4;if(window.frameElement&&window.parent!==window)window.frameElement.style.height=Math.max(700,h)+'px';window.parent?.postMessage?.({type:'fmbtc-height',height:h},'*')}catch(e){}})}
 function boot(){const r=root();if(!r||r.dataset.v3==='1')return;r.dataset.v3='1';bind();Promise.all([fetch(FEED+'?v='+Date.now()).then(x=>x.json()),fetch(CONFIG+'?v='+Date.now()).then(x=>x.json())]).then(([f,c])=>{feed=f;cfg=c;renderHeader();buildDropdowns();buildQuick();render();updateReturnBanner();updateWatchCount();openFromUrl();setTimeout(()=>{try{localStorage.setItem(VISIT,visitNow)}catch(e){}},1200)}).catch(e=>{console.error(e);$('.rows').innerHTML='<div class="empty"><b>Live data could not be loaded.</b>Please refresh the page.</div>'})}
 function watchBlogger(){let last=root();new MutationObserver(()=>{const n=root();if(n&&n!==last){last=n;setTimeout(boot,80)}}).observe(document.body,{childList:true,subtree:true})}
-function renderHeader(){const s=feed?.stats||{};$('.updated').textContent=feed?.meta?.updated_at?new Date(feed.meta.updated_at).toLocaleString('en-GB'):'Not updated yet';$('.total').textContent=nf(s.total);$('.last24stat').textContent=nf(s.last24);$('.clubs').textContent=nf(s.clubs_involved);$('.tracked').textContent=nf(s.tracked_leagues||cfg?.leagues?.length);$('.pulse-copy').textContent=`${nf(s.last24)} new · ${nf(s.free24)} free · ${nf(s.loans24)} loans in the last 24h`;const cov=$('.profile-coverage');if(cov){const p=s.profiled_rows||0,t=s.total||1;cov.textContent=p?`${Math.round(p/t*100)}% player profiles enriched`:'Player profiles loading' }}
+function transferDataStale(){
+  const m=feed?.meta||{},stamp=Date.parse(m.last_successful_update||m.updated_at||'');
+  return m.stale===true||m.live===false||Number(m.api_errors_last_run)>0||!Number.isFinite(stamp)||Date.now()-stamp>86400000;
+}
+function renderHeader(){
+  const s=feed?.stats||{},m=feed?.meta||{},stale=transferDataStale(),updated=m.last_successful_update||m.updated_at;
+  const stamp=Date.parse(updated||'');
+  $('.updated').textContent=Number.isFinite(stamp)?new Date(stamp).toLocaleString('en-GB')+(stale?' (last successful update)':''):'Not updated yet';
+  $('.total').textContent=nf(s.total);
+  $('.last24stat').textContent=stale?'—':nf(s.last24);
+  $('.clubs').textContent=nf(s.clubs_involved);
+  $('.tracked').textContent=nf(s.tracked_leagues||cfg?.leagues?.length);
+  $('.pulse-copy').textContent=stale?'Showing saved transfer data. Live updates are temporarily unavailable.':`${nf(s.last24)} new · ${nf(s.free24)} free · ${nf(s.loans24)} loans in the last 24h`;
+  const cov=$('.profile-coverage');
+  if(cov){const p=s.profiled_rows||0,t=s.total||1;cov.textContent=p?`${Math.round(p/t*100)}% player profiles enriched`:'Player profiles loading'}
+}
 function updateReturnBanner(){const b=$('.return-banner');if(!b||!previousVisit)return b?.classList.remove('show');const a=Date.now()-parse(previousVisit);if(a<=0||a>7*86400000)return b.classList.remove('show');const rr=rows(),n=rr.filter(isNew).length,w=rr.filter(t=>isNew(t)&&matchesWatch(t)).length;if(!n)return b.classList.remove('show');$('.return-copy').textContent=w?`${nf(n)} new transfers since your last visit · ${nf(w)} match your Watchlist`:`${nf(n)} new transfers since your last visit`;b.classList.add('show');const dot=$('.new-count');if(dot){dot.textContent=nf(n);dot.hidden=false}}
 const QUICK=[['England','Premier League','Premier League'],['Spain','La Liga','La Liga'],['Italy','Serie A','Serie A'],['Germany','Bundesliga','Bundesliga'],['Croatia','HNL','HNL'],['Brazil','Serie A','Brazil'],['Argentina','Liga Profesional','Argentina']];
 function buildQuick(){const q=$('.quick-leagues');if(q)q.innerHTML=QUICK.map(([c,l,label])=>{const o=leagueObj(c,l),logo=leagueLogo(o?.id);return `<button class="quickbtn" data-country="${esc(c)}" data-league="${esc(l)}">${logo?`<img src="${logo}" alt="">`:''}${esc(label)}</button>`}).join('');syncActive()}
