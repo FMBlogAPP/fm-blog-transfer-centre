@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
+from catalog import classify_video, write_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / 'config.json'
@@ -179,6 +180,11 @@ def main():
                 'url':f'https://www.youtube.com/watch?v={vid}','embedUrl':f'https://www.youtube-nocookie.com/embed/{vid}?autoplay=1&rel=0',
                 'channelId':ch['id'],'channelName':ch['name'],'channelAvatar':ch['avatar'],'channelUrl':ch['channelUrl'],'featuredCreator':ch['featured']})
     videos.sort(key=lambda v:v['publishedAt'],reverse=True); videos=videos[:max_feed]
+    if not videos:
+        print('ERROR: No public videos returned; keeping the last successful feed.', file=sys.stderr)
+        return 1
+    for video in videos:
+        video.update(classify_video(video))
     baseline=None
     if MODE=='recent': baseline=apply_daily_views(videos,now)
     cats=[]
@@ -191,6 +197,8 @@ def main():
              'categories':cats,'channels':public,'featuredVideoId':fid,'featuredLabel':flabel,'views24hReady':bool(baseline),
              'views24hBaselineAt':baseline.isoformat().replace('+00:00','Z') if baseline else None,'videos':videos}
     write_json(OUTPUT_PATH,payload)
+    catalog_path, catalog = write_catalog(DATA_DIR)
     print(f'Wrote {len(videos)} videos from {len(public)} channels to {OUTPUT_PATH} ({MODE}, {age} days)')
+    print(f"Wrote {catalog['videoCount']} searchable videos to {catalog_path} ({catalog_path.stat().st_size:,} bytes)")
     return 0
 if __name__=='__main__': raise SystemExit(main())
