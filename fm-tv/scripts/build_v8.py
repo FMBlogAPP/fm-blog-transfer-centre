@@ -11,8 +11,7 @@ style = (ROOT / 'styles-v8.css').read_text(encoding='utf-8')
 source = source[:source.rindex('<script>')]
 source = source.replace('data-fmtv-build="v7-shared-shell-2026-10-04"', 'data-fmtv-build="v8-discovery-2026-10-21"')
 source = source.replace('<section class="fmtv-intro"', '<style id="fmtv-v8">\n' + style + '\n</style>\n<section class="fmtv-intro"', 1)
-source = source.replace('<h3>Featured today</h3>', '<h3>FM Blog Pick</h3>', 1)
-source = source.replace('<div class="yt-home-head"><h3>FM Blog Pick', '<div class="yt-home-head" id="fmtv-pick-heading"><h3>FM Blog Pick', 1)
+source = source.replace('<div class="yt-home-head"><h3>Featured today', '<div class="yt-home-head" id="fmtv-pick-heading"><h3>&#128293; Most watched in the last 24h', 1)
 source = source.replace('<span id="fmtv-fav-count">0</span></button></div>', '<span id="fmtv-fav-count">0</span></button><button class="yt-pill" type="button" data-mode="later">Watch later <span id="fmtv-later-count">0</span></button></div>', 1)
 toolbar = '''
   <div class="yt-discovery-toolbar">

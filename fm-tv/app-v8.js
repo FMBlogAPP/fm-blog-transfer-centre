@@ -258,20 +258,24 @@
   function videoActions(v) { return '<div class="yt-card-actions"><button type="button" class="yt-save-button ' + (has('watchLater', v.id) ? 'saved' : '') + '" data-later="' + esc(v.id) + '" aria-pressed="' + has('watchLater', v.id) + '" aria-label="' + (has('watchLater', v.id) ? 'Remove ' : 'Save ') + esc(v.title) + (has('watchLater', v.id) ? ' from Watch later' : ' to Watch later') + '">' + (has('watchLater', v.id) ? '&#10003; Saved' : '+ Watch later') + '</button></div>'; }
   function card(v) {
     var badges = (Date.now() - Date.parse(v.publishedAt) < 864e5 ? '<span class="yt-new">New</span>' : '') + (has('watched', v.id) ? '<span class="yt-watched-badge">Watched</span>' : '');
-    return '<article class="yt-video">' + thumbnail(v, 'yt-thumb', badges) + '<div class="yt-info"><img src="' + esc(v.channelAvatar) + '" alt="" loading="lazy"><div><button class="yt-video-title" type="button" data-play="' + esc(v.id) + '">' + esc(v.title) + '</button><button class="yt-video-channel" type="button" data-creator="' + esc(v.channelId) + '">' + esc(v.channelName) + '</button><div class="yt-video-meta">' + fmt(v.views) + ' views &#183; ' + relative(v.publishedAt) + '</div><div class="yt-video-tags">' + esc([v.gameVersion || (v.isFm === false ? 'Other football games' : ''), (v.topics || []).slice(0, 2).join(' / ')].filter(Boolean).join(' · ')) + '</div>' + videoActions(v) + '</div></div></article>';
+    return '<article class="yt-video">' + thumbnail(v, 'yt-thumb', badges) + '<div class="yt-info"><img src="' + esc(v.channelAvatar) + '" alt="" loading="lazy"><div><button class="yt-video-title" type="button" data-play="' + esc(v.id) + '">' + esc(v.title) + '</button><button class="yt-video-channel" type="button" data-creator="' + esc(v.channelId) + '">' + esc(v.channelName) + '</button><div class="yt-video-meta">' + fmt(v.views) + ' views \u00b7 ' + relative(v.publishedAt) + '</div>' + (v.views24h == null ? '' : '<div class="yt-video-gain">+' + fmt(v.views24h) + ' views in 24h</div>') + '<div class="yt-video-tags">' + esc([v.gameVersion || (v.isFm === false ? 'Other football games' : ''), (v.topics || []).slice(0, 2).join(' / ')].filter(Boolean).join(' \u00b7 ')) + '</div>' + videoActions(v) + '</div></div></article>';
   }
   function renderFeature() {
-    var v = ((state.data && state.data.videos) || []).find(function (v) { return v.id === PICK; });
-    var show = v && Date.now() - Date.parse(v.publishedAt) < 45 * 864e5;
-    el.feature.innerHTML = show ? '<div class="yt-feature">' + thumbnail(v, 'yt-feature-media', '<span class="yt-feature-play"></span>') + '<div class="yt-feature-copy"><span class="yt-badge">FM BLOG PICK</span><div class="yt-feature-title">' + esc(v.title) + '</div><p class="yt-pick-reason">See the new features and upgrades in action in the official FM27 gameplay preview.</p><div class="yt-creator-line"><img src="' + esc(v.channelAvatar) + '" alt=""><button type="button" data-creator="' + esc(v.channelId) + '">' + esc(v.channelName) + '</button></div><div class="yt-feature-meta">' + fmt(v.views) + ' views &#183; ' + relative(v.publishedAt) + '</div>' + videoActions(v) + '</div></div>' : '';
-    $('#fmtv-pick-heading').hidden = !show; el.feature.dataset.pick = show ? PICK : '';
+    var ranked = filterVideos((state.data && state.data.videos) || [], Object.assign(defaultView(), { mode: 'trending' }), prefs, Date.now());
+    var v = ranked[0], show = !!v;
+    var label = v && v.views24h != null ? '\uD83D\uDD25 Most watched in the last 24h' : '\uD83D\uDD25 Trending now';
+    var badge = v && v.views24h != null ? 'No. 1 in 24h' : 'Trending now';
+    var gain = v && v.views24h != null ? '+' + fmt(v.views24h) + ' views in 24h' : '24-hour tracking is warming up';
+    el.feature.innerHTML = show ? '<div class="yt-feature">' + thumbnail(v, 'yt-feature-media', '<span class="yt-feature-play"></span>') + '<div class="yt-feature-copy"><span class="yt-badge">' + badge + '</span><div class="yt-feature-title">' + esc(v.title) + '</div><div class="yt-creator-line"><img src="' + esc(v.channelAvatar) + '" alt=""><button type="button" data-creator="' + esc(v.channelId) + '">' + esc(v.channelName) + '</button></div><div class="yt-feature-meta">' + fmt(v.views) + ' views \u00b7 ' + relative(v.publishedAt) + '</div><div class="yt-gain">' + gain + '</div>' + videoActions(v) + '</div></div>' : '';
+    $('#fmtv-pick-heading h3').textContent = label;
+    $('#fmtv-pick-heading').hidden = !show; el.feature.dataset.pick = show ? v.id : '';
   }
   function renderTrending() {
     var view = Object.assign(defaultView(), { mode: 'trending' });
     var ranked = filterVideos((state.data && state.data.videos) || [], view, prefs, Date.now());
     el['trend-note'].textContent = state.data.views24hReady ? 'Actual views gained over the last 24 hours' : 'Recent momentum while 24-hour tracking builds';
     el['trending-row'].innerHTML = ranked.map(function (v, i) { return { video: v, rank: i + 1 }; }).filter(function (x) { return x.video.id !== el.feature.dataset.pick; }).slice(0, 3).map(function (x) {
-      var v = x.video; return '<article class="yt-trend-item">' + thumbnail(v, 'yt-trend-thumb', '<span class="yt-rank">' + String(x.rank).padStart(2, '0') + '</span>') + '<button type="button" class="yt-trend-title" data-play="' + esc(v.id) + '">' + esc(v.title) + '</button><div class="yt-trend-by">' + esc(v.channelName) + '</div><div class="yt-trend-gain">' + (v.views24h == null ? 'Recent momentum' : '+' + fmt(v.views24h) + ' views / 24h') + '</div></article>';
+      var v = x.video; return '<article class="yt-trend-item">' + thumbnail(v, 'yt-trend-thumb', '<span class="yt-rank">' + String(x.rank).padStart(2, '0') + '</span>') + '<button type="button" class="yt-trend-title" data-play="' + esc(v.id) + '">' + esc(v.title) + '</button><div class="yt-trend-by">' + esc(v.channelName) + '</div><div class="yt-trend-gain">' + (v.views24h == null ? 'Recent momentum' : '+' + fmt(v.views24h) + ' views in 24h') + '</div></article>';
     }).join('');
   }
   function renderChannelHead() {
@@ -285,7 +289,7 @@
   function renderGrid() {
     var list = results(), shown = list.slice(0, state.shown), split = Math.min(8, shown.length), mode = state.mode;
     root.classList.remove('search-view'); // One consistent grid avoids a second, jumpy search layout.
-    var title = state.query ? 'Results for “' + state.query + '”' : mode === 'trending' ? 'Trending in the last 24 hours' : mode === 'later' ? 'Watch later' : mode === 'favourites' ? 'Latest from your channels' : state.creator ? (channelById(state.creator) || {}).name + ' videos' : state.category ? state.category + ' videos' : state.version === 'other' ? 'Other football games' : state.version ? (state.version === 'older' ? 'Older Football Manager' : state.version) + ' videos' : 'Latest from the FM community';
+    var title = state.query ? 'Results for “' + state.query + '”' : mode === 'trending' ? '\uD83D\uDD25 Most watched in the last 24h' : mode === 'later' ? 'Watch later' : mode === 'favourites' ? 'Latest from your channels' : state.creator ? (channelById(state.creator) || {}).name + ' videos' : state.category ? state.category + ' videos' : state.version === 'other' ? 'Other football games' : state.version ? (state.version === 'older' ? 'Older Football Manager' : state.version) + ' videos' : 'Latest from the FM community';
     el['grid-title'].textContent = title;
     var note = state.archiveLoading ? 'Loading the full catalogue. Recent videos stay available.' : state.archiveError ? 'The full catalogue could not load. Showing recent videos.' : state.mode === 'later' ? 'Videos you saved for another time.' : state.mode === 'favourites' && !prefs.favourites.length ? 'Choose All creators and follow the channels you enjoy.' : state.archive && wantsCatalog() ? 'Searching recent uploads and the past-year catalogue.' : '';
     el['grid-note'].textContent = note;
@@ -313,7 +317,7 @@
   function renderAll(updateHash) {
     renderSync(); if (!state.data) return;
     renderSidebar(); renderCats(); renderChannelHead(); renderFeature(); renderTrending(); renderFavShelf(); renderGrid();
-    el.updated.textContent = (state.stale ? 'Saved feed · ' : 'Updated ') + relative(state.data.generatedAt);
+    el.updated.textContent = (state.stale ? 'Saved feed \u00b7 ' : 'Updated ') + relative(state.data.generatedAt);
     if (updateHash !== false) setHash();
   }
   function relatedLinks(v) {

@@ -55,7 +55,7 @@
 #fmtv-app .yt-related{display:flex;gap:7px 16px;align-items:center;flex-wrap:wrap;padding:0 16px 14px;font-size:12px}
 #fmtv-app .yt-related>span{width:100%;color:#9aacc0;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
 #fmtv-app .yt-related a{color:#a4e9ef;line-height:1.5}
-#fmtv-app .yt-image-unavailable::after{content:'Preview unavailable · Play video';position:absolute;bottom:22px;left:12px;right:12px;text-align:center;color:#c1d4e5;font-size:11px;line-height:1.5;background:#112033bd;padding:5px;z-index:2}
+#fmtv-app .yt-image-unavailable::after{content:'Preview unavailable \00b7  Play video';position:absolute;bottom:22px;left:12px;right:12px;text-align:center;color:#c1d4e5;font-size:11px;line-height:1.5;background:#112033bd;padding:5px;z-index:2}
 #fmtv-app .yt-back{min-height:40px;margin-bottom:12px}
 #fmtv-app .yt-channel-title{margin:0;font-family:inherit}
 @media(max-width:1100px){#fmtv-app .yt-feature-media{aspect-ratio:16/9!important;height:auto;min-height:0}}
