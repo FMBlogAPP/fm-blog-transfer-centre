@@ -1,0 +1,88 @@
+/* FM TV v8: the shared FM Blog shell remains the layout baseline. */
+#fmtv-app .yt-topbar{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+#fmtv-app .yt-top-actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important}
+#fmtv-app .yt-top-actions .yt-pill{flex:0 0 auto;width:auto!important;min-height:42px}
+#fmtv-app .yt-discovery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-8px 0 22px;flex-wrap:wrap}
+#fmtv-app .yt-version-control{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:var(--muted)}
+#fmtv-app .yt-version-control select{appearance:auto;color:var(--text);background:#192638;border:1px solid #35465d;border-radius:7px;min-height:42px;max-width:100%;padding:8px 30px 8px 12px;font:inherit;font-size:13px}
+#fmtv-app .yt-sync-line{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px;line-height:1.5}
+#fmtv-app .yt-sync-line button{color:#99e9ed;background:none;border:0;text-decoration:underline;font:inherit;cursor:pointer;padding:5px}
+#fmtv-app [data-state=error]{color:#efc48e}
+#fmtv-app .yt-feed-status{border:1px solid #635341;background:#302b26;border-radius:8px;padding:12px 14px;margin-bottom:20px;display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:13px;line-height:1.5;color:#f4dfbf}
+#fmtv-app .yt-feed-status[hidden],#fmtv-app [hidden]{display:none!important}
+#fmtv-app .yt-feed-status button{background:#493f32;border:1px solid #8e7452;color:#fff;border-radius:6px;padding:7px 12px;cursor:pointer;font:inherit}
+#fmtv-app .yt-chipbar{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:7px;max-width:100%;padding:0 0 18px;scrollbar-width:thin}
+#fmtv-app .yt-chip{flex:0 0 auto;white-space:nowrap}
+#fmtv-app .yt-creator-select{grid-column:2;grid-row:1;border:0;background:none;color:inherit;text-align:left;padding:3px 0;cursor:pointer;min-width:0;font:inherit;line-height:1.4}
+#fmtv-app .yt-creator-select span{display:block}
+#fmtv-app .yt-channel-name{white-space:normal;overflow-wrap:anywhere}
+#fmtv-app .yt-channel-row{min-height:52px}
+#fmtv-app .yt-channel-row>.yt-star{height:40px;width:30px;min-width:30px}
+#fmtv-app .yt-all-channels{display:flex;justify-content:space-between;gap:8px;width:100%;border:1px solid #395269;background:#1c3246;color:#edf6ff;border-radius:7px;padding:11px 8px;text-align:left;font-size:12px;font-weight:700;cursor:pointer}
+#fmtv-app .yt-all-channels span{font-size:10px;font-weight:400;color:#b7cadc}
+#fmtv-app .yt-empty-small{padding:14px 8px;color:var(--muted);font-size:13px;line-height:1.5}
+#fmtv-app .yt-all-creators-button{flex:0 0 auto;align-self:center;display:flex;align-items:center;gap:10px;border:1px solid #42617c;border-radius:8px;background:#1c3246;color:#edf6ff;font-size:13px;font-weight:700;min-height:44px;padding:9px 14px;cursor:pointer}
+#fmtv-app .yt-all-creators-button span{border-radius:20px;padding:2px 7px;background:#2a5063;color:#c0eff3;font-size:11px}
+#fmtv-app .yt-creators-modal{position:fixed;inset:0;z-index:100003;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:16px}
+#fmtv-app .yt-creators-modal.open{display:flex}
+#fmtv-app .yt-creators-box{display:flex;flex-direction:column;width:min(560px,100%);max-height:85dvh;border:1px solid var(--line);border-radius:14px;background:#121e2d;box-shadow:0 24px 80px #0008;overflow:hidden}
+#fmtv-app .yt-creators-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+#fmtv-app .yt-creators-head h2{font-size:21px;letter-spacing:-.02em;margin:0;line-height:1.2}
+#fmtv-app .yt-creators-search-wrap{padding:12px 16px}
+#fmtv-app .yt-creators-search-wrap input{display:block;width:100%;height:44px;box-sizing:border-box;border:1px solid #41556f;border-radius:7px;background:#0e1723;color:var(--text);padding:10px 12px;font:inherit;font-size:14px}
+#fmtv-app .yt-creators-list{overflow:auto;overscroll-behavior:contain;padding:0 16px 16px;min-height:160px}
+#fmtv-app .yt-creators-list .yt-channel-row{grid-template-columns:40px minmax(0,1fr) 40px;gap:12px;padding:9px 8px}
+#fmtv-app .yt-creators-list .yt-channel-name{font-size:14px}
+#fmtv-app .yt-creators-list .yt-star{width:40px;height:44px;font-size:22px}
+#fmtv-app .yt-video-tags{font-size:10px;line-height:1.5;color:#83b8c5;margin-top:5px;min-height:15px}
+#fmtv-app .yt-card-actions{margin-top:8px;display:flex;align-items:center;gap:8px}
+#fmtv-app .yt-save-button{display:inline-flex;align-items:center;gap:5px;min-height:34px;border:1px solid #384d65;border-radius:6px;background:#152235;color:#bbd0e5;font-family:inherit;font-size:12px;font-weight:600;line-height:1.3;padding:7px 10px;cursor:pointer}
+#fmtv-app .yt-save-button:hover{background:#263d52;color:#fff;border-color:#5a809a}
+#fmtv-app .yt-save-button.saved,#fmtv-app .yt-save-button[aria-pressed=true]{background:#183a3a;color:#a0ecd5;border-color:#3c7468}
+#fmtv-app .yt-pick-reason{font-size:14px;line-height:1.6;margin:12px 0 16px;color:#b4c7d9}
+#fmtv-app .yt-feature>*,#fmtv-app .yt-feature-copy{min-width:0;max-width:100%}
+#fmtv-app .yt-feature-media{width:100%!important;min-width:0!important;max-width:100%!important;aspect-ratio:auto!important}
+#fmtv-app .yt-feature-copy{overflow-wrap:break-word}
+#fmtv-app button.yt-trend-title{padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer;font-family:inherit}
+#fmtv-app .yt-modal{padding:16px;z-index:100004;align-items:center}
+#fmtv-app .yt-modal-box{max-height:92dvh;overflow:auto;overscroll-behavior:contain;width:min(1080px,96vw)}
+#fmtv-app .yt-player{width:100%;max-height:64dvh;aspect-ratio:16/9;position:relative}
+#fmtv-app .yt-player iframe{position:absolute;inset:0;width:100%;height:100%}
+#fmtv-app .yt-player-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--line)}
+#fmtv-app .yt-player-actions .yt-save-button{min-height:40px}
+#fmtv-app .yt-player-actions a{margin-left:auto;font-size:12px;color:#a4e9ef;text-decoration:none;min-height:36px;display:inline-flex;align-items:center}
+#fmtv-app .yt-player-actions a:hover,#fmtv-app .yt-related a:hover{text-decoration:underline;color:white}
+#fmtv-app .yt-related{display:flex;gap:7px 16px;align-items:center;flex-wrap:wrap;padding:0 16px 14px;font-size:12px}
+#fmtv-app .yt-related>span{width:100%;color:#9aacc0;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+#fmtv-app .yt-related a{color:#a4e9ef;line-height:1.5}
+#fmtv-app .yt-image-unavailable::after{content:'Preview unavailable · Play video';position:absolute;bottom:22px;left:12px;right:12px;text-align:center;color:#c1d4e5;font-size:11px;line-height:1.5;background:#112033bd;padding:5px;z-index:2}
+#fmtv-app .yt-back{min-height:40px;margin-bottom:12px}
+#fmtv-app .yt-channel-title{margin:0;font-family:inherit}
+@media(max-width:1100px){#fmtv-app .yt-feature-media{aspect-ratio:16/9!important;height:auto;min-height:0}}
+@media(max-width:760px){
+  #fmtv-app .fmtv-intro{margin-bottom:18px}
+  #fmtv-app .yt-top-actions{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;width:100%!important;padding-bottom:4px!important}
+  #fmtv-app .yt-top-actions .yt-pill{width:auto!important;flex:0 0 auto;height:40px!important;min-height:40px;white-space:nowrap;padding:0 12px!important}
+  #fmtv-app .yt-discovery-toolbar{margin:-6px 0 18px;gap:10px}
+  #fmtv-app .yt-sync-line{font-size:11px;width:100%}
+  #fmtv-app .yt-mobile-creators{display:flex;margin-bottom:15px;padding-bottom:9px;min-height:44px;align-items:center;gap:12px}
+  #fmtv-app .yt-mobile-creator{flex:0 0 62px}
+  #fmtv-app .yt-creators-modal{padding:0;align-items:flex-end}
+  #fmtv-app .yt-creators-box{max-height:90dvh;width:100%;border-radius:18px 18px 0 0}
+  #fmtv-app .yt-modal{padding:8px}
+  #fmtv-app .yt-modal-box{width:100%;max-height:94dvh;border-radius:10px}
+  #fmtv-app .yt-modal-title{white-space:normal;line-height:1.4;max-height:3em;overflow:hidden}
+  #fmtv-app .yt-player-actions{padding:10px;gap:7px}
+  #fmtv-app .yt-player-actions a{margin-left:0;width:100%}
+  #fmtv-app .yt-related{padding:0 10px 14px}
+  #fmtv-app .yt-related a{width:100%}
+  #fmtv-app .yt-card-actions .yt-save-button{min-height:40px}
+  #fmtv-app .yt-shelf-head{gap:12px;align-items:flex-start}
+  #fmtv-app .yt-shelf-head h3{font-size:20px}
+}
+@media(max-width:500px){
+  #fmtv-app .yt-top-actions{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;overflow:visible!important;padding-bottom:0!important}
+  #fmtv-app .yt-top-actions .yt-pill{grid-column:span 2;width:100%!important;min-width:0;font-size:11px!important;padding:0 8px!important;justify-content:center!important}
+  #fmtv-app .yt-top-actions .yt-pill:nth-child(n+4){grid-column:span 3}
+}
+@media(prefers-reduced-motion:reduce){#fmtv-app *{scroll-behavior:auto!important;transition:none!important}}

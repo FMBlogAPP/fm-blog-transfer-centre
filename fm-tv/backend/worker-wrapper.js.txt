@@ -1,0 +1,15 @@
+import {handleFmTvPreferences} from './fmb-tv-preferences.js';
+
+/* FM_TV_PREFERENCES_V1: isolated route; preserve every existing handler. */
+const fmbTvPreviousFetch = zA.fetch;
+zA.fetch = function(request, env, ctx) {
+  if (new URL(request.url).pathname === '/api/fm-tv/preferences') {
+    return handleFmTvPreferences(request, env, ctx, {
+      checkCsrf: bl,
+      cookies: $0,
+      verifySession: cl,
+      verifyId: token => ul(token, 'id')
+    });
+  }
+  return fmbTvPreviousFetch.call(this, request, env, ctx);
+};
