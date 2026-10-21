@@ -12,11 +12,13 @@ source = source[:source.rindex('<script>')]
 source = source.replace('data-fmtv-build="v7-shared-shell-2026-10-04"', 'data-fmtv-build="v8-discovery-2026-10-21"')
 source = source.replace('<section class="fmtv-intro"', '<style id="fmtv-v8">\n' + style + '\n</style>\n<section class="fmtv-intro"', 1)
 source = source.replace('<div class="yt-home-head"><h3>Featured today', '<div class="yt-home-head" id="fmtv-pick-heading"><h3>&#128293; Most watched in the last 24h', 1)
-source = source.replace('<span id="fmtv-fav-count">0</span></button></div>', '<span id="fmtv-fav-count">0</span></button><button class="yt-pill" type="button" data-mode="later">Watch later <span id="fmtv-later-count">0</span></button></div>', 1)
 toolbar = '''
   <div class="yt-discovery-toolbar">
     <label class="yt-version-control" for="fmtv-version">Game <select id="fmtv-version"><option value="">All Football Manager</option><option value="FM27">FM27</option><option value="FM26">FM26</option><option value="older">Older FM</option><option value="other">Other football games</option></select></label>
-    <div class="yt-sync-line"><span id="fmtv-sync-status" role="status">Saved in this browser</span><button id="fmtv-sync-retry" type="button" hidden>Retry sync</button></div>
+    <div class="yt-library-controls">
+      <button class="yt-pill" type="button" data-mode="later" title="Open your saved FM TV videos">Watch later <span id="fmtv-later-count">0</span></button>
+      <div class="yt-sync-line"><span id="fmtv-sync-status" role="status">Saved in this browser only</span><button id="fmtv-sync-retry" type="button" hidden>Retry sync</button></div>
+    </div>
   </div>
   <div class="yt-feed-status" id="fmtv-status" role="status" hidden></div>
 '''

@@ -266,10 +266,12 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
 </style>
 <style id="fmtv-v8">
 /* FM TV v8: the shared FM Blog shell remains the layout baseline. */
-#fmtv-app .yt-topbar{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
-#fmtv-app .yt-top-actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important}
-#fmtv-app .yt-top-actions .yt-pill{flex:0 0 auto;width:auto!important;min-height:42px}
+#fmtv-app .yt-topbar{grid-template-columns:minmax(240px,1fr) auto!important;gap:16px!important;align-items:center}
+#fmtv-app .yt-top-actions{display:flex!important;flex-wrap:nowrap!important;gap:7px!important}
+#fmtv-app .yt-top-actions .yt-pill{flex:0 0 auto;width:auto!important;min-height:40px}
 #fmtv-app .yt-discovery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-8px 0 22px;flex-wrap:wrap}
+#fmtv-app .yt-library-controls{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+#fmtv-app .yt-library-controls>.yt-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
 #fmtv-app .yt-version-control{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:var(--muted)}
 #fmtv-app .yt-version-control select{appearance:auto;color:var(--text);background:#192638;border:1px solid #35465d;border-radius:7px;min-height:42px;max-width:100%;padding:8px 30px 8px 12px;font:inherit;font-size:13px}
 #fmtv-app .yt-sync-line{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px;line-height:1.5}
@@ -325,12 +327,13 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
 #fmtv-app .yt-image-unavailable::after{content:'Preview unavailable \00b7  Play video';position:absolute;bottom:22px;left:12px;right:12px;text-align:center;color:#c1d4e5;font-size:11px;line-height:1.5;background:#112033bd;padding:5px;z-index:2}
 #fmtv-app .yt-back{min-height:40px;margin-bottom:12px}
 #fmtv-app .yt-channel-title{margin:0;font-family:inherit}
-@media(max-width:1100px){#fmtv-app .yt-feature-media{aspect-ratio:16/9!important;height:auto;min-height:0}}
+@media(max-width:1100px){#fmtv-app .yt-topbar{grid-template-columns:minmax(0,1fr)!important}#fmtv-app .yt-feature-media{aspect-ratio:16/9!important;height:auto;min-height:0}}
 @media(max-width:760px){
   #fmtv-app .fmtv-intro{margin-bottom:18px}
-  #fmtv-app .yt-top-actions{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;width:100%!important;padding-bottom:4px!important}
-  #fmtv-app .yt-top-actions .yt-pill{width:auto!important;flex:0 0 auto;height:40px!important;min-height:40px;white-space:nowrap;padding:0 12px!important}
+  #fmtv-app .yt-top-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;overflow:visible!important;width:100%!important;padding-bottom:0!important}
+  #fmtv-app .yt-top-actions .yt-pill{width:100%!important;min-width:0;height:40px!important;min-height:40px;white-space:nowrap;padding:0 9px!important;justify-content:center!important}
   #fmtv-app .yt-discovery-toolbar{margin:-6px 0 18px;gap:10px}
+  #fmtv-app .yt-library-controls{justify-content:flex-start;gap:8px 12px}
   #fmtv-app .yt-sync-line{font-size:11px;width:100%}
   #fmtv-app .yt-mobile-creators{display:flex;margin-bottom:15px;padding-bottom:9px;min-height:44px;align-items:center;gap:12px}
   #fmtv-app .yt-mobile-creator{flex:0 0 62px}
@@ -347,11 +350,6 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
   #fmtv-app .yt-shelf-head{gap:12px;align-items:flex-start}
   #fmtv-app .yt-shelf-head h3{font-size:20px}
 }
-@media(max-width:500px){
-  #fmtv-app .yt-top-actions{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;overflow:visible!important;padding-bottom:0!important}
-  #fmtv-app .yt-top-actions .yt-pill{grid-column:span 2;width:100%!important;min-width:0;font-size:11px!important;padding:0 8px!important;justify-content:center!important}
-  #fmtv-app .yt-top-actions .yt-pill:nth-child(n+4){grid-column:span 3}
-}
 @media(prefers-reduced-motion:reduce){#fmtv-app *{scroll-behavior:auto!important;transition:none!important}}
 
 </style>
@@ -360,12 +358,15 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
   <header class="yt-topbar">
     <div class="yt-brand"><span class="yt-brand-mark"></span><div><div class="yt-brand-name"><span>FM TV</span></div><div class="yt-brand-sub">by FM Blog</div></div></div>
     <div class="yt-search"><input id="fmtv-search" aria-label="Search Football Manager videos and creators" type="search" placeholder="Search Football Manager videos and creators..." autocomplete="off"><button class="yt-search-btn" id="fmtv-search-btn" type="button" aria-label="Search"></button></div>
-    <div class="yt-top-actions"><button class="yt-pill yt-filter-trigger" id="fmtv-filter-open" type="button">&#9783; Filters <span class="filter-count" id="fmtv-filter-count">0</span></button><button class="yt-pill active" data-mode="latest" type="button">Latest</button><button class="yt-pill" data-mode="trending" type="button">Trending 24h</button><button class="yt-pill fav" data-mode="favourites" type="button">&#9733; My Channels <span id="fmtv-fav-count">0</span></button><button class="yt-pill" type="button" data-mode="later">Watch later <span id="fmtv-later-count">0</span></button></div>
+    <div class="yt-top-actions"><button class="yt-pill yt-filter-trigger" id="fmtv-filter-open" type="button">&#9783; Filters <span class="filter-count" id="fmtv-filter-count">0</span></button><button class="yt-pill active" data-mode="latest" type="button">Latest</button><button class="yt-pill" data-mode="trending" type="button">Trending 24h</button><button class="yt-pill fav" data-mode="favourites" type="button">&#9733; My Channels <span id="fmtv-fav-count">0</span></button></div>
   </header>
 
   <div class="yt-discovery-toolbar">
     <label class="yt-version-control" for="fmtv-version">Game <select id="fmtv-version"><option value="">All Football Manager</option><option value="FM27">FM27</option><option value="FM26">FM26</option><option value="older">Older FM</option><option value="other">Other football games</option></select></label>
-    <div class="yt-sync-line"><span id="fmtv-sync-status" role="status">Saved in this browser</span><button id="fmtv-sync-retry" type="button" hidden>Retry sync</button></div>
+    <div class="yt-library-controls">
+      <button class="yt-pill" type="button" data-mode="later" title="Open your saved FM TV videos">Watch later <span id="fmtv-later-count">0</span></button>
+      <div class="yt-sync-line"><span id="fmtv-sync-status" role="status">Saved in this browser only</span><button id="fmtv-sync-retry" type="button" hidden>Retry sync</button></div>
+    </div>
   </div>
   <div class="yt-feed-status" id="fmtv-status" role="status" hidden></div>
   <div class="yt-body">
@@ -472,7 +473,7 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
     var terms = query.split(/\s+/).filter(Boolean), filters = view.filters || defaultFilters();
     var sets = { favourites: new Set(prefs.favourites || []), watchLater: new Set(prefs.watchLater || []), watched: new Set(prefs.watched || []) };
     var list = videos.filter(function (v) {
-      if (view.version === 'other' ? v.isFm !== false : v.isFm === false) return false;
+      if (view.version === 'other' ? v.isFm !== false : v.isFm === false && !(view.mode === 'later' && !view.version)) return false;
       if (view.version && view.version !== 'other' && view.version !== 'older' && v.gameVersion !== view.version) return false;
       if (view.version === 'older' && (!/^FM\d{2}$/.test(v.gameVersion || '') || Number(v.gameVersion.slice(2)) >= 26)) return false;
       if (view.creator && v.channelId !== view.creator) return false;
@@ -513,7 +514,7 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
   var CSRF = 'https://database.footballmanagerblog.org/api/community/csrf';
   var PICK = 'BFx05-AMBcU', CACHE_KEY = 'fmTvRecentCacheV8';
   var state = Object.assign(defaultView(), { data: null, archive: null, shown: 12, loading: false, archiveLoading: false, archiveError: false, stale: false, creatorQuery: '', currentVideo: null, draftFilters: null });
-  var prefs = emptyPreferences(), account = null, accountEpoch = 0, accountVersion = null, pending = [], syncBusy = 0, syncLoadEpoch = 0, syncTimer = null, syncMessage = 'Saved in this browser', csrfToken = '', authUnsubscribe = null;
+  var prefs = emptyPreferences(), account = null, accountEpoch = 0, accountVersion = null, pending = [], syncBusy = 0, syncLoadEpoch = 0, syncTimer = null, syncMessage = 'Saved in this browser only', csrfToken = '', authUnsubscribe = null;
   var activeDialog = null, dialogFocus = null, previousOverflow = '', requestedWatch = '', searchTimer = null, catalogPromise = null;
   var el = {};
   ['search','search-btn','creator-search','creator-list','mobile-creators','cats','channel-head','home-only','feature','updated','trend-note','trending-row','fav-shelf','fav-grid','fav-count','grid-title','grid-note','count','grid-a','grid-b','feed-ad','grid-section','load','filter-open','filter-count','filter-modal','filter-close','filter-apply','filter-clear','filter-summary','modal','modal-title','player','close','version','later-count','status','sync-status','creators-modal','creators-search','creators-list','creators-close','player-actions','related'].forEach(function (id) { el[id] = $('#fmtv-' + id); });
@@ -564,7 +565,7 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
     try {
       var response = await syncRequest('GET', null, user); if (epoch !== accountEpoch || (accountVersion != null && response.data.version < accountVersion)) return;
       accountVersion = response.data.version; prefs = applyOperations(response.data, pending); writeLocal();
-      syncMessage = pending.length ? 'Saving to your account...' : 'Saved to your FM Blog account'; renderAll(false); renderPlayerActions();
+      syncMessage = pending.length ? 'Saving to your account...' : 'Synced with your FM Blog account'; renderAll(false); renderPlayerActions();
       loaded = true;
     } catch (e) { if (epoch === accountEpoch) { syncMessage = 'Saved here. Account sync could not connect.'; renderSync(); } }
     finally { if (syncLoadEpoch === epoch) syncLoadEpoch = 0; if (loaded && epoch === accountEpoch && pending.length) flushSync(); }
@@ -582,7 +583,7 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
         else { pending.splice(0, batch.length); conflicts = 0; }
         prefs = applyOperations(response.data, pending); writeLocal();
       }
-      if (epoch === accountEpoch) { syncMessage = 'Saved to your FM Blog account'; renderAll(false); renderPlayerActions(); }
+      if (epoch === accountEpoch) { syncMessage = 'Synced with your FM Blog account'; renderAll(false); renderPlayerActions(); }
     } catch (e) { if (epoch === accountEpoch) { syncMessage = 'Saved here. Account sync could not connect.'; writeLocal(); renderSync(); } }
     finally { if (syncBusy === epoch) syncBusy = 0; }
   }
@@ -590,7 +591,7 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
     var uid = user && user.uid; if ((account && account.uid) === uid && accountEpoch) return;
     accountEpoch++; account = user || null; accountVersion = null; csrfToken = ''; syncBusy = 0; clearTimeout(syncTimer);
     var saved = readLocal(uid); prefs = saved.preferences; pending = uid ? saved.pending : [];
-    syncMessage = uid ? 'Connecting your FM Blog account...' : 'Saved in this browser'; renderAll(false); renderPlayerActions();
+    syncMessage = uid ? 'Connecting your FM Blog account...' : 'Saved in this browser only'; renderAll(false); renderPlayerActions();
     if (uid) loadSync(accountEpoch);
   }
   async function connectAuth() {
@@ -688,13 +689,13 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
     } else el['channel-head'].innerHTML = home ? '' : '<button class="yt-back" type="button" data-home>&#8592; FM TV home</button>';
   }
   function renderGrid() {
-    var list = results(), shown = list.slice(0, state.shown), split = Math.min(8, shown.length), mode = state.mode;
+    var list = results(), shown = list.slice(0, state.shown), split = Math.min(6, shown.length), mode = state.mode;
     root.classList.remove('search-view'); // One consistent grid avoids a second, jumpy search layout.
     var title = state.query ? 'Results for “' + state.query + '”' : mode === 'trending' ? '\uD83D\uDD25 Most watched in the last 24h' : mode === 'later' ? 'Watch later' : mode === 'favourites' ? 'Latest from your channels' : state.creator ? (channelById(state.creator) || {}).name + ' videos' : state.category ? state.category + ' videos' : state.version === 'other' ? 'Other football games' : state.version ? (state.version === 'older' ? 'Older Football Manager' : state.version) + ' videos' : 'Latest from the FM community';
     el['grid-title'].textContent = title;
-    var note = state.archiveLoading ? 'Loading the full catalogue. Recent videos stay available.' : state.archiveError ? 'The full catalogue could not load. Showing recent videos.' : state.mode === 'later' ? 'Videos you saved for another time.' : state.mode === 'favourites' && !prefs.favourites.length ? 'Choose All creators and follow the channels you enjoy.' : state.archive && wantsCatalog() ? 'Searching recent uploads and the past-year catalogue.' : '';
+    var note = state.archiveLoading ? 'Loading the full catalogue. Recent videos stay available.' : state.archiveError ? 'The full catalogue could not load. Showing recent videos.' : state.mode === 'later' ? (account ? (syncMessage === 'Synced with your FM Blog account' ? 'Your saved FM TV videos, synced with your FM Blog account.' : 'Your saved FM TV videos. Account sync is pending.') : 'Your saved FM TV videos. This list is stored in this browser only.') : state.mode === 'favourites' && !prefs.favourites.length ? 'Choose All creators and follow the channels you enjoy.' : state.archive && wantsCatalog() ? 'Searching recent uploads and the past-year catalogue.' : '';
     el['grid-note'].textContent = note;
-    var empty = mode === 'later' ? 'Your Watch later list is empty. Use + Watch later on any video.' : mode === 'favourites' && !prefs.favourites.length ? 'Follow a creator to build your own feed.' : 'No videos match these filters. Try another topic or game version.';
+    var empty = mode === 'later' ? (prefs.watchLater.length ? (state.creator || state.category || state.version || state.query.trim() || filterCount() ? 'No saved videos match these filters.' : state.archiveLoading ? 'Loading your saved videos...' : 'Your saved videos are not available in the current catalogue.') : 'Your Watch later list is empty. Use + Watch later on any video.') : mode === 'favourites' && !prefs.favourites.length ? 'Follow a creator to build your own feed.' : 'No videos match these filters. Try another topic or game version.';
     el['grid-a'].innerHTML = shown.length ? shown.slice(0, split).map(card).join('') : '<div class="yt-empty">' + empty + '</div>';
     el['grid-b'].innerHTML = shown.slice(split).map(card).join(''); el['feed-ad'].style.display = shown.length > split ? 'block' : 'none';
     el.count.textContent = list.length + ' video' + (list.length === 1 ? '' : 's');
@@ -781,7 +782,7 @@ body.static_page:has(#fmtv-app) #Blog1 .post-title{display:none!important}
     if (target.hasAttribute('data-watched')) { setPreference('watched', target.dataset.watched, !has('watched', target.dataset.watched)); return; }
     if (target.hasAttribute('data-play')) { openVideo(findVideo(target.dataset.play)); return; }
     if (target.hasAttribute('data-creator')) { if (activeDialog === el['creators-modal']) closeDialog(); state.creator = target.dataset.creator; state.mode = 'latest'; state.query = ''; el.search.value = ''; viewChanged(); return; }
-    if (target.hasAttribute('data-mode')) { state.mode = target.dataset.mode; state.creator = ''; state.query = ''; el.search.value = ''; viewChanged(); return; }
+    if (target.hasAttribute('data-mode')) { if (target.dataset.mode === 'later') { Object.assign(state, defaultView()); el.version.value = ''; } state.mode = target.dataset.mode; state.creator = ''; state.query = ''; el.search.value = ''; viewChanged(); return; }
     if (target.hasAttribute('data-topic')) { state.category = target.dataset.topic; viewChanged(); return; }
     if (target.hasAttribute('data-home')) { goHome(); return; }
     if (target.hasAttribute('data-creators-open')) { el['creators-search'].value = ''; el['creators-list'].innerHTML = creatorList(''); openDialog(el['creators-modal'], el['creators-search']); return; }

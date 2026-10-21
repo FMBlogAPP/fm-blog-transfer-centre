@@ -71,7 +71,7 @@
     var terms = query.split(/\s+/).filter(Boolean), filters = view.filters || defaultFilters();
     var sets = { favourites: new Set(prefs.favourites || []), watchLater: new Set(prefs.watchLater || []), watched: new Set(prefs.watched || []) };
     var list = videos.filter(function (v) {
-      if (view.version === 'other' ? v.isFm !== false : v.isFm === false) return false;
+      if (view.version === 'other' ? v.isFm !== false : v.isFm === false && !(view.mode === 'later' && !view.version)) return false;
       if (view.version && view.version !== 'other' && view.version !== 'older' && v.gameVersion !== view.version) return false;
       if (view.version === 'older' && (!/^FM\d{2}$/.test(v.gameVersion || '') || Number(v.gameVersion.slice(2)) >= 26)) return false;
       if (view.creator && v.channelId !== view.creator) return false;
@@ -112,7 +112,7 @@
   var CSRF = 'https://database.footballmanagerblog.org/api/community/csrf';
   var PICK = 'BFx05-AMBcU', CACHE_KEY = 'fmTvRecentCacheV8';
   var state = Object.assign(defaultView(), { data: null, archive: null, shown: 12, loading: false, archiveLoading: false, archiveError: false, stale: false, creatorQuery: '', currentVideo: null, draftFilters: null });
-  var prefs = emptyPreferences(), account = null, accountEpoch = 0, accountVersion = null, pending = [], syncBusy = 0, syncLoadEpoch = 0, syncTimer = null, syncMessage = 'Saved in this browser', csrfToken = '', authUnsubscribe = null;
+  var prefs = emptyPreferences(), account = null, accountEpoch = 0, accountVersion = null, pending = [], syncBusy = 0, syncLoadEpoch = 0, syncTimer = null, syncMessage = 'Saved in this browser only', csrfToken = '', authUnsubscribe = null;
   var activeDialog = null, dialogFocus = null, previousOverflow = '', requestedWatch = '', searchTimer = null, catalogPromise = null;
   var el = {};
   ['search','search-btn','creator-search','creator-list','mobile-creators','cats','channel-head','home-only','feature','updated','trend-note','trending-row','fav-shelf','fav-grid','fav-count','grid-title','grid-note','count','grid-a','grid-b','feed-ad','grid-section','load','filter-open','filter-count','filter-modal','filter-close','filter-apply','filter-clear','filter-summary','modal','modal-title','player','close','version','later-count','status','sync-status','creators-modal','creators-search','creators-list','creators-close','player-actions','related'].forEach(function (id) { el[id] = $('#fmtv-' + id); });
@@ -163,7 +163,7 @@
     try {
       var response = await syncRequest('GET', null, user); if (epoch !== accountEpoch || (accountVersion != null && response.data.version < accountVersion)) return;
       accountVersion = response.data.version; prefs = applyOperations(response.data, pending); writeLocal();
-      syncMessage = pending.length ? 'Saving to your account...' : 'Saved to your FM Blog account'; renderAll(false); renderPlayerActions();
+      syncMessage = pending.length ? 'Saving to your account...' : 'Synced with your FM Blog account'; renderAll(false); renderPlayerActions();
       loaded = true;
     } catch (e) { if (epoch === accountEpoch) { syncMessage = 'Saved here. Account sync could not connect.'; renderSync(); } }
     finally { if (syncLoadEpoch === epoch) syncLoadEpoch = 0; if (loaded && epoch === accountEpoch && pending.length) flushSync(); }
@@ -181,7 +181,7 @@
         else { pending.splice(0, batch.length); conflicts = 0; }
         prefs = applyOperations(response.data, pending); writeLocal();
       }
-      if (epoch === accountEpoch) { syncMessage = 'Saved to your FM Blog account'; renderAll(false); renderPlayerActions(); }
+      if (epoch === accountEpoch) { syncMessage = 'Synced with your FM Blog account'; renderAll(false); renderPlayerActions(); }
     } catch (e) { if (epoch === accountEpoch) { syncMessage = 'Saved here. Account sync could not connect.'; writeLocal(); renderSync(); } }
     finally { if (syncBusy === epoch) syncBusy = 0; }
   }
@@ -189,7 +189,7 @@
     var uid = user && user.uid; if ((account && account.uid) === uid && accountEpoch) return;
     accountEpoch++; account = user || null; accountVersion = null; csrfToken = ''; syncBusy = 0; clearTimeout(syncTimer);
     var saved = readLocal(uid); prefs = saved.preferences; pending = uid ? saved.pending : [];
-    syncMessage = uid ? 'Connecting your FM Blog account...' : 'Saved in this browser'; renderAll(false); renderPlayerActions();
+    syncMessage = uid ? 'Connecting your FM Blog account...' : 'Saved in this browser only'; renderAll(false); renderPlayerActions();
     if (uid) loadSync(accountEpoch);
   }
   async function connectAuth() {
@@ -287,13 +287,13 @@
     } else el['channel-head'].innerHTML = home ? '' : '<button class="yt-back" type="button" data-home>&#8592; FM TV home</button>';
   }
   function renderGrid() {
-    var list = results(), shown = list.slice(0, state.shown), split = Math.min(8, shown.length), mode = state.mode;
+    var list = results(), shown = list.slice(0, state.shown), split = Math.min(6, shown.length), mode = state.mode;
     root.classList.remove('search-view'); // One consistent grid avoids a second, jumpy search layout.
     var title = state.query ? 'Results for “' + state.query + '”' : mode === 'trending' ? '\uD83D\uDD25 Most watched in the last 24h' : mode === 'later' ? 'Watch later' : mode === 'favourites' ? 'Latest from your channels' : state.creator ? (channelById(state.creator) || {}).name + ' videos' : state.category ? state.category + ' videos' : state.version === 'other' ? 'Other football games' : state.version ? (state.version === 'older' ? 'Older Football Manager' : state.version) + ' videos' : 'Latest from the FM community';
     el['grid-title'].textContent = title;
-    var note = state.archiveLoading ? 'Loading the full catalogue. Recent videos stay available.' : state.archiveError ? 'The full catalogue could not load. Showing recent videos.' : state.mode === 'later' ? 'Videos you saved for another time.' : state.mode === 'favourites' && !prefs.favourites.length ? 'Choose All creators and follow the channels you enjoy.' : state.archive && wantsCatalog() ? 'Searching recent uploads and the past-year catalogue.' : '';
+    var note = state.archiveLoading ? 'Loading the full catalogue. Recent videos stay available.' : state.archiveError ? 'The full catalogue could not load. Showing recent videos.' : state.mode === 'later' ? (account ? (syncMessage === 'Synced with your FM Blog account' ? 'Your saved FM TV videos, synced with your FM Blog account.' : 'Your saved FM TV videos. Account sync is pending.') : 'Your saved FM TV videos. This list is stored in this browser only.') : state.mode === 'favourites' && !prefs.favourites.length ? 'Choose All creators and follow the channels you enjoy.' : state.archive && wantsCatalog() ? 'Searching recent uploads and the past-year catalogue.' : '';
     el['grid-note'].textContent = note;
-    var empty = mode === 'later' ? 'Your Watch later list is empty. Use + Watch later on any video.' : mode === 'favourites' && !prefs.favourites.length ? 'Follow a creator to build your own feed.' : 'No videos match these filters. Try another topic or game version.';
+    var empty = mode === 'later' ? (prefs.watchLater.length ? (state.creator || state.category || state.version || state.query.trim() || filterCount() ? 'No saved videos match these filters.' : state.archiveLoading ? 'Loading your saved videos...' : 'Your saved videos are not available in the current catalogue.') : 'Your Watch later list is empty. Use + Watch later on any video.') : mode === 'favourites' && !prefs.favourites.length ? 'Follow a creator to build your own feed.' : 'No videos match these filters. Try another topic or game version.';
     el['grid-a'].innerHTML = shown.length ? shown.slice(0, split).map(card).join('') : '<div class="yt-empty">' + empty + '</div>';
     el['grid-b'].innerHTML = shown.slice(split).map(card).join(''); el['feed-ad'].style.display = shown.length > split ? 'block' : 'none';
     el.count.textContent = list.length + ' video' + (list.length === 1 ? '' : 's');
@@ -380,7 +380,7 @@
     if (target.hasAttribute('data-watched')) { setPreference('watched', target.dataset.watched, !has('watched', target.dataset.watched)); return; }
     if (target.hasAttribute('data-play')) { openVideo(findVideo(target.dataset.play)); return; }
     if (target.hasAttribute('data-creator')) { if (activeDialog === el['creators-modal']) closeDialog(); state.creator = target.dataset.creator; state.mode = 'latest'; state.query = ''; el.search.value = ''; viewChanged(); return; }
-    if (target.hasAttribute('data-mode')) { state.mode = target.dataset.mode; state.creator = ''; state.query = ''; el.search.value = ''; viewChanged(); return; }
+    if (target.hasAttribute('data-mode')) { if (target.dataset.mode === 'later') { Object.assign(state, defaultView()); el.version.value = ''; } state.mode = target.dataset.mode; state.creator = ''; state.query = ''; el.search.value = ''; viewChanged(); return; }
     if (target.hasAttribute('data-topic')) { state.category = target.dataset.topic; viewChanged(); return; }
     if (target.hasAttribute('data-home')) { goHome(); return; }
     if (target.hasAttribute('data-creators-open')) { el['creators-search'].value = ''; el['creators-list'].innerHTML = creatorList(''); openDialog(el['creators-modal'], el['creators-search']); return; }
