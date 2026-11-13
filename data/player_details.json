@@ -133674,6 +133674,80 @@
           "logo": "https://media.api-sports.io/football/teams/135.png"
         },
         "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 7,
+          "lineups": 1,
+          "minutes": 213,
+          "number": 91,
+          "position": "Attacker",
+          "rating": "6.34",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 6,
+          "out": 0,
+          "bench": 12
+        },
+        "shots": {
+          "total": 4,
+          "on": 2
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 1,
+          "saves": null
+        },
+        "passes": {
+          "total": 35,
+          "key": 3,
+          "accuracy": 71
+        },
+        "tackles": {
+          "total": 2,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 20,
+          "won": 9
+        },
+        "dribbles": {
+          "attempts": 1,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": 4
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 135,
+          "name": "Cruzeiro",
+          "logo": "https://media.api-sports.io/football/teams/135.png"
+        },
+        "league": {
           "id": 73,
           "name": "Copa Do Brasil",
           "country": "Brazil",
@@ -133761,13 +133835,13 @@
           "minutes": 266,
           "number": 91,
           "position": "Attacker",
-          "rating": "4.95",
+          "rating": "4.17",
           "captain": false
         },
         "substitutes": {
           "in": 1,
           "out": 2,
-          "bench": 2
+          "bench": 3
         },
         "shots": {
           "total": 6,
@@ -133790,7 +133864,7 @@
           "interceptions": 0
         },
         "duels": {
-          "total": 19,
+          "total": 20,
           "won": 5
         },
         "dribbles": {
@@ -133814,88 +133888,14 @@
           "missed": 0,
           "saved": null
         }
-      },
-      {
-        "team": {
-          "id": 135,
-          "name": "Cruzeiro",
-          "logo": "https://media.api-sports.io/football/teams/135.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 7,
-          "lineups": 1,
-          "minutes": 213,
-          "number": 91,
-          "position": "Attacker",
-          "rating": "6.34",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 6,
-          "out": 0,
-          "bench": 12
-        },
-        "shots": {
-          "total": 4,
-          "on": 2
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 1,
-          "saves": null
-        },
-        "passes": {
-          "total": 35,
-          "key": 3,
-          "accuracy": 71
-        },
-        "tackles": {
-          "total": 2,
-          "blocks": null,
-          "interceptions": null
-        },
-        "duels": {
-          "total": 20,
-          "won": 9
-        },
-        "dribbles": {
-          "attempts": 1,
-          "success": null,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 1,
-          "committed": 4
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
       }
     ],
     "career": [
       {
         "team": {
-          "id": 135,
-          "name": "Cruzeiro",
-          "logo": "https://media.api-sports.io/football/teams/135.png"
+          "id": 154,
+          "name": "Fortaleza EC",
+          "logo": "https://media.api-sports.io/football/teams/154.png"
         },
         "seasons": [
           2026
@@ -133903,9 +133903,9 @@
       },
       {
         "team": {
-          "id": 154,
-          "name": "Fortaleza EC",
-          "logo": "https://media.api-sports.io/football/teams/154.png"
+          "id": 135,
+          "name": "Cruzeiro",
+          "logo": "https://media.api-sports.io/football/teams/135.png"
         },
         "seasons": []
       },
@@ -134113,7 +134113,7 @@
         "end": "2025-05-08"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "35665": {
     "career": [
@@ -284971,7 +284971,7 @@
         "end": "2024-09-19"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00",
+    "updated_at": "2026-11-13T12:23:42.422186+00:00",
     "profile": {
       "id": 95777,
       "name": "J. García",
@@ -293535,7 +293535,7 @@
         "end": "2022-02-25"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00",
+    "updated_at": "2026-11-13T12:23:42.422186+00:00",
     "profile": {
       "id": 41412,
       "name": "N. Maraš",
@@ -293569,17 +293569,17 @@
           "season": 2026
         },
         "games": {
-          "appearences": 4,
-          "lineups": 4,
-          "minutes": 360,
+          "appearences": 5,
+          "lineups": 5,
+          "minutes": 436,
           "number": 15,
           "position": "Defender",
-          "rating": "5.02",
+          "rating": "4.43",
           "captain": false
         },
         "substitutes": {
           "in": 0,
-          "out": 0,
+          "out": 1,
           "bench": 1
         },
         "shots": {
@@ -293593,18 +293593,18 @@
           "saves": 0
         },
         "passes": {
-          "total": 153,
+          "total": 202,
           "key": 1,
           "accuracy": 92
         },
         "tackles": {
-          "total": 6,
+          "total": 9,
           "blocks": 0,
-          "interceptions": 4
+          "interceptions": 5
         },
         "duels": {
-          "total": 18,
-          "won": 12
+          "total": 26,
+          "won": 16
         },
         "dribbles": {
           "attempts": 0,
@@ -293613,7 +293613,7 @@
         },
         "fouls": {
           "drawn": 2,
-          "committed": 1
+          "committed": 6
         },
         "cards": {
           "yellow": 0,
@@ -293624,7 +293624,7 @@
           "won": null,
           "commited": null,
           "scored": 0,
-          "missed": 0,
+          "missed": null,
           "saved": null
         }
       }
@@ -730870,7 +730870,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "20782": {
     "profile": {
@@ -747854,7 +747854,7 @@
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "542866": {
     "career": [],
@@ -788311,6 +788311,80 @@
     "statistics": [
       {
         "team": {
+          "id": 7848,
+          "name": "Mirassol",
+          "logo": "https://media.api-sports.io/football/teams/7848.png"
+        },
+        "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 2,
+          "lineups": 0,
+          "minutes": 17,
+          "number": 99,
+          "position": "Attacker",
+          "rating": "6.5",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 2,
+          "out": 0,
+          "bench": 6
+        },
+        "shots": {
+          "total": 2,
+          "on": 1
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 8,
+          "key": null,
+          "accuracy": 50
+        },
+        "tackles": {
+          "total": 0,
+          "blocks": 0,
+          "interceptions": 0
+        },
+        "duels": {
+          "total": 3,
+          "won": 2
+        },
+        "dribbles": {
+          "attempts": 0,
+          "success": 0,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": 1
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": 0,
+          "commited": 0,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
           "id": 123,
           "name": "Sport Recife",
           "logo": "https://media.api-sports.io/football/teams/123.png"
@@ -788403,7 +788477,7 @@
           "minutes": 159,
           "number": 99,
           "position": "Attacker",
-          "rating": "6.46",
+          "rating": "5.65",
           "captain": false
         },
         "substitutes": {
@@ -788413,23 +788487,23 @@
         },
         "shots": {
           "total": 3,
-          "on": null
+          "on": 0
         },
         "goals": {
           "total": 0,
           "conceded": 0,
           "assists": 0,
-          "saves": null
+          "saves": 0
         },
         "passes": {
           "total": 19,
-          "key": null,
+          "key": 0,
           "accuracy": 68
         },
         "tackles": {
-          "total": null,
+          "total": 0,
           "blocks": 1,
-          "interceptions": null
+          "interceptions": 0
         },
         "duels": {
           "total": 26,
@@ -788456,98 +788530,9 @@
           "missed": 0,
           "saved": null
         }
-      },
-      {
-        "team": {
-          "id": 7848,
-          "name": "Mirassol",
-          "logo": "https://media.api-sports.io/football/teams/7848.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 2,
-          "lineups": 0,
-          "minutes": 17,
-          "number": 99,
-          "position": "Attacker",
-          "rating": "6.5",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 2,
-          "out": 0,
-          "bench": 6
-        },
-        "shots": {
-          "total": 2,
-          "on": 1
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": 0
-        },
-        "passes": {
-          "total": 8,
-          "key": null,
-          "accuracy": 50
-        },
-        "tackles": {
-          "total": 0,
-          "blocks": 0,
-          "interceptions": 0
-        },
-        "duels": {
-          "total": 3,
-          "won": 2
-        },
-        "dribbles": {
-          "attempts": 0,
-          "success": 0,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 1,
-          "committed": 1
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": 0,
-          "commited": 0,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
       }
     ],
     "career": [
-      {
-        "team": {
-          "id": 7848,
-          "name": "Mirassol",
-          "logo": "https://media.api-sports.io/football/teams/7848.png"
-        },
-        "seasons": [
-          2026,
-          2023,
-          2020,
-          2019,
-          2018,
-          2017
-        ]
-      },
       {
         "team": {
           "id": 123,
@@ -788555,8 +788540,23 @@
           "logo": "https://media.api-sports.io/football/teams/123.png"
         },
         "seasons": [
+          2026,
           2025,
-          2024
+          2024,
+          2023
+        ]
+      },
+      {
+        "team": {
+          "id": 7848,
+          "name": "Mirassol",
+          "logo": "https://media.api-sports.io/football/teams/7848.png"
+        },
+        "seasons": [
+          2020,
+          2019,
+          2018,
+          2017
         ]
       },
       {
@@ -788754,13 +788754,13 @@
         "end": "2024-05-18"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "662988": {
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "639516": {
     "profile": {
@@ -788871,7 +788871,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "638226": {
     "profile": {
@@ -788982,7 +788982,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "634371": {
     "profile": {
@@ -789092,7 +789092,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "632456": {
     "profile": {
@@ -789276,7 +789276,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "631037": {
     "profile": {
@@ -789373,80 +789373,6 @@
       },
       {
         "team": {
-          "id": 145,
-          "name": "Avai",
-          "logo": "https://media.api-sports.io/football/teams/145.png"
-        },
-        "league": {
-          "id": 72,
-          "name": "Serie B",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/72.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 1,
-          "lineups": 0,
-          "minutes": null,
-          "number": 59,
-          "position": "Attacker",
-          "rating": null,
-          "captain": false
-        },
-        "substitutes": {
-          "in": 1,
-          "out": 0,
-          "bench": 2
-        },
-        "shots": {
-          "total": null,
-          "on": null
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": null
-        },
-        "passes": {
-          "total": null,
-          "key": null,
-          "accuracy": null
-        },
-        "tackles": {
-          "total": null,
-          "blocks": null,
-          "interceptions": null
-        },
-        "duels": {
-          "total": null,
-          "won": null
-        },
-        "dribbles": {
-          "attempts": null,
-          "success": null,
-          "past": null
-        },
-        "fouls": {
-          "drawn": null,
-          "committed": null
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
           "id": 794,
           "name": "RB Bragantino",
           "logo": "https://media.api-sports.io/football/teams/794.png"
@@ -789518,6 +789444,80 @@
           "missed": 0,
           "saved": null
         }
+      },
+      {
+        "team": {
+          "id": 145,
+          "name": "Avai",
+          "logo": "https://media.api-sports.io/football/teams/145.png"
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": null,
+          "number": 59,
+          "position": "Attacker",
+          "rating": null,
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 2
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": null,
+          "key": null,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": null,
+          "won": null
+        },
+        "dribbles": {
+          "attempts": null,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": null,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
       }
     ],
     "career": [
@@ -789542,7 +789542,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "607365": {
     "profile": {
@@ -789563,6 +789563,80 @@
       "photo": "https://media.api-sports.io/football/players/607365.png"
     },
     "statistics": [
+      {
+        "team": {
+          "id": 118,
+          "name": "Bahia",
+          "logo": "https://media.api-sports.io/football/teams/118.png"
+        },
+        "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 1,
+          "lineups": 0,
+          "minutes": 14,
+          "number": 90,
+          "position": "Attacker",
+          "rating": "7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 0,
+          "bench": 3
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 3,
+          "key": 2,
+          "accuracy": 100
+        },
+        "tackles": {
+          "total": null,
+          "blocks": null,
+          "interceptions": null
+        },
+        "duels": {
+          "total": 3,
+          "won": 3
+        },
+        "dribbles": {
+          "attempts": 2,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": null
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
       {
         "team": {
           "id": 118,
@@ -789710,80 +789784,6 @@
           "missed": 0,
           "saved": null
         }
-      },
-      {
-        "team": {
-          "id": 118,
-          "name": "Bahia",
-          "logo": "https://media.api-sports.io/football/teams/118.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 1,
-          "lineups": 0,
-          "minutes": 14,
-          "number": 90,
-          "position": "Attacker",
-          "rating": "7",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 1,
-          "out": 0,
-          "bench": 3
-        },
-        "shots": {
-          "total": null,
-          "on": null
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": null
-        },
-        "passes": {
-          "total": 3,
-          "key": 2,
-          "accuracy": 100
-        },
-        "tackles": {
-          "total": null,
-          "blocks": null,
-          "interceptions": null
-        },
-        "duels": {
-          "total": 3,
-          "won": 3
-        },
-        "dribbles": {
-          "attempts": 2,
-          "success": 2,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 1,
-          "committed": null
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
       }
     ],
     "career": [
@@ -789808,7 +789808,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "54102": {
     "profile": {
@@ -789910,6 +789910,80 @@
           "logo": "https://media.api-sports.io/football/teams/132.png"
         },
         "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 10,
+          "lineups": 1,
+          "minutes": 308,
+          "number": 18,
+          "position": "Attacker",
+          "rating": "6.7",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 9,
+          "out": 1,
+          "bench": 17
+        },
+        "shots": {
+          "total": 13,
+          "on": 5
+        },
+        "goals": {
+          "total": 2,
+          "conceded": 0,
+          "assists": 1,
+          "saves": null
+        },
+        "passes": {
+          "total": 44,
+          "key": 2,
+          "accuracy": 77
+        },
+        "tackles": {
+          "total": 5,
+          "blocks": null,
+          "interceptions": 1
+        },
+        "duels": {
+          "total": 32,
+          "won": 16
+        },
+        "dribbles": {
+          "attempts": 5,
+          "success": 3,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 5,
+          "committed": 6
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": 1,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 132,
+          "name": "Chapecoense-sc",
+          "logo": "https://media.api-sports.io/football/teams/132.png"
+        },
+        "league": {
           "id": 73,
           "name": "Copa Do Brasil",
           "country": "Brazil",
@@ -789992,18 +790066,18 @@
           "season": 2026
         },
         "games": {
-          "appearences": 9,
+          "appearences": 10,
           "lineups": 3,
-          "minutes": 330,
+          "minutes": 343,
           "number": 19,
           "position": "Attacker",
-          "rating": "6.81",
+          "rating": "6.76",
           "captain": false
         },
         "substitutes": {
-          "in": 6,
+          "in": 7,
           "out": 3,
-          "bench": 6
+          "bench": 7
         },
         "shots": {
           "total": 12,
@@ -790016,7 +790090,7 @@
           "saves": 0
         },
         "passes": {
-          "total": 53,
+          "total": 55,
           "key": 4,
           "accuracy": 67
         },
@@ -790026,8 +790100,8 @@
           "interceptions": 1
         },
         "duels": {
-          "total": 32,
-          "won": 18
+          "total": 33,
+          "won": 19
         },
         "dribbles": {
           "attempts": 3,
@@ -790035,7 +790109,7 @@
           "past": null
         },
         "fouls": {
-          "drawn": 5,
+          "drawn": 6,
           "committed": 4
         },
         "cards": {
@@ -790050,83 +790124,19 @@
           "missed": 0,
           "saved": null
         }
-      },
-      {
-        "team": {
-          "id": 132,
-          "name": "Chapecoense-sc",
-          "logo": "https://media.api-sports.io/football/teams/132.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 10,
-          "lineups": 1,
-          "minutes": 308,
-          "number": 18,
-          "position": "Attacker",
-          "rating": "6.7",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 9,
-          "out": 1,
-          "bench": 17
-        },
-        "shots": {
-          "total": 13,
-          "on": 5
-        },
-        "goals": {
-          "total": 2,
-          "conceded": 0,
-          "assists": 1,
-          "saves": null
-        },
-        "passes": {
-          "total": 44,
-          "key": 2,
-          "accuracy": 77
-        },
-        "tackles": {
-          "total": 5,
-          "blocks": null,
-          "interceptions": 1
-        },
-        "duels": {
-          "total": 32,
-          "won": 16
-        },
-        "dribbles": {
-          "attempts": 5,
-          "success": 3,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 5,
-          "committed": 6
-        },
-        "cards": {
-          "yellow": 1,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": 1,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
       }
     ],
     "career": [
+      {
+        "team": {
+          "id": 123,
+          "name": "Sport Recife",
+          "logo": "https://media.api-sports.io/football/teams/123.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 132,
@@ -790134,17 +790144,8 @@
           "logo": "https://media.api-sports.io/football/teams/132.png"
         },
         "seasons": [
-          2026,
           2025
         ]
-      },
-      {
-        "team": {
-          "id": 123,
-          "name": "Sport Recife",
-          "logo": "https://media.api-sports.io/football/teams/123.png"
-        },
-        "seasons": []
       },
       {
         "team": {
@@ -790373,7 +790374,7 @@
         "end": "2024-09-18"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "534376": {
     "profile": {
@@ -790483,7 +790484,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "51572": {
     "profile": {
@@ -790728,6 +790729,80 @@
       },
       {
         "team": {
+          "id": 135,
+          "name": "Cruzeiro",
+          "logo": "https://media.api-sports.io/football/teams/135.png"
+        },
+        "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 4,
+          "lineups": 0,
+          "minutes": 187,
+          "number": 6,
+          "position": "Defender",
+          "rating": "7.1",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 4,
+          "out": 0,
+          "bench": 7
+        },
+        "shots": {
+          "total": 1,
+          "on": 0
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 91,
+          "key": null,
+          "accuracy": 84
+        },
+        "tackles": {
+          "total": 6,
+          "blocks": 2,
+          "interceptions": 9
+        },
+        "duels": {
+          "total": 22,
+          "won": 14
+        },
+        "dribbles": {
+          "attempts": 0,
+          "success": 0,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 3,
+          "committed": 2
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": 1,
+          "commited": 0,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
           "id": 435,
           "name": "River Plate",
           "logo": "https://media.api-sports.io/football/teams/435.png"
@@ -790795,80 +790870,6 @@
         "penalty": {
           "won": null,
           "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
-          "id": 135,
-          "name": "Cruzeiro",
-          "logo": "https://media.api-sports.io/football/teams/135.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 3,
-          "lineups": 0,
-          "minutes": 102,
-          "number": 6,
-          "position": "Defender",
-          "rating": "7.03",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 3,
-          "out": 0,
-          "bench": 6
-        },
-        "shots": {
-          "total": 1,
-          "on": 0
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": 0
-        },
-        "passes": {
-          "total": 44,
-          "key": null,
-          "accuracy": 75
-        },
-        "tackles": {
-          "total": 4,
-          "blocks": 2,
-          "interceptions": 6
-        },
-        "duels": {
-          "total": 14,
-          "won": 10
-        },
-        "dribbles": {
-          "attempts": 0,
-          "success": 0,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 2,
-          "committed": 1
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": 0,
-          "commited": 0,
           "scored": 0,
           "missed": 0,
           "saved": null
@@ -790968,9 +790969,9 @@
       },
       {
         "team": {
-          "id": 135,
-          "name": "Cruzeiro",
-          "logo": "https://media.api-sports.io/football/teams/135.png"
+          "id": 435,
+          "name": "River Plate",
+          "logo": "https://media.api-sports.io/football/teams/435.png"
         },
         "seasons": [
           2026
@@ -790978,9 +790979,9 @@
       },
       {
         "team": {
-          "id": 435,
-          "name": "River Plate",
-          "logo": "https://media.api-sports.io/football/teams/435.png"
+          "id": 135,
+          "name": "Cruzeiro",
+          "logo": "https://media.api-sports.io/football/teams/135.png"
         },
         "seasons": []
       },
@@ -791275,7 +791276,7 @@
         "end": "2023-03-10"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "51464": {
     "profile": {
@@ -791396,7 +791397,7 @@
         "substitutes": {
           "in": 2,
           "out": 0,
-          "bench": 5
+          "bench": 6
         },
         "shots": {
           "total": 1,
@@ -791573,7 +791574,7 @@
         "end": "2024-07-06"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "45012": {
     "career": [
@@ -791763,7 +791764,7 @@
         "end": "2018-11-08"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "449245": {
     "profile": {
@@ -791878,7 +791879,7 @@
           "minutes": 611,
           "number": 32,
           "position": "Midfielder",
-          "rating": "7.05",
+          "rating": "7",
           "captain": false
         },
         "substitutes": {
@@ -791952,7 +791953,7 @@
           "minutes": 11,
           "number": 17,
           "position": "Defender",
-          "rating": "6.3",
+          "rating": "3.15",
           "captain": false
         },
         "substitutes": {
@@ -791961,36 +791962,36 @@
           "bench": 4
         },
         "shots": {
-          "total": null,
-          "on": null
+          "total": 0,
+          "on": 0
         },
         "goals": {
           "total": 0,
           "conceded": 0,
           "assists": 0,
-          "saves": null
+          "saves": 0
         },
         "passes": {
           "total": 9,
-          "key": null,
+          "key": 0,
           "accuracy": 66
         },
         "tackles": {
-          "total": null,
-          "blocks": null,
-          "interceptions": null
+          "total": 0,
+          "blocks": 0,
+          "interceptions": 0
         },
         "duels": {
           "total": 1,
-          "won": null
+          "won": 0
         },
         "dribbles": {
-          "attempts": null,
-          "success": null,
+          "attempts": 0,
+          "success": 0,
           "past": null
         },
         "fouls": {
-          "drawn": null,
+          "drawn": 0,
           "committed": 1
         },
         "cards": {
@@ -792107,7 +792108,7 @@
         "end": "2024-12-03"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "442666": {
     "career": [
@@ -792134,7 +792135,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "415069": {
     "profile": {
@@ -792249,7 +792250,7 @@
           "minutes": 57,
           "number": 28,
           "position": "Midfielder",
-          "rating": "6.6",
+          "rating": "6.75",
           "captain": false
         },
         "substitutes": {
@@ -792268,9 +792269,9 @@
           "saves": 0
         },
         "passes": {
-          "total": 29,
+          "total": 32,
           "key": 1,
-          "accuracy": 86
+          "accuracy": 87
         },
         "tackles": {
           "total": 0,
@@ -792278,12 +792279,12 @@
           "interceptions": 1
         },
         "duels": {
-          "total": 5,
-          "won": 2
+          "total": 4,
+          "won": 1
         },
         "dribbles": {
-          "attempts": 1,
-          "success": 1,
+          "attempts": 0,
+          "success": 0,
           "past": null
         },
         "fouls": {
@@ -792460,7 +792461,7 @@
         "end": "2025-04-25"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "41373": {
     "profile": {
@@ -792496,18 +792497,18 @@
           "season": 2026
         },
         "games": {
-          "appearences": 1,
+          "appearences": 2,
           "lineups": 0,
-          "minutes": 34,
+          "minutes": 58,
           "number": 15,
           "position": "Attacker",
-          "rating": "7",
+          "rating": "6.95",
           "captain": false
         },
         "substitutes": {
-          "in": 1,
+          "in": 2,
           "out": 0,
-          "bench": 1
+          "bench": 2
         },
         "shots": {
           "total": 1,
@@ -792516,13 +792517,13 @@
         "goals": {
           "total": 1,
           "conceded": 0,
-          "assists": 0,
+          "assists": 1,
           "saves": 0
         },
         "passes": {
-          "total": 3,
-          "key": null,
-          "accuracy": 100
+          "total": 7,
+          "key": 2,
+          "accuracy": 85
         },
         "tackles": {
           "total": 0,
@@ -792540,7 +792541,7 @@
         },
         "fouls": {
           "drawn": 3,
-          "committed": 2
+          "committed": 3
         },
         "cards": {
           "yellow": 1,
@@ -792732,7 +792733,7 @@
         "end": "2015-12-28"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "39095": {
     "profile": {
@@ -793074,7 +793075,7 @@
         "end": "2021-02-20"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "385107": {
     "profile": {
@@ -793278,7 +793279,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "38110": {
     "profile": {
@@ -793393,13 +793394,13 @@
           "minutes": 270,
           "number": 22,
           "position": "Goalkeeper",
-          "rating": "6.58",
+          "rating": "4.96",
           "captain": false
         },
         "substitutes": {
           "in": 0,
           "out": 0,
-          "bench": 3
+          "bench": 4
         },
         "shots": {
           "total": 0,
@@ -793677,7 +793678,7 @@
         "end": "2015-05-16"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "379968": {
     "profile": {
@@ -793909,7 +793910,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "353976": {
     "profile": {
@@ -794006,80 +794007,6 @@
       },
       {
         "team": {
-          "id": 2298,
-          "name": "FC Juarez",
-          "logo": "https://media.api-sports.io/football/teams/2298.png"
-        },
-        "league": {
-          "id": 262,
-          "name": "Liga MX",
-          "country": "Mexico",
-          "logo": "https://media.api-sports.io/football/leagues/262.png",
-          "flag": "https://media.api-sports.io/flags/mx.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 7,
-          "lineups": 7,
-          "minutes": 620,
-          "number": 26,
-          "position": "Defender",
-          "rating": "6.86",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 0,
-          "out": 1,
-          "bench": 0
-        },
-        "shots": {
-          "total": 7,
-          "on": 0
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 2,
-          "saves": 0
-        },
-        "passes": {
-          "total": 359,
-          "key": 6,
-          "accuracy": 80
-        },
-        "tackles": {
-          "total": 11,
-          "blocks": 3,
-          "interceptions": 10
-        },
-        "duels": {
-          "total": 65,
-          "won": 32
-        },
-        "dribbles": {
-          "attempts": 4,
-          "success": 2,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 3,
-          "committed": 13
-        },
-        "cards": {
-          "yellow": 1,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
           "id": 2329,
           "name": "A. Italiano",
           "logo": "https://media.api-sports.io/football/teams/2329.png"
@@ -794151,6 +794078,80 @@
           "missed": 0,
           "saved": null
         }
+      },
+      {
+        "team": {
+          "id": 2298,
+          "name": "FC Juarez",
+          "logo": "https://media.api-sports.io/football/teams/2298.png"
+        },
+        "league": {
+          "id": 262,
+          "name": "Liga MX",
+          "country": "Mexico",
+          "logo": "https://media.api-sports.io/football/leagues/262.png",
+          "flag": "https://media.api-sports.io/flags/mx.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 8,
+          "lineups": 8,
+          "minutes": 710,
+          "number": 26,
+          "position": "Defender",
+          "rating": "6.8",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 1,
+          "bench": 0
+        },
+        "shots": {
+          "total": 8,
+          "on": 0
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 2,
+          "saves": 0
+        },
+        "passes": {
+          "total": 394,
+          "key": 6,
+          "accuracy": 79
+        },
+        "tackles": {
+          "total": 16,
+          "blocks": 3,
+          "interceptions": 10
+        },
+        "duels": {
+          "total": 75,
+          "won": 39
+        },
+        "dribbles": {
+          "attempts": 4,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 4,
+          "committed": 14
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
       }
     ],
     "career": [
@@ -794187,7 +794188,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "341969": {
     "profile": {
@@ -794360,24 +794361,23 @@
     "career": [
       {
         "team": {
-          "id": 2291,
-          "name": "Puebla",
-          "logo": "https://media.api-sports.io/football/teams/2291.png"
-        },
-        "seasons": [
-          2026
-        ]
-      },
-      {
-        "team": {
           "id": 741,
           "name": "Cercle Brugge",
           "logo": "https://media.api-sports.io/football/teams/741.png"
         },
         "seasons": [
+          2026,
           2025,
           2024
         ]
+      },
+      {
+        "team": {
+          "id": 2291,
+          "name": "Puebla",
+          "logo": "https://media.api-sports.io/football/teams/2291.png"
+        },
+        "seasons": []
       },
       {
         "team": {
@@ -794477,7 +794477,7 @@
         "end": "2025-08-08"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "335912": {
     "profile": {
@@ -794732,7 +794732,7 @@
         "end": "2025-04-24"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "330320": {
     "profile": {
@@ -794768,22 +794768,22 @@
           "season": 2026
         },
         "games": {
-          "appearences": 5,
-          "lineups": 5,
-          "minutes": 175,
+          "appearences": 7,
+          "lineups": 7,
+          "minutes": 265,
           "number": 28,
           "position": "Midfielder",
-          "rating": "7.4",
+          "rating": "7.17",
           "captain": false
         },
         "substitutes": {
           "in": 0,
-          "out": 3,
+          "out": 4,
           "bench": 0
         },
         "shots": {
-          "total": 3,
-          "on": 1
+          "total": 4,
+          "on": 2
         },
         "goals": {
           "total": 1,
@@ -794792,26 +794792,26 @@
           "saves": 0
         },
         "passes": {
-          "total": 52,
+          "total": 103,
           "key": 1,
-          "accuracy": 75
+          "accuracy": 73
         },
         "tackles": {
-          "total": 4,
+          "total": 8,
           "blocks": 0,
-          "interceptions": 1
+          "interceptions": 5
         },
         "duels": {
-          "total": 27,
-          "won": 14
+          "total": 39,
+          "won": 21
         },
         "dribbles": {
-          "attempts": 8,
+          "attempts": 9,
           "success": 2,
           "past": null
         },
         "fouls": {
-          "drawn": 7,
+          "drawn": 10,
           "committed": 3
         },
         "cards": {
@@ -794978,7 +794978,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "297610": {
     "profile": {
@@ -795236,7 +795236,7 @@
         "end": "2025-08-30"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "288707": {
     "profile": {
@@ -795407,80 +795407,6 @@
       },
       {
         "team": {
-          "id": 2283,
-          "name": "Atlas",
-          "logo": "https://media.api-sports.io/football/teams/2283.png"
-        },
-        "league": {
-          "id": 262,
-          "name": "Liga MX",
-          "country": "Mexico",
-          "logo": "https://media.api-sports.io/football/leagues/262.png",
-          "flag": "https://media.api-sports.io/flags/mx.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 5,
-          "lineups": 4,
-          "minutes": 400,
-          "number": 20,
-          "position": "Midfielder",
-          "rating": "7.81",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 1,
-          "out": 2,
-          "bench": 1
-        },
-        "shots": {
-          "total": 10,
-          "on": 4
-        },
-        "goals": {
-          "total": 2,
-          "conceded": 0,
-          "assists": 3,
-          "saves": 0
-        },
-        "passes": {
-          "total": 152,
-          "key": 16,
-          "accuracy": 76
-        },
-        "tackles": {
-          "total": 5,
-          "blocks": 1,
-          "interceptions": 1
-        },
-        "duels": {
-          "total": 36,
-          "won": 19
-        },
-        "dribbles": {
-          "attempts": 14,
-          "success": 5,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 7,
-          "committed": 2
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
           "id": 451,
           "name": "Boca Juniors",
           "logo": "https://media.api-sports.io/football/teams/451.png"
@@ -795496,10 +795422,10 @@
         "games": {
           "appearences": 8,
           "lineups": 4,
-          "minutes": 384,
+          "minutes": 380,
           "number": 22,
           "position": "Midfielder",
-          "rating": "6.04",
+          "rating": "5.37",
           "captain": false
         },
         "substitutes": {
@@ -795518,7 +795444,7 @@
           "saves": 0
         },
         "passes": {
-          "total": 161,
+          "total": 160,
           "key": 5,
           "accuracy": 78
         },
@@ -795532,7 +795458,7 @@
           "won": 26
         },
         "dribbles": {
-          "attempts": 9,
+          "attempts": 10,
           "success": 5,
           "past": null
         },
@@ -795542,6 +795468,80 @@
         },
         "cards": {
           "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 2283,
+          "name": "Atlas",
+          "logo": "https://media.api-sports.io/football/teams/2283.png"
+        },
+        "league": {
+          "id": 262,
+          "name": "Liga MX",
+          "country": "Mexico",
+          "logo": "https://media.api-sports.io/football/leagues/262.png",
+          "flag": "https://media.api-sports.io/flags/mx.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 6,
+          "lineups": 5,
+          "minutes": 490,
+          "number": 20,
+          "position": "Midfielder",
+          "rating": "7.54",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 1,
+          "out": 2,
+          "bench": 1
+        },
+        "shots": {
+          "total": 14,
+          "on": 7
+        },
+        "goals": {
+          "total": 2,
+          "conceded": 0,
+          "assists": 3,
+          "saves": 0
+        },
+        "passes": {
+          "total": 181,
+          "key": 16,
+          "accuracy": 77
+        },
+        "tackles": {
+          "total": 6,
+          "blocks": 1,
+          "interceptions": 2
+        },
+        "duels": {
+          "total": 50,
+          "won": 26
+        },
+        "dribbles": {
+          "attempts": 18,
+          "success": 6,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 12,
+          "committed": 3
+        },
+        "cards": {
+          "yellow": 0,
           "yellowred": 0,
           "red": 0
         },
@@ -795625,7 +795625,7 @@
         "end": "2025-02-12"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "26748": {
     "profile": {
@@ -795646,80 +795646,6 @@
       "photo": "https://media.api-sports.io/football/players/26748.png"
     },
     "statistics": [
-      {
-        "team": {
-          "id": 1124,
-          "name": "OFI",
-          "logo": "https://media.api-sports.io/football/teams/1124.png"
-        },
-        "league": {
-          "id": 197,
-          "name": "Super League 1",
-          "country": "Greece",
-          "logo": "https://media.api-sports.io/football/leagues/197.png",
-          "flag": "https://media.api-sports.io/flags/gr.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 6,
-          "lineups": 2,
-          "minutes": 187,
-          "number": 7,
-          "position": "Midfielder",
-          "rating": "6.31",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 4,
-          "out": 2,
-          "bench": 4
-        },
-        "shots": {
-          "total": 3,
-          "on": 2
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": 0
-        },
-        "passes": {
-          "total": 39,
-          "key": 2,
-          "accuracy": 76
-        },
-        "tackles": {
-          "total": 1,
-          "blocks": 0,
-          "interceptions": 0
-        },
-        "duels": {
-          "total": 20,
-          "won": 7
-        },
-        "dribbles": {
-          "attempts": 2,
-          "success": 1,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 5,
-          "committed": 2
-        },
-        "cards": {
-          "yellow": 1,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
       {
         "team": {
           "id": 3402,
@@ -795867,19 +795793,6 @@
           "missed": null,
           "saved": null
         }
-      }
-    ],
-    "career": [
-      {
-        "team": {
-          "id": 3402,
-          "name": "Omonia Nicosia",
-          "logo": "https://media.api-sports.io/football/teams/3402.png"
-        },
-        "seasons": [
-          2026,
-          2025
-        ]
       },
       {
         "team": {
@@ -795887,7 +795800,95 @@
           "name": "OFI",
           "logo": "https://media.api-sports.io/football/teams/1124.png"
         },
-        "seasons": []
+        "league": {
+          "id": 197,
+          "name": "Super League 1",
+          "country": "Greece",
+          "logo": "https://media.api-sports.io/football/leagues/197.png",
+          "flag": "https://media.api-sports.io/flags/gr.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 7,
+          "lineups": 2,
+          "minutes": 209,
+          "number": 7,
+          "position": "Midfielder",
+          "rating": "6.44",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 5,
+          "out": 2,
+          "bench": 5
+        },
+        "shots": {
+          "total": 5,
+          "on": 3
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 47,
+          "key": 3,
+          "accuracy": 80
+        },
+        "tackles": {
+          "total": 2,
+          "blocks": 1,
+          "interceptions": 0
+        },
+        "duels": {
+          "total": 27,
+          "won": 13
+        },
+        "dribbles": {
+          "attempts": 6,
+          "success": 4,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 7,
+          "committed": 2
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 1124,
+          "name": "OFI",
+          "logo": "https://media.api-sports.io/football/teams/1124.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 3402,
+          "name": "Omonia Nicosia",
+          "logo": "https://media.api-sports.io/football/teams/3402.png"
+        },
+        "seasons": [
+          2025
+        ]
       },
       {
         "team": {
@@ -796003,7 +796004,7 @@
         "end": "2023-09-29"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "24207": {
     "career": [
@@ -796163,7 +796164,7 @@
         "end": "2017-12-18"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "159511": {
     "profile": {
@@ -796339,6 +796340,80 @@
           "logo": "https://media.api-sports.io/football/teams/133.png"
         },
         "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 3,
+          "lineups": 3,
+          "minutes": 270,
+          "number": 55,
+          "position": "Defender",
+          "rating": "6.67",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 4
+        },
+        "shots": {
+          "total": 3,
+          "on": 1
+        },
+        "goals": {
+          "total": 1,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 201,
+          "key": null,
+          "accuracy": 92
+        },
+        "tackles": {
+          "total": 4,
+          "blocks": 2,
+          "interceptions": 7
+        },
+        "duels": {
+          "total": 21,
+          "won": 9
+        },
+        "dribbles": {
+          "attempts": 0,
+          "success": 0,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": 5
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": 0,
+          "commited": 0,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 133,
+          "name": "Vasco DA Gama",
+          "logo": "https://media.api-sports.io/football/teams/133.png"
+        },
+        "league": {
           "id": 73,
           "name": "Copa Do Brasil",
           "country": "Brazil",
@@ -796347,17 +796422,17 @@
           "season": 2026
         },
         "games": {
-          "appearences": 1,
-          "lineups": 0,
-          "minutes": 9,
+          "appearences": 2,
+          "lineups": 1,
+          "minutes": 75,
           "number": 55,
           "position": "Defender",
-          "rating": "6.36",
+          "rating": "6.31",
           "captain": false
         },
         "substitutes": {
           "in": 1,
-          "out": 0,
+          "out": 1,
           "bench": 1
         },
         "shots": {
@@ -796371,18 +796446,18 @@
           "saves": 0
         },
         "passes": {
-          "total": 2,
-          "key": 0,
-          "accuracy": 50
+          "total": 41,
+          "key": 1,
+          "accuracy": 75
         },
         "tackles": {
-          "total": 0,
+          "total": 1,
           "blocks": 0,
-          "interceptions": 1
+          "interceptions": 2
         },
         "duels": {
-          "total": 1,
-          "won": 1
+          "total": 8,
+          "won": 3
         },
         "dribbles": {
           "attempts": 0,
@@ -796391,10 +796466,10 @@
         },
         "fouls": {
           "drawn": 1,
-          "committed": 0
+          "committed": 2
         },
         "cards": {
-          "yellow": 0,
+          "yellow": 1,
           "yellowred": 0,
           "red": 0
         },
@@ -796475,80 +796550,6 @@
         "penalty": {
           "won": null,
           "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
-          "id": 133,
-          "name": "Vasco DA Gama",
-          "logo": "https://media.api-sports.io/football/teams/133.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 3,
-          "lineups": 3,
-          "minutes": 270,
-          "number": 55,
-          "position": "Defender",
-          "rating": "6.59",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 0,
-          "out": 0,
-          "bench": 4
-        },
-        "shots": {
-          "total": 3,
-          "on": 1
-        },
-        "goals": {
-          "total": 1,
-          "conceded": 0,
-          "assists": 0,
-          "saves": 0
-        },
-        "passes": {
-          "total": 201,
-          "key": 0,
-          "accuracy": 92
-        },
-        "tackles": {
-          "total": 4,
-          "blocks": 2,
-          "interceptions": 7
-        },
-        "duels": {
-          "total": 21,
-          "won": 9
-        },
-        "dribbles": {
-          "attempts": 0,
-          "success": 0,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 1,
-          "committed": 5
-        },
-        "cards": {
-          "yellow": 1,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": 0,
-          "commited": 0,
           "scored": 0,
           "missed": 0,
           "saved": null
@@ -796671,7 +796672,7 @@
         "end": "2024-01-21"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "1364": {
     "profile": {
@@ -796707,12 +796708,12 @@
           "season": 2026
         },
         "games": {
-          "appearences": 2,
-          "lineups": 2,
-          "minutes": 166,
+          "appearences": 3,
+          "lineups": 3,
+          "minutes": 256,
           "number": 20,
           "position": "Midfielder",
-          "rating": "4.41",
+          "rating": "5.23",
           "captain": false
         },
         "substitutes": {
@@ -796727,22 +796728,22 @@
         "goals": {
           "total": 0,
           "conceded": 0,
-          "assists": 0,
+          "assists": 1,
           "saves": 0
         },
         "passes": {
-          "total": 74,
-          "key": 0,
-          "accuracy": 87
+          "total": 141,
+          "key": 1,
+          "accuracy": 89
         },
         "tackles": {
-          "total": 3,
+          "total": 4,
           "blocks": 0,
-          "interceptions": 1
+          "interceptions": 2
         },
         "duels": {
-          "total": 16,
-          "won": 9
+          "total": 22,
+          "won": 11
         },
         "dribbles": {
           "attempts": 3,
@@ -796750,11 +796751,11 @@
           "past": null
         },
         "fouls": {
-          "drawn": 3,
-          "committed": 3
+          "drawn": 4,
+          "committed": 4
         },
         "cards": {
-          "yellow": 1,
+          "yellow": 2,
           "yellowred": 0,
           "red": 1
         },
@@ -797001,7 +797002,7 @@
         "end": "2024-09-21"
       }
     ],
-    "updated_at": "2026-11-05T12:36:18.872423+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "135334": {
     "profile": {
@@ -797172,6 +797173,80 @@
       },
       {
         "team": {
+          "id": 39,
+          "name": "Wolves",
+          "logo": "https://media.api-sports.io/football/teams/39.png"
+        },
+        "league": {
+          "id": 40,
+          "name": "Championship",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/40.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 0,
+          "lineups": 0,
+          "minutes": 0,
+          "number": 4,
+          "position": "Defender",
+          "rating": "0",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 0,
+          "bench": 4
+        },
+        "shots": {
+          "total": 0,
+          "on": 0
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 0,
+          "key": 0,
+          "accuracy": null
+        },
+        "tackles": {
+          "total": 0,
+          "blocks": 0,
+          "interceptions": 0
+        },
+        "duels": {
+          "total": 0,
+          "won": 0
+        },
+        "dribbles": {
+          "attempts": 0,
+          "success": 0,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 0,
+          "committed": 0
+        },
+        "cards": {
+          "yellow": 0,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
           "id": 2287,
           "name": "Club America",
           "logo": "https://media.api-sports.io/football/teams/2287.png"
@@ -797317,96 +797392,9 @@
           "missed": 0,
           "saved": null
         }
-      },
-      {
-        "team": {
-          "id": 39,
-          "name": "Wolves",
-          "logo": "https://media.api-sports.io/football/teams/39.png"
-        },
-        "league": {
-          "id": 40,
-          "name": "Championship",
-          "country": "England",
-          "logo": "https://media.api-sports.io/football/leagues/40.png",
-          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 0,
-          "lineups": 0,
-          "minutes": null,
-          "number": 4,
-          "position": "Defender",
-          "rating": null,
-          "captain": false
-        },
-        "substitutes": {
-          "in": 0,
-          "out": 0,
-          "bench": 4
-        },
-        "shots": {
-          "total": null,
-          "on": null
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": null
-        },
-        "passes": {
-          "total": null,
-          "key": null,
-          "accuracy": null
-        },
-        "tackles": {
-          "total": null,
-          "blocks": null,
-          "interceptions": null
-        },
-        "duels": {
-          "total": null,
-          "won": null
-        },
-        "dribbles": {
-          "attempts": null,
-          "success": null,
-          "past": null
-        },
-        "fouls": {
-          "drawn": null,
-          "committed": null
-        },
-        "cards": {
-          "yellow": 0,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
       }
     ],
     "career": [
-      {
-        "team": {
-          "id": 39,
-          "name": "Wolves",
-          "logo": "https://media.api-sports.io/football/teams/39.png"
-        },
-        "seasons": [
-          2026,
-          2025,
-          2024,
-          2023
-        ]
-      },
       {
         "team": {
           "id": 7,
@@ -797426,7 +797414,21 @@
           "name": "Club America",
           "logo": "https://media.api-sports.io/football/teams/2287.png"
         },
-        "seasons": []
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 39,
+          "name": "Wolves",
+          "logo": "https://media.api-sports.io/football/teams/39.png"
+        },
+        "seasons": [
+          2025,
+          2024,
+          2023
+        ]
       },
       {
         "team": {
@@ -797558,7 +797560,7 @@
         "end": "2023-08-21"
       }
     ],
-    "updated_at": "2026-11-05T22:12:49.730513+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "13155": {
     "profile": {
@@ -797860,7 +797862,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-05T22:12:49.730513+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "129880": {
     "profile": {
@@ -797962,6 +797964,80 @@
           "logo": "https://media.api-sports.io/football/teams/118.png"
         },
         "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 24,
+          "lineups": 24,
+          "minutes": 2160,
+          "number": 21,
+          "position": "Defender",
+          "rating": "6.81",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 1,
+          "bench": 1
+        },
+        "shots": {
+          "total": 9,
+          "on": 6
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 1203,
+          "key": 5,
+          "accuracy": 89
+        },
+        "tackles": {
+          "total": 13,
+          "blocks": 25,
+          "interceptions": 30
+        },
+        "duels": {
+          "total": 114,
+          "won": 70
+        },
+        "dribbles": {
+          "attempts": 4,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 17,
+          "committed": 16
+        },
+        "cards": {
+          "yellow": 3,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": 0,
+          "commited": 1,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      },
+      {
+        "team": {
+          "id": 118,
+          "name": "Bahia",
+          "logo": "https://media.api-sports.io/football/teams/118.png"
+        },
+        "league": {
           "id": 73,
           "name": "Copa Do Brasil",
           "country": "Brazil",
@@ -798044,12 +798120,12 @@
           "season": 2026
         },
         "games": {
-          "appearences": 5,
-          "lineups": 5,
-          "minutes": 450,
+          "appearences": 6,
+          "lineups": 6,
+          "minutes": 540,
           "number": 15,
           "position": "Defender",
-          "rating": "5.44",
+          "rating": "5.55",
           "captain": false
         },
         "substitutes": {
@@ -798068,18 +798144,18 @@
           "saves": 0
         },
         "passes": {
-          "total": 237,
+          "total": 298,
           "key": 1,
-          "accuracy": 77
+          "accuracy": 78
         },
         "tackles": {
           "total": 9,
           "blocks": 3,
-          "interceptions": 4
+          "interceptions": 5
         },
         "duels": {
-          "total": 52,
-          "won": 33
+          "total": 62,
+          "won": 40
         },
         "dribbles": {
           "attempts": 0,
@@ -798087,8 +798163,8 @@
           "past": null
         },
         "fouls": {
-          "drawn": 7,
-          "committed": 8
+          "drawn": 9,
+          "committed": 10
         },
         "cards": {
           "yellow": 0,
@@ -798102,83 +798178,19 @@
           "missed": 0,
           "saved": null
         }
-      },
-      {
-        "team": {
-          "id": 118,
-          "name": "Bahia",
-          "logo": "https://media.api-sports.io/football/teams/118.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 24,
-          "lineups": 24,
-          "minutes": 2160,
-          "number": 21,
-          "position": "Defender",
-          "rating": "6.81",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 0,
-          "out": 1,
-          "bench": 1
-        },
-        "shots": {
-          "total": 9,
-          "on": 6
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": 0
-        },
-        "passes": {
-          "total": 1203,
-          "key": 5,
-          "accuracy": 89
-        },
-        "tackles": {
-          "total": 13,
-          "blocks": 25,
-          "interceptions": 30
-        },
-        "duels": {
-          "total": 114,
-          "won": 70
-        },
-        "dribbles": {
-          "attempts": 4,
-          "success": 2,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 17,
-          "committed": 16
-        },
-        "cards": {
-          "yellow": 3,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": 0,
-          "commited": 1,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
       }
     ],
     "career": [
+      {
+        "team": {
+          "id": 2287,
+          "name": "Club America",
+          "logo": "https://media.api-sports.io/football/teams/2287.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
       {
         "team": {
           "id": 118,
@@ -798186,17 +798198,8 @@
           "logo": "https://media.api-sports.io/football/teams/118.png"
         },
         "seasons": [
-          2026,
           2025
         ]
-      },
-      {
-        "team": {
-          "id": 2287,
-          "name": "Club America",
-          "logo": "https://media.api-sports.io/football/teams/2287.png"
-        },
-        "seasons": []
       },
       {
         "team": {
@@ -798320,7 +798323,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-05T22:12:49.730513+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "10001": {
     "profile": {
@@ -798543,7 +798546,7 @@
         "end": "2024-05-03"
       }
     ],
-    "updated_at": "2026-11-05T22:12:49.730513+00:00"
+    "updated_at": "2026-11-13T12:23:42.422186+00:00"
   },
   "9957": {
     "profile": {
