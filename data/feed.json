@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-11-15T21:10:54.093159+00:00",
+    "updated_at": "2026-11-16T06:48:32.324939+00:00",
     "source": "API-Football",
     "live": true,
     "clubs_known": 540,
@@ -14,9 +14,9 @@
     "full_sweep": true,
     "full_sweep_complete": true,
     "teams_checked_last_run": 540,
-    "duplicates_removed_last_update": 3710,
+    "duplicates_removed_last_update": 3895,
     "duplicates_removed_last_cleanup": 0,
-    "dedupe_cleaned_at": "2026-11-15T21:13:06.418249+00:00",
+    "dedupe_cleaned_at": "2026-11-16T06:50:48.667831+00:00",
     "dedupe_day_tolerance": 3,
     "first_seen_tracking": true,
     "endpoint_metadata": true,
@@ -26,21 +26,21 @@
     "free_agent_normalisation": true,
     "free_agent_endpoints_fixed_last_build": 1088,
     "hub_profiles": true,
-    "feed_updated_at": "2026-11-15T21:13:07.104574+00:00"
+    "feed_updated_at": "2026-11-16T06:50:49.217784+00:00"
   },
   "stats": {
     "total": 12000,
-    "last24": 0,
-    "free24": 0,
+    "last24": 1,
+    "free24": 1,
     "loans24": 0,
-    "clubs_involved": 2443,
+    "clubs_involved": 2444,
     "tracked_leagues": 32,
     "player_profiles": 22448,
     "profiled_rows": 10709,
     "u21": 3522,
-    "u23": 5241,
+    "u23": 5240,
     "free_u23": 1079,
-    "feed_records": 522
+    "feed_records": 523
   },
   "transfers": [
     {
@@ -14239,6 +14239,32 @@
       "from_league_id": 61,
       "from_region": "Europe",
       "first_seen_at": "2026-11-09T19:00:43.409675+00:00"
+    },
+    {
+      "player_id": 50173,
+      "player": "A. Traoré",
+      "player_photo": "https://media.api-sports.io/football/players/50173.png",
+      "date": "2026-06-29",
+      "type": "Free agent",
+      "from_id": 944,
+      "from": "Melbourne Victory",
+      "from_logo": "https://media.api-sports.io/football/teams/944.png",
+      "to_id": 13160,
+      "to": "Avondale",
+      "to_logo": "https://media.api-sports.io/football/teams/13160.png",
+      "league": "A-League",
+      "country": "Australia",
+      "region": "Asia",
+      "age": 36,
+      "position": "Defender",
+      "demo": false,
+      "id": "50173|2026-06-29|944|13160|free",
+      "player_full_name": "Adama Traoré",
+      "from_country": "Australia",
+      "from_league": "A-League",
+      "from_league_id": 188,
+      "from_region": "Asia",
+      "first_seen_at": "2026-11-16T06:50:49.217784+00:00"
     },
     {
       "player_id": 49602,
