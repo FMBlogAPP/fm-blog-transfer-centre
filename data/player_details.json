@@ -142158,7 +142158,7 @@
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "542372": {
     "career": [],
@@ -307802,80 +307802,6 @@
           "logo": "https://media.api-sports.io/football/teams/120.png"
         },
         "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 6,
-          "lineups": 6,
-          "minutes": 530,
-          "number": 15,
-          "position": "Defender",
-          "rating": "6.35",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 0,
-          "out": 1,
-          "bench": 5
-        },
-        "shots": {
-          "total": null,
-          "on": null
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": null
-        },
-        "passes": {
-          "total": 312,
-          "key": 1,
-          "accuracy": 91
-        },
-        "tackles": {
-          "total": 10,
-          "blocks": 5,
-          "interceptions": 5
-        },
-        "duels": {
-          "total": 36,
-          "won": 17
-        },
-        "dribbles": {
-          "attempts": 1,
-          "success": null,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 2,
-          "committed": 9
-        },
-        "cards": {
-          "yellow": 1,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": null,
-          "commited": null,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
-          "id": 120,
-          "name": "Botafogo",
-          "logo": "https://media.api-sports.io/football/teams/120.png"
-        },
-        "league": {
           "id": 73,
           "name": "Copa Do Brasil",
           "country": "Brazil",
@@ -307958,12 +307884,12 @@
           "season": 2026
         },
         "games": {
-          "appearences": 4,
-          "lineups": 4,
-          "minutes": 360,
+          "appearences": 5,
+          "lineups": 5,
+          "minutes": 450,
           "number": 15,
           "position": "Defender",
-          "rating": "6.71",
+          "rating": "6.66",
           "captain": false
         },
         "substitutes": {
@@ -307982,21 +307908,21 @@
           "saves": 0
         },
         "passes": {
-          "total": 253,
+          "total": 301,
           "key": 0,
-          "accuracy": 90
+          "accuracy": 88
         },
         "tackles": {
-          "total": 5,
+          "total": 7,
           "blocks": 0,
-          "interceptions": 8
+          "interceptions": 9
         },
         "duels": {
-          "total": 26,
-          "won": 13
+          "total": 30,
+          "won": 16
         },
         "dribbles": {
-          "attempts": 1,
+          "attempts": 2,
           "success": 0,
           "past": null
         },
@@ -308016,18 +307942,6 @@
           "missed": null,
           "saved": null
         }
-      }
-    ],
-    "career": [
-      {
-        "team": {
-          "id": 154,
-          "name": "Fortaleza EC",
-          "logo": "https://media.api-sports.io/football/teams/154.png"
-        },
-        "seasons": [
-          2026
-        ]
       },
       {
         "team": {
@@ -308035,11 +307949,96 @@
           "name": "Botafogo",
           "logo": "https://media.api-sports.io/football/teams/120.png"
         },
+        "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 6,
+          "lineups": 6,
+          "minutes": 530,
+          "number": 15,
+          "position": "Defender",
+          "rating": "6.35",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 0,
+          "out": 1,
+          "bench": 5
+        },
+        "shots": {
+          "total": null,
+          "on": null
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": null
+        },
+        "passes": {
+          "total": 312,
+          "key": 1,
+          "accuracy": 91
+        },
+        "tackles": {
+          "total": 10,
+          "blocks": 5,
+          "interceptions": 5
+        },
+        "duels": {
+          "total": 36,
+          "won": 17
+        },
+        "dribbles": {
+          "attempts": 1,
+          "success": null,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 2,
+          "committed": 9
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": null,
+          "commited": null,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 120,
+          "name": "Botafogo",
+          "logo": "https://media.api-sports.io/football/teams/120.png"
+        },
         "seasons": [
+          2026,
           2025,
           2024,
           2023
         ]
+      },
+      {
+        "team": {
+          "id": 154,
+          "name": "Fortaleza EC",
+          "logo": "https://media.api-sports.io/football/teams/154.png"
+        },
+        "seasons": []
       },
       {
         "team": {
@@ -308260,7 +308259,7 @@
         "end": "2024-10-17"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "181218": {
     "profile": {
@@ -331283,7 +331282,7 @@
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "64254": {
     "career": [
@@ -783113,7 +783112,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "659065": {
     "career": [
@@ -783130,13 +783129,13 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "621001": {
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "6080": {
     "profile": {
@@ -783233,80 +783232,6 @@
       },
       {
         "team": {
-          "id": 147,
-          "name": "Coritiba",
-          "logo": "https://media.api-sports.io/football/teams/147.png"
-        },
-        "league": {
-          "id": 71,
-          "name": "Serie A",
-          "country": "Brazil",
-          "logo": "https://media.api-sports.io/football/leagues/71.png",
-          "flag": "https://media.api-sports.io/flags/br.svg",
-          "season": 2026
-        },
-        "games": {
-          "appearences": 6,
-          "lineups": 3,
-          "minutes": 279,
-          "number": 14,
-          "position": "Defender",
-          "rating": "6.25",
-          "captain": false
-        },
-        "substitutes": {
-          "in": 3,
-          "out": 3,
-          "bench": 4
-        },
-        "shots": {
-          "total": null,
-          "on": 0
-        },
-        "goals": {
-          "total": 0,
-          "conceded": 0,
-          "assists": 0,
-          "saves": 0
-        },
-        "passes": {
-          "total": 87,
-          "key": null,
-          "accuracy": 68
-        },
-        "tackles": {
-          "total": 6,
-          "blocks": 1,
-          "interceptions": 3
-        },
-        "duels": {
-          "total": 25,
-          "won": 13
-        },
-        "dribbles": {
-          "attempts": 3,
-          "success": 2,
-          "past": null
-        },
-        "fouls": {
-          "drawn": 1,
-          "committed": 3
-        },
-        "cards": {
-          "yellow": 1,
-          "yellowred": 0,
-          "red": 0
-        },
-        "penalty": {
-          "won": 0,
-          "commited": 0,
-          "scored": 0,
-          "missed": 0,
-          "saved": null
-        }
-      },
-      {
-        "team": {
           "id": 435,
           "name": "River Plate",
           "logo": "https://media.api-sports.io/football/teams/435.png"
@@ -783378,20 +783303,6 @@
           "missed": 0,
           "saved": null
         }
-      }
-    ],
-    "career": [
-      {
-        "team": {
-          "id": 435,
-          "name": "River Plate",
-          "logo": "https://media.api-sports.io/football/teams/435.png"
-        },
-        "seasons": [
-          2026,
-          2025,
-          2024
-        ]
       },
       {
         "team": {
@@ -783399,7 +783310,96 @@
           "name": "Coritiba",
           "logo": "https://media.api-sports.io/football/teams/147.png"
         },
-        "seasons": []
+        "league": {
+          "id": 71,
+          "name": "Serie A",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/71.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026
+        },
+        "games": {
+          "appearences": 6,
+          "lineups": 3,
+          "minutes": 279,
+          "number": 14,
+          "position": "Defender",
+          "rating": "6.25",
+          "captain": false
+        },
+        "substitutes": {
+          "in": 3,
+          "out": 3,
+          "bench": 5
+        },
+        "shots": {
+          "total": null,
+          "on": 0
+        },
+        "goals": {
+          "total": 0,
+          "conceded": 0,
+          "assists": 0,
+          "saves": 0
+        },
+        "passes": {
+          "total": 87,
+          "key": null,
+          "accuracy": 68
+        },
+        "tackles": {
+          "total": 6,
+          "blocks": 1,
+          "interceptions": 3
+        },
+        "duels": {
+          "total": 26,
+          "won": 13
+        },
+        "dribbles": {
+          "attempts": 3,
+          "success": 2,
+          "past": null
+        },
+        "fouls": {
+          "drawn": 1,
+          "committed": 3
+        },
+        "cards": {
+          "yellow": 1,
+          "yellowred": 0,
+          "red": 0
+        },
+        "penalty": {
+          "won": 0,
+          "commited": 0,
+          "scored": 0,
+          "missed": 0,
+          "saved": null
+        }
+      }
+    ],
+    "career": [
+      {
+        "team": {
+          "id": 147,
+          "name": "Coritiba",
+          "logo": "https://media.api-sports.io/football/teams/147.png"
+        },
+        "seasons": [
+          2026
+        ]
+      },
+      {
+        "team": {
+          "id": 435,
+          "name": "River Plate",
+          "logo": "https://media.api-sports.io/football/teams/435.png"
+        },
+        "seasons": [
+          2025,
+          2024
+        ]
       },
       {
         "team": {
@@ -783518,7 +783518,7 @@
         "end": "2024-07-06"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "589595": {
     "career": [],
@@ -783634,7 +783634,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "46688": {
     "profile": {
@@ -783937,7 +783937,7 @@
         "end": "2021-05-12"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "45775": {
     "career": [
@@ -784377,7 +784377,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "357": {
     "profile": {
@@ -784605,7 +784605,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "33794": {
     "profile": {
@@ -784832,7 +784832,7 @@
         "end": "2025-08-01"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "33424": {
     "profile": {
@@ -784999,7 +784999,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "33244": {
     "profile": {
@@ -785203,7 +785203,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "332304": {
     "career": [
@@ -785474,7 +785474,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "302921": {
     "profile": {
@@ -785618,7 +785618,7 @@
         "end": null
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "2096": {
     "profile": {
@@ -785901,7 +785901,7 @@
         "end": "2023-11-24"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "201068": {
     "profile": {
@@ -786050,7 +786050,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "18968": {
     "profile": {
@@ -786357,7 +786357,7 @@
         "end": "2016-12-15"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "182671": {
     "profile": {
@@ -786524,7 +786524,7 @@
         "end": "2024-11-16"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "1589": {
     "profile": {
@@ -786884,7 +786884,7 @@
         "end": "2016-06-24"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "141109": {
     "career": [
@@ -786972,7 +786972,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "127843": {
     "profile": {
@@ -787181,7 +787181,7 @@
         "end": "2019-11-29"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "1277": {
     "profile": {
@@ -787846,7 +787846,7 @@
         "end": "2020-09-30"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "98037": {
     "career": [
@@ -787986,7 +787986,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "84088": {
     "profile": {
@@ -788369,7 +788369,7 @@
         "end": "2021-03-16"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "6803": {
     "profile": {
@@ -788570,7 +788570,7 @@
         "end": "2025-04-03"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "669305": {
     "profile": {
@@ -788680,13 +788680,13 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "666515": {
     "career": [],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "416256": {
     "profile": {
@@ -788927,7 +788927,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "40453": {
     "career": [
@@ -789014,7 +789014,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "380913": {
     "profile": {
@@ -789151,7 +789151,7 @@
         "end": "2025-08-30"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "36173": {
     "profile": {
@@ -789405,7 +789405,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "351019": {
     "profile": {
@@ -789545,7 +789545,7 @@
     ],
     "trophies": [],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "343894": {
     "career": [
@@ -789669,7 +789669,7 @@
         "end": "2024-03-28"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00",
+    "updated_at": "2026-11-19T23:14:56.407586+00:00",
     "profile": {
       "id": 343894,
       "name": "J. Farrell",
@@ -790104,7 +790104,7 @@
         "end": "2014-12-21"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "26862": {
     "profile": {
@@ -790512,7 +790512,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "262651": {
     "profile": {
@@ -790672,7 +790672,7 @@
       }
     ],
     "sidelined": [],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "199409": {
     "profile": {
@@ -791104,7 +791104,7 @@
         "end": "2025-07-02"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "18832": {
     "profile": {
@@ -791486,7 +791486,7 @@
         "end": "2024-04-20"
       }
     ],
-    "updated_at": "2026-11-12T07:31:03.747868+00:00"
+    "updated_at": "2026-11-19T23:14:56.407586+00:00"
   },
   "166984": {
     "profile": {
