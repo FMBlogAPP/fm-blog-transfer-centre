@@ -414,146 +414,6 @@
     },
     "coaches": [
       {
-        "id": 2915,
-        "name": "M. Baroni",
-        "firstname": "Marco",
-        "lastname": "Baroni",
-        "age": 62,
-        "birth": {
-          "date": "1963-09-11",
-          "place": "Firenze",
-          "country": "Italy"
-        },
-        "nationality": "Italy",
-        "height": null,
-        "weight": null,
-        "photo": "https://media.api-sports.io/football/coachs/2915.png",
-        "team": {
-          "id": 503,
-          "name": "Torino",
-          "logo": "https://media.api-sports.io/football/teams/503.png"
-        },
-        "career": [
-          {
-            "team": {
-              "id": 503,
-              "name": "Torino",
-              "logo": "https://media.api-sports.io/football/teams/503.png"
-            },
-            "start": "2025-07-01",
-            "end": null
-          },
-          {
-            "team": {
-              "id": 487,
-              "name": "Lazio",
-              "logo": "https://media.api-sports.io/football/teams/487.png"
-            },
-            "start": "2024-07-01",
-            "end": null
-          },
-          {
-            "team": {
-              "id": 504,
-              "name": "Verona",
-              "logo": "https://media.api-sports.io/football/teams/504.png"
-            },
-            "start": "2023-07-01",
-            "end": "2024-06-01"
-          },
-          {
-            "team": {
-              "id": 867,
-              "name": "Lecce",
-              "logo": "https://media.api-sports.io/football/teams/867.png"
-            },
-            "start": "2021-07-01",
-            "end": "2023-06-01"
-          },
-          {
-            "team": {
-              "id": 1692,
-              "name": "Reggina",
-              "logo": "https://media.api-sports.io/football/teams/1692.png"
-            },
-            "start": "2020-12-01",
-            "end": "2021-06-01"
-          },
-          {
-            "team": {
-              "id": 520,
-              "name": "Cremonese",
-              "logo": "https://media.api-sports.io/football/teams/520.png"
-            },
-            "start": "2019-10-01",
-            "end": "2020-01-01"
-          },
-          {
-            "team": {
-              "id": 512,
-              "name": "Frosinone",
-              "logo": "https://media.api-sports.io/football/teams/512.png"
-            },
-            "start": "2018-12-01",
-            "end": "2019-06-01"
-          },
-          {
-            "team": {
-              "id": 506,
-              "name": "Benevento",
-              "logo": "https://media.api-sports.io/football/teams/506.png"
-            },
-            "start": "2016-07-01",
-            "end": "2017-10-01"
-          },
-          {
-            "team": {
-              "id": 513,
-              "name": "Novara",
-              "logo": "https://media.api-sports.io/football/teams/513.png"
-            },
-            "start": "2015-06-01",
-            "end": "2016-06-01"
-          },
-          {
-            "team": {
-              "id": 525,
-              "name": "Pescara",
-              "logo": "https://media.api-sports.io/football/teams/525.png"
-            },
-            "start": "2014-07-01",
-            "end": "2015-05-01"
-          },
-          {
-            "team": {
-              "id": null,
-              "name": "Virtus Lanciano",
-              "logo": null
-            },
-            "start": "2013-07-01",
-            "end": "2014-06-01"
-          },
-          {
-            "team": {
-              "id": 7904,
-              "name": "Juventus U19",
-              "logo": "https://media.api-sports.io/football/teams/7904.png"
-            },
-            "start": "2012-07-01",
-            "end": "2013-06-01"
-          },
-          {
-            "team": {
-              "id": 1583,
-              "name": "Siena",
-              "logo": "https://media.api-sports.io/football/teams/1583.png"
-            },
-            "start": "2009-10-01",
-            "end": "2009-11-01"
-          }
-        ]
-      },
-      {
         "id": 18109,
         "name": "I. Abate",
         "firstname": "Ignazio",
@@ -659,12 +519,12 @@
         "name": "Torino",
         "logo": "https://media.api-sports.io/football/teams/503.png"
       },
-      "form": "LLWLDWWWLLD",
+      "form": "LLWLDWWWLLDL",
       "fixtures": {
         "played": {
           "home": 6,
-          "away": 5,
-          "total": 11
+          "away": 6,
+          "total": 12
         },
         "wins": {
           "home": 2,
@@ -678,8 +538,8 @@
         },
         "loses": {
           "home": 3,
-          "away": 2,
-          "total": 5
+          "away": 3,
+          "total": 6
         }
       },
       "goals": {
@@ -691,8 +551,8 @@
           },
           "average": {
             "home": "1.3",
-            "away": "1.4",
-            "total": "1.4"
+            "away": "1.2",
+            "total": "1.3"
           },
           "minute": {
             "0-15": {
@@ -731,31 +591,31 @@
           "under_over": {
             "0.5": {
               "over": 9,
-              "under": 2
+              "under": 3
             },
             "1.5": {
               "over": 4,
-              "under": 7
+              "under": 8
             },
             "2.5": {
               "over": 2,
-              "under": 9
+              "under": 10
             },
             "3.5": {
               "over": 0,
-              "under": 11
+              "under": 12
             },
             "4.5": {
               "over": 0,
-              "under": 11
+              "under": 12
             }
           }
         },
         "against": {
           "total": {
             "home": 11,
-            "away": 6,
-            "total": 17
+            "away": 7,
+            "total": 18
           },
           "average": {
             "home": "1.8",
@@ -765,7 +625,7 @@
           "minute": {
             "0-15": {
               "total": 1,
-              "percentage": "6.25%"
+              "percentage": "5.88%"
             },
             "16-30": {
               "total": null,
@@ -773,23 +633,23 @@
             },
             "31-45": {
               "total": 3,
-              "percentage": "18.75%"
+              "percentage": "17.65%"
             },
             "46-60": {
               "total": 4,
-              "percentage": "25.00%"
+              "percentage": "23.53%"
             },
             "61-75": {
-              "total": 2,
-              "percentage": "12.50%"
+              "total": 3,
+              "percentage": "17.65%"
             },
             "76-90": {
               "total": 4,
-              "percentage": "25.00%"
+              "percentage": "23.53%"
             },
             "91-105": {
               "total": 2,
-              "percentage": "12.50%"
+              "percentage": "11.76%"
             },
             "106-120": {
               "total": null,
@@ -798,24 +658,24 @@
           },
           "under_over": {
             "0.5": {
-              "over": 10,
+              "over": 11,
               "under": 1
             },
             "1.5": {
               "over": 6,
-              "under": 5
+              "under": 6
             },
             "2.5": {
               "over": 1,
-              "under": 10
+              "under": 11
             },
             "3.5": {
               "over": 0,
-              "under": 11
+              "under": 12
             },
             "4.5": {
               "over": 0,
-              "under": 11
+              "under": 12
             }
           }
         }
@@ -852,8 +712,8 @@
       },
       "failed_to_score": {
         "home": 1,
-        "away": 1,
-        "total": 2
+        "away": 2,
+        "total": 3
       },
       "penalty": {
         "scored": {
@@ -869,7 +729,7 @@
       "lineups": [
         {
           "formation": "3-5-2",
-          "played": 4
+          "played": 5
         },
         {
           "formation": "3-4-2-1",
@@ -896,23 +756,23 @@
           },
           "16-30": {
             "total": 3,
-            "percentage": "27.27%"
+            "percentage": "25.00%"
           },
           "31-45": {
             "total": 3,
-            "percentage": "27.27%"
+            "percentage": "25.00%"
           },
           "46-60": {
-            "total": null,
-            "percentage": null
+            "total": 1,
+            "percentage": "8.33%"
           },
           "61-75": {
             "total": 4,
-            "percentage": "36.36%"
+            "percentage": "33.33%"
           },
           "76-90": {
             "total": 1,
-            "percentage": "9.09%"
+            "percentage": "8.33%"
           },
           "91-105": {
             "total": null,
@@ -959,7 +819,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "546": {
     "team": {
@@ -1738,12 +1598,12 @@
         "name": "Ipswich",
         "logo": "https://media.api-sports.io/football/teams/57.png"
       },
-      "form": "WLLWLWLDDL",
+      "form": "WLLWLWLDDLL",
       "fixtures": {
         "played": {
           "home": 5,
-          "away": 5,
-          "total": 10
+          "away": 6,
+          "total": 11
         },
         "wins": {
           "home": 2,
@@ -1757,8 +1617,8 @@
         },
         "loses": {
           "home": 2,
-          "away": 3,
-          "total": 5
+          "away": 4,
+          "total": 6
         }
       },
       "goals": {
@@ -1770,8 +1630,8 @@
           },
           "average": {
             "home": "1.2",
-            "away": "1.8",
-            "total": "1.5"
+            "away": "1.5",
+            "total": "1.4"
           },
           "minute": {
             "0-15": {
@@ -1810,61 +1670,61 @@
           "under_over": {
             "0.5": {
               "over": 8,
-              "under": 2
+              "under": 3
             },
             "1.5": {
               "over": 6,
-              "under": 4
+              "under": 5
             },
             "2.5": {
               "over": 1,
-              "under": 9
+              "under": 10
             },
             "3.5": {
               "over": 0,
-              "under": 10
+              "under": 11
             },
             "4.5": {
               "over": 0,
-              "under": 10
+              "under": 11
             }
           }
         },
         "against": {
           "total": {
             "home": 7,
-            "away": 13,
-            "total": 20
+            "away": 15,
+            "total": 22
           },
           "average": {
             "home": "1.4",
-            "away": "2.6",
+            "away": "2.5",
             "total": "2.0"
           },
           "minute": {
             "0-15": {
-              "total": 6,
-              "percentage": "33.33%"
+              "total": 7,
+              "percentage": "35.00%"
             },
             "16-30": {
               "total": 1,
-              "percentage": "5.56%"
+              "percentage": "5.00%"
             },
             "31-45": {
               "total": 3,
-              "percentage": "16.67%"
+              "percentage": "15.00%"
             },
             "46-60": {
-              "total": 2,
-              "percentage": "11.11%"
+              "total": 3,
+              "percentage": "15.00%"
             },
             "61-75": {
               "total": 5,
-              "percentage": "27.78%"
+              "percentage": "25.00%"
             },
             "76-90": {
               "total": 1,
-              "percentage": "5.56%"
+              "percentage": "5.00%"
             },
             "91-105": {
               "total": null,
@@ -1877,24 +1737,24 @@
           },
           "under_over": {
             "0.5": {
-              "over": 10,
+              "over": 11,
               "under": 0
             },
             "1.5": {
-              "over": 6,
+              "over": 7,
               "under": 4
             },
             "2.5": {
               "over": 2,
-              "under": 8
+              "under": 9
             },
             "3.5": {
               "over": 1,
-              "under": 9
+              "under": 10
             },
             "4.5": {
               "over": 1,
-              "under": 9
+              "under": 10
             }
           }
         }
@@ -1931,8 +1791,8 @@
       },
       "failed_to_score": {
         "home": 1,
-        "away": 1,
-        "total": 2
+        "away": 2,
+        "total": 3
       },
       "penalty": {
         "scored": {
@@ -1948,7 +1808,7 @@
       "lineups": [
         {
           "formation": "4-2-3-1",
-          "played": 9
+          "played": 10
         },
         {
           "formation": "3-4-2-1",
@@ -1963,27 +1823,27 @@
           },
           "16-30": {
             "total": 2,
-            "percentage": "10.00%"
+            "percentage": "9.09%"
           },
           "31-45": {
-            "total": 6,
-            "percentage": "30.00%"
+            "total": 7,
+            "percentage": "31.82%"
           },
           "46-60": {
             "total": 3,
-            "percentage": "15.00%"
+            "percentage": "13.64%"
           },
           "61-75": {
             "total": 3,
-            "percentage": "15.00%"
+            "percentage": "13.64%"
           },
           "76-90": {
-            "total": 1,
-            "percentage": "5.00%"
+            "total": 2,
+            "percentage": "9.09%"
           },
           "91-105": {
             "total": 5,
-            "percentage": "25.00%"
+            "percentage": "22.73%"
           },
           "106-120": {
             "total": null,
@@ -2026,7 +1886,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "336": {
     "team": {
@@ -9233,7 +9093,7 @@
               "logo": "https://media.api-sports.io/football/teams/242.png"
             },
             "start": "2024-12-01",
-            "end": null
+            "end": "2026-07-01"
           }
         ]
       }
@@ -9544,7 +9404,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "529": {
     "team": {
@@ -25847,28 +25707,28 @@
       {
         "id": 5,
         "name": "E. Howe",
-        "firstname": null,
-        "lastname": null,
-        "age": null,
+        "firstname": "Edward John Frank",
+        "lastname": "Howe",
+        "age": 48,
         "birth": {
-          "date": null,
-          "place": null,
-          "country": null
+          "date": "1977-11-29",
+          "place": "Amersham",
+          "country": "England"
         },
-        "nationality": null,
+        "nationality": "England",
         "height": null,
         "weight": null,
         "photo": "https://media.api-sports.io/football/coachs/5.png",
         "team": {
           "id": 34,
-          "name": "Newcastle",
+          "name": "Newcastle United",
           "logo": "https://media.api-sports.io/football/teams/34.png"
         },
         "career": [
           {
             "team": {
               "id": 34,
-              "name": "Newcastle",
+              "name": "Newcastle United",
               "logo": "https://media.api-sports.io/football/teams/34.png"
             },
             "start": "2021-11-01",
@@ -25877,11 +25737,29 @@
           {
             "team": {
               "id": 35,
-              "name": "Bournemouth",
+              "name": "AFC Bournemouth",
               "logo": "https://media.api-sports.io/football/teams/35.png"
             },
-            "start": "2016-08-01",
-            "end": "2020-07-01"
+            "start": "2012-10-01",
+            "end": "2020-08-01"
+          },
+          {
+            "team": {
+              "id": 44,
+              "name": "Burnley",
+              "logo": "https://media.api-sports.io/football/teams/44.png"
+            },
+            "start": "2011-01-01",
+            "end": "2012-10-01"
+          },
+          {
+            "team": {
+              "id": 35,
+              "name": "AFC Bournemouth",
+              "logo": "https://media.api-sports.io/football/teams/35.png"
+            },
+            "start": "2008-12-01",
+            "end": "2011-01-01"
           }
         ]
       },
@@ -25963,7 +25841,7 @@
               "logo": "https://media.api-sports.io/football/teams/2929.png"
             },
             "start": "2023-07-01",
-            "end": null
+            "end": "2026-05-01"
           },
           {
             "team": {
@@ -26131,12 +26009,12 @@
               "percentage": null
             },
             "31-45": {
-              "total": 3,
-              "percentage": "21.43%"
+              "total": 2,
+              "percentage": "14.29%"
             },
             "46-60": {
-              "total": 4,
-              "percentage": "28.57%"
+              "total": 5,
+              "percentage": "35.71%"
             },
             "61-75": {
               "total": 1,
@@ -26302,7 +26180,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "12260": {
     "team": {
@@ -29780,7 +29658,7 @@
               "logo": "https://media.api-sports.io/football/teams/2114.png"
             },
             "start": "2019-01-01",
-            "end": null
+            "end": "2019-06-01"
           },
           {
             "team": {
@@ -29878,41 +29756,32 @@
       {
         "id": 16750,
         "name": "B. Eastick",
-        "firstname": "Brian",
-        "lastname": "Eastick",
-        "age": 74,
+        "firstname": null,
+        "lastname": null,
+        "age": null,
         "birth": {
-          "date": "1951-01-27",
+          "date": null,
           "place": null,
-          "country": "England"
+          "country": null
         },
-        "nationality": "England",
+        "nationality": null,
         "height": null,
         "weight": null,
         "photo": "https://media.api-sports.io/football/coachs/16750.png",
         "team": {
           "id": 259,
-          "name": "Lommel",
+          "name": "Lommel United",
           "logo": "https://media.api-sports.io/football/teams/259.png"
         },
         "career": [
           {
             "team": {
               "id": 259,
-              "name": "Lommel",
+              "name": "Lommel United",
               "logo": "https://media.api-sports.io/football/teams/259.png"
             },
             "start": "2022-02-01",
-            "end": "2022-06-01"
-          },
-          {
-            "team": {
-              "id": 10309,
-              "name": "England U20",
-              "logo": "https://media.api-sports.io/football/teams/10309.png"
-            },
-            "start": "2009-07-01",
-            "end": "2011-08-01"
+            "end": null
           }
         ]
       },
@@ -30310,7 +30179,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "533": {
     "team": {
@@ -33587,7 +33456,7 @@
               "logo": "https://media.api-sports.io/football/teams/1304.png"
             },
             "start": "2023-09-01",
-            "end": null
+            "end": "2025-05-01"
           },
           {
             "team": {
@@ -33764,7 +33633,7 @@
               "logo": "https://media.api-sports.io/football/teams/9591.png"
             },
             "start": "2025-02-01",
-            "end": null
+            "end": "2025-05-01"
           },
           {
             "team": {
@@ -34120,7 +33989,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "531": {
     "team": {
@@ -36854,12 +36723,12 @@
         "name": "1899 Hoffenheim",
         "logo": "https://media.api-sports.io/football/teams/167.png"
       },
-      "form": "LLWLLWWLW",
+      "form": "LLWLLWWLWL",
       "fixtures": {
         "played": {
           "home": 5,
-          "away": 4,
-          "total": 9
+          "away": 5,
+          "total": 10
         },
         "wins": {
           "home": 3,
@@ -36873,8 +36742,8 @@
         },
         "loses": {
           "home": 2,
-          "away": 3,
-          "total": 5
+          "away": 4,
+          "total": 6
         }
       },
       "goals": {
@@ -36886,8 +36755,8 @@
           },
           "average": {
             "home": "2.2",
-            "away": "1.3",
-            "total": "1.8"
+            "away": "1.0",
+            "total": "1.6"
           },
           "minute": {
             "0-15": {
@@ -36926,61 +36795,61 @@
           "under_over": {
             "0.5": {
               "over": 8,
-              "under": 1
+              "under": 2
             },
             "1.5": {
               "over": 7,
-              "under": 2
+              "under": 3
             },
             "2.5": {
               "over": 1,
-              "under": 8
+              "under": 9
             },
             "3.5": {
               "over": 0,
-              "under": 9
+              "under": 10
             },
             "4.5": {
               "over": 0,
-              "under": 9
+              "under": 10
             }
           }
         },
         "against": {
           "total": {
             "home": 8,
-            "away": 9,
-            "total": 17
+            "away": 10,
+            "total": 18
           },
           "average": {
             "home": "1.6",
-            "away": "2.3",
-            "total": "1.9"
+            "away": "2.0",
+            "total": "1.8"
           },
           "minute": {
             "0-15": {
               "total": 1,
-              "percentage": "5.88%"
+              "percentage": "5.56%"
             },
             "16-30": {
-              "total": 1,
-              "percentage": "5.88%"
+              "total": 2,
+              "percentage": "11.11%"
             },
             "31-45": {
               "total": 2,
-              "percentage": "11.76%"
+              "percentage": "11.11%"
             },
             "46-60": {
               "total": 4,
-              "percentage": "23.53%"
+              "percentage": "22.22%"
             },
             "61-75": {
               "total": 4,
-              "percentage": "23.53%"
+              "percentage": "22.22%"
             },
             "76-90": {
               "total": 5,
-              "percentage": "29.41%"
+              "percentage": "27.78%"
             },
             "91-105": {
               "total": null,
@@ -36993,24 +36862,24 @@
           },
           "under_over": {
             "0.5": {
-              "over": 8,
+              "over": 9,
               "under": 1
             },
             "1.5": {
               "over": 5,
-              "under": 4
+              "under": 5
             },
             "2.5": {
               "over": 4,
-              "under": 5
+              "under": 6
             },
             "3.5": {
               "over": 0,
-              "under": 9
+              "under": 10
             },
             "4.5": {
               "over": 0,
-              "under": 9
+              "under": 10
             }
           }
         }
@@ -37047,24 +36916,24 @@
       },
       "failed_to_score": {
         "home": 0,
-        "away": 1,
-        "total": 1
+        "away": 2,
+        "total": 2
       },
       "penalty": {
         "scored": {
           "total": 1,
-          "percentage": "50.00%"
+          "percentage": "33.33%"
         },
         "missed": {
-          "total": 1,
-          "percentage": "50.00%"
+          "total": 2,
+          "percentage": "66.67%"
         },
-        "total": 2
+        "total": 3
       },
       "lineups": [
         {
           "formation": "4-4-2",
-          "played": 4
+          "played": 5
         },
         {
           "formation": "4-2-3-1",
@@ -37091,23 +36960,23 @@
           },
           "31-45": {
             "total": 3,
-            "percentage": "17.65%"
+            "percentage": "15.79%"
           },
           "46-60": {
             "total": 3,
-            "percentage": "17.65%"
+            "percentage": "15.79%"
           },
           "61-75": {
-            "total": 4,
-            "percentage": "23.53%"
+            "total": 5,
+            "percentage": "26.32%"
           },
           "76-90": {
-            "total": 5,
-            "percentage": "29.41%"
+            "total": 6,
+            "percentage": "31.58%"
           },
           "91-105": {
             "total": 2,
-            "percentage": "11.76%"
+            "percentage": "10.53%"
           },
           "106-120": {
             "total": null,
@@ -37133,15 +37002,15 @@
           },
           "61-75": {
             "total": 1,
-            "percentage": "50.00%"
+            "percentage": "33.33%"
           },
           "76-90": {
             "total": null,
             "percentage": null
           },
           "91-105": {
-            "total": 1,
-            "percentage": "50.00%"
+            "total": 2,
+            "percentage": "66.67%"
           },
           "106-120": {
             "total": null,
@@ -37150,7 +37019,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "228": {
     "team": {
@@ -56101,65 +55970,6 @@
         ]
       },
       {
-        "id": 1999,
-        "name": "M. van Bommel",
-        "firstname": "Mark Peter Gertruda Andreas",
-        "lastname": "van Bommel",
-        "age": 48,
-        "birth": {
-          "date": "1977-04-22",
-          "place": "Maasbracht",
-          "country": "Netherlands"
-        },
-        "nationality": "Netherlands",
-        "height": "187 cm",
-        "weight": "85 kg",
-        "photo": "https://media.api-sports.io/football/coachs/1999.png",
-        "team": {
-          "id": 740,
-          "name": "Antwerp",
-          "logo": "https://media.api-sports.io/football/teams/740.png"
-        },
-        "career": [
-          {
-            "team": {
-              "id": 740,
-              "name": "Antwerp",
-              "logo": "https://media.api-sports.io/football/teams/740.png"
-            },
-            "start": "2022-05-01",
-            "end": "2024-06-01"
-          },
-          {
-            "team": {
-              "id": 161,
-              "name": "Wolfsburg",
-              "logo": "https://media.api-sports.io/football/teams/161.png"
-            },
-            "start": "2021-07-01",
-            "end": "2021-10-01"
-          },
-          {
-            "team": {
-              "id": 197,
-              "name": "PSV",
-              "logo": "https://media.api-sports.io/football/teams/197.png"
-            },
-            "start": "2018-06-01",
-            "end": "2019-12-01"
-          },
-          {
-            "team": {
-              "id": 7965,
-              "name": "PSV U19",
-              "logo": "https://media.api-sports.io/football/teams/7965.png"
-            },
-            "start": "2017-04-01",
-            "end": "2018-06-01"
-          }
-        ]
-      },
-      {
         "id": 4248,
         "name": "F. Vercauteren",
         "firstname": "Franky",
@@ -56643,11 +56453,11 @@
       "lineups": [
         {
           "formation": "4-2-3-1",
-          "played": 6
+          "played": 7
         },
         {
           "formation": "4-4-2",
-          "played": 5
+          "played": 4
         }
       ],
       "cards": {
@@ -56721,7 +56531,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "4257": {
     "team": {
@@ -72557,15 +72367,15 @@
       {
         "id": 13064,
         "name": "Alexandre Santana",
-        "firstname": null,
-        "lastname": null,
-        "age": null,
+        "firstname": "Alexandre Miguel",
+        "lastname": "Nunes Santana",
+        "age": 47,
         "birth": {
-          "date": null,
+          "date": "1978-05-14",
           "place": null,
-          "country": null
+          "country": "Portugal"
         },
-        "nationality": null,
+        "nationality": "Portugal",
         "height": null,
         "weight": null,
         "photo": "https://media.api-sports.io/football/coachs/13064.png",
@@ -72714,7 +72524,7 @@
               "logo": "https://media.api-sports.io/football/teams/7192.png"
             },
             "start": "2024-07-01",
-            "end": null
+            "end": "2025-05-01"
           }
         ]
       },
@@ -73125,7 +72935,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "660": {
     "team": {
@@ -96463,31 +96273,31 @@
       {
         "id": 7255,
         "name": "T. Nørgaard",
-        "firstname": null,
-        "lastname": null,
-        "age": null,
+        "firstname": "Thomas",
+        "lastname": "Nørgaard",
+        "age": 43,
         "birth": {
-          "date": null,
+          "date": "1982-04-13",
           "place": null,
-          "country": null
+          "country": "Denmark"
         },
-        "nationality": null,
+        "nationality": "Denmark",
         "height": null,
         "weight": null,
         "photo": "https://media.api-sports.io/football/coachs/7255.png",
         "team": {
           "id": 396,
-          "name": "Sonderjyske",
+          "name": "SønderjyskE",
           "logo": "https://media.api-sports.io/football/teams/396.png"
         },
         "career": [
           {
             "team": {
               "id": 396,
-              "name": "Sonderjyske",
+              "name": "SønderjyskE",
               "logo": "https://media.api-sports.io/football/teams/396.png"
             },
-            "start": "2023-02-01",
+            "start": "2022-12-01",
             "end": null
           },
           {
@@ -96496,8 +96306,8 @@
               "name": "B 93",
               "logo": "https://media.api-sports.io/football/teams/6009.png"
             },
-            "start": "2020-12-01",
-            "end": "2021-08-01"
+            "start": "2020-01-01",
+            "end": "2022-06-01"
           },
           {
             "team": {
@@ -96505,8 +96315,17 @@
               "name": "Lyngby",
               "logo": "https://media.api-sports.io/football/teams/625.png"
             },
-            "start": "2017-10-01",
-            "end": "2018-04-01"
+            "start": "2017-09-01",
+            "end": "2018-06-01"
+          },
+          {
+            "team": {
+              "id": 2060,
+              "name": "AB",
+              "logo": "https://media.api-sports.io/football/teams/2060.png"
+            },
+            "start": "2013-06-01",
+            "end": "2015-06-01"
           }
         ]
       },
@@ -96922,7 +96741,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "407": {
     "team": {
@@ -104344,59 +104163,32 @@
       {
         "id": 10530,
         "name": "J. Jiménez",
-        "firstname": "Juan Eugenio",
-        "lastname": "Jiménez Gómez",
-        "age": 55,
+        "firstname": null,
+        "lastname": null,
+        "age": null,
         "birth": {
-          "date": "1962-01-27",
-          "place": "Medellín",
-          "country": "Colombia"
+          "date": null,
+          "place": null,
+          "country": null
         },
-        "nationality": "Colombia",
+        "nationality": null,
         "height": null,
         "weight": null,
         "photo": "https://media.api-sports.io/football/coachs/10530.png",
         "team": {
           "id": 1144,
-          "name": "Rionegro Águilas",
+          "name": "Rionegro Aguilas",
           "logo": "https://media.api-sports.io/football/teams/1144.png"
         },
         "career": [
           {
             "team": {
               "id": 1144,
-              "name": "Rionegro Águilas",
+              "name": "Rionegro Aguilas",
               "logo": "https://media.api-sports.io/football/teams/1144.png"
             },
-            "start": "2017-08-11",
+            "start": "2017-04-01",
             "end": null
-          },
-          {
-            "team": {
-              "id": 1144,
-              "name": "Rionegro Águilas",
-              "logo": "https://media.api-sports.io/football/teams/1144.png"
-            },
-            "start": "2017-04-20",
-            "end": "2017-05-08"
-          },
-          {
-            "team": {
-              "id": 819,
-              "name": "Pérez Zeledón",
-              "logo": "https://media.api-sports.io/football/teams/819.png"
-            },
-            "start": "2015-07-01",
-            "end": "2015-09-07"
-          },
-          {
-            "team": {
-              "id": 1459,
-              "name": "Real Cartagena",
-              "logo": "https://media.api-sports.io/football/teams/1459.png"
-            },
-            "start": "2014-08-09",
-            "end": "2015-01-29"
           }
         ]
       },
@@ -104561,12 +104353,12 @@
         "name": "Águilas Doradas",
         "logo": "https://media.api-sports.io/football/teams/1144.png"
       },
-      "form": "DLWDWLWDLWLDWLWLLDWWWDDDDLDLLWDDWLWWL",
+      "form": "DLWDWLWDLWLDWLWLLDWWWDDDDLDLLWDDWLWWLL",
       "fixtures": {
         "played": {
-          "home": 18,
+          "home": 19,
           "away": 19,
-          "total": 37
+          "total": 38
         },
         "wins": {
           "home": 8,
@@ -104579,9 +104371,9 @@
           "total": 12
         },
         "loses": {
-          "home": 4,
+          "home": 5,
           "away": 8,
-          "total": 12
+          "total": 13
         }
       },
       "goals": {
@@ -104592,7 +104384,7 @@
             "total": 42
           },
           "average": {
-            "home": "1.4",
+            "home": "1.3",
             "away": "0.9",
             "total": "1.1"
           },
@@ -104633,31 +104425,31 @@
           "under_over": {
             "0.5": {
               "over": 27,
-              "under": 10
+              "under": 11
             },
             "1.5": {
               "over": 14,
-              "under": 23
+              "under": 24
             },
             "2.5": {
               "over": 1,
-              "under": 36
+              "under": 37
             },
             "3.5": {
               "over": 0,
-              "under": 37
+              "under": 38
             },
             "4.5": {
               "over": 0,
-              "under": 37
+              "under": 38
             }
           }
         },
         "against": {
           "total": {
-            "home": 22,
+            "home": 23,
             "away": 24,
-            "total": 46
+            "total": 47
           },
           "average": {
             "home": "1.2",
@@ -104667,27 +104459,27 @@
           "minute": {
             "0-15": {
               "total": 3,
-              "percentage": "6.25%"
+              "percentage": "6.12%"
             },
             "16-30": {
               "total": 5,
-              "percentage": "10.42%"
+              "percentage": "10.20%"
             },
             "31-45": {
               "total": 11,
-              "percentage": "22.92%"
+              "percentage": "22.45%"
             },
             "46-60": {
               "total": 11,
-              "percentage": "22.92%"
+              "percentage": "22.45%"
             },
             "61-75": {
               "total": 9,
-              "percentage": "18.75%"
+              "percentage": "18.37%"
             },
             "76-90": {
-              "total": 9,
-              "percentage": "18.75%"
+              "total": 10,
+              "percentage": "20.41%"
             },
             "91-105": {
               "total": null,
@@ -104700,24 +104492,24 @@
           },
           "under_over": {
             "0.5": {
-              "over": 30,
+              "over": 31,
               "under": 7
             },
             "1.5": {
               "over": 13,
-              "under": 24
+              "under": 25
             },
             "2.5": {
               "over": 2,
-              "under": 35
+              "under": 36
             },
             "3.5": {
               "over": 1,
-              "under": 36
+              "under": 37
             },
             "4.5": {
               "over": 0,
-              "under": 37
+              "under": 38
             }
           }
         }
@@ -104753,20 +104545,20 @@
         "total": 7
       },
       "failed_to_score": {
-        "home": 3,
+        "home": 4,
         "away": 7,
-        "total": 10
+        "total": 11
       },
       "penalty": {
         "scored": {
           "total": 9,
-          "percentage": "90.00%"
+          "percentage": "81.82%"
         },
         "missed": {
-          "total": 1,
-          "percentage": "10.00%"
+          "total": 2,
+          "percentage": "18.18%"
         },
-        "total": 10
+        "total": 11
       },
       "lineups": [
         {
@@ -104778,12 +104570,12 @@
           "played": 7
         },
         {
-          "formation": "3-4-3",
+          "formation": "4-3-3",
           "played": 3
         },
         {
-          "formation": "4-3-3",
-          "played": 2
+          "formation": "3-4-3",
+          "played": 3
         },
         {
           "formation": "3-5-2",
@@ -104810,31 +104602,31 @@
         "yellow": {
           "0-15": {
             "total": 7,
-            "percentage": "7.07%"
+            "percentage": "7.00%"
           },
           "16-30": {
             "total": 8,
-            "percentage": "8.08%"
+            "percentage": "8.00%"
           },
           "31-45": {
             "total": 10,
-            "percentage": "10.10%"
+            "percentage": "10.00%"
           },
           "46-60": {
             "total": 14,
-            "percentage": "14.14%"
+            "percentage": "14.00%"
           },
           "61-75": {
             "total": 28,
-            "percentage": "28.28%"
+            "percentage": "28.00%"
           },
           "76-90": {
-            "total": 15,
-            "percentage": "15.15%"
+            "total": 16,
+            "percentage": "16.00%"
           },
           "91-105": {
             "total": 15,
-            "percentage": "15.15%"
+            "percentage": "15.00%"
           },
           "106-120": {
             "total": null,
@@ -104842,7 +104634,7 @@
           },
           "": {
             "total": 2,
-            "percentage": "2.02%"
+            "percentage": "2.00%"
           }
         },
         "red": {
@@ -104881,7 +104673,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "17115": {
     "team": {
@@ -126674,15 +126466,15 @@
       {
         "id": 10426,
         "name": "Jorge Leitão",
-        "firstname": null,
-        "lastname": null,
-        "age": null,
+        "firstname": "Jorge Manuel",
+        "lastname": "Vasconcelos Leitão",
+        "age": 43,
         "birth": {
-          "date": null,
+          "date": "1974-01-14",
           "place": null,
-          "country": null
+          "country": "Portugal"
         },
-        "nationality": null,
+        "nationality": "Portugal",
         "height": null,
         "weight": null,
         "photo": "https://media.api-sports.io/football/coachs/10426.png",
@@ -126698,7 +126490,7 @@
               "name": "Arouca",
               "logo": "https://media.api-sports.io/football/teams/240.png"
             },
-            "start": "2017-04-01",
+            "start": "2017-03-20",
             "end": null
           }
         ]
@@ -127006,7 +126798,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "495": {
     "team": {
@@ -132157,7 +131949,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "1386": {
     "team": {
@@ -167483,12 +167275,12 @@
         "name": "Aston Villa",
         "logo": "https://media.api-sports.io/football/teams/66.png"
       },
-      "form": "LLDLWDWWDD",
+      "form": "LLDLWDWWDDD",
       "fixtures": {
         "played": {
-          "home": 5,
+          "home": 6,
           "away": 5,
-          "total": 10
+          "total": 11
         },
         "wins": {
           "home": 1,
@@ -167496,9 +167288,9 @@
           "total": 3
         },
         "draws": {
-          "home": 2,
+          "home": 3,
           "away": 2,
-          "total": 4
+          "total": 5
         },
         "loses": {
           "home": 2,
@@ -167514,9 +167306,9 @@
             "total": 14
           },
           "average": {
-            "home": "1.2",
+            "home": "1.0",
             "away": "1.6",
-            "total": "1.4"
+            "total": "1.3"
           },
           "minute": {
             "0-15": {
@@ -167555,23 +167347,23 @@
           "under_over": {
             "0.5": {
               "over": 7,
-              "under": 3
+              "under": 4
             },
             "1.5": {
               "over": 4,
-              "under": 6
+              "under": 7
             },
             "2.5": {
               "over": 2,
-              "under": 8
+              "under": 9
             },
             "3.5": {
               "over": 1,
-              "under": 9
+              "under": 10
             },
             "4.5": {
               "over": 0,
-              "under": 10
+              "under": 11
             }
           }
         },
@@ -167582,9 +167374,9 @@
             "total": 17
           },
           "average": {
-            "home": "1.4",
+            "home": "1.2",
             "away": "2.0",
-            "total": "1.7"
+            "total": "1.5"
           },
           "minute": {
             "0-15": {
@@ -167623,23 +167415,23 @@
           "under_over": {
             "0.5": {
               "over": 8,
-              "under": 2
+              "under": 3
             },
             "1.5": {
               "over": 5,
-              "under": 5
+              "under": 6
             },
             "2.5": {
               "over": 2,
-              "under": 8
+              "under": 9
             },
             "3.5": {
               "over": 2,
-              "under": 8
+              "under": 9
             },
             "4.5": {
               "over": 0,
-              "under": 10
+              "under": 11
             }
           }
         }
@@ -167670,14 +167462,14 @@
         }
       },
       "clean_sheet": {
-        "home": 0,
-        "away": 2,
-        "total": 2
-      },
-      "failed_to_score": {
         "home": 1,
         "away": 2,
         "total": 3
+      },
+      "failed_to_score": {
+        "home": 2,
+        "away": 2,
+        "total": 4
       },
       "penalty": {
         "scored": {
@@ -167693,38 +167485,38 @@
       "lineups": [
         {
           "formation": "4-2-3-1",
-          "played": 10
+          "played": 11
         }
       ],
       "cards": {
         "yellow": {
           "0-15": {
             "total": 1,
-            "percentage": "5.00%"
+            "percentage": "4.55%"
           },
           "16-30": {
             "total": 2,
-            "percentage": "10.00%"
+            "percentage": "9.09%"
           },
           "31-45": {
             "total": 2,
-            "percentage": "10.00%"
+            "percentage": "9.09%"
           },
           "46-60": {
-            "total": 4,
-            "percentage": "20.00%"
+            "total": 5,
+            "percentage": "22.73%"
           },
           "61-75": {
-            "total": 1,
-            "percentage": "5.00%"
+            "total": 2,
+            "percentage": "9.09%"
           },
           "76-90": {
             "total": 4,
-            "percentage": "20.00%"
+            "percentage": "18.18%"
           },
           "91-105": {
             "total": 6,
-            "percentage": "30.00%"
+            "percentage": "27.27%"
           },
           "106-120": {
             "total": null,
@@ -167767,7 +167559,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "45": {
     "team": {
@@ -171989,7 +171781,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "7411": {
     "team": {
@@ -174358,7 +174150,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "564": {
     "team": {
@@ -189001,7 +188793,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "2149": {
     "team": {
@@ -208838,38 +208630,6 @@
     },
     "coaches": [
       {
-        "id": 9989,
-        "name": "E. Albayrak",
-        "firstname": null,
-        "lastname": null,
-        "age": null,
-        "birth": {
-          "date": null,
-          "place": null,
-          "country": null
-        },
-        "nationality": null,
-        "height": null,
-        "weight": null,
-        "photo": "https://media.api-sports.io/football/coachs/9989.png",
-        "team": {
-          "id": 1007,
-          "name": "Rizespor",
-          "logo": "https://media.api-sports.io/football/teams/1007.png"
-        },
-        "career": [
-          {
-            "team": {
-              "id": 1007,
-              "name": "Rizespor",
-              "logo": "https://media.api-sports.io/football/teams/1007.png"
-            },
-            "start": "2013-02-01",
-            "end": null
-          }
-        ]
-      },
-      {
         "id": 10072,
         "name": "O. Şahinoğlu",
         "firstname": null,
@@ -208898,47 +208658,6 @@
             },
             "start": "2014-12-01",
             "end": null
-          }
-        ]
-      },
-      {
-        "id": 15478,
-        "name": "İ. Palut",
-        "firstname": "İlhan",
-        "lastname": "Palut",
-        "age": 49,
-        "birth": {
-          "date": "1976-11-12",
-          "place": "Hatay",
-          "country": "Türkiye"
-        },
-        "nationality": "Türkiye",
-        "height": null,
-        "weight": null,
-        "photo": "https://media.api-sports.io/football/coachs/15478.png",
-        "team": {
-          "id": 1007,
-          "name": "Rizespor",
-          "logo": "https://media.api-sports.io/football/teams/1007.png"
-        },
-        "career": [
-          {
-            "team": {
-              "id": 1007,
-              "name": "Rizespor",
-              "logo": "https://media.api-sports.io/football/teams/1007.png"
-            },
-            "start": "2023-06-01",
-            "end": null
-          },
-          {
-            "team": {
-              "id": 607,
-              "name": "Konyaspor",
-              "logo": "https://media.api-sports.io/football/teams/607.png"
-            },
-            "start": "2021-02-01",
-            "end": "2023-01-01"
           }
         ]
       },
@@ -209281,7 +209000,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "1609": {
     "team": {
@@ -234525,7 +234244,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "1125": {
     "team": {
@@ -282251,7 +281970,7 @@
               "logo": "https://media.api-sports.io/football/teams/733.png"
             },
             "start": "2024-01-01",
-            "end": null
+            "end": "2025-05-01"
           },
           {
             "team": {
@@ -282762,7 +282481,7 @@
         }
       }
     },
-    "updated_at": "2026-11-14T15:15:40.043211+00:00"
+    "updated_at": "2026-11-21T21:47:25.229417+00:00"
   },
   "940": {
     "team": {
